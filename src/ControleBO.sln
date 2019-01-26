@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2026
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Presentation", "1 - Presentation", "{89562EAD-2021-4EF3-9551-E83D105B591F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Presentation", "0 - Presentation", "{89562EAD-2021-4EF3-9551-E83D105B591F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Domain", "2 - Domain", "{BF47B850-0398-4D93-A7FB-66FB971331A9}"
 EndProject
@@ -11,15 +11,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Infra", "3 - Infra", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.1 - Data", "3.1 - Data", "{23B9433D-7205-454F-BA9A-AA7F33463745}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleBO.ElectronNET", "ControleBO.ElectronNET\ControleBO.ElectronNET.csproj", "{77C12D59-27F8-4C4D-BACA-0727A9369F7D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControleBO.ElectronNET", "ControleBO.ElectronNET\ControleBO.ElectronNET.csproj", "{77C12D59-27F8-4C4D-BACA-0727A9369F7D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleBO.Domain", "ControleBO.Domain\ControleBO.Domain.csproj", "{F3E90B14-D4F2-408D-8A9F-666651347E48}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControleBO.Domain", "ControleBO.Domain\ControleBO.Domain.csproj", "{F3E90B14-D4F2-408D-8A9F-666651347E48}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleBO.Infra.Data", "ControleBO.Infra.Data\ControleBO.Infra.Data.csproj", "{426CA732-8007-452E-832A-21F1443C5B10}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControleBO.Infra.Data", "ControleBO.Infra.Data\ControleBO.Infra.Data.csproj", "{426CA732-8007-452E-832A-21F1443C5B10}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.2 - CrossCutting", "3.2 - CrossCutting", "{0A9072F8-D245-4ED1-A299-E226CAA55376}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleBO.Infra.CrossCutting.IoC", "ControleBO.Infra.CrossCutting.IoC\ControleBO.Infra.CrossCutting.IoC.csproj", "{2F9EB23D-82A0-4EE9-AE09-A025FA276169}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControleBO.Infra.CrossCutting.IoC", "ControleBO.Infra.CrossCutting.IoC\ControleBO.Infra.CrossCutting.IoC.csproj", "{2F9EB23D-82A0-4EE9-AE09-A025FA276169}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Services", "1 - Services", "{5C2BE9D1-D17D-433F-8322-AE7BEC5A5F20}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleBO.Api", "ControleBO.Api\ControleBO.Api.csproj", "{B28A3DD5-D1CB-4E4D-ADA7-26C5F7F983C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleBO.Domain.Core", "ControleBO.Domain.Core\ControleBO.Domain.Core.csproj", "{1354C7AB-8815-469F-9E95-B8E81D0C8BD3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +49,14 @@ Global
 		{2F9EB23D-82A0-4EE9-AE09-A025FA276169}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F9EB23D-82A0-4EE9-AE09-A025FA276169}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F9EB23D-82A0-4EE9-AE09-A025FA276169}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B28A3DD5-D1CB-4E4D-ADA7-26C5F7F983C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B28A3DD5-D1CB-4E4D-ADA7-26C5F7F983C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B28A3DD5-D1CB-4E4D-ADA7-26C5F7F983C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B28A3DD5-D1CB-4E4D-ADA7-26C5F7F983C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1354C7AB-8815-469F-9E95-B8E81D0C8BD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1354C7AB-8815-469F-9E95-B8E81D0C8BD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1354C7AB-8815-469F-9E95-B8E81D0C8BD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1354C7AB-8815-469F-9E95-B8E81D0C8BD3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -54,6 +68,8 @@ Global
 		{426CA732-8007-452E-832A-21F1443C5B10} = {23B9433D-7205-454F-BA9A-AA7F33463745}
 		{0A9072F8-D245-4ED1-A299-E226CAA55376} = {E4298BC2-7C5A-4F0A-BD3E-B861C194EB59}
 		{2F9EB23D-82A0-4EE9-AE09-A025FA276169} = {0A9072F8-D245-4ED1-A299-E226CAA55376}
+		{B28A3DD5-D1CB-4E4D-ADA7-26C5F7F983C5} = {5C2BE9D1-D17D-433F-8322-AE7BEC5A5F20}
+		{1354C7AB-8815-469F-9E95-B8E81D0C8BD3} = {BF47B850-0398-4D93-A7FB-66FB971331A9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2D133668-A9F4-4883-AB3A-7AB60B053B4B}

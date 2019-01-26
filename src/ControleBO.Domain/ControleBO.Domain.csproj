@@ -5,11 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\" />
-    <Folder Include="Models\" />
     <Folder Include="Events\" />
-    <Folder Include="Commands\" />
-    <Folder Include="Validations\" />
+    <Folder Include="EventHandlers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ControleBO.Domain.Core\ControleBO.Domain.Core.csproj" />
   </ItemGroup>
 
 </Project>

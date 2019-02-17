@@ -1,6 +1,8 @@
-﻿namespace ControleBO.Domain.Models
+﻿using ControleBO.Domain.Core.Models;
+
+namespace ControleBO.Domain.Models
 {
-    public class Municipio
+    public class Municipio : Entity
     {
         public Municipio(string nome, string uf, string cep)
         {

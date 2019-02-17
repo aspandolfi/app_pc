@@ -1,7 +1,14 @@
 {
-  "name": "ControleBO.ElectronNET",
+  "build": {
+    "appId": "desktop.controle.bo",
+    "productName": "Sistema de Controle de Procedimentos Criminais",
+    "copyright": "Copyright 2019 Andre Serafim Pandolfi"
+  },
+  "name": "desktop.controle.bo",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "author": "Andre Serafim Pandolfi",
+  "description": "Para controlar os procedimentos criminais da PC",
   "scripts": {
     "test": "karma start ClientApp/test/karma.conf.js"
   },
@@ -30,6 +37,7 @@
     "chai": "4.0.2",
     "css": "2.2.1",
     "css-loader": "0.28.4",
+    "electron-builder": "^20.38.5",
     "es6-shim": "0.35.3",
     "event-source-polyfill": "0.0.9",
     "expose-loader": "0.7.3",

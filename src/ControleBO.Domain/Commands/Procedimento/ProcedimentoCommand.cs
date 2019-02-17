@@ -3,7 +3,7 @@ using ControleBO.Domain.Core.Commands;
 using System;
 using System.Collections.Generic;
 
-namespace ControleBO.Domain.Commands.Procedimento
+namespace ControleBO.Domain.Commands
 {
     public abstract class ProcedimentoCommand : Command
     {

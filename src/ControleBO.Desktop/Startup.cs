@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using ElectronNET.API;
 using ElectronNET.API.Entities;
 using Microsoft.AspNetCore.Builder;
@@ -9,8 +5,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System.Threading.Tasks;
 
-namespace ControleBO.ElectronNET
+namespace ControleBO.Desktop
 {
     public class Startup
     {
@@ -60,8 +57,8 @@ namespace ControleBO.ElectronNET
             // Open the Electron-Window here
             Task.Run(async () => await Electron.WindowManager.CreateWindowAsync(new BrowserWindowOptions
             {
-                Center = true,
-                Title = "CONTROLE DE PROCEDIMENTOS CRIMINAIS"
+                AutoHideMenuBar = true,
+                Title = "Sistema de Controle de Procedimentos Criminais"
             }));
         }
     }

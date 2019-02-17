@@ -1,6 +1,8 @@
 ﻿using ControleBO.Domain.Models;
 using ControleBO.Infra.Data.MapConfig;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using System.IO;
 using System.Linq;
 
 namespace ControleBO.Infra.Data.Context
@@ -37,6 +39,18 @@ namespace ControleBO.Infra.Data.Context
             DisableCascade(modelBuilder);
 
             base.OnModelCreating(modelBuilder);
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            // get the configuration from the app settings
+            var config = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile(path: "appsettings.json", optional: false, reloadOnChange: true)
+                .Build();
+
+            // define the database to use
+            optionsBuilder.UseNpgsql(config.GetConnectionString("DefaultConnection"));
         }
 
         private void DisableCascade(ModelBuilder modelBuilder)

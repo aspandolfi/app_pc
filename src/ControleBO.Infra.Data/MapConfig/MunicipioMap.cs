@@ -10,10 +10,7 @@ namespace ControleBO.Infra.Data.MapConfig
         {
             builder.ToTable("Municipios");
 
-            builder.HasKey(x => x.MunicipioId);
-
-            builder.Property(x => x.MunicipioId)
-                .HasColumnName("Id");
+            builder.HasKey(x => x.Id);
 
             builder.Property(x => x.Nome)
                 .HasColumnType("varchar")

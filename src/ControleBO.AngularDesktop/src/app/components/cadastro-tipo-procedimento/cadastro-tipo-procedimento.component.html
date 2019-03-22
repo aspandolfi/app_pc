@@ -1,0 +1,25 @@
+<div class="modal-header">
+  <h4 class="modal-title pull-left">{{tipoProcedimento.id ? tipoProcedimento.descricao : 'Novo Tipo de Procedimento'}}</h4>
+  <button type="button" class="close pull-right" aria-label="Fechar" [disabled]="submitted" (click)="modalRef.hide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form #tipoForm="ngForm">
+    <div class="form-group">
+      <label for="sigla" class="control-label">Sigla:</label>
+      <input type="text" [(ngModel)]="tipoProcedimento.sigla" class="form-control ng-invalid" id="sigla" name="sigla" required>
+    </div>
+    <div class="form-group">
+      <label for="descricao" class="control-label">Descrição:</label>
+      <input type="text" [(ngModel)]="tipoProcedimento.descricao" class="form-control ng-invalid" id="descricao" name="descricao" required>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" data-dismiss="modal" [disabled]="submitted" (click)="modalRef.hide();">Fechar</button>
+  <button type="button" class="btn btn-secondary" [disabled]="!tipoForm.form.valid || submitted" (click)="save();">
+    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" [hidden]="!submitted"></span>
+    Salvar
+  </button>
+</div>

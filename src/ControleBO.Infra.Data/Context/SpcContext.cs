@@ -16,6 +16,7 @@ namespace ControleBO.Infra.Data.Context
         }
 
         public DbSet<Pessoa> Pessoas { get; set; }
+        public DbSet<ProcedimentoTipo> TiposProcedimento { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

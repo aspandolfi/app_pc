@@ -14,7 +14,7 @@
             <ul class='nav navbar-nav'>
                 <li [routerLinkActive]="['link-active']">
                     <a [routerLink]="['/home']">
-                        <span class='glyphicon glyphicon-home'></span> Home
+                        <span class='glyphicon glyphicon-dashboard'></span> Home
                     </a>
                 </li>
                 <li [routerLinkActive]="['link-active']">
@@ -25,6 +25,16 @@
                 <li [routerLinkActive]="['link-active']">
                     <a [routerLink]="['/fetch-data']">
                         <span class='glyphicon glyphicon-th-list'></span> Fetch data
+                    </a>
+                </li>
+                <li [routerLinkActive]="['link-active']">
+                    <a [routerLink]="['/configuracao']">
+                        <span class='glyphicon glyphicon-th-list'></span> Configuracao
+                    </a>
+                </li>
+                <li [routerLinkActive]="['link-active']">
+                    <a title="Tipos de Procedimento" [routerLink]="['/tipo-procedimento']">
+                        <span class='glyphicon glyphicon-tag'></span> Tipos de Procedimento
                     </a>
                 </li>
             </ul>

@@ -11,22 +11,22 @@ namespace ControleBO.Infra.Data.Repositories
     public class Repository<TModel> : IRepository<TModel> where TModel : class
     {
         protected SpcContext DbContext;
-        private DbSet<TModel> _dbSet;
+        protected DbSet<TModel> DbSet;
 
-        public void Add(TModel obj)
+        public TModel Add(TModel obj)
         {
-            _dbSet.Add(obj);
+            return DbSet.Add(obj).Entity;
         }
 
         public IQueryable<TModel> GetAll()
         {
-            return _dbSet;
+            return DbSet;
         }
 
         public IQueryable<TModel> GetAll(IEnumerable<Expression<Func<TModel, bool>>> filters,
                                          Expression<Func<TModel, object>> orderBy = null)
         {
-            IQueryable<TModel> query = _dbSet;
+            IQueryable<TModel> query = DbSet;
 
             foreach (var filter in filters)
             {
@@ -43,12 +43,12 @@ namespace ControleBO.Infra.Data.Repositories
 
         public TModel GetById(int id)
         {
-            return _dbSet.Find(id);
+            return DbSet.Find(id);
         }
 
         public void Remove(int id)
         {
-            _dbSet.Remove(_dbSet.Find(id));
+            DbSet.Remove(DbSet.Find(id));
         }
 
         public int SaveChanges()
@@ -56,9 +56,9 @@ namespace ControleBO.Infra.Data.Repositories
             return DbContext.SaveChanges();
         }
 
-        public void Update(TModel obj)
+        public TModel Update(TModel obj)
         {
-            _dbSet.Update(obj);
+            return DbSet.Update(obj).Entity;
         }
 
         #region IDisposable Support
@@ -67,7 +67,7 @@ namespace ControleBO.Infra.Data.Repositories
         public Repository(SpcContext dbContext)
         {
             DbContext = dbContext;
-            _dbSet = DbContext.Set<TModel>();
+            DbSet = DbContext.Set<TModel>();
         }
 
         protected virtual void Dispose(bool disposing)
@@ -83,7 +83,7 @@ namespace ControleBO.Infra.Data.Repositories
                 // TODO: free unmanaged resources (unmanaged objects) and override a finalizer below.
                 // TODO: set large fields to null.
                 DbContext = null;
-                _dbSet = null;
+                DbSet = null;
 
                 disposedValue = true;
             }
@@ -107,27 +107,30 @@ namespace ControleBO.Infra.Data.Repositories
 
         public void AddRange(IEnumerable<TModel> objs)
         {
-            _dbSet.AddRange(objs);
+            DbSet.AddRange(objs);
         }
 
         public void UpdateRange(IEnumerable<TModel> objs)
         {
-            _dbSet.UpdateRange(objs);
+            DbSet.UpdateRange(objs);
         }
 
         public void RemoveRange(IEnumerable<TModel> objs)
         {
-            _dbSet.RemoveRange(objs);
+            DbSet.RemoveRange(objs);
         }
 
-        public IEnumerable<TModel> GetAllAsNoTracking(IEnumerable<Expression<Func<TModel, bool>>> filters,
+        public IEnumerable<TModel> GetAllAsNoTracking(IEnumerable<Expression<Func<TModel, bool>>> filters = null,
                                                       Expression<Func<TModel, object>> orderBy = null)
         {
-            IQueryable<TModel> query = _dbSet;
+            IQueryable<TModel> query = DbSet;
 
-            foreach (var filter in filters)
+            if (filters != null)
             {
-                query = query.Where(filter);
+                foreach (var filter in filters)
+                {
+                    query = query.Where(filter);
+                }
             }
 
             if (orderBy != null)
@@ -140,10 +143,15 @@ namespace ControleBO.Infra.Data.Repositories
 
         public IEnumerable<TModel> GetPaged(int page, int pageSize = 10)
         {
-            IQueryable<TModel> query = _dbSet;
+            IQueryable<TModel> query = DbSet;
 
             var skip = (page - 1) * pageSize;
             return query.Skip(skip).Take(pageSize).AsNoTracking().AsEnumerable();
+        }
+
+        public virtual bool Exists(string stringToSearch)
+        {
+            throw new NotImplementedException("Método não implementado na classe filha.");
         }
     }
 }

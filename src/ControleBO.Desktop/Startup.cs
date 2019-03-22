@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Threading.Tasks;
 
 namespace ControleBO.Desktop
@@ -27,6 +28,8 @@ namespace ControleBO.Desktop
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            ConfigureDataDirectory(app, env);
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -60,6 +63,13 @@ namespace ControleBO.Desktop
                 AutoHideMenuBar = true,
                 Title = "Sistema de Controle de Procedimentos Criminais"
             }));
+        }
+
+        private void ConfigureDataDirectory(IApplicationBuilder app, IHostingEnvironment env)
+        {
+            string baseDir = env.WebRootPath;
+
+            AppDomain.CurrentDomain.SetData("DataDirectory", System.IO.Path.Combine(baseDir, "App_Data"));
         }
     }
 }

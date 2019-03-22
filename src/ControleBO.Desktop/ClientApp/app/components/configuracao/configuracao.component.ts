@@ -1,4 +1,5 @@
 ﻿import { Component } from '@angular/core';
+import { BaseService } from '../../services/base.service';
 
 @Component({
     selector: 'app-configuracao',
@@ -7,7 +8,7 @@
 /** configuracao component*/
 export class ConfiguracaoComponent {
     /** configuracao ctor */
-    constructor() {
+    constructor(private baseService: BaseService) {
 
     }
 }

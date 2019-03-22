@@ -1,0 +1,27 @@
+﻿<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a href="#">Tipos de Procedimento</a>
+    </li>
+</ol>
+
+<div class="panel panel-default">
+    <div class="panel-heading clearfix">
+        Tipos de Procedimentos
+        <button type="button" class="btn btn-sm btn-primary pull-right" data-toggle="modal" data-target="#cadastro-tipo" (click)="cadastroTipo.open()">Adicionar</button>
+    </div>
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table class="table" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Ação</th>
+                        <th>Nome</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    <div class="panel-footer small text-muted">Atualizado ontem às 13:00h</div>
+</div>
+<app-cadastro-tipo-procedimento #cadastroTipo></app-cadastro-tipo-procedimento>

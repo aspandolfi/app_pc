@@ -1,8 +1,5 @@
 ﻿using ControleBO.Domain.Commands;
 using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ControleBO.Domain.Validations
 {

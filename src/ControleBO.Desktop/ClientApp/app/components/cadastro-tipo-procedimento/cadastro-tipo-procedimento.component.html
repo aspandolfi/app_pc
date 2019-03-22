@@ -1,0 +1,22 @@
+﻿<div class="modal fade" id="cadastro-tipo" tabindex="-1" role="dialog" aria-labelledby="modal-tipo-procedimento">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" (click)="close();" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="modal-tipo-procedimento">Novo Tipo de Procedimento</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="tipo-procedimento-name" class="control-label">Nome:</label>
+                        <input type="text" (ngModel)="tipoProcedimento.nome" class="form-control" name="nome">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" (click)="close();">Fechar</button>
+                <button type="button" class="btn btn-primary" (click)="save();">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>

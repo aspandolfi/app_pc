@@ -2,12 +2,12 @@
 
 namespace ControleBO.Domain.Core.Events
 {
-    public class Message : IRequest
+    public class Message : IRequest<bool>
     {
         public string MessageType { get; protected set; }
         public int AggregateId { get; protected set; }
 
-        public Message()
+        protected Message()
         {
             MessageType = GetType().Name;
         }

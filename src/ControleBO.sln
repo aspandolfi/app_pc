@@ -5,9 +5,9 @@ VisualStudioVersion = 15.0.28010.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Presentation", "0 - Presentation", "{89562EAD-2021-4EF3-9551-E83D105B591F}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Domain", "2 - Domain", "{BF47B850-0398-4D93-A7FB-66FB971331A9}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{BF47B850-0398-4D93-A7FB-66FB971331A9}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Infra", "3 - Infra", "{E4298BC2-7C5A-4F0A-BD3E-B861C194EB59}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infra", "4 - Infra", "{E4298BC2-7C5A-4F0A-BD3E-B861C194EB59}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.1 - Data", "3.1 - Data", "{23B9433D-7205-454F-BA9A-AA7F33463745}"
 EndProject
@@ -26,6 +26,12 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControleBO.Domain.Core", "ControleBO.Domain.Core\ControleBO.Domain.Core.csproj", "{1354C7AB-8815-469F-9E95-B8E81D0C8BD3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControleBO.Desktop", "ControleBO.Desktop\ControleBO.Desktop.csproj", "{F8F01417-942A-4C08-8B9E-41F857A510F0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControleBO.AngularDesktop", "ControleBO.AngularDesktop\ControleBO.AngularDesktop.csproj", "{43C51CD3-2887-463C-B237-DE15F0CC5CB5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{115786D5-60A9-4A88-BF2F-DCD371E5A9FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleBO.Application", "ControleBO.Application\ControleBO.Application.csproj", "{9477B678-4EEB-4BBB-895D-89F33EC42B72}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +63,14 @@ Global
 		{F8F01417-942A-4C08-8B9E-41F857A510F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8F01417-942A-4C08-8B9E-41F857A510F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8F01417-942A-4C08-8B9E-41F857A510F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43C51CD3-2887-463C-B237-DE15F0CC5CB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43C51CD3-2887-463C-B237-DE15F0CC5CB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43C51CD3-2887-463C-B237-DE15F0CC5CB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43C51CD3-2887-463C-B237-DE15F0CC5CB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9477B678-4EEB-4BBB-895D-89F33EC42B72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9477B678-4EEB-4BBB-895D-89F33EC42B72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9477B678-4EEB-4BBB-895D-89F33EC42B72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9477B678-4EEB-4BBB-895D-89F33EC42B72}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -70,6 +84,8 @@ Global
 		{B28A3DD5-D1CB-4E4D-ADA7-26C5F7F983C5} = {5C2BE9D1-D17D-433F-8322-AE7BEC5A5F20}
 		{1354C7AB-8815-469F-9E95-B8E81D0C8BD3} = {BF47B850-0398-4D93-A7FB-66FB971331A9}
 		{F8F01417-942A-4C08-8B9E-41F857A510F0} = {89562EAD-2021-4EF3-9551-E83D105B591F}
+		{43C51CD3-2887-463C-B237-DE15F0CC5CB5} = {89562EAD-2021-4EF3-9551-E83D105B591F}
+		{9477B678-4EEB-4BBB-895D-89F33EC42B72} = {115786D5-60A9-4A88-BF2F-DCD371E5A9FD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2D133668-A9F4-4883-AB3A-7AB60B053B4B}

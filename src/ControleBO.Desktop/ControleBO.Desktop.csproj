@@ -18,6 +18,10 @@
     <Content Remove="ClientApp\**" />
   </ItemGroup>
   <ItemGroup>
+    <None Remove="ClientApp\app\models\datatablejsModel.ts" />
+    <None Remove="ClientApp\app\models\responseModel.ts" />
+  </ItemGroup>
+  <ItemGroup>
     <DotNetCliToolReference Include="ElectronNET.CLI" Version="0.0.9" />
   </ItemGroup>
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">
@@ -52,6 +56,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="wwwroot\App_Data\" />
+    <Folder Include="ClientApp\assets\" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\app\models\responseModel.ts" />
+    <TypeScriptCompile Include="ClientApp\app\models\datatablejsModel.ts" />
   </ItemGroup>
 </Project>

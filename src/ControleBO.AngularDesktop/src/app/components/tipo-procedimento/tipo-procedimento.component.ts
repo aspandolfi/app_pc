@@ -1,4 +1,4 @@
-import { Component, OnInit, TemplateRef, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { CadastroTipoProcedimentoComponent } from '../cadastro-tipo-procedimento/cadastro-tipo-procedimento.component';
 import { TipoProcedimento } from 'src/app/models/tipo-procedimento';
@@ -15,8 +15,8 @@ import { IMessage } from 'src/app/models/message';
 })
 export class TipoProcedimentoComponent implements OnInit, OnDestroy {
 
-  modalRef: BsModalRef;
-  subscription: Subscription;
+  private modalRef: BsModalRef;
+  private subscription: Subscription;
 
   tipos: TipoProcedimento[] = [
     { id: 1, sigla: 'TNE', descricao: 'Descrição 1' },
@@ -29,19 +29,18 @@ export class TipoProcedimentoComponent implements OnInit, OnDestroy {
   constructor(private modalService: BsModalService,
     private toastr: ToastrService,
     private messageService: MessageService) {
-    this.onListen();
+    this.onReceiveMessage();
   }
 
   ngOnInit() {
-
   }
 
-  onListen() {
+  onReceiveMessage() {
     this.subscription = this.messageService.messageListener$.subscribe(
       message => {
         if (!message.isError) {
           this.toastr.success(message.text);
-          this.onReceiveMessage(message);
+          this.postReceiveMessage(message);
         }
         else {
           this.toastr.error(message.text);
@@ -50,11 +49,11 @@ export class TipoProcedimentoComponent implements OnInit, OnDestroy {
       });
   }
 
-  onReceiveMessage(message: IMessage) {
+  postReceiveMessage(message: IMessage) {
     if (message.text.includes('Cadastrado')) {
       this.addToTable(message.data);
     }
-    else {
+    else if (message.text.includes('Excluído')) {
       this.removeFromTable(message.data);
     }
   }

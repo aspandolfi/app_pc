@@ -1,13 +1,16 @@
 {
   "name": "controle-bo-angular-desktop",
   "version": "0.0.0",
+  "main": "main.js",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "electron-build": "ng build --prod",
+    "electron": "electron ."
   },
   "private": true,
   "dependencies": {
@@ -19,10 +22,12 @@
     "@angular/platform-browser": "~7.2.0",
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/router": "~7.2.0",
+    "@types/node": "^11.11.6",
     "bootstrap": "^4.3.1",
     "core-js": "^2.5.4",
     "jquery": "^3.3.1",
     "ngx-bootstrap": "^3.2.0",
+    "ngx-mask": "^7.7.0",
     "ngx-toastr": "^9.1.2",
     "popper.js": "^1.14.7",
     "rxjs": "~6.3.3",
@@ -34,10 +39,10 @@
     "@angular/cli": "~7.3.2",
     "@angular/compiler-cli": "~7.2.0",
     "@angular/language-service": "~7.2.0",
-    "@types/node": "~8.9.4",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
     "codelyzer": "~4.5.0",
+    "electron": "^4.1.1",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~3.1.1",

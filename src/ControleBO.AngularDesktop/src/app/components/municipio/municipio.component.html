@@ -1,7 +1,7 @@
 <div class="card">
   <div class="card-header clearfix">
-    Lista de Tipos de Procedimento
-    <button type="button" class="btn btn-sm btn-secondary float-right" data-toggle="modal" data-target="#cadastro-tipo" (click)="openModal(null);">Novo</button>
+    Lista de Municípios
+    <button type="button" class="btn btn-sm btn-secondary float-right" data-toggle="modal" data-target="#cadastro-municipio" (click)="openModal(null);">Novo</button>
   </div>
   <div class="card-body">
     <div class="table-responsive">
@@ -9,27 +9,35 @@
         <thead>
           <tr>
             <th></th>
-            <th>Descrição</th>
+            <th>Nome</th>
+            <th>UF</th>
+            <th>CEP</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let tipo of tipos">
-            <td data-id="{{tipo.id}}">
+          <tr *ngFor="let municipio of municipios">
+            <td data-id="{{municipio.id}}">
               <div class="form-inline align-items-center">
                 <div class="form-group ml-1">
-                  <a title="Editar" class="text-secondary" (click)="openModal(tipo);">
+                  <a title="Editar" class="text-secondary" (click)="openModal(municipio);">
                     <i class="fas fa-edit"></i>
                   </a>
                 </div>
                 <div class="form-group ml-1">
-                  <a title="Excluir" class="text-secondary" (click)="openModalExcluir(tipo);">
+                  <a title="Excluir" class="text-secondary" (click)="openModalExcluir(municipio);">
                     <i class="far fa-times-circle"></i>
                   </a>
                 </div>
               </div>
             </td>
             <td>
-              {{tipo.sigla}} - {{tipo.descricao}}
+              {{municipio.nome}}
+            </td>
+            <td>
+              {{municipio.uf}}
+            </td>
+            <td>
+              {{municipio.cep}}
             </td>
           </tr>
         </tbody>

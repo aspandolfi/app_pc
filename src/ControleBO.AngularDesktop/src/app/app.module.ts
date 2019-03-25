@@ -6,16 +6,22 @@ import { AppBootstrapModule } from './app-bootstrap.module';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { NgxMaskModule } from 'ngx-mask';
 
 import { TipoProcedimentoService } from './services/tipo-procedimento.service';
 import { BaseService } from './services/base.service';
 import { MessageService } from './services/message.service';
+import { FileService } from './services/file.service';
 
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { TipoProcedimentoComponent } from './components/tipo-procedimento/tipo-procedimento.component';
 import { CadastroTipoProcedimentoComponent } from './components/cadastro-tipo-procedimento/cadastro-tipo-procedimento.component';
 import { ConfirmarExclusaoComponent } from './components/confirmar-exclusao/confirmar-exclusao.component';
+import { ArtigoComponent } from './components/artigo/artigo.component';
+import { CadastroArtigoComponent } from './components/cadastro-artigo/cadastro-artigo.component';
+import { MunicipioComponent } from './components/municipio/municipio.component';
+import { CadastroMunicipioComponent } from './components/cadastro-municipio/cadastro-municipio.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +29,11 @@ import { ConfirmarExclusaoComponent } from './components/confirmar-exclusao/conf
     SidebarComponent,
     TipoProcedimentoComponent,
     CadastroTipoProcedimentoComponent,
-    ConfirmarExclusaoComponent
+    ConfirmarExclusaoComponent,
+    ArtigoComponent,
+    CadastroArtigoComponent,
+    MunicipioComponent,
+    CadastroMunicipioComponent
   ],
   imports: [
     HttpClientModule,
@@ -32,6 +42,7 @@ import { ConfirmarExclusaoComponent } from './components/confirmar-exclusao/conf
     AppBootstrapModule,
     BrowserAnimationsModule,
     FormsModule,
+    NgxMaskModule.forRoot(),
     ToastrModule.forRoot({
       timeOut: 2000,
       positionClass: 'toast-bottom-right',
@@ -40,13 +51,16 @@ import { ConfirmarExclusaoComponent } from './components/confirmar-exclusao/conf
   ],
   entryComponents: [
     CadastroTipoProcedimentoComponent,
-    ConfirmarExclusaoComponent
+    ConfirmarExclusaoComponent,
+    CadastroArtigoComponent,
+    CadastroMunicipioComponent
   ],
   providers: [
     { provide: 'BASE_URL', useFactory: getBaseUrl },
     BaseService,
     TipoProcedimentoService,
-    MessageService
+    MessageService,
+    FileService
   ],
   bootstrap: [AppComponent]
 })

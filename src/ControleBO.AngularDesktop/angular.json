@@ -26,7 +26,7 @@
               "src/styles.css"
             ],
             "scripts": [
-              
+              "src/assets/js/config.js"
             ],
             "es5BrowserSupport": true
           },

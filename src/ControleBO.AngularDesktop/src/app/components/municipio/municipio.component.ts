@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Subscription } from 'rxjs';
 import { Municipio } from 'src/app/models/municipio';
@@ -7,13 +7,20 @@ import { ToastrService } from 'ngx-toastr';
 import { IMessage } from 'src/app/models/message';
 import { ConfirmarExclusaoComponent } from '../confirmar-exclusao/confirmar-exclusao.component';
 import { CadastroMunicipioComponent } from '../cadastro-municipio/cadastro-municipio.component';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-municipio',
   templateUrl: './municipio.component.html',
   styleUrls: ['./municipio.component.css']
 })
-export class MunicipioComponent implements OnInit, OnDestroy {
+export class MunicipioComponent implements OnInit, OnDestroy, AfterViewInit {
+
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 3000);
+  }
 
   private modalRef: BsModalRef;
   private subscription: Subscription;
@@ -26,11 +33,12 @@ export class MunicipioComponent implements OnInit, OnDestroy {
     { id: 5, nome: 'Descrição 5', cep: '', uf: '' }
   ]
 
-  constructor(private modalService: BsModalService, private messageService: MessageService, private toastr: ToastrService) {
+  constructor(private modalService: BsModalService, private messageService: MessageService, private toastr: ToastrService, private spinner: NgxSpinnerService) {
     this.onReceiveMessage();
   }
 
   ngOnInit() {
+    this.spinner.show();
   }
 
   ngOnDestroy(): void {

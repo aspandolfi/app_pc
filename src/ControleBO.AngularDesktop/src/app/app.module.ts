@@ -7,11 +7,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { NgxMaskModule } from 'ngx-mask';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 import { TipoProcedimentoService } from './services/tipo-procedimento.service';
 import { BaseService } from './services/base.service';
 import { MessageService } from './services/message.service';
 import { FileService } from './services/file.service';
+import { ProcedimentoService } from './services/procedimento.service';
 
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
@@ -22,6 +24,7 @@ import { ArtigoComponent } from './components/artigo/artigo.component';
 import { CadastroArtigoComponent } from './components/cadastro-artigo/cadastro-artigo.component';
 import { MunicipioComponent } from './components/municipio/municipio.component';
 import { CadastroMunicipioComponent } from './components/cadastro-municipio/cadastro-municipio.component';
+import { ProcedimentoComponent } from './components/procedimento/procedimento.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,8 @@ import { CadastroMunicipioComponent } from './components/cadastro-municipio/cada
     ArtigoComponent,
     CadastroArtigoComponent,
     MunicipioComponent,
-    CadastroMunicipioComponent
+    CadastroMunicipioComponent,
+    ProcedimentoComponent
   ],
   imports: [
     HttpClientModule,
@@ -43,6 +47,7 @@ import { CadastroMunicipioComponent } from './components/cadastro-municipio/cada
     BrowserAnimationsModule,
     FormsModule,
     NgxMaskModule.forRoot(),
+    NgxSpinnerModule,
     ToastrModule.forRoot({
       timeOut: 2000,
       positionClass: 'toast-bottom-right',
@@ -60,7 +65,8 @@ import { CadastroMunicipioComponent } from './components/cadastro-municipio/cada
     BaseService,
     TipoProcedimentoService,
     MessageService,
-    FileService
+    FileService,
+    ProcedimentoService
   ],
   bootstrap: [AppComponent]
 })

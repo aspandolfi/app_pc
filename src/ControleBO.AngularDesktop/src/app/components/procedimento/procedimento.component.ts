@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import * as $ from 'jquery';
+import 'datatables.net';
 
 @Component({
   selector: 'app-procedimento',
@@ -7,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProcedimentoComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    $('#procedimentos').DataTable();
+  }
 
   ngOnInit() {
   }

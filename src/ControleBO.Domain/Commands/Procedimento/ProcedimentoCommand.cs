@@ -1,5 +1,4 @@
-﻿using ControleBO.Domain.Commands.Vitima;
-using ControleBO.Domain.Core.Commands;
+﻿using ControleBO.Domain.Core.Commands;
 using System;
 using System.Collections.Generic;
 
@@ -29,17 +28,17 @@ namespace ControleBO.Domain.Commands
 
         public string AndamentoProcessual { get; protected set; }
 
-        public int TipoProcedimento { get; protected set; }
+        public int TipoProcedimentoId { get; protected set; }
 
-        public int VaraCriminal { get; protected set; }
+        public int VaraCriminalId { get; protected set; }
 
-        public int Comarca { get; protected set; }
+        public int ComarcaId { get; protected set; }
 
-        public int Assunto { get; protected set; }
+        public int AssuntoId { get; protected set; }
 
-        public int Artigo { get; protected set; }
+        public int ArtigoId { get; protected set; }
 
-        public int DelegaciaOrigem { get; protected set; }
+        public int DelegaciaOrigemId { get; protected set; }
 
         public IEnumerable<VitimaCommand> Vitimas { get; protected set; }
 

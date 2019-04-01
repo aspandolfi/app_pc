@@ -4,7 +4,7 @@ using System;
 
 namespace ControleBO.Domain.Validations
 {
-    public abstract class IndiciadoValidation<T> : AbstractValidator<T> where T : IndiciadoCommand
+    public abstract class VitimaValidation<T> : AbstractValidator<T> where T : VitimaCommand
     {
         protected void ValidateId()
         {
@@ -12,21 +12,10 @@ namespace ControleBO.Domain.Validations
                 .GreaterThan(0).WithMessage("Por favor verifique se é um ID válido.");
         }
 
-        protected void ValidateApelido()
+        protected void ValidateEmail()
         {
-            When(x => !string.IsNullOrEmpty(x.Apelido), () =>
-            {
-                RuleFor(x => x.Apelido)
-                .NotEmpty().WithMessage("Por favor tenha certeza que você inseriu o Apelido.")
-                .Length(2, 200).WithMessage("O assunto deve ter entre 2 e 200 caracteres.");
-            });
-        }
-
-        protected void ValidateProcedimentoId()
-        {
-            RuleFor(x => x.ProcedimentoId)
-                .NotEqual(0).WithMessage("Por favor verique se o procedimento existe.")
-                .GreaterThan(0).WithMessage("O número de Procedimento não existe.");
+            RuleFor(x => x.Email)
+                .EmailAddress().WithMessage("O e-mail informado não é válido.");
         }
 
         protected void ValidatePessoa()

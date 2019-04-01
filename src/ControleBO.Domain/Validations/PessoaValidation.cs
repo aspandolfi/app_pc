@@ -6,6 +6,18 @@ namespace ControleBO.Domain.Validations
 {
     public abstract class PessoaValidation<T> : AbstractValidator<T> where T : PessoaCommand
     {
+        protected void ValidateId()
+        {
+            RuleFor(x => x.Id)
+                .GreaterThan(0).WithMessage("Por favor verifique se é um ID válido.");
+        }
+
+        protected void ValidateMunicipio()
+        {
+            RuleFor(x => x.MunicipioId)
+                .GreaterThan(0).WithMessage("Por favor verifique se o município existe no sistema.");
+        }
+
         protected void ValidateNome()
         {
             RuleFor(x => x.Nome)

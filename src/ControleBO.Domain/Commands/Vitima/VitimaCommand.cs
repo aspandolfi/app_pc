@@ -1,6 +1,6 @@
 ﻿using ControleBO.Domain.Core.Commands;
 
-namespace ControleBO.Domain.Commands.Vitima
+namespace ControleBO.Domain.Commands
 {
     public abstract class VitimaCommand : Command
     {

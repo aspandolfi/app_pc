@@ -5,6 +5,12 @@ namespace ControleBO.Domain.Validations
 {
     public abstract class ObjetoApreendidoValidation<T> : AbstractValidator<T> where T : ObjetoApreendidoCommand
     {
+        protected void ValidateId()
+        {
+            RuleFor(x => x.Id)
+                .GreaterThan(0).WithMessage("Por favor tenha certeza que o registro existe.");
+        }
+
         protected void ValidateDescricao()
         {
             RuleFor(x => x.Descricao)

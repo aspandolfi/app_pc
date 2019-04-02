@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using ControleBO.Application.Interfaces;
 using ControleBO.Application.ViewModels;
 using ControleBO.Domain.Commands;
 using ControleBO.Domain.Core.Bus;
@@ -11,7 +12,7 @@ namespace ControleBO.Application.Services
                                                          Procedimento,
                                                          RegisterNewProcedimentoCommand,
                                                          UpdateProcedimentoCommand,
-                                                         RemoveProcedimentoCommand>
+                                                         RemoveProcedimentoCommand>, IProcedimentoAppService
     {
         public ProcedimentoAppService(IMapper mapper, IRepository<Procedimento> repository, IMediatorHandler bus)
             : base(mapper, repository, bus)

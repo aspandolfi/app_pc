@@ -153,5 +153,10 @@ namespace ControleBO.Infra.Data.Repositories
         {
             throw new NotImplementedException("Método não implementado na classe filha.");
         }
+
+        public TModel Get(Expression<Func<TModel, bool>> filter)
+        {
+            return DbSet.SingleOrDefault(filter);
+        }
     }
 }

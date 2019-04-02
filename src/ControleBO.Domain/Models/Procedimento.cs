@@ -45,6 +45,41 @@ namespace ControleBO.Domain.Models
             HistoricoMovimentacoes = new HashSet<Movimentacao>();
         }
 
+        public Procedimento(int id,
+            string boletimUnificado,
+            string boletimOcorrencia,
+            string numeroProcessual,
+            string gampes,
+            string anexos,
+            string localFato,
+            DateTime dataFato,
+            DateTime? dataInstauracao,
+            string tipoCriminal,
+            string andamentoProcessual,
+            ProcedimentoTipo tipoProcedimento,
+            VaraCriminal varaCriminal,
+            Municipio comarca,
+            Assunto assunto,
+            Artigo artigo)
+            : this(
+                 boletimUnificado,
+                 boletimOcorrencia,
+                 numeroProcessual,
+                 gampes, anexos,
+                 localFato,
+                 dataFato,
+                 dataInstauracao,
+                 tipoCriminal,
+                 andamentoProcessual,
+                 tipoProcedimento,
+                 varaCriminal,
+                 comarca,
+                 assunto,
+                 artigo)
+        {
+            Id = id;
+        }
+
         protected Procedimento() { }
 
         public string BoletimUnificado { get; set; }

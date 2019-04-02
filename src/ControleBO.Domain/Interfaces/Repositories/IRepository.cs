@@ -19,6 +19,8 @@ namespace ControleBO.Domain.Interfaces.Repositories
 
         bool Exists(string stringToSearch);
 
+        TModel Get(Expression<Func<TModel, bool>> filter);
+
         IEnumerable<TModel> GetPaged(int page, int pageSize);
 
         IQueryable<TModel> GetAll(IEnumerable<Expression<Func<TModel, bool>>> filters,

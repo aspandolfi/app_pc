@@ -7,6 +7,7 @@ using ControleBO.Domain.Interfaces.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
+using System.Threading.Tasks;
 
 namespace ControleBO.Application.Services
 {
@@ -16,7 +17,7 @@ namespace ControleBO.Application.Services
         where TUpdateCommand : Command
         where TRemoveCommand : Command
     {
-        private readonly IRepository<TModel> _repository;
+        protected readonly IRepository<TModel> Repository;
         protected readonly IMapper Mapper;
         protected readonly IMediatorHandler Bus;
 
@@ -24,7 +25,7 @@ namespace ControleBO.Application.Services
                               IRepository<TModel> repository,
                               IMediatorHandler bus)
         {
-            _repository = repository;
+            Repository = repository;
             Mapper = mapper;
             Bus = bus;
         }
@@ -36,23 +37,23 @@ namespace ControleBO.Application.Services
 
         public virtual IEnumerable<TViewModel> GetAll()
         {
-            return Mapper.Map<IEnumerable<TModel>, IEnumerable<TViewModel>>(_repository.GetAllAsNoTracking());
+            return Mapper.Map<IEnumerable<TModel>, IEnumerable<TViewModel>>(Repository.GetAllAsNoTracking());
         }
 
         public TViewModel GetById(int id)
         {
-            return Mapper.Map<TModel, TViewModel>(_repository.GetById(id));
+            return Mapper.Map<TModel, TViewModel>(Repository.GetById(id));
         }
 
         public virtual IEnumerable<TViewModel> GetPaged(int page, int pageSize)
         {
-            return Mapper.Map<IEnumerable<TModel>, IEnumerable<TViewModel>>(_repository.GetPaged(page, pageSize));
+            return Mapper.Map<IEnumerable<TModel>, IEnumerable<TViewModel>>(Repository.GetPaged(page, pageSize));
         }
 
-        public virtual void Register(TViewModel tViewModel)
+        public virtual Task<int> Register(TViewModel tViewModel)
         {
             var registerCommand = Mapper.Map<TViewModel, TRegisterCommand>(tViewModel);
-            Bus.SendCommand(registerCommand);
+            return Bus.SendCommand(registerCommand);
         }
 
         public virtual void Remove(int id)

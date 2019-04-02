@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace ControleBO.Application.Interfaces
 {
     public interface IAppServiceBase<TViewModel> : IDisposable
     {
-        void Register(TViewModel tViewModel);
+        Task<int> Register(TViewModel tViewModel);
         IEnumerable<TViewModel> GetAll();
         TViewModel GetById(int id);
         void Update(TViewModel tViewModel);

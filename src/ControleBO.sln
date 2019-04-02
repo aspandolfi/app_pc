@@ -31,7 +31,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControleBO.AngularDesktop",
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{115786D5-60A9-4A88-BF2F-DCD371E5A9FD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleBO.Application", "ControleBO.Application\ControleBO.Application.csproj", "{9477B678-4EEB-4BBB-895D-89F33EC42B72}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControleBO.Application", "ControleBO.Application\ControleBO.Application.csproj", "{9477B678-4EEB-4BBB-895D-89F33EC42B72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleBO.Infra.CrossCutting.Bus", "ControleBO.Infra.CrossCutting.Bus\ControleBO.Infra.CrossCutting.Bus.csproj", "{E4819B8E-E4D3-4277-AD0C-54EFC737D4DA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,6 +73,10 @@ Global
 		{9477B678-4EEB-4BBB-895D-89F33EC42B72}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9477B678-4EEB-4BBB-895D-89F33EC42B72}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9477B678-4EEB-4BBB-895D-89F33EC42B72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4819B8E-E4D3-4277-AD0C-54EFC737D4DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4819B8E-E4D3-4277-AD0C-54EFC737D4DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4819B8E-E4D3-4277-AD0C-54EFC737D4DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4819B8E-E4D3-4277-AD0C-54EFC737D4DA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -86,6 +92,7 @@ Global
 		{F8F01417-942A-4C08-8B9E-41F857A510F0} = {89562EAD-2021-4EF3-9551-E83D105B591F}
 		{43C51CD3-2887-463C-B237-DE15F0CC5CB5} = {89562EAD-2021-4EF3-9551-E83D105B591F}
 		{9477B678-4EEB-4BBB-895D-89F33EC42B72} = {115786D5-60A9-4A88-BF2F-DCD371E5A9FD}
+		{E4819B8E-E4D3-4277-AD0C-54EFC737D4DA} = {0A9072F8-D245-4ED1-A299-E226CAA55376}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2D133668-A9F4-4883-AB3A-7AB60B053B4B}

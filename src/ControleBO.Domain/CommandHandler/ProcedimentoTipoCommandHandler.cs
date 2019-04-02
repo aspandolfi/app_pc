@@ -11,9 +11,9 @@ using System.Threading.Tasks;
 namespace ControleBO.Domain.CommandHandler
 {
     public class ProcedimentoTipoCommandHandler : CommandHandler,
-        IRequestHandler<RegisterNewProcedimentoTipoCommand, bool>,
-        IRequestHandler<UpdateProcedimentoTipoCommand, bool>,
-        IRequestHandler<RemoveProcedimentoTipoCommand, bool>
+        IRequestHandler<RegisterNewProcedimentoTipoCommand, int>,
+        IRequestHandler<UpdateProcedimentoTipoCommand, int>,
+        IRequestHandler<RemoveProcedimentoTipoCommand, int>
     {
         private readonly IProcedimentoTipoRepository _procedimentoTipoRepository;
         private readonly IMediatorHandler _bus;
@@ -27,12 +27,12 @@ namespace ControleBO.Domain.CommandHandler
             _bus = bus;
         }
 
-        public Task<bool> Handle(RegisterNewProcedimentoTipoCommand request, CancellationToken cancellationToken)
+        public Task<int> Handle(RegisterNewProcedimentoTipoCommand request, CancellationToken cancellationToken)
         {
             if (!request.IsValid())
             {
                 NotifyValidationErrors(request);
-                return Task.FromResult(false);
+                return Task.FromResult(0);
             }
 
             var procedimentoTipo = new ProcedimentoTipo(request.Sigla, request.Descricao);
@@ -40,7 +40,7 @@ namespace ControleBO.Domain.CommandHandler
             if (_procedimentoTipoRepository.Exists(procedimentoTipo.Sigla))
             {
                 _bus.RaiseEvent(new DomainNotification(request.MessageType, "A sigla já está sendo usada."));
-                return Task.FromResult(false);
+                return Task.FromResult(0);
             }
 
             _procedimentoTipoRepository.Add(procedimentoTipo);
@@ -50,15 +50,15 @@ namespace ControleBO.Domain.CommandHandler
                 // TO DO: Raise Event
             }
 
-            return Task.FromResult(true);
+            return Task.FromResult(procedimentoTipo.Id);
         }
 
-        public Task<bool> Handle(UpdateProcedimentoTipoCommand request, CancellationToken cancellationToken)
+        public Task<int> Handle(UpdateProcedimentoTipoCommand request, CancellationToken cancellationToken)
         {
             if (!request.IsValid())
             {
                 NotifyValidationErrors(request);
-                return Task.FromResult(false);
+                return Task.FromResult(0);
             }
 
             var procedimentoTipo = new ProcedimentoTipo(request.Id, request.Sigla, request.Descricao);
@@ -69,7 +69,7 @@ namespace ControleBO.Domain.CommandHandler
                 if (!existingProcedimentoTipo.Equals(procedimentoTipo))
                 {
                     _bus.RaiseEvent(new DomainNotification(request.MessageType, "A Sigla ou Descrição já está sendo usada."));
-                    return Task.FromResult(false);
+                    return Task.FromResult(0);
                 }
             }
 
@@ -80,15 +80,15 @@ namespace ControleBO.Domain.CommandHandler
                 // TO DO: Raise Event
             }
 
-            return Task.FromResult(true);
+            return Task.FromResult(procedimentoTipo.Id);
         }
 
-        public Task<bool> Handle(RemoveProcedimentoTipoCommand request, CancellationToken cancellationToken)
+        public Task<int> Handle(RemoveProcedimentoTipoCommand request, CancellationToken cancellationToken)
         {
             if (!request.IsValid())
             {
                 NotifyValidationErrors(request);
-                return Task.FromResult(false);
+                return Task.FromResult(0);
             }
 
             _procedimentoTipoRepository.Remove(request.Id);
@@ -98,7 +98,7 @@ namespace ControleBO.Domain.CommandHandler
                 // TO DO: Raise Event
             }
 
-            return Task.FromResult(true);
+            return Task.FromResult(request.Id);
         }
 
         public void Dispose()

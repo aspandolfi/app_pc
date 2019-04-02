@@ -3,6 +3,7 @@ using ControleBO.Domain.Core.Bus;
 using ControleBO.Domain.Core.Notifications;
 using ControleBO.Domain.Interfaces;
 using ControleBO.Domain.Interfaces.Repositories;
+using ControleBO.Domain.Models;
 using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
@@ -10,33 +11,111 @@ using System.Threading.Tasks;
 namespace ControleBO.Domain.CommandHandler
 {
     public class ProcedimentoCommandHandler : CommandHandler,
-        IRequestHandler<RegisterNewProcedimentoCommand, bool>,
-        IRequestHandler<UpdateProcedimentoCommand, bool>,
-        IRequestHandler<RemoveProcedimentoCommand, bool>
+        IRequestHandler<RegisterNewProcedimentoCommand, int>,
+        IRequestHandler<UpdateProcedimentoCommand, int>,
+        IRequestHandler<RemoveProcedimentoCommand, int>
     {
         private readonly IProcedimentoRepository _procedimentoRepository;
+        private readonly IProcedimentoTipoRepository _procedimentoTipoRepository;
+        private readonly IArtigoRepository _artigoRepository;
+        private readonly IAssuntoRepository _assuntoRepository;
+        private readonly IMunicipioRepository _municipioRepository;
+        private readonly IVaraCriminalRepository _varaCriminalRepository;
         private readonly IMediatorHandler _bus;
 
         public ProcedimentoCommandHandler(IProcedimentoRepository procedimentoRepository,
+                                          IProcedimentoTipoRepository procedimentoTipoRepository,
+                                          IArtigoRepository artigoRepository,
+                                          IAssuntoRepository assuntoRepository,
+                                          IMunicipioRepository municipioRepository,
+                                          IVaraCriminalRepository varaCriminalRepository,
                                           IUnitOfWork uow,
                                           IMediatorHandler bus,
                                           INotificationHandler<DomainNotification> notifications) : base(uow, bus, notifications)
         {
             _procedimentoRepository = procedimentoRepository;
+            _procedimentoTipoRepository = procedimentoTipoRepository;
+            _artigoRepository = artigoRepository;
+            _assuntoRepository = assuntoRepository;
+            _municipioRepository = municipioRepository;
+            _varaCriminalRepository = varaCriminalRepository;
             _bus = bus;
         }
 
-        public Task<bool> Handle(RegisterNewProcedimentoCommand request, CancellationToken cancellationToken)
+        public Task<int> Handle(RegisterNewProcedimentoCommand request, CancellationToken cancellationToken)
+        {
+            if (!request.IsValid())
+            {
+                NotifyValidationErrors(request);
+                return Task.FromResult(0);
+            }
+
+            if (_procedimentoRepository.Exists(request.NumeroProcessual))
+            {
+                _bus.RaiseEvent(new DomainNotification(request.MessageType, "O Boletim Unificado já está sendo usado."));
+                return Task.FromResult(0);
+            }
+
+            var tipoProcedimento = _procedimentoTipoRepository.GetById(request.TipoProcedimentoId);
+
+            if (tipoProcedimento == null)
+            {
+                _bus.RaiseEvent(new DomainNotification(request.MessageType, "O Tipo de Procedimento não foi encontrado."));
+                return Task.FromResult(0);
+            }
+
+            var artigo = _artigoRepository.GetById(request.ArtigoId);
+
+            if (artigo == null)
+            {
+                _bus.RaiseEvent(new DomainNotification(request.MessageType, "O Artigo não foi encontrado."));
+                return Task.FromResult(0);
+            }
+
+            var assunto = _assuntoRepository.GetById(request.AssuntoId);
+
+            if (assunto == null)
+            {
+                _bus.RaiseEvent(new DomainNotification(request.MessageType, "O Assunto não foi encontrado."));
+                return Task.FromResult(0);
+            }
+
+            var municipio = _municipioRepository.GetById(request.ComarcaId);
+
+            if (municipio == null)
+            {
+                _bus.RaiseEvent(new DomainNotification(request.MessageType, "A Comarca não foi encontrada."));
+                return Task.FromResult(0);
+            }
+
+            var varaCriminal = _varaCriminalRepository.GetById(request.VaraCriminalId);
+
+            if (varaCriminal == null)
+            {
+                _bus.RaiseEvent(new DomainNotification(request.MessageType, "A Vara Criminal não foi encontrada."));
+                return Task.FromResult(0);
+            }
+
+            var procedimento = new Procedimento(request.BoletimUnificado, request.BoletimOcorrencia, request.NumeroProcessual, request.Gampes,
+                                                request.Anexos, request.LocalFato, request.DataFato, request.DataInstauracao, request.TipoCriminal,
+                                                request.AndamentoProcessual, tipoProcedimento, varaCriminal, municipio, assunto, artigo);
+
+            _procedimentoRepository.Add(procedimento);
+
+            if (Commit())
+            {
+                // TO DO: Raise Event
+            }
+
+            return Task.FromResult(procedimento.Id);
+        }
+
+        public Task<int> Handle(UpdateProcedimentoCommand request, CancellationToken cancellationToken)
         {
             throw new System.NotImplementedException();
         }
 
-        public Task<bool> Handle(UpdateProcedimentoCommand request, CancellationToken cancellationToken)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Task<bool> Handle(RemoveProcedimentoCommand request, CancellationToken cancellationToken)
+        public Task<int> Handle(RemoveProcedimentoCommand request, CancellationToken cancellationToken)
         {
             throw new System.NotImplementedException();
         }

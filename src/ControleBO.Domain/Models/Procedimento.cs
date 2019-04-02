@@ -14,7 +14,7 @@ namespace ControleBO.Domain.Models
             string anexos,
             string localFato,
             DateTime dataFato,
-            DateTime dataInstauracao,
+            DateTime? dataInstauracao,
             string tipoCriminal,
             string andamentoProcessual,
             ProcedimentoTipo tipoProcedimento,

@@ -16,7 +16,6 @@ namespace ControleBO.Domain.CommandHandler
         IRequestHandler<RemoveProcedimentoTipoCommand, int>
     {
         private readonly IProcedimentoTipoRepository _procedimentoTipoRepository;
-        private readonly IMediatorHandler _bus;
 
         public ProcedimentoTipoCommandHandler(IProcedimentoTipoRepository procedimentoTipoRepository,
                                               IUnitOfWork uow,
@@ -24,7 +23,6 @@ namespace ControleBO.Domain.CommandHandler
                                               INotificationHandler<DomainNotification> notifications) : base(uow, bus, notifications)
         {
             _procedimentoTipoRepository = procedimentoTipoRepository;
-            _bus = bus;
         }
 
         public Task<int> Handle(RegisterNewProcedimentoTipoCommand request, CancellationToken cancellationToken)
@@ -39,7 +37,7 @@ namespace ControleBO.Domain.CommandHandler
 
             if (_procedimentoTipoRepository.Exists(procedimentoTipo.Sigla))
             {
-                _bus.RaiseEvent(new DomainNotification(request.MessageType, "A sigla já está sendo usada."));
+                Bus.RaiseEvent(new DomainNotification(request.MessageType, "A sigla já está sendo usada."));
                 return Task.FromResult(0);
             }
 
@@ -68,7 +66,7 @@ namespace ControleBO.Domain.CommandHandler
             {
                 if (!existingProcedimentoTipo.Equals(procedimentoTipo))
                 {
-                    _bus.RaiseEvent(new DomainNotification(request.MessageType, "A Sigla ou Descrição já está sendo usada."));
+                    Bus.RaiseEvent(new DomainNotification(request.MessageType, "A Sigla ou Descrição já está sendo usada."));
                     return Task.FromResult(0);
                 }
             }

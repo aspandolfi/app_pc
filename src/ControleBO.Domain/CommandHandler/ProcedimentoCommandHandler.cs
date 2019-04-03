@@ -21,7 +21,6 @@ namespace ControleBO.Domain.CommandHandler
         private readonly IAssuntoRepository _assuntoRepository;
         private readonly IMunicipioRepository _municipioRepository;
         private readonly IVaraCriminalRepository _varaCriminalRepository;
-        private readonly IMediatorHandler _bus;
 
         public ProcedimentoCommandHandler(IProcedimentoRepository procedimentoRepository,
                                           IProcedimentoTipoRepository procedimentoTipoRepository,
@@ -39,7 +38,6 @@ namespace ControleBO.Domain.CommandHandler
             _assuntoRepository = assuntoRepository;
             _municipioRepository = municipioRepository;
             _varaCriminalRepository = varaCriminalRepository;
-            _bus = bus;
         }
 
         public Task<int> Handle(RegisterNewProcedimentoCommand request, CancellationToken cancellationToken)
@@ -52,7 +50,7 @@ namespace ControleBO.Domain.CommandHandler
 
             if (_procedimentoRepository.Exists(request.NumeroProcessual))
             {
-                _bus.RaiseEvent(new DomainNotification(request.MessageType, "O Boletim Unificado já está sendo usado."));
+                Bus.RaiseEvent(new DomainNotification(request.MessageType, "O Boletim Unificado já está sendo usado."));
                 return Task.FromResult(0);
             }
 
@@ -60,7 +58,7 @@ namespace ControleBO.Domain.CommandHandler
 
             if (tipoProcedimento == null)
             {
-                _bus.RaiseEvent(new DomainNotification(request.MessageType, "O Tipo de Procedimento não foi encontrado."));
+                Bus.RaiseEvent(new DomainNotification(request.MessageType, "O Tipo de Procedimento não foi encontrado."));
                 return Task.FromResult(0);
             }
 
@@ -68,7 +66,7 @@ namespace ControleBO.Domain.CommandHandler
 
             if (artigo == null)
             {
-                _bus.RaiseEvent(new DomainNotification(request.MessageType, "O Artigo não foi encontrado."));
+                Bus.RaiseEvent(new DomainNotification(request.MessageType, "O Artigo não foi encontrado."));
                 return Task.FromResult(0);
             }
 
@@ -76,7 +74,7 @@ namespace ControleBO.Domain.CommandHandler
 
             if (assunto == null)
             {
-                _bus.RaiseEvent(new DomainNotification(request.MessageType, "O Assunto não foi encontrado."));
+                Bus.RaiseEvent(new DomainNotification(request.MessageType, "O Assunto não foi encontrado."));
                 return Task.FromResult(0);
             }
 
@@ -84,7 +82,7 @@ namespace ControleBO.Domain.CommandHandler
 
             if (municipio == null)
             {
-                _bus.RaiseEvent(new DomainNotification(request.MessageType, "A Comarca não foi encontrada."));
+                Bus.RaiseEvent(new DomainNotification(request.MessageType, "A Comarca não foi encontrada."));
                 return Task.FromResult(0);
             }
 
@@ -92,7 +90,7 @@ namespace ControleBO.Domain.CommandHandler
 
             if (varaCriminal == null)
             {
-                _bus.RaiseEvent(new DomainNotification(request.MessageType, "A Vara Criminal não foi encontrada."));
+                Bus.RaiseEvent(new DomainNotification(request.MessageType, "A Vara Criminal não foi encontrada."));
                 return Task.FromResult(0);
             }
 
@@ -122,7 +120,7 @@ namespace ControleBO.Domain.CommandHandler
 
             if (tipoProcedimento == null)
             {
-                _bus.RaiseEvent(new DomainNotification(request.MessageType, "O Tipo de Procedimento não foi encontrado."));
+                Bus.RaiseEvent(new DomainNotification(request.MessageType, "O Tipo de Procedimento não foi encontrado."));
                 return Task.FromResult(0);
             }
 
@@ -130,7 +128,7 @@ namespace ControleBO.Domain.CommandHandler
 
             if (artigo == null)
             {
-                _bus.RaiseEvent(new DomainNotification(request.MessageType, "O Artigo não foi encontrado."));
+                Bus.RaiseEvent(new DomainNotification(request.MessageType, "O Artigo não foi encontrado."));
                 return Task.FromResult(0);
             }
 
@@ -138,7 +136,7 @@ namespace ControleBO.Domain.CommandHandler
 
             if (assunto == null)
             {
-                _bus.RaiseEvent(new DomainNotification(request.MessageType, "O Assunto não foi encontrado."));
+                Bus.RaiseEvent(new DomainNotification(request.MessageType, "O Assunto não foi encontrado."));
                 return Task.FromResult(0);
             }
 
@@ -146,7 +144,7 @@ namespace ControleBO.Domain.CommandHandler
 
             if (municipio == null)
             {
-                _bus.RaiseEvent(new DomainNotification(request.MessageType, "A Comarca não foi encontrada."));
+                Bus.RaiseEvent(new DomainNotification(request.MessageType, "A Comarca não foi encontrada."));
                 return Task.FromResult(0);
             }
 
@@ -154,7 +152,7 @@ namespace ControleBO.Domain.CommandHandler
 
             if (varaCriminal == null)
             {
-                _bus.RaiseEvent(new DomainNotification(request.MessageType, "A Vara Criminal não foi encontrada."));
+                Bus.RaiseEvent(new DomainNotification(request.MessageType, "A Vara Criminal não foi encontrada."));
                 return Task.FromResult(0);
             }
 
@@ -166,7 +164,7 @@ namespace ControleBO.Domain.CommandHandler
 
             if (!existringProcedimento.Equals(procedimento))
             {
-                _bus.RaiseEvent(new DomainNotification(request.MessageType, "O Boletim Unificado já está sendo usado."));
+                Bus.RaiseEvent(new DomainNotification(request.MessageType, "O Boletim Unificado já está sendo usado."));
                 return Task.FromResult(0);
             }
 

@@ -1,18 +1,18 @@
-﻿using System;
+﻿using ControleBO.Domain.Validations;
 
 namespace ControleBO.Domain.Commands
 {
     public class RegisterNewArtigoCommand : ArtigoCommand
     {
-        public RegisterNewArtigoCommand(int id, string descricao)
+        public RegisterNewArtigoCommand(string descricao)
         {
-            Id = id;
             Descricao = Descricao;
         }
 
         public override bool IsValid()
         {
-            throw new NotImplementedException();
+            ValidationResult = new RegisterNewArtigoCommandValidation().Validate(this);
+            return ValidationResult.IsValid;
         }
     }
 }

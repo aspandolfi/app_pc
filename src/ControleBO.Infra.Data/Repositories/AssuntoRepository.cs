@@ -11,7 +11,7 @@ namespace ControleBO.Infra.Data.Repositories
         {
         }
 
-        public override bool Exists(string stringToSearch)
+        public override bool Exists(params string[] stringToSearch)
         {
             return DbSet.Any(x => stringToSearch.Contains(x.Descricao));
         }

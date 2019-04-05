@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using ControleBO.Api.Configurations;
+using ControleBO.Infra.CrossCutting.IoC;
+using MediatR;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -32,10 +35,11 @@ namespace ControleBO.Api
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            //services.AddEntityFrameworkNpgsql()
-            //    .AddDbContext<SpcContext>(
-            //        options => options.UseNpgsql(
-            //            Configuration.GetConnectionString("DefaultConnection")));
+            services.AddAutoMapperSetup();
+
+            services.AddMediatR(typeof(Startup));
+
+            RegisterServices(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -59,6 +63,12 @@ namespace ControleBO.Api
 
             app.UseHttpsRedirection();
             app.UseMvc();
+        }
+
+        private static void RegisterServices(IServiceCollection services)
+        {
+            // Adding dependencies from another layers (isolated from Presentation)
+            BootStrapper.RegisterServices(services);
         }
     }
 }

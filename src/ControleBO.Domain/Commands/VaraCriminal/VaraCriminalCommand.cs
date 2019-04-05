@@ -1,6 +1,6 @@
 ﻿using ControleBO.Domain.Core.Commands;
 
-namespace ControleBO.Domain.Commands.VaraCriminal
+namespace ControleBO.Domain.Commands
 {
     public abstract class VaraCriminalCommand : Command
     {

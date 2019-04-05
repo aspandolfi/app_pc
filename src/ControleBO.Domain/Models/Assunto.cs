@@ -9,6 +9,11 @@ namespace ControleBO.Domain.Models
             Descricao = descricao;
         }
 
+        public Assunto(int id, string descricao) : this(descricao)
+        {
+            Id = id;
+        }
+
         protected Assunto() { }
 
         public string Descricao { get; set; }

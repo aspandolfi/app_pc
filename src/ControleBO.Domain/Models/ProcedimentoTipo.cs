@@ -40,5 +40,10 @@ namespace ControleBO.Domain.Models
             return string.Compare(procedimentoTipo.Sigla, Sigla, true) == 0 ||
                    string.Compare(procedimentoTipo.Descricao, Descricao, true) == 0;
         }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }

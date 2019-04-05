@@ -12,7 +12,7 @@ namespace ControleBO.Infra.Data.Context
         public SpcContext(DbContextOptions options)
             : base(options)
         {
-            Database.EnsureDeleted();
+            Database.EnsureCreated();
         }
 
         public DbSet<Pessoa> Pessoas { get; set; }

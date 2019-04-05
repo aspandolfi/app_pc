@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace ControleBO.Application.Services
 {
-    public class AppServiceBase<TViewModel, TModel, TRegisterCommand, TUpdateCommand, TRemoveCommand> : IAppServiceBase<TViewModel>
+    public abstract class AppServiceBase<TViewModel, TModel, TRegisterCommand, TUpdateCommand, TRemoveCommand> : IAppServiceBase<TViewModel>
         where TModel : Entity
         where TRegisterCommand : Command
         where TUpdateCommand : Command
@@ -47,7 +47,7 @@ namespace ControleBO.Application.Services
 
         public virtual IEnumerable<TViewModel> GetPaged(int page, int pageSize)
         {
-            return Mapper.Map<IEnumerable<TModel>, IEnumerable<TViewModel>>(Repository.GetPaged(page, pageSize));
+            return Mapper.Map<IEnumerable<TModel>, IEnumerable<TViewModel>>(Repository.GetPaged(x => x.CriadoEm, page, pageSize));
         }
 
         public virtual Task<int> Register(TViewModel tViewModel)

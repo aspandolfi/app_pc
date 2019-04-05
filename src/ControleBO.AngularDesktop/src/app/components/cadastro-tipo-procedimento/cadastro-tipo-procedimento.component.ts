@@ -23,22 +23,27 @@ export class CadastroTipoProcedimentoComponent implements OnInit {
   }
 
   save() {
-    this.submitted = true;
-    setTimeout(() => {
-      this.messageService.send(new Message('Cadastrado com sucesso!', this.tipoProcedimento));
-      this.submitted = false;
-      this.modalRef.hide();
-    }, 3000);
-
-
-    //if (this.tipoProcedimento.id) {
-    //  this.tipoProcedimentoService.update(this.tipoProcedimento)
-    //    .subscribe(res => {
-    //      if (res.success) {
-    //        this.toastr.success(res.message);
-    //      }
-    //    },
-    //      error => this.toastr.error(error));
-    //}
+    if (this.tipoProcedimento.id) {
+      this.tipoProcedimentoService.update(this.tipoProcedimento)
+        .subscribe(res => {
+          this.messageService.send(new Message(res.message, res.data));
+        }, error => {
+          this.messageService.send(new Message(error.message, error, true));
+        }, () => {
+          this.submitted = false;
+          this.modalRef.hide();
+        });
+    }
+    else {
+      this.tipoProcedimentoService.create(this.tipoProcedimento)
+        .subscribe(res => {
+          this.messageService.send(new Message(res.message, res.data));
+        }, error => {
+          this.messageService.send(new Message(error.message, error, true));
+        }, () => {
+          this.submitted = false;
+          this.modalRef.hide();
+        });
+    }
   }
 }

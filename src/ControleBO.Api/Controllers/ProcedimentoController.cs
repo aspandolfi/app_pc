@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ControleBO.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/procedimento")]
     [Produces("application/json")]
     [ApiController]
     public class ProcedimentoController : ApiController
@@ -31,7 +31,7 @@ namespace ControleBO.Api.Controllers
         }
 
         // GET: api/Procedimento/5
-        [HttpGet("{id}", Name = "Get")]
+        [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
             return Response(_procedimentoAppService.GetById(id));

@@ -5,15 +5,15 @@ using System.Linq;
 
 namespace ControleBO.Infra.Data.Repositories
 {
-    public class ProcedimentoRepository : Repository<Procedimento>, IProcedimentoRepository
+    public class VaraCriminalRepository : Repository<VaraCriminal>, IVaraCriminalRepository
     {
-        public ProcedimentoRepository(SpcContext dbContext) : base(dbContext)
+        public VaraCriminalRepository(SpcContext dbContext) : base(dbContext)
         {
         }
 
         public override bool Exists(params string[] stringToSearch)
         {
-            return DbSet.Any(x => stringToSearch.Contains(x.BoletimUnificado));
+            return DbSet.Any(x => stringToSearch.Contains(x.Descricao));
         }
     }
 }

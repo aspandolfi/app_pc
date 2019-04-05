@@ -4,6 +4,7 @@ using ControleBO.Domain.Core.Bus;
 using ControleBO.Domain.Core.Notifications;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace ControleBO.Api.Controllers
 {
@@ -37,7 +38,7 @@ namespace ControleBO.Api.Controllers
         }
 
         // GET: api/tipo-procedimento/5
-        [HttpGet("{id}", Name = "Get")]
+        [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
             return Response(_procedimentoTipoAppService.GetById(id));
@@ -45,7 +46,7 @@ namespace ControleBO.Api.Controllers
 
         // POST: api/tipo-procedimento
         [HttpPost]
-        public IActionResult Post([FromBody] ProcedimentoTipoViewModel vm)
+        public async Task<IActionResult> Post([FromBody] ProcedimentoTipoViewModel vm)
         {
             if (!ModelState.IsValid)
             {
@@ -53,9 +54,9 @@ namespace ControleBO.Api.Controllers
                 return Response(vm);
             }
 
-            _procedimentoTipoAppService.Register(vm);
+            var id = await _procedimentoTipoAppService.Register(vm);
 
-            return Response(vm, "Tipo de Procedimento cadastrado com sucesso!");
+            return Response(id, "Tipo de Procedimento cadastrado com sucesso!");
         }
 
         // PUT: api/tipo-procedimento/5

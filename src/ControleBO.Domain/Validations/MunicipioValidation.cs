@@ -29,5 +29,11 @@ namespace ControleBO.Domain.Validations
             RuleFor(x => x.CEP)
                 .Length(9, 9).WithMessage("O CEP deve ter 9 caracteres.");
         }
+
+        protected void ValidateId()
+        {
+            RuleFor(x => x.Id)
+                .GreaterThan(0).WithMessage("Por favor verifique se é um ID válido.");
+        }
     }
 }

@@ -57,6 +57,18 @@ namespace ControleBO.Application.Mappers
                                                                   p.AssuntoId,
                                                                   p.ArtigoId,
                                                                   p.DelegaciaOrigemId));
+            CreateMap<AssuntoViewModel, RegisterNewAssuntoCommand>()
+                .ConstructUsing(a => new RegisterNewAssuntoCommand(a.Descricao.Trim()));
+            CreateMap<AssuntoViewModel, UpdateAssuntoCommand>()
+                .ConstructUsing(a => new UpdateAssuntoCommand(a.Id, a.Descricao.Trim()));
+            CreateMap<ArtigoViewModel, RegisterNewArtigoCommand>()
+                .ConstructUsing(a => new RegisterNewArtigoCommand(a.Descricao.Trim()));
+            CreateMap<AssuntoViewModel, UpdateArtigoCommand>()
+                .ConstructUsing(a => new UpdateArtigoCommand(a.Id, a.Descricao.Trim()));
+            CreateMap<VaraCriminalCommand, RegisterNewVaraCriminalCommand>()
+                .ConstructUsing(a => new RegisterNewVaraCriminalCommand(a.Descricao.Trim()));
+            CreateMap<VaraCriminalViewModel, UpdateVaraCriminalCommand>()
+                .ConstructUsing(a => new UpdateVaraCriminalCommand(a.Id, a.Descricao.Trim()));
 
 
 

@@ -59,7 +59,7 @@ namespace ControleBO.Domain.CommandHandler
                 return Task.FromResult(0);
             }
 
-            var assunto = new Assunto(request.Descricao);
+            var assunto = new Assunto(request.Id, request.Descricao);
             var existingAssunto = _assuntoRepository.Get(x => assunto.Descricao.Contains(x.Descricao));
 
             if (!existingAssunto.Equals(assunto))

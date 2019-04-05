@@ -1,7 +1,8 @@
 {
-  "name": "controle-bo-angular-desktop",
-  "version": "0.0.0",
+  "name": "S.C.P.C_PC_ES",
+  "version": "1.0.0",
   "main": "main.js",
+  "author": "André Serafim Pandolfi",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

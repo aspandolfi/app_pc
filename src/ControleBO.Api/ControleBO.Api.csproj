@@ -12,6 +12,7 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="8.0.0" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="6.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.0.1916590" />
@@ -20,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ControleBO.Application\ControleBO.Application.csproj" />
+    <ProjectReference Include="..\ControleBO.Infra.CrossCutting.IoC\ControleBO.Infra.CrossCutting.IoC.csproj" />
   </ItemGroup>
 
 </Project>

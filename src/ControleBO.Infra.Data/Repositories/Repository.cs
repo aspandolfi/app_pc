@@ -8,7 +8,7 @@ using System.Linq.Expressions;
 
 namespace ControleBO.Infra.Data.Repositories
 {
-    public class Repository<TModel> : IRepository<TModel> where TModel : class
+    public abstract class Repository<TModel> : IRepository<TModel> where TModel : class
     {
         protected SpcContext DbContext;
         protected DbSet<TModel> DbSet;
@@ -141,18 +141,15 @@ namespace ControleBO.Infra.Data.Repositories
             return query.AsNoTracking();
         }
 
-        public IEnumerable<TModel> GetPaged(int page, int pageSize = 10)
+        public IEnumerable<TModel> GetPaged(Expression<Func<TModel, object>> orderBy, int page, int pageSize = 10)
         {
             IQueryable<TModel> query = DbSet;
 
             var skip = (page - 1) * pageSize;
-            return query.Skip(skip).Take(pageSize).AsNoTracking().AsEnumerable();
+            return query.OrderBy(orderBy).Skip(skip).Take(pageSize).AsNoTracking().AsEnumerable();
         }
 
-        public virtual bool Exists(string stringToSearch)
-        {
-            throw new NotImplementedException("Método não implementado na classe filha.");
-        }
+        public abstract bool Exists(params string[] stringToSearch);
 
         public TModel Get(Expression<Func<TModel, bool>> filter)
         {

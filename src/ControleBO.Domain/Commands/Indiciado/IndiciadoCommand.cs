@@ -1,14 +1,8 @@
-﻿using ControleBO.Domain.Core.Commands;
-
-namespace ControleBO.Domain.Commands
+﻿namespace ControleBO.Domain.Commands
 {
-    public abstract class IndiciadoCommand : Command
+    public abstract class IndiciadoCommand : PessoaCommand
     {
-        public int Id { get; protected set; }
-
         public string Apelido { get; protected set; }
-
-        public PessoaCommand PessoaCommand { get; protected set; }
 
         public int ProcedimentoId { get; protected set; }
     }

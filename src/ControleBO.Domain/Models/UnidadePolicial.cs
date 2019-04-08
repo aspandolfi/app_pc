@@ -12,6 +12,12 @@ namespace ControleBO.Domain.Models
             CodigoCargoQO = codigoCargoQO;
         }
 
+        public UnidadePolicial(int id, string codigo, string sigla, string descricao, string codigoCargoQO = null)
+            : this(codigo, sigla, descricao, codigoCargoQO)
+        {
+            Id = id;
+        }
+
         protected UnidadePolicial() { }
 
         public string Codigo { get; set; }

@@ -11,7 +11,8 @@ namespace ControleBO.Domain.Models
             CEP = cep;
         }
 
-        public Municipio(int id, string nome, string uf, string cep) : this(nome, uf, cep)
+        public Municipio(int id, string nome, string uf, string cep)
+            : this(nome, uf, cep)
         {
             Id = id;
         }

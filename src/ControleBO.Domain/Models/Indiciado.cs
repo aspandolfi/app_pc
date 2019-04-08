@@ -1,21 +1,25 @@
-﻿using ControleBO.Domain.Core.Models;
+﻿using System;
 
 namespace ControleBO.Domain.Models
 {
-    public class Indiciado : Entity
+    public class Indiciado : Pessoa
     {
-        public Indiciado(string apelido, Procedimento procedimento, Pessoa pessoa)
+        public Indiciado(string apelido, Procedimento procedimento, string nome, string nomePai, string nomeMae, DateTime? dataNascimento, int? idade, string telefone, Municipio municipio)
+            : base(nome, nomePai, nomeMae, dataNascimento, idade, telefone, municipio)
         {
             Apelido = apelido;
-            Pessoa = pessoa;
             Procedimento = procedimento;
+        }
+
+        public Indiciado(int id, string apelido, Procedimento procedimento, string nome, string nomePai, string nomeMae, DateTime? dataNascimento, int? idade, string telefone, Municipio municipio)
+            : this(apelido, procedimento, nome, nomePai, nomeMae, dataNascimento, idade, telefone, municipio)
+        {
+            Id = id;
         }
 
         protected Indiciado() { }
 
         public string Apelido { get; set; }
-
-        public virtual Pessoa Pessoa { get; set; }
 
         public virtual Procedimento Procedimento { get; set; }
     }

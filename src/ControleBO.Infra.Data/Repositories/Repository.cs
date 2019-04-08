@@ -145,7 +145,8 @@ namespace ControleBO.Infra.Data.Repositories
         {
             IQueryable<TModel> query = DbSet;
 
-            var skip = (page - 1) * pageSize;
+            //var skip = (page - 1) * pageSize;
+            var skip = (page) * pageSize;
             return query.OrderBy(orderBy).Skip(skip).Take(pageSize).AsNoTracking().AsEnumerable();
         }
 
@@ -154,6 +155,34 @@ namespace ControleBO.Infra.Data.Repositories
         public TModel Get(Expression<Func<TModel, bool>> filter)
         {
             return DbSet.SingleOrDefault(filter);
+        }
+
+        public IEnumerable<TModel> GetAllAsNoTracking(Expression<Func<TModel, bool>> filter, Expression<Func<TModel, object>> orderBy = null)
+        {
+            IQueryable<TModel> query = DbSet;
+
+            query = query.Where(filter);
+
+            if (orderBy != null)
+            {
+                return query.OrderBy(orderBy).AsNoTracking();
+            }
+
+            return query.AsNoTracking();
+        }
+
+        public IEnumerable<TModel> GetPaged(Expression<Func<TModel, bool>> filter, Expression<Func<TModel, object>> orderBy, int page = 1, int pageSize = 10)
+        {
+            IQueryable<TModel> query = DbSet;
+
+            //var skip = (page - 1) * pageSize;
+            var skip = (page) * pageSize;
+            return query.Where(filter).OrderBy(orderBy).Skip(skip).Take(pageSize).AsNoTracking().AsEnumerable();
+        }
+
+        public int Count()
+        {
+            return DbSet.Count();
         }
     }
 }

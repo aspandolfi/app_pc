@@ -1,8 +1,6 @@
 ﻿using AutoMapper;
 using ControleBO.Application.ViewModels;
 using ControleBO.Domain.Commands;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace ControleBO.Application.Mappers
 {
@@ -15,13 +13,11 @@ namespace ControleBO.Application.Mappers
             CreateMap<ProcedimentoTipoViewModel, UpdateProcedimentoTipoCommand>()
                 .ConstructUsing(c => new UpdateProcedimentoTipoCommand(c.Id, c.Sigla.Trim(), c.Descricao.Trim()));
             CreateMap<VitimaViewModel, RegisterNewVitimaCommand>()
-                .ConstructUsing(v => new RegisterNewVitimaCommand(v.Email.Trim(),
-                                     new RegisterNewPessoaCommand(v.Nome.Trim(), v.NomePai.Trim(), v.NomeMae.Trim(), v.DataNascimento, v.Telefone.Trim(), v.MunicipioId),
-                                     v.ProcedimentoId));
+                .ConstructUsing(v => new RegisterNewVitimaCommand(v.Email.Trim(), v.ProcedimentoId,
+                                     v.Nome.Trim(), v.NomePai.Trim(), v.NomeMae.Trim(), v.DataNascimento, v.Idade, v.Telefone.Trim(), v.MunicipioId));
             CreateMap<VitimaViewModel, UpdateVitimaCommand>()
-                .ConstructUsing(v => new UpdateVitimaCommand(v.Id, v.Email.Trim(),
-                                     new UpdatePessoaCommand(v.Id, v.Nome.Trim(), v.NomePai.Trim(), v.NomeMae.Trim(), v.DataNascimento, v.Telefone.Trim(), v.MunicipioId),
-                                     v.ProcedimentoId));
+                .ConstructUsing(v => new UpdateVitimaCommand(v.Id, v.Email.Trim(), v.ProcedimentoId,
+                                     v.Nome.Trim(), v.NomePai.Trim(), v.NomeMae.Trim(), v.DataNascimento, v.Idade, v.Telefone.Trim(), v.MunicipioId));
             CreateMap<ProcedimentoViewModel, RegisterNewProcedimentoCommand>().
                 ConstructUsing(p => new RegisterNewProcedimentoCommand(p.BoletimUnificado.Trim(),
                                                                        p.BoletimOcorrencia.Trim(),
@@ -73,31 +69,5 @@ namespace ControleBO.Application.Mappers
 
 
         }
-
-        private static IEnumerable<VitimaCommand> MapToVitimaCommands(IEnumerable<VitimaViewModel> vitimasVm)
-        {
-            return vitimasVm.Select(x => new RegisterNewVitimaCommand(x.Email.Trim(),
-                                                                     new RegisterNewPessoaCommand(x.Nome.Trim(),
-                                                                                                  x.NomePai.Trim(),
-                                                                                                  x.NomeMae.Trim(),
-                                                                                                  x.DataNascimento,
-                                                                                                  x.Telefone.Trim(),
-                                                                                                  x.MunicipioId),
-                                                                     x.ProcedimentoId));
-        }
-
-        private static IEnumerable<IndiciadoCommand> MapToIndiciadoCommands(IEnumerable<AutorViewModel> autoresVm)
-        {
-            return autoresVm.Select(x => new RegisterNewIndiciadoCommand(x.Apelido.Trim(),
-                                                                     new RegisterNewPessoaCommand(x.Nome.Trim(),
-                                                                                                  x.NomePai.Trim(),
-                                                                                                  x.NomeMae.Trim(),
-                                                                                                  x.DataNascimento,
-                                                                                                  x.Telefone.Trim(),
-                                                                                                  x.MunicipioId),
-                                                                     x.ProcedimentoId));
-        }
-
-
     }
 }

@@ -7,8 +7,13 @@ namespace ControleBO.Domain.Validations
         public RegisterNewIndiciadoCommandValidation()
         {
             ValidateApelido();
-            ValidatePessoa();
             ValidateProcedimentoId();
+            ValidateNome();
+            ValidateNomeMae();
+            ValidateNomePai();
+            ValidateDataNascimento();
+            ValidateTelefone();
+            ValidateMunicipio();
         }
     }
 }

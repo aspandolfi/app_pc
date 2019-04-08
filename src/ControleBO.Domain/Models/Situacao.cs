@@ -11,6 +11,12 @@ namespace ControleBO.Domain.Models
             Tipos = new HashSet<SituacaoTipo>();
         }
 
+        public Situacao(int id, string descricao)
+            : this(descricao)
+        {
+            Id = id;
+        }
+
         protected Situacao() { }
 
         public string Descricao { get; set; }

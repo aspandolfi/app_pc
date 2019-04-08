@@ -13,7 +13,7 @@ export interface ApiUrl {
 })
 export class BaseService {
 
-  private apiUrl: string;
+  public apiUrl: string;
 
   constructor(private http: HttpClient, @Inject('BASE_URL') private localUrl: string, private fileService: FileService) {
     this.getBaseUrl();

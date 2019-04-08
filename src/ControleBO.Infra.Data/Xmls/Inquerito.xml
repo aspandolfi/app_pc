@@ -1,0 +1,1387 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataroot xmlns:od="urn:schemas-microsoft-com:officedata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xsi:noNamespaceSchemaLocation="Inquerito.xsd" generated="2019-04-07T18:33:30">
+  <Inquerito>
+    <CodRegistro>1</CodRegistro>
+    <Descrição>1</Descrição>
+    <Inquerito>00012010</Inquerito>
+    <InqOrigem>0001/2010</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <LocalFato>Gaxindiba</LocalFato>
+    <DataInstauracao>2010-01-05T00:00:00</DataInstauracao>
+    <DataConclusao>2009-01-06T00:00:00</DataConclusao>
+    <DelResponsavel>Dr. Carlos Cesar Silva</DelResponsavel>
+    <EscResponsavel>Bel Cloves Ribeiro do Nascimento</EscResponsavel>
+    <Situacao>1</Situacao>
+    <Observacao>Encaminhado ao Forum.</Observacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>art. 331 e Lei n°. 9.605/98</Artigo>
+    <Assunto>Desacato e crime ambiental</Assunto>
+    <FatoDia>5</FatoDia>
+    <FatoMes>1</FatoMes>
+    <FatoAno>2010</FatoAno>
+    <Conclusao>2</Conclusao>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>2</CodRegistro>
+    <Descrição>2</Descrição>
+    <Inquerito>00022010</Inquerito>
+    <InqOrigem>0002/2010</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <LocalFato>Conceição da Barra</LocalFato>
+    <DataInstauracao>2010-01-06T00:00:00</DataInstauracao>
+    <DataConclusao>2010-01-06T00:00:00</DataConclusao>
+    <DelResponsavel>Dr. Carlos Cesar Silva</DelResponsavel>
+    <EscResponsavel>Bel Cloves Ribeiro do Nascimento</EscResponsavel>
+    <Situacao>3</Situacao>
+    <Observacao>Encaminhad ao Forum.</Observacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>Art. 129</Artigo>
+    <Assunto>Lesão corporal</Assunto>
+    <FatoDia>4</FatoDia>
+    <FatoMes>1</FatoMes>
+    <FatoAno>2010</FatoAno>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>3</CodRegistro>
+    <Descrição>1</Descrição>
+    <Inquerito>00032009</Inquerito>
+    <InqOrigem>003/2009</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <Processo>015096019540</Processo>
+    <LocalFato>Maria Manteiga</LocalFato>
+    <DataInstauracao>2009-01-05T00:00:00</DataInstauracao>
+    <DelResponsavel>Dr. Carlos Cesar Silva</DelResponsavel>
+    <Situacao>2</Situacao>
+    <Observacao>Encaminhado ao Chefe de Polícia Civil, Dr. Julio, Of. 008/2010, pois este avocou o procedimento. Contendo 43 fl.</Observacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>Art. 157</Artigo>
+    <Assunto>Latrocínio</Assunto>
+    <FatoDia>31</FatoDia>
+    <FatoMes>12</FatoMes>
+    <FatoAno>2008</FatoAno>
+    <Conclusao>2</Conclusao>
+    <MotivoConclusao>Outros (especificar em Obs)</MotivoConclusao>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>4</CodRegistro>
+    <Descrição>2</Descrição>
+    <Inquerito>00042010</Inquerito>
+    <InqOrigem>004/2010</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <LocalFato>Itaúnas</LocalFato>
+    <DataInstauracao>2010-01-20T00:00:00</DataInstauracao>
+    <DataConclusao>2010-01-21T00:00:00</DataConclusao>
+    <DelResponsavel>Dr. Carlos Cesar Silva</DelResponsavel>
+    <EscResponsavel>Bel Cloves Ribeiro do Nascimento</EscResponsavel>
+    <Situacao>3</Situacao>
+    <Observacao>Encamihado ao Forum</Observacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>art. 331 CPB</Artigo>
+    <Assunto>Desacato</Assunto>
+    <FatoDia>20</FatoDia>
+    <FatoMes>1</FatoMes>
+    <FatoAno>2010</FatoAno>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>5</CodRegistro>
+    <Descrição>4</Descrição>
+    <Inquerito>01792009</Inquerito>
+    <InqOrigem>179/2009</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <LocalFato>Conceição da Barra</LocalFato>
+    <DataInstauracao>2009-07-20T00:00:00</DataInstauracao>
+    <DataConclusao>2009-12-16T00:00:00</DataConclusao>
+    <DelResponsavel>Dr.  José Augusto</DelResponsavel>
+    <EscResponsavel>Bel. Gustavo H. da Silva Andrade</EscResponsavel>
+    <Situacao>3</Situacao>
+    <Observacao>Remetido á justiça. Protocolo pag. 158</Observacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>Art. 129, §9° c/c Lei n°. 11.340/06</Artigo>
+    <Assunto>Lesão corporal</Assunto>
+    <FatoDia>19</FatoDia>
+    <FatoMes>7</FatoMes>
+    <FatoAno>2009</FatoAno>
+    <Conclusao>1</Conclusao>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>6</CodRegistro>
+    <Descrição>1</Descrição>
+    <Inquerito>01922009</Inquerito>
+    <InqOrigem>192/2009</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <LocalFato>Conceição da Barra</LocalFato>
+    <DataInstauracao>2009-08-19T00:00:00</DataInstauracao>
+    <DataConclusao>2009-12-15T00:00:00</DataConclusao>
+    <DelResponsavel>Dr. Paulo Roberto Amaral</DelResponsavel>
+    <EscResponsavel>Bel. Gustavo H. da Silva Andrade</EscResponsavel>
+    <Situacao>3</Situacao>
+    <Observacao>O presente inquérito tem similitude com o IP n°. 014/09</Observacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>art. 147 c/c Lei n°. 11.340/06</Artigo>
+    <Assunto>Ameaça</Assunto>
+    <FatoDia>17</FatoDia>
+    <FatoMes>8</FatoMes>
+    <FatoAno>2009</FatoAno>
+    <Conclusao>1</Conclusao>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>7</CodRegistro>
+    <Descrição>1</Descrição>
+    <Inquerito>02202009</Inquerito>
+    <InqOrigem>220/2009</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <LocalFato>Conceição da Barra</LocalFato>
+    <DataInstauracao>2009-09-10T00:00:00</DataInstauracao>
+    <DataConclusao>2009-12-15T00:00:00</DataConclusao>
+    <DelResponsavel>Dr. Carlos Cesar Silva</DelResponsavel>
+    <EscResponsavel>Bel Cloves Ribeiro do Nascimento</EscResponsavel>
+    <Situacao>3</Situacao>
+    <Observacao>Relatado e remetido àjustiça. Protocolo n°. 159</Observacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>Art. 129, §9° c/c Lei n°. 11.340/06</Artigo>
+    <Assunto>Lesão corporal</Assunto>
+    <FatoDia>7</FatoDia>
+    <FatoMes>9</FatoMes>
+    <FatoAno>2009</FatoAno>
+    <Conclusao>1</Conclusao>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>8</CodRegistro>
+    <Descrição>1</Descrição>
+    <Inquerito>02392009</Inquerito>
+    <InqOrigem>0239/20009</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <LocalFato>Braço do Rio</LocalFato>
+    <DataInstauracao>2009-09-03T00:00:00</DataInstauracao>
+    <DelResponsavel>Dr. Carlos Cesar Silva</DelResponsavel>
+    <EscResponsavel>Bel Cloves Ribeiro do Nascimento</EscResponsavel>
+    <Situacao>2</Situacao>
+    <Observacao>Encaminhado ao Forum solicitando prazo.</Observacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>Art. 129</Artigo>
+    <Assunto>Lesão corporal</Assunto>
+    <FatoDia>3</FatoDia>
+    <FatoMes>9</FatoMes>
+    <FatoAno>2009</FatoAno>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>9</CodRegistro>
+    <Descrição>4</Descrição>
+    <Inquerito>02562009</Inquerito>
+    <InqOrigem>256/2009</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <LocalFato>Conceição da Barra</LocalFato>
+    <DataInstauracao>2009-12-02T00:00:00</DataInstauracao>
+    <DataConclusao>2009-12-15T00:00:00</DataConclusao>
+    <DelResponsavel>Dr. Carlos Cesar Silva</DelResponsavel>
+    <EscResponsavel>Bel Cloves Ribeiro do Nascimento</EscResponsavel>
+    <Situacao>3</Situacao>
+    <Observacao>Encaminhado ao Forum. Livro Inquérito, fl. 158. Somente Marquinhos foi indiciado.</Observacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>art. 33 da Lei n°. 11.343/06</Artigo>
+    <Assunto>Tráfico de drogas</Assunto>
+    <FatoDia>1</FatoDia>
+    <FatoMes>12</FatoMes>
+    <FatoAno>2009</FatoAno>
+    <Conclusao>1</Conclusao>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>10</CodRegistro>
+    <Descrição>4</Descrição>
+    <Inquerito>02572009</Inquerito>
+    <InqOrigem>257/2009</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <LocalFato>Conceição da Barra</LocalFato>
+    <DataInstauracao>2009-12-14T00:00:00</DataInstauracao>
+    <DataConclusao>2009-12-16T00:00:00</DataConclusao>
+    <DelResponsavel>Dr. Carlos Cesar Silva</DelResponsavel>
+    <EscResponsavel>Bel Cloves Ribeiro do Nascimento</EscResponsavel>
+    <Situacao>3</Situacao>
+    <Observacao>Protocolo pag. 158</Observacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>art. 147 c/c Lei n°. 11.340/06</Artigo>
+    <Assunto>Ameaça</Assunto>
+    <FatoDia>14</FatoDia>
+    <FatoMes>12</FatoMes>
+    <FatoAno>2009</FatoAno>
+    <Conclusao>1</Conclusao>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>11</CodRegistro>
+    <Descrição>1</Descrição>
+    <Inquerito>02582009</Inquerito>
+    <InqOrigem>0258/2009</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <LocalFato>Marcilio Dias I</LocalFato>
+    <DataInstauracao>2009-12-09T00:00:00</DataInstauracao>
+    <DataConclusao>2009-12-16T00:00:00</DataConclusao>
+    <DelResponsavel>Dr. Carlos Cesar Silva</DelResponsavel>
+    <EscResponsavel>Bel Cloves Ribeiro do Nascimento</EscResponsavel>
+    <Situacao>3</Situacao>
+    <Observacao>IP devidamente relatado. A vítima desistiu da representação. Protocolo pag. 158</Observacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>art. 147 c/c Lei n°. 11.340/06</Artigo>
+    <Assunto>Ameaça</Assunto>
+    <FatoDia>9</FatoDia>
+    <FatoMes>12</FatoMes>
+    <FatoAno>2009</FatoAno>
+    <Conclusao>2</Conclusao>
+    <MotivoConclusao>Ausência de representação</MotivoConclusao>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>12</CodRegistro>
+    <Descrição>4</Descrição>
+    <Inquerito>02592009</Inquerito>
+    <InqOrigem>257/2009</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <LocalFato>Conceição da Barra</LocalFato>
+    <DataInstauracao>2009-12-14T00:00:00</DataInstauracao>
+    <DataConclusao>2009-12-16T00:00:00</DataConclusao>
+    <DelResponsavel>Dr. Carlos Cesar Silva</DelResponsavel>
+    <EscResponsavel>Bel Cloves Ribeiro do Nascimento</EscResponsavel>
+    <Situacao>3</Situacao>
+    <Observacao>IP relatado. Protocolo fl. 158</Observacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>art. 147 c/c Lei n°. 11.340/06</Artigo>
+    <Assunto>Ameaça</Assunto>
+    <FatoDia>13</FatoDia>
+    <FatoMes>12</FatoMes>
+    <FatoAno>2009</FatoAno>
+    <Conclusao>1</Conclusao>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>13</CodRegistro>
+    <Descrição>4</Descrição>
+    <Inquerito>02602009</Inquerito>
+    <InqOrigem>260/2009</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <LocalFato>Conceição da Barra</LocalFato>
+    <DataInstauracao>2009-12-11T00:00:00</DataInstauracao>
+    <DataConclusao>2010-01-12T00:00:00</DataConclusao>
+    <DelResponsavel>Dr. Walter Emilio Barcelos</DelResponsavel>
+    <EscResponsavel>Bel. João Vanes dos Santos</EscResponsavel>
+    <Situacao>3</Situacao>
+    <Observacao>Encaminhado ao Forum</Observacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>art. 155</Artigo>
+    <Assunto>Roubo</Assunto>
+    <FatoDia>11</FatoDia>
+    <FatoMes>12</FatoMes>
+    <FatoAno>2009</FatoAno>
+    <Conclusao>1</Conclusao>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>14</CodRegistro>
+    <Descrição>4</Descrição>
+    <Inquerito>02612009</Inquerito>
+    <InqOrigem>0261/2009</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <LocalFato>Braço do Rio</LocalFato>
+    <DataInstauracao>2009-12-17T00:00:00</DataInstauracao>
+    <DataConclusao>2010-01-06T00:00:00</DataConclusao>
+    <DelResponsavel>Dr. Carlos Cesar Silva</DelResponsavel>
+    <EscResponsavel>Bel Cloves Ribeiro do Nascimento</EscResponsavel>
+    <Situacao>3</Situacao>
+    <Observacao>Encaminhado ao Forum. Relatado</Observacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>art. 121 c/c art. 14, II e art. 157</Artigo>
+    <Assunto>Tentativa de homicídio e roubo</Assunto>
+    <FatoDia>17</FatoDia>
+    <FatoMes>12</FatoMes>
+    <FatoAno>2009</FatoAno>
+    <Conclusao>1</Conclusao>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>15</CodRegistro>
+    <Descrição>1</Descrição>
+    <Inquerito>00502002</Inquerito>
+    <InqOrigem>050/02</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <Processo>015020005003</Processo>
+    <LocalFato>Conceição da Barra</LocalFato>
+    <DataInstauracao>2002-03-25T00:00:00</DataInstauracao>
+    <DelResponsavel>Dr. Marcelo Paes de Guterres Martins</DelResponsavel>
+    <Situacao>1</Situacao>
+    <Observacao>Trata-se de IP oriundo da Delegacia de Polícia Federal (IPL n°. 050/02-SR/DPF/ES).</Observacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>art. 54 - Lei 9.605/98</Artigo>
+    <Assunto>Crime ambiental</Assunto>
+    <FatoDia>24</FatoDia>
+    <FatoMes>8</FatoMes>
+    <FatoAno>2001</FatoAno>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>16</CodRegistro>
+    <Descrição>1</Descrição>
+    <Inquerito>00042002</Inquerito>
+    <InqOrigem>004/2002</InqOrigem>
+    <CodigoUniPol>SPE.DRCP.DCT</CodigoUniPol>
+    <Id_Municipio>1747</Id_Municipio>
+    <Processo>015020003560</Processo>
+    <LocalFato>Conceição da Barra</LocalFato>
+    <DataInstauracao>2002-02-26T00:00:00</DataInstauracao>
+    <DelResponsavel>Dr. Vladimir Salles</DelResponsavel>
+    <Situacao>4</Situacao>
+    <Observacao>Encaminhado à Delegacia Especializada, conforme determinação - Of n°. 408/2010.</Observacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>art. 157 - CPB</Artigo>
+    <Assunto>Roubo</Assunto>
+    <FatoDia>29</FatoDia>
+    <FatoMes>10</FatoMes>
+    <FatoAno>2000</FatoAno>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>17</CodRegistro>
+    <Descrição>4</Descrição>
+    <Inquerito>00992010</Inquerito>
+    <InqOrigem>99/2010</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <LocalFato>Conceição da Barra</LocalFato>
+    <DataInstauracao>2010-09-13T00:00:00</DataInstauracao>
+    <DataConclusao>2010-09-17T00:00:00</DataConclusao>
+    <DelResponsavel>Dr. Carlos Cesar Silva</DelResponsavel>
+    <EscResponsavel>Bel Cloves Ribeiro do Nascimento</EscResponsavel>
+    <Situacao>3</Situacao>
+    <Observacao>Encmainhado ao forum relatado, sem anexos</Observacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>art. 155, caput - CPB</Artigo>
+    <Assunto>Furto</Assunto>
+    <FatoDia>12</FatoDia>
+    <FatoMes>9</FatoMes>
+    <FatoAno>2010</FatoAno>
+    <Conclusao>1</Conclusao>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>18</CodRegistro>
+    <Descrição>1</Descrição>
+    <Inquerito>02712008</Inquerito>
+    <InqOrigem>271/2008</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <Processo>015096001332</Processo>
+    <LocalFato>Conceição da Barra</LocalFato>
+    <DataInstauracao>2008-10-28T00:00:00</DataInstauracao>
+    <DataConclusao>2010-09-17T00:00:00</DataConclusao>
+    <DelResponsavel>Dr. Roberto Fanti</DelResponsavel>
+    <Situacao>3</Situacao>
+    <Observacao>Encaminhado ao Forum relatado, tendo por objeto o IP n°. 160/2008</Observacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>art. 147 c/c Lei n°. 11.340/06</Artigo>
+    <Assunto>Ameaça</Assunto>
+    <FatoDia>15</FatoDia>
+    <FatoMes>10</FatoMes>
+    <FatoAno>2008</FatoAno>
+    <Conclusao>1</Conclusao>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>19</CodRegistro>
+    <Descrição>1</Descrição>
+    <Inquerito>01602008</Inquerito>
+    <InqOrigem>160/2008</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <Processo>015080017476</Processo>
+    <LocalFato>Conceição da Barra</LocalFato>
+    <DataInstauracao>2008-06-20T00:00:00</DataInstauracao>
+    <DataConclusao>2010-09-17T00:00:00</DataConclusao>
+    <DelResponsavel>Dr. Dalton Rios Deorce</DelResponsavel>
+    <Situacao>3</Situacao>
+    <Observacao>Encaminhado ao Forum relatado, tendo por objeto o IP n°. 271/2008</Observacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>art. 147 c/c Lei n°. 11.340/06</Artigo>
+    <Assunto>Ameaça</Assunto>
+    <FatoDia>17</FatoDia>
+    <FatoMes>3</FatoMes>
+    <FatoAno>2008</FatoAno>
+    <Conclusao>1</Conclusao>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>20</CodRegistro>
+    <Descrição>2</Descrição>
+    <Inquerito>00332010</Inquerito>
+    <InqOrigem>033/2010</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <LocalFato>Conceição da Barra</LocalFato>
+    <DataInstauracao>2010-09-16T00:00:00</DataInstauracao>
+    <DataConclusao>2010-09-21T00:00:00</DataConclusao>
+    <DelResponsavel>Dr. Carlos Cesar Silva</DelResponsavel>
+    <EscResponsavel>Bel Cloves Ribeiro do Nascimento</EscResponsavel>
+    <Situacao>3</Situacao>
+    <Observacao>TC encaminhado ao Forum sem anexos</Observacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>Art. 129</Artigo>
+    <Assunto>Lesão corporal</Assunto>
+    <FatoDia>11</FatoDia>
+    <FatoMes>9</FatoMes>
+    <FatoAno>2010</FatoAno>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>21</CodRegistro>
+    <Descrição>1</Descrição>
+    <Inquerito>00212000</Inquerito>
+    <InqOrigem>021/2000</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <Processo>015030001695</Processo>
+    <LocalFato>Conceição da Barra</LocalFato>
+    <DataInstauracao>2000-01-20T00:00:00</DataInstauracao>
+    <DelResponsavel>-</DelResponsavel>
+    <EscResponsavel>Jorge Rodrigues Pinheiro</EscResponsavel>
+    <Situacao>3</Situacao>
+    <Observacao>Encaminhado ao MPES, após cumprimento de cota ministerial. Solicitou-se arquivamento</Observacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>Art. 129, §1° CPB</Artigo>
+    <Assunto>Lesão corporal</Assunto>
+    <FatoDia>23</FatoDia>
+    <FatoMes>4</FatoMes>
+    <FatoAno>1999</FatoAno>
+    <Conclusao>2</Conclusao>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>22</CodRegistro>
+    <Descrição>1</Descrição>
+    <Inquerito>01092009</Inquerito>
+    <InqOrigem>109/2009</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <Processo>015096006307</Processo>
+    <LocalFato>Conceição da Barra</LocalFato>
+    <DataInstauracao>2009-04-07T00:00:00</DataInstauracao>
+    <DataConclusao>2010-09-22T00:00:00</DataConclusao>
+    <DelResponsavel>Dr. Paulo Roberto Amaral</DelResponsavel>
+    <EscResponsavel>Bel Gustavo Henrique da Silva Andrade</EscResponsavel>
+    <Situacao>3</Situacao>
+    <Observacao>Encaminhado ao forum relatado, sem anexos.</Observacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>art. 140 CPB</Artigo>
+    <Assunto>Injúria</Assunto>
+    <FatoDia>6</FatoDia>
+    <FatoMes>4</FatoMes>
+    <FatoAno>2009</FatoAno>
+    <Conclusao>1</Conclusao>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>23</CodRegistro>
+    <Descrição>1</Descrição>
+    <Inquerito>00952010</Inquerito>
+    <InqOrigem>095/2010</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <LocalFato>Conceição da Barra</LocalFato>
+    <DataInstauracao>2010-09-09T00:00:00</DataInstauracao>
+    <DataConclusao>2010-09-23T00:00:00</DataConclusao>
+    <DelResponsavel>Dr. Carlos Cesar Silva</DelResponsavel>
+    <EscResponsavel>Bel Cloves Ribeiro do Nascimento</EscResponsavel>
+    <Situacao>3</Situacao>
+    <Observacao>Ao fórum, relatado, sem anexos.</Observacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>art. 147 c/c Lei n°. 11.340/06</Artigo>
+    <Assunto>Ameaça</Assunto>
+    <FatoDia>25</FatoDia>
+    <FatoMes>7</FatoMes>
+    <FatoAno>2010</FatoAno>
+    <Conclusao>1</Conclusao>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>24</CodRegistro>
+    <Descrição>3</Descrição>
+    <Inquerito>00112010</Inquerito>
+    <InqOrigem>011/2010</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <LocalFato>Conceição da Barra</LocalFato>
+    <DataInstauracao>2010-09-15T00:00:00</DataInstauracao>
+    <DataConclusao>2010-09-23T00:00:00</DataConclusao>
+    <DelResponsavel>Dr. Carlos Cesar Silva</DelResponsavel>
+    <EscResponsavel>Bel Cloves Ribeiro do Nascimento</EscResponsavel>
+    <Situacao>3</Situacao>
+    <Observacao>Encaimhado ao forum com um ceular apreendido.</Observacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>art. 155</Artigo>
+    <Assunto>Furto</Assunto>
+    <FatoDia>15</FatoDia>
+    <FatoMes>9</FatoMes>
+    <FatoAno>2010</FatoAno>
+    <Conclusao>1</Conclusao>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>25</CodRegistro>
+    <Descrição>1</Descrição>
+    <Inquerito>01012010</Inquerito>
+    <InqOrigem>101/2010</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <LocalFato>Conceição da Barra</LocalFato>
+    <DataInstauracao>2010-09-20T00:00:00</DataInstauracao>
+    <DataVencimento>2010-09-19T00:00:00</DataVencimento>
+    <DelResponsavel>Dr. Carlos Cesar Silva</DelResponsavel>
+    <EscResponsavel>Bel Cloves Ribeiro do Nascimento</EscResponsavel>
+    <Situacao>1</Situacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>art. 121 - CPB</Artigo>
+    <Assunto>Homicídio</Assunto>
+    <FatoDia>20</FatoDia>
+    <FatoMes>9</FatoMes>
+    <FatoAno>2010</FatoAno>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>26</CodRegistro>
+    <Descrição>1</Descrição>
+    <Inquerito>00682000</Inquerito>
+    <InqOrigem>068/2010</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <Processo>015050000163</Processo>
+    <LocalFato>Conceição da Barra</LocalFato>
+    <DataInstauracao>2000-09-15T00:00:00</DataInstauracao>
+    <DelResponsavel>Dr. Alexandre de Toledo</DelResponsavel>
+    <EscResponsavel>Bel. Paulo Roberto Akisaski</EscResponsavel>
+    <Situacao>1</Situacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>art. 121 - CPB</Artigo>
+    <Assunto>Homicídio</Assunto>
+    <FatoDia>31</FatoDia>
+    <FatoMes>8</FatoMes>
+    <FatoAno>2000</FatoAno>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>27</CodRegistro>
+    <Descrição>1</Descrição>
+    <Inquerito>01152001</Inquerito>
+    <InqOrigem>115/2001</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <Processo>015030000259</Processo>
+    <LocalFato>Conceição da Barra</LocalFato>
+    <DataInstauracao>2001-09-03T00:00:00</DataInstauracao>
+    <DelResponsavel>Dr. Flavio A. Therezo Rodrigues</DelResponsavel>
+    <EscResponsavel>Bel. Ana Gloria D. Santos</EscResponsavel>
+    <Situacao>1</Situacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>Art. 147 - CPB</Artigo>
+    <Assunto>Ameaça</Assunto>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>28</CodRegistro>
+    <Descrição>2</Descrição>
+    <Inquerito>00352010</Inquerito>
+    <InqOrigem>035/2010</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <LocalFato>Conceição da Barra</LocalFato>
+    <DataInstauracao>2010-09-29T00:00:00</DataInstauracao>
+    <DataConclusao>2010-09-30T00:00:00</DataConclusao>
+    <DelResponsavel>Dr. Carlos Cesar Silva</DelResponsavel>
+    <EscResponsavel>Bel Cloves Ribeiro do Nascimento</EscResponsavel>
+    <Situacao>3</Situacao>
+    <Observacao>Encaminhado ao fórum, sem anexos.</Observacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>art. 129 - CPB</Artigo>
+    <Assunto>Lesão corporal</Assunto>
+    <FatoDia>25</FatoDia>
+    <FatoMes>9</FatoMes>
+    <FatoAno>2010</FatoAno>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>29</CodRegistro>
+    <Descrição>2</Descrição>
+    <Inquerito>00362010</Inquerito>
+    <InqOrigem>036/2010</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <LocalFato>Conceição da Barra</LocalFato>
+    <DataInstauracao>2010-06-30T00:00:00</DataInstauracao>
+    <DataConclusao>2010-09-30T00:00:00</DataConclusao>
+    <DelResponsavel>Dr. Carlos Cesar Silva</DelResponsavel>
+    <EscResponsavel>Bel Cloves Ribeiro do Nascimento</EscResponsavel>
+    <Situacao>3</Situacao>
+    <Observacao>Ao forum sem anexos</Observacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>Art. 147 - CPB</Artigo>
+    <Assunto>Ameaça</Assunto>
+    <FatoDia>27</FatoDia>
+    <FatoMes>6</FatoMes>
+    <FatoAno>2010</FatoAno>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>30</CodRegistro>
+    <Descrição>2</Descrição>
+    <Inquerito>00342010</Inquerito>
+    <InqOrigem>034/2010</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <LocalFato>Conceição da Barra</LocalFato>
+    <DataInstauracao>2010-09-23T00:00:00</DataInstauracao>
+    <DataConclusao>2010-10-01T00:00:00</DataConclusao>
+    <DelResponsavel>Dr. Carlos Cesar Silva</DelResponsavel>
+    <EscResponsavel>Bel Cloves Ribeiro do Nascimento</EscResponsavel>
+    <Situacao>3</Situacao>
+    <Observacao>Ao forum sem anexos.</Observacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>Art. 147 - CPB</Artigo>
+    <Assunto>Ameaça</Assunto>
+    <FatoDia>16</FatoDia>
+    <FatoMes>9</FatoMes>
+    <FatoAno>2010</FatoAno>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>31</CodRegistro>
+    <Descrição>4</Descrição>
+    <Inquerito>00912010</Inquerito>
+    <InqOrigem>091/2010</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <LocalFato>Favica - C. Barra</LocalFato>
+    <DataInstauracao>2010-08-30T00:00:00</DataInstauracao>
+    <DataVencimento>2010-09-28T00:00:00</DataVencimento>
+    <DataConclusao>2010-10-01T00:00:00</DataConclusao>
+    <DelResponsavel>Dr. Carlos Cesar Silva</DelResponsavel>
+    <EscResponsavel>Bel Cloves Ribeiro do Nascimento</EscResponsavel>
+    <Situacao>3</Situacao>
+    <Observacao>Ao forum com anexos e relatado</Observacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>art. 33 da Lei n°. 11.343/06</Artigo>
+    <Assunto>Tráfico de drogas</Assunto>
+    <FatoDia>28</FatoDia>
+    <FatoMes>8</FatoMes>
+    <FatoAno>2010</FatoAno>
+    <Conclusao>1</Conclusao>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>32</CodRegistro>
+    <Descrição>2</Descrição>
+    <Inquerito>00372010</Inquerito>
+    <InqOrigem>037/2010</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <LocalFato>Marcílio Dias I - C. da Barra</LocalFato>
+    <DataInstauracao>2010-10-01T00:00:00</DataInstauracao>
+    <DataConclusao>2010-10-01T00:00:00</DataConclusao>
+    <DelResponsavel>Dr. Carlos Cesar Silva</DelResponsavel>
+    <EscResponsavel>Bel Cloves Ribeiro do Nascimento</EscResponsavel>
+    <Situacao>3</Situacao>
+    <Observacao>Ao forum sem anexos.</Observacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>Art. 129, caput- CPB</Artigo>
+    <Assunto>Lesão corporal</Assunto>
+    <FatoDia>30</FatoDia>
+    <FatoMes>9</FatoMes>
+    <FatoAno>2010</FatoAno>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>33</CodRegistro>
+    <Descrição>1</Descrição>
+    <Inquerito>01242010</Inquerito>
+    <InqOrigem>124/2010</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <LocalFato>Braço do Rio - C. da Barra</LocalFato>
+    <DataInstauracao>2009-03-04T00:00:00</DataInstauracao>
+    <DataConclusao>2009-10-01T00:00:00</DataConclusao>
+    <DelResponsavel>Dr. Paulo Roberto Amaral</DelResponsavel>
+    <EscResponsavel>Bel. Gustavo H. da Silva Andrade</EscResponsavel>
+    <Situacao>3</Situacao>
+    <Observacao>Ao forum relatado, sem anexos</Observacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>Art. 157, §2°, inc. I e II - CPB</Artigo>
+    <Assunto>Roubo</Assunto>
+    <FatoDia>2</FatoDia>
+    <FatoMes>3</FatoMes>
+    <FatoAno>2009</FatoAno>
+    <Conclusao>1</Conclusao>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>34</CodRegistro>
+    <Descrição>1</Descrição>
+    <Inquerito>01162009</Inquerito>
+    <InqOrigem>116/2009</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <LocalFato>Cobraice - C. da Barra</LocalFato>
+    <DataInstauracao>2009-04-29T00:00:00</DataInstauracao>
+    <DataConclusao>2010-10-01T00:00:00</DataConclusao>
+    <DelResponsavel>Dr. Paulo Roberto Amaral</DelResponsavel>
+    <EscResponsavel>Bel. Gustavo H. da Silva Andrade</EscResponsavel>
+    <Situacao>3</Situacao>
+    <Observacao>Ao forum relatado, sem anexos</Observacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>Art. 157, §2°, inc. I e II - CPB</Artigo>
+    <Assunto>Roubo</Assunto>
+    <FatoDia>28</FatoDia>
+    <FatoMes>4</FatoMes>
+    <FatoAno>2009</FatoAno>
+    <Conclusao>1</Conclusao>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>35</CodRegistro>
+    <Descrição>1</Descrição>
+    <Inquerito>01052010</Inquerito>
+    <InqOrigem>105/2010</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <LocalFato>Areial - C. da Barra</LocalFato>
+    <DataInstauracao>2010-09-30T00:00:00</DataInstauracao>
+    <DataVencimento>2010-10-30T00:00:00</DataVencimento>
+    <DataConclusao>2010-10-03T00:00:00</DataConclusao>
+    <DelResponsavel>Dr. Carlos Cesar Silva</DelResponsavel>
+    <EscResponsavel>Bel Cloves Ribeiro do Nascimento</EscResponsavel>
+    <Situacao>3</Situacao>
+    <Observacao>Ao forum relatado, com anexo (arma)</Observacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>art. 12 - Lein°. 10826/03</Artigo>
+    <Assunto>Posse de arma de fogo</Assunto>
+    <FatoDia>13</FatoDia>
+    <FatoMes>6</FatoMes>
+    <FatoAno>2010</FatoAno>
+    <Conclusao>1</Conclusao>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>36</CodRegistro>
+    <Descrição>2</Descrição>
+    <Inquerito>00382010</Inquerito>
+    <InqOrigem>035/2010</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <LocalFato>Braço do Rio - C. da Barra</LocalFato>
+    <DataInstauracao>2010-09-25T00:00:00</DataInstauracao>
+    <DataConclusao>2010-10-04T00:00:00</DataConclusao>
+    <EscResponsavel>Bel. Paulo Roberto Akisaski</EscResponsavel>
+    <Situacao>3</Situacao>
+    <Observacao>Ao forum sem anexos.</Observacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>art. 129 e 331 - CPB</Artigo>
+    <Assunto>Lesão corporal e Desacato</Assunto>
+    <FatoDia>25</FatoDia>
+    <FatoMes>9</FatoMes>
+    <FatoAno>2010</FatoAno>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>37</CodRegistro>
+    <Descrição>2</Descrição>
+    <Inquerito>00392010</Inquerito>
+    <InqOrigem>039/2010</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <LocalFato>Urbes - C. da Barra</LocalFato>
+    <DataInstauracao>2010-10-01T00:00:00</DataInstauracao>
+    <DataConclusao>2010-10-03T00:00:00</DataConclusao>
+    <DelResponsavel>Dr. Carlos Cesar Silva</DelResponsavel>
+    <EscResponsavel>Bel Cloves Ribeiro do Nascimento</EscResponsavel>
+    <Situacao>3</Situacao>
+    <Observacao>Ao forum sem anexos</Observacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>art. 28 - Lei n°. 11.343/03</Artigo>
+    <Assunto>Uso de drogas</Assunto>
+    <FatoDia>14</FatoDia>
+    <FatoMes>2</FatoMes>
+    <FatoAno>2010</FatoAno>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>38</CodRegistro>
+    <Descrição>1</Descrição>
+    <Inquerito>00592010</Inquerito>
+    <InqOrigem>059/2010</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <Processo>015100009602</Processo>
+    <LocalFato>Centro - C. da Barra</LocalFato>
+    <DataInstauracao>2010-05-17T00:00:00</DataInstauracao>
+    <DelResponsavel>Dr. Carlos Cesar Silva</DelResponsavel>
+    <EscResponsavel>Bel Cloves Ribeiro do Nascimento</EscResponsavel>
+    <Situacao>1</Situacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>art. 157 - CPB</Artigo>
+    <Assunto>Roubo</Assunto>
+    <FatoDia>17</FatoDia>
+    <FatoMes>5</FatoMes>
+    <FatoAno>2010</FatoAno>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>40</CodRegistro>
+    <Descrição>1</Descrição>
+    <Inquerito>02552009</Inquerito>
+    <InqOrigem>255/2009</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <Processo>015100009735</Processo>
+    <LocalFato>São José - C. da Barra</LocalFato>
+    <DataInstauracao>2009-11-30T00:00:00</DataInstauracao>
+    <DelResponsavel>Dr. Carlos Cesar Silva</DelResponsavel>
+    <EscResponsavel>Bel Cloves Ribeiro do Nascimento</EscResponsavel>
+    <Situacao>1</Situacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>art. 121 - CPB</Artigo>
+    <Assunto>Homicídio</Assunto>
+    <FatoDia>30</FatoDia>
+    <FatoMes>11</FatoMes>
+    <FatoAno>2009</FatoAno>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>41</CodRegistro>
+    <Descrição>1</Descrição>
+    <Inquerito>003810</Inquerito>
+    <InqOrigem>038/2010</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <Processo>01510000966</Processo>
+    <LocalFato>Linharinho - C. da Barra</LocalFato>
+    <DataInstauracao>2010-03-11T00:00:00</DataInstauracao>
+    <DelResponsavel>Dr. Carlos Cesar Silva</DelResponsavel>
+    <EscResponsavel>Bel Cloves Ribeiro do Nascimento</EscResponsavel>
+    <Situacao>1</Situacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>art. 121 - CPB</Artigo>
+    <Assunto>Homicídio</Assunto>
+    <FatoDia>11</FatoDia>
+    <FatoMes>3</FatoMes>
+    <FatoAno>2010</FatoAno>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>42</CodRegistro>
+    <Descrição>1</Descrição>
+    <Inquerito>00422010</Inquerito>
+    <InqOrigem>042/2010</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <Processo>015100009685</Processo>
+    <LocalFato>Centro - C. da Barra</LocalFato>
+    <DataInstauracao>2010-03-18T00:00:00</DataInstauracao>
+    <DelResponsavel>Dr. Carlos Cesar Silva</DelResponsavel>
+    <EscResponsavel>Bel Cloves Ribeiro do Nascimento</EscResponsavel>
+    <Situacao>1</Situacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>art. 121 - CPB</Artigo>
+    <Assunto>Homicídio</Assunto>
+    <FatoDia>18</FatoDia>
+    <FatoMes>3</FatoMes>
+    <FatoAno>2010</FatoAno>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>43</CodRegistro>
+    <Descrição>1</Descrição>
+    <Inquerito>02282009</Inquerito>
+    <InqOrigem>228/2009</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <Processo>015100009537</Processo>
+    <LocalFato>Centro - C. da Barra</LocalFato>
+    <DataInstauracao>2009-09-22T00:00:00</DataInstauracao>
+    <DataVencimento>2009-09-22T00:00:00</DataVencimento>
+    <DelResponsavel>Dr. Carlos Cesar Silva</DelResponsavel>
+    <EscResponsavel>Bel Cloves Ribeiro do Nascimento</EscResponsavel>
+    <Situacao>1</Situacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>art. 129 - CPB c/c Lei n°. 11340/06</Artigo>
+    <Assunto>Lesão corporal</Assunto>
+    <FatoDia>11</FatoDia>
+    <FatoMes>9</FatoMes>
+    <FatoAno>2009</FatoAno>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>44</CodRegistro>
+    <Descrição>1</Descrição>
+    <Inquerito>003610</Inquerito>
+    <InqOrigem>036/2010</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <Processo>015100009677</Processo>
+    <LocalFato>Cohab II - C. da Barra</LocalFato>
+    <DataInstauracao>2010-02-20T00:00:00</DataInstauracao>
+    <DelResponsavel>Dr. Carlos Cesar Silva</DelResponsavel>
+    <EscResponsavel>Bel Cloves Ribeiro do Nascimento</EscResponsavel>
+    <Situacao>1</Situacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>art. 121 - CPB</Artigo>
+    <Assunto>Homicídio</Assunto>
+    <FatoDia>20</FatoDia>
+    <FatoMes>2</FatoMes>
+    <FatoAno>2010</FatoAno>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>45</CodRegistro>
+    <Descrição>1</Descrição>
+    <Inquerito>00552010</Inquerito>
+    <InqOrigem>55/2010</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <Processo>015100009701</Processo>
+    <LocalFato>Conceição da Barra</LocalFato>
+    <DataInstauracao>2010-03-30T00:00:00</DataInstauracao>
+    <DelResponsavel>Dr. Carlos Cesar Silva</DelResponsavel>
+    <EscResponsavel>Bel Cloves Ribeiro do Nascimento</EscResponsavel>
+    <Situacao>1</Situacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>art. 121 - CPB</Artigo>
+    <Assunto>Homicídio</Assunto>
+    <FatoDia>19</FatoDia>
+    <FatoMes>3</FatoMes>
+    <FatoAno>2010</FatoAno>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>46</CodRegistro>
+    <Descrição>1</Descrição>
+    <Inquerito>00472010</Inquerito>
+    <InqOrigem>047/2010</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <Processo>015100009750</Processo>
+    <LocalFato>Antonio Lopes - C. da Barra</LocalFato>
+    <DataInstauracao>2010-01-12T00:00:00</DataInstauracao>
+    <DelResponsavel>Dr. Carlos Cesar Silva</DelResponsavel>
+    <EscResponsavel>Bel Cloves Ribeiro do Nascimento</EscResponsavel>
+    <Situacao>1</Situacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>art. 121 - CPB</Artigo>
+    <Assunto>Homicídio</Assunto>
+    <FatoDia>12</FatoDia>
+    <FatoMes>1</FatoMes>
+    <FatoAno>2010</FatoAno>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>47</CodRegistro>
+    <Descrição>1</Descrição>
+    <Inquerito>003310</Inquerito>
+    <InqOrigem>033/2010</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <Processo>015100009727</Processo>
+    <LocalFato>Sayonara - C. da Barra</LocalFato>
+    <DataInstauracao>2010-02-07T00:00:00</DataInstauracao>
+    <DelResponsavel>Dr. Carlos Cesar Silva</DelResponsavel>
+    <EscResponsavel>Bel Cloves Ribeiro do Nascimento</EscResponsavel>
+    <Situacao>1</Situacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>Art. 302 - CTB</Artigo>
+    <Assunto>Homicídio culposo no trânsito</Assunto>
+    <FatoDia>7</FatoDia>
+    <FatoMes>2</FatoMes>
+    <FatoAno>2010</FatoAno>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>48</CodRegistro>
+    <Descrição>1</Descrição>
+    <Inquerito>02662009</Inquerito>
+    <InqOrigem>266/2009</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <Processo>015100009529</Processo>
+    <LocalFato>Córrego Angelim - C. da Barra</LocalFato>
+    <DataInstauracao>2009-12-30T00:00:00</DataInstauracao>
+    <DelResponsavel>Dr. Carlos Cesar Silva</DelResponsavel>
+    <EscResponsavel>Bel Cloves Ribeiro do Nascimento</EscResponsavel>
+    <Situacao>1</Situacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>art. 12 - Lein°. 10826/03</Artigo>
+    <Assunto>Posse de arma de fogo</Assunto>
+    <FatoDia>10</FatoDia>
+    <FatoMes>12</FatoMes>
+    <FatoAno>2009</FatoAno>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>49</CodRegistro>
+    <Descrição>1</Descrição>
+    <Inquerito>00332001</Inquerito>
+    <InqOrigem>033/2001</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <Processo>015030000598</Processo>
+    <LocalFato>Conceição da Barra</LocalFato>
+    <DataInstauracao>2001-03-06T00:00:00</DataInstauracao>
+    <DelResponsavel>Dr.  José Augusto</DelResponsavel>
+    <EscResponsavel>Bel. José Carlos de Oliveira</EscResponsavel>
+    <Situacao>1</Situacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>art. 297 - CPB</Artigo>
+    <Assunto>Falsidade de documento público</Assunto>
+    <FatoDia>20</FatoDia>
+    <FatoMes>2</FatoMes>
+    <FatoAno>2001</FatoAno>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>50</CodRegistro>
+    <Descrição>1</Descrição>
+    <Inquerito>00191999</Inquerito>
+    <InqOrigem>019/2009</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <Processo>015030002222</Processo>
+    <LocalFato>Itaúnas - C. da Barra</LocalFato>
+    <DataInstauracao>1999-03-10T00:00:00</DataInstauracao>
+    <DelResponsavel>Dr.  Vladimir Salles</DelResponsavel>
+    <EscResponsavel>Bel Ana Gloria Duarte Santos</EscResponsavel>
+    <Situacao>1</Situacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>art. 121 - CPB</Artigo>
+    <Assunto>Homicídio</Assunto>
+    <FatoDia>10</FatoDia>
+    <FatoMes>3</FatoMes>
+    <FatoAno>1999</FatoAno>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>51</CodRegistro>
+    <Descrição>1</Descrição>
+    <Inquerito>00991988</Inquerito>
+    <InqOrigem>099/1998</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <Processo>015030001000</Processo>
+    <LocalFato>Braço do Rio - C. da Barra</LocalFato>
+    <DataInstauracao>1998-09-11T00:00:00</DataInstauracao>
+    <DelResponsavel>Dr. Djalma Pereira Lemos</DelResponsavel>
+    <EscResponsavel>Bel. Ana Gloria D. Santos</EscResponsavel>
+    <Situacao>1</Situacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>art. 121 - CPB</Artigo>
+    <Assunto>Homicídio</Assunto>
+    <FatoDia>11</FatoDia>
+    <FatoMes>9</FatoMes>
+    <FatoAno>1998</FatoAno>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>52</CodRegistro>
+    <Descrição>1</Descrição>
+    <Inquerito>00652000</Inquerito>
+    <InqOrigem>065/2000</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <Processo>015030002313</Processo>
+    <LocalFato>São Thiago - C. da Barra</LocalFato>
+    <DataInstauracao>2000-09-04T00:00:00</DataInstauracao>
+    <EscResponsavel>Bel. Paulo Roberto Akisaski</EscResponsavel>
+    <Situacao>1</Situacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>art. 171 - CPB</Artigo>
+    <Assunto>Estelionato</Assunto>
+    <FatoDia>4</FatoDia>
+    <FatoMes>9</FatoMes>
+    <FatoAno>2000</FatoAno>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>53</CodRegistro>
+    <Descrição>1</Descrição>
+    <Inquerito>00552000</Inquerito>
+    <InqOrigem>055/2000</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <Processo>015000000578</Processo>
+    <LocalFato>Cobraice - C. da Barra</LocalFato>
+    <DataInstauracao>2000-09-09T00:00:00</DataInstauracao>
+    <DelResponsavel>Dr. Alexandre de Toledo</DelResponsavel>
+    <EscResponsavel>Bel. Paulo Roberto Akisaski</EscResponsavel>
+    <Situacao>1</Situacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>art. 121 - CPB</Artigo>
+    <Assunto>Homicídio</Assunto>
+    <FatoDia>1</FatoDia>
+    <FatoMes>9</FatoMes>
+    <FatoAno>2000</FatoAno>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>54</CodRegistro>
+    <Descrição>1</Descrição>
+    <Inquerito>01282009</Inquerito>
+    <InqOrigem>128/2009</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <Processo>015096005242</Processo>
+    <LocalFato>Nova Betânia - C. da Barra</LocalFato>
+    <DataInstauracao>2009-04-10T00:00:00</DataInstauracao>
+    <DelResponsavel>Dr. Paulo Roberto Amaral</DelResponsavel>
+    <EscResponsavel>Bel Gustavo Henrique da Silva Andrade</EscResponsavel>
+    <Situacao>1</Situacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>art. 12 - Lein°. 10826/03</Artigo>
+    <Assunto>Posse de arma de fogo</Assunto>
+    <FatoDia>9</FatoDia>
+    <FatoMes>4</FatoMes>
+    <FatoAno>2009</FatoAno>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>55</CodRegistro>
+    <Descrição>1</Descrição>
+    <Inquerito>00622010</Inquerito>
+    <InqOrigem>062/2010</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <Processo>015100009768</Processo>
+    <LocalFato>Maria Manteiga - C. da Barra</LocalFato>
+    <DataInstauracao>2010-07-06T00:00:00</DataInstauracao>
+    <DelResponsavel>Dr. Carlos Cesar Silva</DelResponsavel>
+    <EscResponsavel>Bel Cloves Ribeiro do Nascimento</EscResponsavel>
+    <Situacao>1</Situacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>art. 147 c/c Lei n°. 11.340/06</Artigo>
+    <Assunto>Ameaça</Assunto>
+    <FatoDia>4</FatoDia>
+    <FatoMes>7</FatoMes>
+    <FatoAno>2010</FatoAno>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>56</CodRegistro>
+    <Descrição>1</Descrição>
+    <Inquerito>00372009</Inquerito>
+    <InqOrigem>037/2009</InqOrigem>
+    <Id_Municipio>1685</Id_Municipio>
+    <Processo>015096002314</Processo>
+    <LocalFato>Centro - C. da Barra</LocalFato>
+    <DataInstauracao>2009-02-16T00:00:00</DataInstauracao>
+    <DelResponsavel>Dr. Roberto Fanti</DelResponsavel>
+    <EscResponsavel>Bel Gustavo Henrique da Silva Andrade</EscResponsavel>
+    <Situacao>1</Situacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>art. 168 - CPB</Artigo>
+    <Assunto>Apropriação Indébita</Assunto>
+    <FatoDia>15</FatoDia>
+    <FatoMes>12</FatoMes>
+    <FatoAno>2008</FatoAno>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>57</CodRegistro>
+    <Descrição>1</Descrição>
+    <Inquerito>00092010</Inquerito>
+    <InqOrigem>09/2010</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <Processo>015100003936</Processo>
+    <LocalFato>Braço do Rio - C. da Barra</LocalFato>
+    <DataInstauracao>2010-03-09T00:00:00</DataInstauracao>
+    <DelResponsavel>Dr. Carlos Cesar Silva</DelResponsavel>
+    <EscResponsavel>Bel Cloves Ribeiro do Nascimento</EscResponsavel>
+    <Situacao>1</Situacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>art. 129 - CPB</Artigo>
+    <Assunto>Lesão corporal</Assunto>
+    <FatoDia>7</FatoDia>
+    <FatoMes>3</FatoMes>
+    <FatoAno>2010</FatoAno>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>58</CodRegistro>
+    <Descrição>1</Descrição>
+    <Inquerito>01172009</Inquerito>
+    <InqOrigem>117/2009</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <Processo>015100010345</Processo>
+    <LocalFato>Pontal Sul- C. da Barra</LocalFato>
+    <DataInstauracao>2009-05-06T00:00:00</DataInstauracao>
+    <DelResponsavel>Dr. Paulo Roberto Amaral</DelResponsavel>
+    <EscResponsavel>Bel. Gustavo H. da Silva Andrade</EscResponsavel>
+    <Situacao>1</Situacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>art. 122 - CPB</Artigo>
+    <Assunto>Suicídio</Assunto>
+    <FatoDia>5</FatoDia>
+    <FatoMes>5</FatoMes>
+    <FatoAno>2009</FatoAno>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>59</CodRegistro>
+    <Descrição>1</Descrição>
+    <Inquerito>01982009</Inquerito>
+    <InqOrigem>19/2009</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <Processo>015096005077</Processo>
+    <LocalFato>Centro - C. da Barra</LocalFato>
+    <DataInstauracao>2009-04-08T00:00:00</DataInstauracao>
+    <DelResponsavel>Dr. Paulo Roberto Amaral</DelResponsavel>
+    <EscResponsavel>Bel. Gustavo H. da Silva Andrade</EscResponsavel>
+    <Situacao>1</Situacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>art. 241B - ECA</Artigo>
+    <Assunto>Pedofilia</Assunto>
+    <FatoDia>8</FatoDia>
+    <FatoMes>4</FatoMes>
+    <FatoAno>2009</FatoAno>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>60</CodRegistro>
+    <Descrição>4</Descrição>
+    <Inquerito>01032010</Inquerito>
+    <InqOrigem>103/2010</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <LocalFato>Nova Barra - C. da Barra</LocalFato>
+    <DataInstauracao>2010-09-28T00:00:00</DataInstauracao>
+    <DataConclusao>2010-10-13T00:00:00</DataConclusao>
+    <DelResponsavel>Dr. Carlos Cesar Silva</DelResponsavel>
+    <EscResponsavel>Bel Cloves Ribeiro do Nascimento</EscResponsavel>
+    <Situacao>3</Situacao>
+    <Observacao>Ao forum, sem anexos.</Observacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>art. 155 - CPB</Artigo>
+    <Assunto>Furto</Assunto>
+    <FatoDia>28</FatoDia>
+    <FatoMes>9</FatoMes>
+    <FatoAno>2010</FatoAno>
+    <Conclusao>1</Conclusao>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>61</CodRegistro>
+    <Descrição>1</Descrição>
+    <Inquerito>01022010</Inquerito>
+    <InqOrigem>102/2010</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <LocalFato>Santo Amaro - C. da Barra</LocalFato>
+    <DataInstauracao>2010-09-27T00:00:00</DataInstauracao>
+    <DataConclusao>2010-10-15T00:00:00</DataConclusao>
+    <DelResponsavel>Dr. Carlos Cesar Silva</DelResponsavel>
+    <EscResponsavel>Bel Cloves Ribeiro do Nascimento</EscResponsavel>
+    <Situacao>3</Situacao>
+    <Observacao>Ao forum sem anexos</Observacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>art. 147 c/c Lei n°. 11.340/06</Artigo>
+    <Assunto>Ameaça</Assunto>
+    <FatoDia>27</FatoDia>
+    <FatoMes>9</FatoMes>
+    <FatoAno>2010</FatoAno>
+    <Conclusao>1</Conclusao>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>62</CodRegistro>
+    <Descrição>1</Descrição>
+    <Inquerito>02542009</Inquerito>
+    <InqOrigem>254/2009</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <LocalFato>Favica - C. da Barra</LocalFato>
+    <DataInstauracao>2009-10-07T00:00:00</DataInstauracao>
+    <DataConclusao>2010-10-14T00:00:00</DataConclusao>
+    <DelResponsavel>Dr. Carlos Cesar Silva</DelResponsavel>
+    <EscResponsavel>Bel Cloves Ribeiro do Nascimento</EscResponsavel>
+    <Situacao>3</Situacao>
+    <Observacao>Ao forum sem anexos, relatado. Está registrado como infração ao art. 157, todavia, foi o autor indiciado pelo art. 163, exclusivamente.</Observacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>art. 163 - CPB</Artigo>
+    <Assunto>Dano</Assunto>
+    <FatoDia>7</FatoDia>
+    <FatoMes>10</FatoMes>
+    <FatoAno>2009</FatoAno>
+    <Conclusao>1</Conclusao>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>63</CodRegistro>
+    <Descrição>4</Descrição>
+    <Inquerito>01072010</Inquerito>
+    <InqOrigem>107/2010</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <LocalFato>Centro - C. da Barra</LocalFato>
+    <DataInstauracao>2010-10-15T00:00:00</DataInstauracao>
+    <DataConclusao>2010-10-21T00:00:00</DataConclusao>
+    <DelResponsavel>Dr. Carlos Cesar Silva</DelResponsavel>
+    <EscResponsavel>Bel Cloves Ribeiro do Nascimento</EscResponsavel>
+    <Situacao>3</Situacao>
+    <Observacao>Ao forum relatado, sem anexos.</Observacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>art. 155 - CPB</Artigo>
+    <Assunto>Furto</Assunto>
+    <FatoDia>15</FatoDia>
+    <FatoMes>10</FatoMes>
+    <FatoAno>2010</FatoAno>
+    <Conclusao>1</Conclusao>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>64</CodRegistro>
+    <Descrição>4</Descrição>
+    <Inquerito>01062010</Inquerito>
+    <InqOrigem>106/2010</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <LocalFato>Centro - C. da Barra</LocalFato>
+    <DataInstauracao>2010-10-04T00:00:00</DataInstauracao>
+    <DataConclusao>2010-10-21T00:00:00</DataConclusao>
+    <DelResponsavel>Dr. Carlos Cesar Silva</DelResponsavel>
+    <EscResponsavel>Bel Cloves Ribeiro do Nascimento</EscResponsavel>
+    <Situacao>3</Situacao>
+    <Observacao>Ao forum, com fiança de R$ 850,00, relatado.</Observacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>art. 129, §9° CPB c/c Lei 11340/06</Artigo>
+    <Assunto>Lesão corporal</Assunto>
+    <FatoDia>2</FatoDia>
+    <FatoMes>10</FatoMes>
+    <FatoAno>2010</FatoAno>
+    <Conclusao>1</Conclusao>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>65</CodRegistro>
+    <Descrição>1</Descrição>
+    <Inquerito>01492009</Inquerito>
+    <InqOrigem>149/09</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <LocalFato>Centro - C da Barra</LocalFato>
+    <DataInstauracao>2009-06-16T00:00:00</DataInstauracao>
+    <DelResponsavel>Dr. Paulo Roberto Amaral</DelResponsavel>
+    <EscResponsavel>Bel Gustavo Henrique da Silva Andrade</EscResponsavel>
+    <Situacao>4</Situacao>
+    <Observacao>Ao MPES, não relatado, sem anexos</Observacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>art. 121 c/c art. 14, II e art. 157</Artigo>
+    <Assunto>Tentativa de homicídio e roubo</Assunto>
+    <FatoDia>15</FatoDia>
+    <FatoMes>6</FatoMes>
+    <FatoAno>2009</FatoAno>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>66</CodRegistro>
+    <Descrição>1</Descrição>
+    <Inquerito>01122010</Inquerito>
+    <InqOrigem>112/2010</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <LocalFato>Centro - C. da Barra</LocalFato>
+    <DataInstauracao>2010-10-13T00:00:00</DataInstauracao>
+    <DelResponsavel>Dr. Carlos Cesar Silva</DelResponsavel>
+    <EscResponsavel>Bel Cloves Ribeiro do Nascimento</EscResponsavel>
+    <Situacao>4</Situacao>
+    <Observacao>Ao MPES, Of/MP.PJCCB/n° 183/2010</Observacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>art. 297 - CPB</Artigo>
+    <Assunto>Falsidade de documento público</Assunto>
+    <FatoDia>10</FatoDia>
+    <FatoMes>10</FatoMes>
+    <FatoAno>2010</FatoAno>
+  </Inquerito>
+  <Inquerito>
+    <CodRegistro>67</CodRegistro>
+    <Descrição>4</Descrição>
+    <Inquerito>01132010</Inquerito>
+    <InqOrigem>113/2010</InqOrigem>
+    <CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+    <Id_Municipio>1685</Id_Municipio>
+    <LocalFato>Braço do Rio - C. da Barra</LocalFato>
+    <DataInstauracao>2010-10-16T00:00:00</DataInstauracao>
+    <DataConclusao>2010-10-28T00:00:00</DataConclusao>
+    <DelResponsavel>Dr. Carlos Cesar Silva</DelResponsavel>
+    <EscResponsavel>Bel Cloves Ribeiro do Nascimento</EscResponsavel>
+    <Situacao>3</Situacao>
+    <Observacao>Ao forum, relatado com anexos.</Observacao>
+    <Cancelado>0</Cancelado>
+    <Artigo>art. 14 - Lei n° 10826/03</Artigo>
+    <Assunto>Porte ilegal de arma de fogo</Assunto>
+    <FatoDia>16</FatoDia>
+    <FatoMes>10</FatoMes>
+    <FatoAno>2010</FatoAno>
+    <Conclusao>1</Conclusao>
+  </Inquerito>
+</dataroot>

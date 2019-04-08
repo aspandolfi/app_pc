@@ -29,8 +29,7 @@ namespace ControleBO.Infra.Data.MapConfig
 
             builder.Property(x => x.CodigoCargoQO)
                 .HasColumnType("varchar")
-                .HasMaxLength(50)
-                .IsRequired();
+                .HasMaxLength(50);
         }
     }
 }

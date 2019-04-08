@@ -18,31 +18,55 @@ namespace ControleBO.Domain.Validations
                 .EmailAddress().WithMessage("O e-mail informado não é válido.");
         }
 
-        protected void ValidatePessoa()
+        protected void ValidateMunicipio()
         {
-            When(x => x.PessoaCommand != null, PessoaValidator);
+            RuleFor(x => x.MunicipioId)
+                .GreaterThan(0).WithMessage("Por favor verifique se o município existe no sistema.");
         }
 
-        private void PessoaValidator()
+        protected void ValidateNome()
         {
-            RuleFor(x => x.PessoaCommand.Nome)
+            RuleFor(x => x.Nome)
+                .NotEmpty().WithMessage("Por favor tenha certeza que você inseriu o Apelido.")
                 .Length(2, 200).WithMessage("O nome deve ter entre 2 e 200 caracteres.");
+        }
 
-            RuleFor(x => x.PessoaCommand.NomeMae)
+        protected void ValidateNomeMae()
+        {
+            When(x => !string.IsNullOrEmpty(x.NomeMae), NomeMaeValidator);
+        }
+
+        private void NomeMaeValidator()
+        {
+            RuleFor(x => x.NomeMae)
                 .Length(2, 200).WithMessage("O nome da Mãe deve ter entre 2 e 200 caracteres.");
+        }
 
-            RuleFor(x => x.PessoaCommand.NomePai)
+        protected void ValidateNomePai()
+        {
+            When(x => !string.IsNullOrEmpty(x.NomePai), NomePaiValidator);
+        }
+
+        private void NomePaiValidator()
+        {
+            RuleFor(x => x.NomePai)
                 .Length(2, 200).WithMessage("O nome do Pai deve ter entre 2 e 200 caracteres.");
+        }
 
-            When(x => x.PessoaCommand.DataNascimento.HasValue, () =>
+        protected void ValidateDataNascimento()
+        {
+            When(x => x.DataNascimento.HasValue, () =>
             {
-                RuleFor(x => x.PessoaCommand.DataNascimento)
-                .GreaterThan(new DateTime(1920, 1, 1))
-                .LessThan(DateTime.Now);
+                RuleFor(x => x.DataNascimento)
+                .GreaterThan(new DateTime(1920, 1, 1)).WithMessage("A data de nascimento está incorreta.")
+                .LessThan(DateTime.Now).WithMessage("A data de nascimento deve ser menor que hoje.");
             });
+        }
 
-            RuleFor(x => x.PessoaCommand.Telefone)
-                .MaximumLength(15);
+        protected void ValidateTelefone()
+        {
+            RuleFor(x => x.Telefone)
+                .MaximumLength(15).WithMessage("O número de telefone deve ter no máximo 15 caracteres.");
         }
     }
 }

@@ -9,7 +9,8 @@ namespace ControleBO.Domain.Models
             Descricao = descricao;
         }
 
-        public VaraCriminal(int id, string descricao) : this(descricao)
+        public VaraCriminal(int id, string descricao)
+            : this(descricao)
         {
             Id = id;
         }

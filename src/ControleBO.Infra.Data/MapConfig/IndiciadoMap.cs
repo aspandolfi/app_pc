@@ -16,11 +16,6 @@ namespace ControleBO.Infra.Data.MapConfig
                 .HasColumnType("varchar")
                 .HasMaxLength(100);
 
-            builder.HasOne(x => x.Pessoa)
-                .WithOne()
-                .HasPrincipalKey<Pessoa>()
-                .IsRequired();
-
             builder.HasOne(x => x.Procedimento)
                 .WithMany(y => y.Autores)
                 .IsRequired();

@@ -11,6 +11,12 @@ namespace ControleBO.Domain.Models
             Procedimento = procedimento;
         }
 
+        public ObjetoApreendido(int id, string descricao, string local, Procedimento procedimento)
+            : this(descricao, local, procedimento)
+        {
+            Id = id;
+        }
+
         protected ObjetoApreendido() { }
 
         public string Descricao { get; set; }

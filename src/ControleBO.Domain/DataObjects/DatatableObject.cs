@@ -7,11 +7,11 @@ namespace ControleBO.Domain.DataObjects
         public DatatableObject()
         {
             Headers = new List<DatatableHeaderTitle>();
-            DataSet = new List<List<string>>();
+            DataSet = new List<List<object>>();
         }
 
         public IList<DatatableHeaderTitle> Headers { get; }
-        public IList<List<string>> DataSet { get; }
+        public IList<List<object>> DataSet { get; }
 
         public void AddHeader(string title)
         {
@@ -26,12 +26,12 @@ namespace ControleBO.Domain.DataObjects
             }
         }
 
-        public void AddDataSet(List<string> dataSet)
+        public void AddDataSet(List<object> dataSet)
         {
             DataSet.Add(dataSet);
         }
 
-        public void AddDataSet(List<List<string>> dataSet)
+        public void AddDataSet(List<List<object>> dataSet)
         {
             foreach (var data in dataSet)
             {

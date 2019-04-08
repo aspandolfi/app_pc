@@ -7,7 +7,13 @@ namespace ControleBO.Domain.Validations
         public UpdateVitimaCommandValidation()
         {
             ValidateEmail();
-            ValidatePessoa();
+            ValidateNome();
+            ValidateNomeMae();
+            ValidateNomePai();
+            ValidateDataNascimento();
+            ValidateTelefone();
+            ValidateMunicipio();
+            ValidateId();
         }
     }
 }

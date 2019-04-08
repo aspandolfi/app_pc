@@ -15,6 +15,8 @@ namespace ControleBO.Domain.Commands
 
         public DateTime? DataNascimento { get; protected set; }
 
+        public int? Idade { get; protected set; }
+
         public string Telefone { get; protected set; }
 
         public int MunicipioId { get; protected set; }

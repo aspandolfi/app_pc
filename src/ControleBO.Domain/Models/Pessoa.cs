@@ -3,18 +3,23 @@ using System;
 
 namespace ControleBO.Domain.Models
 {
-    public class Pessoa : Entity
+    public abstract class Pessoa : Entity
     {
-        public Pessoa(string nome, string nomePai, string nomeMae, DateTime? dataNascimento, int? idade, bool menorIdade, string telefone, Municipio naturalidade)
+        public Pessoa(string nome, string nomePai, string nomeMae, DateTime? dataNascimento, int? idade, string telefone, Municipio naturalidade)
         {
             Nome = nome;
             NomePai = nomePai;
             NomeMae = nomeMae;
             DataNascimento = dataNascimento;
             Idade = idade;
-            MenorIdade = menorIdade;
             Telefone = telefone;
             Naturalidade = naturalidade;
+        }
+
+        public Pessoa(int id, string nome, string nomePai, string nomeMae, DateTime? dataNascimento, int? idade, string telefone, Municipio naturalidade)
+            : this(nome, nomePai, nomeMae, dataNascimento, idade, telefone, naturalidade)
+        {
+            Id = id;
         }
 
         protected Pessoa() { }
@@ -29,7 +34,35 @@ namespace ControleBO.Domain.Models
 
         public int? Idade { get; set; }
 
-        public bool MenorIdade { get; set; }
+        public bool MenorIdade
+        {
+            get
+            {
+                if (DataNascimento.HasValue)
+                {
+                    return (DateTime.Now - DataNascimento).Value.TotalDays < (18 * 365);
+                }
+
+                if (Idade.HasValue)
+                {
+                    return Idade < 18;
+                }
+
+                return false;
+            }
+            set
+            {
+                if (DataNascimento.HasValue)
+                {
+                    MenorIdade = (DateTime.Now - DataNascimento).Value.TotalDays < (18 * 365);
+                }
+
+                if (Idade.HasValue)
+                {
+                    MenorIdade = Idade < 18;
+                }
+            }
+        }
 
         public string Telefone { get; set; }
 

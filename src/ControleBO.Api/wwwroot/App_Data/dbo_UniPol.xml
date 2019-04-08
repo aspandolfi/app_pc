@@ -1,0 +1,3682 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataroot xmlns:od="urn:schemas-microsoft-com:officedata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xsi:noNamespaceSchemaLocation="dbo_UniPol.xsd" generated="2019-04-06T22:43:57">
+<dbo_UniPol>
+<CodigoUniPol>ACADEPOL</CodigoUniPol>
+<Sigla>ACADEPOL</Sigla>
+<UnidadePolicial>ACADEMIA DE POLÍCIA CIVIL</UnidadePolicial>
+<CodigoChefia>9</CodigoChefia>
+<SituacaoChefia>1</SituacaoChefia>
+<Situacao>1</Situacao>
+<CodigoCargoQO>PC.DP.5</CodigoCargoQO>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>ACADEPOL.AsT</CodigoUniPol>
+<Sigla>AsT</Sigla>
+<UnidadePolicial>ASSESSORIA TÉCNICA - ACADEPOL</UnidadePolicial>
+<CodigoChefia>4</CodigoChefia>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<CodigoCargoQO>PC.DP.3</CodigoCargoQO>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>ACADEPOL.CTAP</CodigoUniPol>
+<Sigla>CTAP</Sigla>
+<UnidadePolicial>CENTRO DE TREINAMENTO E APERFEIÇOAMENTO POLICIAL</UnidadePolicial>
+<CodigoChefia>4</CodigoChefia>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<CodigoCargoQO>PC.EP</CodigoCargoQO>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>ACADEPOL.Gab</CodigoUniPol>
+<Sigla>Gab</Sigla>
+<UnidadePolicial>GABINETE DO DIRETOR</UnidadePolicial>
+<CodigoChefia>2</CodigoChefia>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<CodigoCargoQO>PC.DP.3</CodigoCargoQO>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>ACADEPOL.NAA</CodigoUniPol>
+<Sigla>NAA</Sigla>
+<UnidadePolicial>NÚCLEO DE APOIO ADMINISTRATIVO - ACADEPOL</UnidadePolicial>
+<CodigoChefia>4</CodigoChefia>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<CodigoCargoQO>PC.EP</CodigoCargoQO>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>ACADEPOL.NDG</CodigoUniPol>
+<Sigla>NDG</Sigla>
+<UnidadePolicial>NÚCLEO DE DOCUMENTAÇÃO - ACADEPOL</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>CGP</CodigoUniPol>
+<Sigla>CGP</Sigla>
+<UnidadePolicial>CORREGEDORIA GERAL DE POLÍCIA CIVIL</UnidadePolicial>
+<CodigoChefia>3</CodigoChefia>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<CodigoCargoQO>PC.DP.5</CodigoCargoQO>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>CGP Gab</CodigoUniPol>
+<Sigla>Gab</Sigla>
+<UnidadePolicial>GABINETE DO CORREGEDOR GERAL</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>CGP.DAF</CodigoUniPol>
+<Sigla>DAF</Sigla>
+<UnidadePolicial>DIVISÃO DE APOIO FUNCIONAL</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>CGP.DAF.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DAF</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>CGP.DAP</CodigoUniPol>
+<Sigla>DAP</Sigla>
+<UnidadePolicial>DIVISÃO DE ACOMPANHAMENTO PROCESSUAL</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>CGP.DAP.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DAP</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>CP</CodigoUniPol>
+<Sigla>CP</Sigla>
+<UnidadePolicial>CHEFIA DE POLÍCIA</UnidadePolicial>
+<CodigoChefia>1</CodigoChefia>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<CodigoCargoQO>PC.DP.5</CodigoCargoQO>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>CP Gab</CodigoUniPol>
+<Sigla>Gab</Sigla>
+<UnidadePolicial>GABINETE DO DELEGADO CHEFE</UnidadePolicial>
+<CodigoChefia>4</CodigoChefia>
+<SituacaoChefia>1</SituacaoChefia>
+<Situacao>1</Situacao>
+<CodigoCargoQO>PC.DP.3</CodigoCargoQO>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>CP.AsCom</CodigoUniPol>
+<Sigla>AsCom</Sigla>
+<UnidadePolicial>ASSESSORIA DE RELAÇÕES COM A COMUNIDADE</UnidadePolicial>
+<CodigoChefia>4</CodigoChefia>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<CodigoCargoQO>PC.DP.3</CodigoCargoQO>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>CP.AsI</CodigoUniPol>
+<Sigla>AsI</Sigla>
+<UnidadePolicial>ASSESSORIA DE INFORMAÇÕES</UnidadePolicial>
+<CodigoChefia>4</CodigoChefia>
+<SituacaoChefia>1</SituacaoChefia>
+<Situacao>1</Situacao>
+<CodigoCargoQO>PC.DP.2</CodigoCargoQO>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>CP.AsI.SE</CodigoUniPol>
+<Sigla>SE</Sigla>
+<UnidadePolicial>SEÇÃO DE ESTATÍSTICA</UnidadePolicial>
+<CodigoChefia>4</CodigoChefia>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<CodigoCargoQO>PC.EP</CodigoCargoQO>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>CP.AsIm</CodigoUniPol>
+<Sigla>AsIm</Sigla>
+<UnidadePolicial>ASSESSORIA DE IMPRENSA</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>CP.AsT</CodigoUniPol>
+<Sigla>AsT</Sigla>
+<UnidadePolicial>ASSESSORIA TÉCNICA - CP</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>CP.Cons</CodigoUniPol>
+<Sigla>Cons</Sigla>
+<UnidadePolicial>CONSELHO DE POLÍCIA</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>DAGe</CodigoUniPol>
+<Sigla>DAGe</Sigla>
+<UnidadePolicial>DEPARTAMENTO DE ADMINISTRAÇÃO GERAL</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>DAGe.DiAF</CodigoUniPol>
+<Sigla>DiAF</Sigla>
+<UnidadePolicial>DIVISÃO DE ADMINISTRAÇÃO E FINANÇAS</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>DAGe.DiAF.SGVP</CodigoUniPol>
+<Sigla>SGVP</Sigla>
+<UnidadePolicial>SERVIÇO DE GUARDA DE VALORES</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>DAGe.DiAF.SMZ</CodigoUniPol>
+<Sigla>SMZ</Sigla>
+<UnidadePolicial>SERVIÇO DE MATERIAL E ZELADORIA</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>DAGe.DiAF.STV</CodigoUniPol>
+<Sigla>STV</Sigla>
+<UnidadePolicial>SERVIÇO DE TRANSPORTE E VIATURAS</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>DAGe.DiTel</CodigoUniPol>
+<Sigla>DiTel</Sigla>
+<UnidadePolicial>DIVISÃO DE TELECOMUNICAÇÕES E INFORMÁTICA</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>DAGe.DiTel.SATC</CodigoUniPol>
+<Sigla>SATC</Sigla>
+<UnidadePolicial>SERVIÇO DE ASSISTÊNCIA E COMUNICAÇÃO</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>DAGe.DiTel.SerCom</CodigoUniPol>
+<Sigla>SerCom</Sigla>
+<UnidadePolicial>SERVIÇO DE RÁDIO E COMUNICAÇÃO</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>DAGe.DiTel.SInf</CodigoUniPol>
+<Sigla>SInf</Sigla>
+<UnidadePolicial>SERVIÇO DE INFORMÁTICA</UnidadePolicial>
+<CodigoChefia>4</CodigoChefia>
+<SituacaoChefia>1</SituacaoChefia>
+<Situacao>1</Situacao>
+<CodigoCargoQO>PC.IP</CodigoCargoQO>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>DAGe.DiTel.SMR</CodigoUniPol>
+<Sigla>SMR</Sigla>
+<UnidadePolicial>SERVIÇO DE MANUTENÇÃO EM RÁDIOS VHF</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>DAGe.DPS</CodigoUniPol>
+<Sigla>DPS</Sigla>
+<UnidadePolicial>DIVISÃO DE PROMOÇÃO SOCIAL</UnidadePolicial>
+<CodigoChefia>4</CodigoChefia>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<CodigoCargoQO>PC.DP.2</CodigoCargoQO>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>DAGe.DPS.SAM</CodigoUniPol>
+<Sigla>SAM</Sigla>
+<UnidadePolicial>SERVIÇO DE ASSISTÊNCIA MÉDICA</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>DAGe.DPS.SAP</CodigoUniPol>
+<Sigla>SAP</Sigla>
+<UnidadePolicial>SERVIÇO DE ASSISTÊNCIA PSICOLÓGICA</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>DAGe.DPS.SPM</CodigoUniPol>
+<Sigla>SPM</Sigla>
+<UnidadePolicial>SERVIÇO DE PERÍCIA MÉDICA</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>DAGe.DRH</CodigoUniPol>
+<Sigla>DRH</Sigla>
+<UnidadePolicial>DIVISÃO DE RECURSOS HUMANOS</UnidadePolicial>
+<CodigoChefia>4</CodigoChefia>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<CodigoCargoQO>PC.EP</CodigoCargoQO>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>DAGe.DRH.SCMP</CodigoUniPol>
+<Sigla>SCMP</Sigla>
+<UnidadePolicial>SERVIÇO DE CADASTRO E MOVIMENTAÇÃO DE PESSOAL</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>DAGe.DT</CodigoUniPol>
+<Sigla>DT</Sigla>
+<UnidadePolicial>DIVISÃO DE TRANSPORTES</UnidadePolicial>
+<CodigoChefia>4</CodigoChefia>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<CodigoCargoQO>PC.DP.3</CodigoCargoQO>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>DAGe.SPEx</CodigoUniPol>
+<Sigla>SPEx</Sigla>
+<UnidadePolicial>SERVIÇO DE PROTOCOLO E EXPEDIENTE</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE</CodigoUniPol>
+<Sigla>SPE</Sigla>
+<UnidadePolicial>SUPERINTENDENCIA DE POLÍCIA ESPECIALIZADA</UnidadePolicial>
+<CodigoChefia>5</CodigoChefia>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<CodigoCargoQO>PC.DP.5</CodigoCargoQO>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE Gab</CodigoUniPol>
+<Sigla>Gab</Sigla>
+<UnidadePolicial>GABINETE DO SUPERINTENDENTE - SPE</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE Gab.SFV</CodigoUniPol>
+<Sigla>SFV</Sigla>
+<UnidadePolicial>SEÇÃO DE FISCALIZAÇÃO E VIGILÂNCIA</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DCAP</CodigoUniPol>
+<Sigla>DCAP</Sigla>
+<UnidadePolicial>DELEGACIA DE CRIMES CONTRA A ADMINISTRAÇÃO PÚBLICA</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DCAP.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DCAP</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DCAP.SI</CodigoUniPol>
+<Sigla>SI</Sigla>
+<UnidadePolicial>SEÇÃO DE INVESTIGAÇÃO - DCAP</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DCD</CodigoUniPol>
+<Sigla>DCD</Sigla>
+<UnidadePolicial>DELEGACIA DE COSTUMES E DIVERSÕES</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DCD.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DCD</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DCD.SCF</CodigoUniPol>
+<Sigla>SCF</Sigla>
+<UnidadePolicial>SEÇÃO DE CASDASTRO E FISCALIZAÇÃO</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DCD.SI</CodigoUniPol>
+<Sigla>SI</Sigla>
+<UnidadePolicial>SEÇÃO DE INVESTIGAÇÃO - DCD</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DCF</CodigoUniPol>
+<Sigla>DCF</Sigla>
+<UnidadePolicial>DELGACIA DE CRIMES FAZENDÁRIOS</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DCF.SAO</CodigoUniPol>
+<Sigla>SAO</Sigla>
+<UnidadePolicial>SEÇÃO DE APOIO OPERACIONAL - DCF</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DCF.SC</CodigoUniPol>
+<Sigla>SC</Sigla>
+<UnidadePolicial>SEÇÃO CARTORÁRIA - DCF</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DCF.SI</CodigoUniPol>
+<Sigla>SI</Sigla>
+<UnidadePolicial>SEÇÃO DE INVESTIGAÇÃO - DCF</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DCom</CodigoUniPol>
+<Sigla>DCon</Sigla>
+<UnidadePolicial>DELEGACIA DE DEFESA DO CONSUMIDOR</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DCom.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DCom</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DCon.SI</CodigoUniPol>
+<Sigla>SI</Sigla>
+<UnidadePolicial>SEÇÃO DE INVESTIGAÇÃO - DCon</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DDF</CodigoUniPol>
+<Sigla>DDF</Sigla>
+<UnidadePolicial>DELEGACIA DE DEFRAUDAÇÕES E FALSIFICAÇÕES</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DDF.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DDF</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DDF.SI</CodigoUniPol>
+<Sigla>SI</Sigla>
+<UnidadePolicial>SEÇÃO DE INVESTIGAÇÃO - DDF</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DDT</CodigoUniPol>
+<Sigla>DDT</Sigla>
+<UnidadePolicial>DELEGACIA DE DELITOS DE TRÂNSITO</UnidadePolicial>
+<CodigoChefia>7</CodigoChefia>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<CodigoCargoQO>PC.DP.4</CodigoCargoQO>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DEAM</CodigoUniPol>
+<Sigla>DEAM</Sigla>
+<UnidadePolicial>DELEGACIA DE EXPLOSIVOS, ARMAS E MUNIÇÕES</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DEAM.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DEAM</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DEAM.SCEAM</CodigoUniPol>
+<Sigla>SCEAM</Sigla>
+<UnidadePolicial>SEÇÃO DE CONTROLE DE EXPLOSIVOS ARMAS E MUNIÇÕES</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DEAM.SI</CodigoUniPol>
+<Sigla>SI</Sigla>
+<UnidadePolicial>SEÇÃO DE INVESTIGAÇÃO - DEAM</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DEAT</CodigoUniPol>
+<Sigla>DEAT</Sigla>
+<UnidadePolicial>DELEGACIA ESPECIALIZADA EM ACIDENTES DE TRABALHO</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DEAT.SAO</CodigoUniPol>
+<Sigla>SAO</Sigla>
+<UnidadePolicial>SEÇÃO DE APOIO OPERACIONAL - DEAT</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DEAT.SC</CodigoUniPol>
+<Sigla>SC</Sigla>
+<UnidadePolicial>SEÇÃO CARTORÁRIA - DEAT</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DEAT.SI</CodigoUniPol>
+<Sigla>SI</Sigla>
+<UnidadePolicial>SEÇÃO DE INVESTIGAÇÃO - DEAT</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DFRV</CodigoUniPol>
+<Sigla>DFRV</Sigla>
+<UnidadePolicial>DELEGACIA DE FURTOS E ROUBOS DE VEÍCULOS</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DFRV.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DFRV</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DFRV.SRCF</CodigoUniPol>
+<Sigla>SRCF</Sigla>
+<UnidadePolicial>SEÇÃO DE REGISTRO, CONTROLE E FISCALIZAÇÃO</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DHPP</CodigoUniPol>
+<Sigla>DHPP</Sigla>
+<UnidadePolicial>DIVISÃO DE HOMICÍDIOS E PROTEÇÃO À PESSOA</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DHPP.DAS</CodigoUniPol>
+<Sigla>DAS</Sigla>
+<UnidadePolicial>DELEGACIA ANTI-SEQÜESTRO</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DHPP.DAS.SC</CodigoUniPol>
+<Sigla>SC</Sigla>
+<UnidadePolicial>SEÇÃO CARTORÁRIA - DAS</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DHPP.DAS.SI</CodigoUniPol>
+<Sigla>SI</Sigla>
+<UnidadePolicial>SEÇÃO DE INVESTIGAÇÃO - DAS</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DHPP.DCV</CodigoUniPol>
+<Sigla>DCV</Sigla>
+<UnidadePolicial>DELEGACIA DE CRIMES CONTRA A VIDA (Vitória)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DHPP.DSP</CodigoUniPol>
+<Sigla>DSP</Sigla>
+<UnidadePolicial>DELEGACIA DE SEGURANÇA PATRIMONIAL - DHPP</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DHPP.SAO</CodigoUniPol>
+<Sigla>SAO</Sigla>
+<UnidadePolicial>SEÇÃO DE APOIO OPERACIONAL - DHPP</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DHPP.SC</CodigoUniPol>
+<Sigla>SC</Sigla>
+<UnidadePolicial>SEÇÃO CARTORÁRIA - DHPP</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DHPP.SI</CodigoUniPol>
+<Sigla>SI</Sigla>
+<UnidadePolicial>SEÇÃO DE INVESTIGAÇÃO - DHPP</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DHPP.SPT</CodigoUniPol>
+<Sigla>SPT</Sigla>
+<UnidadePolicial>SERVIÇO DE PROTEÇÃO À TESTEMUNHA</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DMe</CodigoUniPol>
+<Sigla>DMe</Sigla>
+<UnidadePolicial>DELEGACIA DO MENOR</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DMe.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DMe (Vitória)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DMe.SI</CodigoUniPol>
+<Sigla>SI</Sigla>
+<UnidadePolicial>SEÇÃO DE INVESTIGAÇÃO - DMe (Vitória)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DMe.STCA</CodigoUniPol>
+<Sigla>STCA</Sigla>
+<UnidadePolicial>SEÇÃO DE TRIAGEM, CADASTRO E ASSISTÊNCIA</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DMu</CodigoUniPol>
+<Sigla>DMu</Sigla>
+<UnidadePolicial>DELEGACIA DA MULHER (Vitória)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DMu.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DMu (Vitória)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DMu.SI</CodigoUniPol>
+<Sigla>SI</Sigla>
+<UnidadePolicial>SEÇÃO DE INVESTIGAÇÃO - DMu (Vitória)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DPIJ</CodigoUniPol>
+<Sigla>SPIJ</Sigla>
+<UnidadePolicial>DELEGACIA DE PROTEÇÃO A INFÂNCIA E JUVENTUDE</UnidadePolicial>
+<CodigoChefia>7</CodigoChefia>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<CodigoCargoQO>PC.DP.4</CodigoCargoQO>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DPMA</CodigoUniPol>
+<Sigla>DP-MA</Sigla>
+<UnidadePolicial>DELEGACIA DE PROTEÇÃO DO MEIO AMBIENTE E PATRIMÔNIO CULTURAL</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DPMAPC.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DPMAPC</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DPMAPC.SI</CodigoUniPol>
+<Sigla>SI</Sigla>
+<UnidadePolicial>SEÇÃO DE INVESTIGAÇÃO - DPMAPC</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DRCP</CodigoUniPol>
+<Sigla>DRCP</Sigla>
+<UnidadePolicial>DIVISÃO DE REPRESSÃO AOS CRIMES CONTRA O PATRIMÔNIO</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DRCP.DCT</CodigoUniPol>
+<Sigla>DCT</Sigla>
+<UnidadePolicial>DELEGACIA DE CRIMES CONTRA O TRANSPORTE DE PASSAGEIROS E CARGAS</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DRCP.DCT.SAO</CodigoUniPol>
+<Sigla>SAO</Sigla>
+<UnidadePolicial>SEÇÃO DE APOIO OPERACIONAL - DCT</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DRCP.DCT.SC</CodigoUniPol>
+<Sigla>SC</Sigla>
+<UnidadePolicial>SEÇÃO CARTORÁRIA - RCT</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DRCP.DCT.SI</CodigoUniPol>
+<Sigla>SI</Sigla>
+<UnidadePolicial>SEÇÃO DE INVESTIGAÇÃO - DCT</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DRCP.DRB</CodigoUniPol>
+<Sigla>DRB</Sigla>
+<UnidadePolicial>DELEGACIA DE ROUBO A BANCO</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DRCP.DRB.SAO</CodigoUniPol>
+<Sigla>SAO</Sigla>
+<UnidadePolicial>SEÇÃO DE APOIO OPERACIONAL - DRB</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DRCP.DRB.SC</CodigoUniPol>
+<Sigla>SC</Sigla>
+<UnidadePolicial>SEÇÃO CARTORÁRIA - RDB</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DRCP.DRB.SI</CodigoUniPol>
+<Sigla>SI</Sigla>
+<UnidadePolicial>SEÇÃO DE INVESTIGAÇÃO - DRB</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DRCP.SAO</CodigoUniPol>
+<Sigla>SAO</Sigla>
+<UnidadePolicial>SEÇÃO DE APOIO OPERACIONAL - DRCP</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DRCP.SC</CodigoUniPol>
+<Sigla>SC</Sigla>
+<UnidadePolicial>SEÇÃO CARTORÁRIA - SRCP</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DRCP.SI</CodigoUniPol>
+<Sigla>SI</Sigla>
+<UnidadePolicial>SEÇÃO DE INVESTIGAÇÃO - DRCP</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DSP</CodigoUniPol>
+<Sigla>DSP</Sigla>
+<UnidadePolicial>DELEGACIA DE SEGURANCA PATRIMONIAL - SPE</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DSP.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DSP</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DSP.SAEV</CodigoUniPol>
+<Sigla>SAEV</Sigla>
+<UnidadePolicial>SEÇÃO DE APREENSÃO E ENTREGA DE VALOR</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DSP.SI</CodigoUniPol>
+<Sigla>SI</Sigla>
+<UnidadePolicial>SEÇÃO DE INVESTIGAÇÃO - DSP</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DSP.SSB</CodigoUniPol>
+<Sigla>SSB</Sigla>
+<UnidadePolicial>SEÇÃO DE SEGURANÇA BANCÁRIA</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DTE</CodigoUniPol>
+<Sigla>DTE</Sigla>
+<UnidadePolicial>DELEGACIA DE TÓXICO E ENTORPECENTES</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DTE.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DTE</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.DTE.SI</CodigoUniPol>
+<Sigla>SI</Sigla>
+<UnidadePolicial>SEÇÃO DE INVESTIGAÇÃO - DTE</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.POLINTER</CodigoUniPol>
+<Sigla>POLINTER</Sigla>
+<UnidadePolicial>DELEGACIA DE POLINTER, VIGILÂNCIA E CAPTURA</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.POLINTER.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - POLINTER</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPE.POLINTER.SOE</CodigoUniPol>
+<Sigla>SOE</Sigla>
+<UnidadePolicial>SEÇÃO DE OPERAÇÕES ESPECIAIS</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI</CodigoUniPol>
+<Sigla>SPI</Sigla>
+<UnidadePolicial>SUPERINTÊNDENCIA DE POLÍCIA DO INTERIOR</UnidadePolicial>
+<CodigoChefia>5</CodigoChefia>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<CodigoCargoQO>PC.DP.5</CodigoCargoQO>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI Gab</CodigoUniPol>
+<Sigla>Gab</Sigla>
+<UnidadePolicial>GABINETE DO SUPERINTENDENTE - SPI</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-AB</CodigoUniPol>
+<Sigla>DP-AB</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE ÁGUIA BRANCA</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-AB.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DP (Águia Branca)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-AC</CodigoUniPol>
+<Sigla>DP-AC</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE AFONSO CLÁUDIO</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-AC.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DP (Afonso Cláudio)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-AC.SAA</CodigoUniPol>
+<Sigla>SAA</Sigla>
+<UnidadePolicial>SEÇÃO DE APOIO ADMINISTRATIVO (Afonso Cláudio)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-AC.SI</CodigoUniPol>
+<Sigla>SI</Sigla>
+<UnidadePolicial>SEÇÃO DE INVESTIGAÇÃO - DP (Afonso Cláudio)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-ACh</CodigoUniPol>
+<Sigla>DP-ACh</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE ALFREDO CHAVES</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-ACh.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DP (Alfredo Cheaves)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-ADN</CodigoUniPol>
+<Sigla>DP-ADN</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE ÁGUA DOCE DO NORTE</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-ADN.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DP (Água Doce do Norte)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Aleg</CodigoUniPol>
+<Sigla>DP-Aleg</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE ALEGRE</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Aleg.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DP (Alegre)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Aleg.SAA</CodigoUniPol>
+<Sigla>SAA</Sigla>
+<UnidadePolicial>SEÇÃO DE APOIO ADMINISTRATIVO - DP  (Alegre)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Aleg.SI</CodigoUniPol>
+<Sigla>SI</Sigla>
+<UnidadePolicial>SEÇÃO DE INVESTIGAÇÃO - DP (Alegre)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Anch</CodigoUniPol>
+<Sigla>DP-Anch</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE ANCHIETA</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Anch.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DP (Anchieta)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Apia</CodigoUniPol>
+<Sigla>DP-Apia</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE APIACÁ</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Apia.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DP (Apiacá)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Arac</CodigoUniPol>
+<Sigla>DP-Arac</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE ARACRUZ</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Arac.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DP (Aracruz)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Arac.SAA</CodigoUniPol>
+<Sigla>SAA</Sigla>
+<UnidadePolicial>SEÇÃO DE APOIO ADMINISTRATIVO - DP (Aracruz)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Arac.SI</CodigoUniPol>
+<Sigla>SI</Sigla>
+<UnidadePolicial>SEÇÃO DE INVESTIGAÇÃO - DP (Aracruz)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-ARN</CodigoUniPol>
+<Sigla>DP-ARN</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE ALTO RIO NOVO</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-ARN.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DP (Alto Rio Novo)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-AV</CodigoUniPol>
+<Sigla>DP-AV</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE ATÍLIO VIVACQUA</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-AV.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DP (Atílio Vivacqua)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-BE</CodigoUniPol>
+<Sigla>DP-BE</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE BOA ESPERANÇA</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-BE.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DP (Boa Esperença)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-BG</CodigoUniPol>
+<Sigla>DP-BG</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE BAIXO GUANDU</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-BG.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DP (Baixo Guandu)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-BG.SAA</CodigoUniPol>
+<Sigla>SAA</Sigla>
+<UnidadePolicial>SEÇÃO DE APOIO ADMINISTRATIVO - DP (Baixo Guandu)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-BG.SI</CodigoUniPol>
+<Sigla>SI</Sigla>
+<UnidadePolicial>SEÇÃO DE INVESTIGAÇÃO - DP (Baixo Guandu)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-BJN</CodigoUniPol>
+<Sigla>DP-BJN</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE BOM JESUS DO NORTE</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-BJN.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DP (Bom Jesus do Norte)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-BSF</CodigoUniPol>
+<Sigla>DP-BSF</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE BARRA DE SÃO FRANCISCO</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-BSF.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DP (Barra de São Francisco)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-BSF.SAA</CodigoUniPol>
+<Sigla>SAA</Sigla>
+<UnidadePolicial>SEÇÃO DE APOIO ADMINISTRATIVO - DP (Barra de São Francisco)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-BSF.SI</CodigoUniPol>
+<Sigla>SI</Sigla>
+<UnidadePolicial>SEÇÃO DE INVESTIGAÇÃO - DP (Barra de São Francisco)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Cast</CodigoUniPol>
+<Sigla>DP-Cast</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE CASTELO</UnidadePolicial>
+<CodigoChefia>4</CodigoChefia>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<CodigoCargoQO>PC.DP.2</CodigoCargoQO>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Cast.SAA</CodigoUniPol>
+<Sigla>SAA</Sigla>
+<UnidadePolicial>SEÇÃO DE APOIO ADMINISTRATIVO - DP (Castelo)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Cast.SI</CodigoUniPol>
+<Sigla>SI</Sigla>
+<UnidadePolicial>SEÇÃO DE INVESTIGAÇÃO - DP (Castelo)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-CB</CodigoUniPol>
+<Sigla>DP-CB</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE CONCEIÇÃO DA BARRA</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-CB.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DP (Conceição da Barra)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-CB.SAA</CodigoUniPol>
+<Sigla>SAA</Sigla>
+<UnidadePolicial>SEÇÃO DE APOIO ADMINISTRATIVO - DP (Conceição da Barra)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-CB.SI</CodigoUniPol>
+<Sigla>SI</Sigla>
+<UnidadePolicial>SEÇÃO DE INVESTIGAÇÃO - DP (Conceição da Barra)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-CC</CodigoUniPol>
+<Sigla>DP-CC</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE CONCEIÇÃO DO CASTELO</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-CC.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DP (Conceição do Castelo)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-DM</CodigoUniPol>
+<Sigla>DP-DM</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE DOMINGOS MARTINS</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-DM.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DP (Domingos Martins)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-DM.SAA</CodigoUniPol>
+<Sigla>SAA</Sigla>
+<UnidadePolicial>SEÇÃO DE APOIO ADMINISTRATIVO - DP (Domingos Martins)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-DM.SI</CodigoUniPol>
+<Sigla>SI</Sigla>
+<UnidadePolicial>SEÇÃO DE INVESTIGAÇÃO - DP (Domingos Martins)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-DRP</CodigoUniPol>
+<Sigla>DP-DRP</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE DORES DO RIO PRETO</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-DRPE.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DP (Ecoporanga)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-DSL</CodigoUniPol>
+<Sigla>DP-DSL</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE DIVINO SÃO LOURENÇO</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-DSL.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DP (Divino São Lourenço)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Ecop</CodigoUniPol>
+<Sigla>DP-Ecop</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE ECOPORANGA</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Ecop.SAA</CodigoUniPol>
+<Sigla>SAA</Sigla>
+<UnidadePolicial>SEÇÃO DE APOIO ADMINISTRATIVO - DP (Ecoporanga)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Ecop.SI</CodigoUniPol>
+<Sigla>SI</Sigla>
+<UnidadePolicial>SEÇÃO DE INVESTIGAÇÃO - DP (Ecoporanga)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Fund</CodigoUniPol>
+<Sigla>DP-Fund</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE FUNDÃO</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Fund.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DP (Fundão)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Guaç</CodigoUniPol>
+<Sigla>DP-Guac</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE GUAÇUI</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Guaç.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DP (Guaçui)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Guaç.SAA</CodigoUniPol>
+<Sigla>SAA</Sigla>
+<UnidadePolicial>SEÇÃO DE APOIO ADMINISTRATIVO - DP (Guaçui)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Guaç.SI</CodigoUniPol>
+<Sigla>SI</Sigla>
+<UnidadePolicial>SEÇÃO DE INVESTIGAÇÃO - DP (Guaçui)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Ibat</CodigoUniPol>
+<Sigla>DP-Ibat</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE IBATIBA</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Ibat.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DP (Ibatiba)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Ibir</CodigoUniPol>
+<Sigla>DP-Ibir</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE IBIRAÇU</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Ibir.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DP (Ibiraçu)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Ibit</CodigoUniPol>
+<Sigla>DP-Ibit</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE IBITIRAMA</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Ibit.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DP (Ibitirama)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Icon</CodigoUniPol>
+<Sigla>DP-Icon</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE ICONHA</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Icon.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DP (Iconha)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Itag</CodigoUniPol>
+<Sigla>DP-Itag</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE ITAGUAÇU</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Itag.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO -  DP (Itaguaçu)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Itap</CodigoUniPol>
+<Sigla>DP-Itap</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE ITAPEMIRIM</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Itap.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DP (Itapemirim)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Itap.SAA</CodigoUniPol>
+<Sigla>SAA</Sigla>
+<UnidadePolicial>SEÇÃO DE APOIO ADMINISTRATIVO - DP (Itapemirim)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Itap.SI</CodigoUniPol>
+<Sigla>SI</Sigla>
+<UnidadePolicial>SEÇÃO DE INVESTIGAÇÃO - DP (Itapemirim)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Itar</CodigoUniPol>
+<Sigla>DP-Itar</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE ITARANA</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Itar.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DP (Itarana)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Iuna</CodigoUniPol>
+<Sigla>DP-Iuna</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE IUNA</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Iuna.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DP (Iuna)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Iúna.SAA</CodigoUniPol>
+<Sigla>SAA</Sigla>
+<UnidadePolicial>SEÇÃO DE APOIO ADMINISTRATIVO - DP (Iúna)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Iúna.SI</CodigoUniPol>
+<Sigla>SI</Sigla>
+<UnidadePolicial>SEÇÃO DE INVESTIGAÇÃO - DP (Iúna)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Jagu</CodigoUniPol>
+<Sigla>DP-Jagu</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE JAGUARÉ</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Jagu.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DP (Jaguaré)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJCI</CodigoUniPol>
+<Sigla>DPJ-CI</Sigla>
+<UnidadePolicial>DEPARTAMENTO DE POLÍCIA JUDICIÁRIA DE CACHOEIRO DE ITAPEMIRIM</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>1</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJCI.DCP</CodigoUniPol>
+<Sigla>DCP</Sigla>
+<UnidadePolicial>DELEGACIA DE CRIMES CONTRA O PATRIMÔNIO (Cachoeiro de Itapemirim)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJCI.DCP.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DCP (Cachoeiro de Itapemirim)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJCI.DCV</CodigoUniPol>
+<Sigla>DCV</Sigla>
+<UnidadePolicial>DELEGACIA DE CRIMES CONTRA A VIDA (Cachoeiro de Itapemirim)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJCI.DCV.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DCV (Cachoeiro de Itapemirim)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJCI.DeMu.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DMu (Cachoeiro de Itapemirim)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJCI.DIPO</CodigoUniPol>
+<Sigla>DIPO</Sigla>
+<UnidadePolicial>DELEGACIA DE INFRAÇÕES PENAIS OUTRAS (Cachoeiro de Itapemirim)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJCI.DIPO.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DIPO (Cachoeiro de Itapemirim)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJCI.DMu</CodigoUniPol>
+<Sigla>DMu</Sigla>
+<UnidadePolicial>DELEGACIA DA MULHER (Cachoeiro de Itapemirim)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJCI.SAA</CodigoUniPol>
+<Sigla>SAA</Sigla>
+<UnidadePolicial>SEÇÃO DE APOIO ADMINISTRATIVO - DPJ-Cachoeiro de Itapemirim</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJCI.SePTCI</CodigoUniPol>
+<Sigla>SI</Sigla>
+<UnidadePolicial>SEÇÃO DE POLÍCIA TÉCNICO-CIENTÍFICA - DPJ-Cachoeiro de Itapemirim</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJCI.SI</CodigoUniPol>
+<Sigla>SI</Sigla>
+<UnidadePolicial>SEÇÃO DE INVESTIGAÇÃO - DPJ-Cachoeiro de Itapemirim</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJCo</CodigoUniPol>
+<Sigla>DPJ-Co</Sigla>
+<UnidadePolicial>DEPARTAMENTO DE POLÍCIA JUDICIÁRIA DE COLATINA</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>1</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJCo.DCP</CodigoUniPol>
+<Sigla>DCP</Sigla>
+<UnidadePolicial>DELEGACIA DE CRIMES CONTRA O PATRIMÔNIO (Colatina)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJCo.DCP.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DCP (Colatina)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJCo.DCV</CodigoUniPol>
+<Sigla>DCV</Sigla>
+<UnidadePolicial>DELEGACIA DE CRIMES CONTRA A VIDA (Colatina)</UnidadePolicial>
+<CodigoChefia>7</CodigoChefia>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<CodigoCargoQO>PC.DP.4</CodigoCargoQO>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJCo.DCV.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DCV (Colatina)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJCo.DeMu</CodigoUniPol>
+<Sigla>DeMu</Sigla>
+<UnidadePolicial>DELEGACIA DA MULHER (Colatina)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJCo.DeMu.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DMu (Colatina)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJCo.DIPO</CodigoUniPol>
+<Sigla>DIPO</Sigla>
+<UnidadePolicial>DELEGACIA DE INFRAÇÕES PENAIS OUTRAS (Colatina)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJCo.DIPO.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DIPO (Colatina)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJCo.SAA</CodigoUniPol>
+<Sigla>SAA</Sigla>
+<UnidadePolicial>SEÇÃO DE APOIO ADMINISTRATIVO - DPJ-Colatina</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJCo.SePTCI</CodigoUniPol>
+<Sigla>SI</Sigla>
+<UnidadePolicial>SEÇÃO DE POLÍCIA TÉCNICO-CIENTÍFICA - DPJ-Colatina</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJCo.SI</CodigoUniPol>
+<Sigla>SI</Sigla>
+<UnidadePolicial>SEÇÃO DE INVESTIGAÇÃO - DPJ-Colatina</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJG</CodigoUniPol>
+<Sigla>DPJ-G</Sigla>
+<UnidadePolicial>DEPARTAMENTO DE POLÍCIA JUDICIÁRIA DE GUARAPARI</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>1</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJG.DCP</CodigoUniPol>
+<Sigla>DCP</Sigla>
+<UnidadePolicial>DELEGACIA DE CRIMES CONTRA O PATRIMÔNIO (Guarapari)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJG.DCP.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DCP (Guarapari)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJG.DIPO</CodigoUniPol>
+<Sigla>DIPO</Sigla>
+<UnidadePolicial>DELEGACIA DE INFRAÇÕES PENAIS OUTRAS (Guarapari)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJG.DIPO.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DIPO (Guarapari)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJG.DMu</CodigoUniPol>
+<Sigla>DMu</Sigla>
+<UnidadePolicial>DELEGACIA DA MULHER (Guarapari)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJG.DMu.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DMu (Guarapari)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJG.SAA</CodigoUniPol>
+<Sigla>SAA</Sigla>
+<UnidadePolicial>SEÇÃO DE APOIO ADMINISTRATIVO - DPJ-Gurapari</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJG.SePTCI</CodigoUniPol>
+<Sigla>SI</Sigla>
+<UnidadePolicial>SEÇÃO DE POLÍCIA TÉCNICO-CIENTÍFICA - DPJ-Guarapari</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJG.SI</CodigoUniPol>
+<Sigla>SI</Sigla>
+<UnidadePolicial>SEÇÃO DE INVESTIGAÇÃO - DPJ-Guarapari</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJL</CodigoUniPol>
+<Sigla>DPJ-L</Sigla>
+<UnidadePolicial>DEPARTAMENTO DE POLÍCIA JUDICIÁRIA DE LINHARES</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>1</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJL.DCP</CodigoUniPol>
+<Sigla>DCP</Sigla>
+<UnidadePolicial>DELEGACIA DE CRIMES CONTRA O PATRIMÔNIO (Linhares)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJL.DCP.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DCP (Linhares)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJL.DCV.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DCP (Linhares)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJL.DIPO</CodigoUniPol>
+<Sigla>DIPO</Sigla>
+<UnidadePolicial>DELEGACIA DE INFRAÇÕES PENAIS OUTRAS (Linhares)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJL.DIPO.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DIPO (Linhares)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJL.DMu</CodigoUniPol>
+<Sigla>DMu</Sigla>
+<UnidadePolicial>DELEGACIA DA MULHER (Linhares)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJL.DMu.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DMu (Linhares)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJL.SAA</CodigoUniPol>
+<Sigla>SAA</Sigla>
+<UnidadePolicial>SEÇÃO DE APOIO ADMINISTRATIVO - DPJ-Linhares</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJL.SePTCI</CodigoUniPol>
+<Sigla>SI</Sigla>
+<UnidadePolicial>SEÇÃO DE POLÍCIA TÉCNICO-CIENTÍFICA - DPJ-Linhares</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJL.SI</CodigoUniPol>
+<Sigla>SI</Sigla>
+<UnidadePolicial>SEÇÃO DE INVESTIGAÇÃO - DPJ-Linhares</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJL-DIPO.II</CodigoUniPol>
+<Sigla>DIPO</Sigla>
+<UnidadePolicial>DIPO II - DPJ DE LINHARES</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-JM</CodigoUniPol>
+<Sigla>DP-JM</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE JERÔNIMO MONTEIRO</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-JM.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DP (Jerônimo Monteiro)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-JN</CodigoUniPol>
+<Sigla>DP-JN</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE JOÃO NEIVA</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-JN.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DP (João Neiva)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJSM</CodigoUniPol>
+<Sigla>DPJ-SM</Sigla>
+<UnidadePolicial>DEPARTAMENTO DE POLÍCIA JUDICIÁRIA DE SÃO MATEUS</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>1</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJSM.DCP</CodigoUniPol>
+<Sigla>DCP</Sigla>
+<UnidadePolicial>DELEGACIA DE CRIMES CONTRA O PATRIMÔNIO (São Mateus)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJSM.DCP.SC</CodigoUniPol>
+<Sigla>SC</Sigla>
+<UnidadePolicial>SEÇÃO CARTORÁRIA - DCP (São Mateus)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJSM.DCP.SI</CodigoUniPol>
+<Sigla>SI</Sigla>
+<UnidadePolicial>SEÇÃO DE INVESTIGAÇÃO - DCP (São Mateus)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJSM.DCV</CodigoUniPol>
+<Sigla>DCV</Sigla>
+<UnidadePolicial>DELEGACIA DE CRIMES CONTRA A VIDA (São Mateus)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJSM.DCV.SC</CodigoUniPol>
+<Sigla>SC</Sigla>
+<UnidadePolicial>SEÇÃO CARTORÁRIA - DCV (São Mateus)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJSM.DCV.SI</CodigoUniPol>
+<Sigla>SI</Sigla>
+<UnidadePolicial>SEÇÃO DE INVESTIGAÇÃO - DCV (São Mateus)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJSM.DIPO</CodigoUniPol>
+<Sigla>DIPO</Sigla>
+<UnidadePolicial>DELEGACIA DE INFRAÇÕES PENAIS OUTRAS (São Mateus)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJSM.DIPO.SC</CodigoUniPol>
+<Sigla>SC</Sigla>
+<UnidadePolicial>SEÇÃO CARTORÁRIA - DIPO (São Mateus)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJSM.DIPO.SI</CodigoUniPol>
+<Sigla>SI</Sigla>
+<UnidadePolicial>SEÇÃO DE INVESTIGAÇÃO - DIPO (São Mateus)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJSM.DMu</CodigoUniPol>
+<Sigla>DMu</Sigla>
+<UnidadePolicial>DELEGACIA DA DEFESA DA MUNLHER (São Mateus)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJSM.DMu.SC</CodigoUniPol>
+<Sigla>SC</Sigla>
+<UnidadePolicial>SEÇÃO CARTORÁRIA - DMu (São Mateus)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJSM.DMu.SI</CodigoUniPol>
+<Sigla>SI</Sigla>
+<UnidadePolicial>SEÇÃO DE INVESTIGAÇÃO - DMu (São Mateus)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJSM.SAA</CodigoUniPol>
+<Sigla>SAA</Sigla>
+<UnidadePolicial>SEÇÃO DE APOIO ADMINISTRATIVO - DPJ-São Mateus</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJSM.SAO</CodigoUniPol>
+<Sigla>SAO</Sigla>
+<UnidadePolicial>SEÇÃO DE APOIO OPERACIONAL - DPJSM</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPJSM.SI</CodigoUniPol>
+<Sigla>SI</Sigla>
+<UnidadePolicial>SEÇÃO DE INVESTIGAÇÃO - DPJ-São Mateus</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-LT</CodigoUniPol>
+<Sigla>DP-LT</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE LARANJA DA TERRA</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-LT.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DP (Laranja da Terra)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Mant</CodigoUniPol>
+<Sigla>DP-Mant</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE MANTENÓPOLIS</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Mant.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DP (Mantenópolis)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Mari</CodigoUniPol>
+<Sigla>DP-Mari</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE MARILÂNDIA</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Mari.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DP (Marilândia)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-MF</CodigoUniPol>
+<Sigla>DP-MF</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE MUNIZ FREIRE</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-MF.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DP (Muniz Freire)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Mont</CodigoUniPol>
+<Sigla>DP-Mont</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE MONTANHA</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Mont.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DP (Montanha)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-MS</CodigoUniPol>
+<Sigla>DP-MS</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE MIMOSO DO SUL</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-MS.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DP (Mimoso do Sul)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-MS.SAA</CodigoUniPol>
+<Sigla>SAA</Sigla>
+<UnidadePolicial>SEÇÃO DE APOIO ADMINISTRATIVO - DP (São Mateus)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-MS.SI</CodigoUniPol>
+<Sigla>SI</Sigla>
+<UnidadePolicial>SEÇÃO DE INVESTIGAÇÃO - DP (Mimoso do Sul)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Mucu</CodigoUniPol>
+<Sigla>DP-Mucu</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE MUCURICI</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Mucu.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DP (Mucurici)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Muqu</CodigoUniPol>
+<Sigla>DP-Muqu</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE MUQUI</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Muqu.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DP (Muqui)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-NV</CodigoUniPol>
+<Sigla>DP-NV</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE NOVA VENÉCIA</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-NV.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DP (Nova Venécia)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-NV.SAA</CodigoUniPol>
+<Sigla>SAA</Sigla>
+<UnidadePolicial>SEÇÃO DE APOIO ADMINISTRATIVO - DP (Nova Venécia)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-NV.SI</CodigoUniPol>
+<Sigla>SI</Sigla>
+<UnidadePolicial>SEÇÃO DE INVESTIGAÇÃO - DP (Nova Venécia)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Panc</CodigoUniPol>
+<Sigla>DP-Panc</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE PANCAS</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Panc.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DP (Pancas)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-PC</CodigoUniPol>
+<Sigla>DP-PC</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE PEDRO CANÁRIO</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-PC.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DP (Pedro Canário)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Pinh</CodigoUniPol>
+<Sigla>DP-Pinh</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE PINHEIRO</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Pinh.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DP (Pinheiros)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Pium</CodigoUniPol>
+<Sigla>DP-Pium</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE PIUMA</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-Pium.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DP (Piuma)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-PK</CodigoUniPol>
+<Sigla>DP-PK</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE PRESIDENTE KENNEDY</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-PK.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DP (Presidente Kennedy)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-RB</CodigoUniPol>
+<Sigla>DP-RB</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE RIO BANANAL</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-RB.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DP (Rio Bananal)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-RNS</CodigoUniPol>
+<Sigla>DP-RNS</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE RIO NOVO DO SUL</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-RNS.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DP (Rio Novo do Sul)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-SGP</CodigoUniPol>
+<Sigla>DP-SGP</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE SÃO GABRIEL DA PALHA</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-SGP.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DP (São Gabriel da Panha)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-SGP.SAA</CodigoUniPol>
+<Sigla>SAA</Sigla>
+<UnidadePolicial>SEÇÃO DE APOIO ADMINISTRATIVO - DP (São Gabriel da Palha)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-SGP.SI</CodigoUniPol>
+<Sigla>SI</Sigla>
+<UnidadePolicial>SEÇÃO DE INVESTIGAÇÃO - DP (São Gabriel da Palha)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-SJC</CodigoUniPol>
+<Sigla>DP-SJC</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE SÃO JOSÉ DO CALÇADO</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-SJC.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DP (São José do Calçado)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DPSJM.SePTCI</CodigoUniPol>
+<Sigla>SI</Sigla>
+<UnidadePolicial>SEÇÃO DE POLÍCIA TÉCNICO-CIENTÍFICA - DPJ-São Mateus</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-SL</CodigoUniPol>
+<Sigla>DP-SL</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE SANTA LEOPOLDINA</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-SL.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DP (Santa Leopoldina)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-SM</CodigoUniPol>
+<Sigla>DP-SM</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE SÃO MATEUS</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-SM.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DP (São Mateus)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-SM.SAA</CodigoUniPol>
+<Sigla>SAA</Sigla>
+<UnidadePolicial>SEÇÃO DE APOIO ADMINISTRATIVO - DP (São Mateus)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-SM.SI</CodigoUniPol>
+<Sigla>SI</Sigla>
+<UnidadePolicial>SEÇÃO DE INVESTIGAÇÃO - DP (São Mateus)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-SMJ</CodigoUniPol>
+<Sigla>DP-SMJ</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE SANTA MARIA DE JETIBÁ</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-SMJ.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DP (Santa Maria de Jetibá)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-ST</CodigoUniPol>
+<Sigla>DP-ST</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE SANTA TERESA</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-ST.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DP (Santa Teresa)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-VA</CodigoUniPol>
+<Sigla>DP-VA</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE VARGEM ALTA</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-VA.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DP (Vargem Alta)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-VNI</CodigoUniPol>
+<Sigla>DP-VNI</Sigla>
+<UnidadePolicial>DELEGACIA DE POLÍCIA DE VENDA NOVA DO IMIGRANTE</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPI.DP-VNI.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DP (Venda Nova do Imigrante)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM</CodigoUniPol>
+<Sigla>SPM</Sigla>
+<UnidadePolicial>SUPERINTÊNDENCIA DE POLÍCIA METROPOLITANA</UnidadePolicial>
+<CodigoChefia>5</CodigoChefia>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<CodigoCargoQO>PC.DP.5</CodigoCargoQO>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM Gab</CodigoUniPol>
+<Sigla>Gab</Sigla>
+<UnidadePolicial>GABINETE DO SUPERINTENDENTE - SPM</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJC</CodigoUniPol>
+<Sigla>DPJ-C</Sigla>
+<UnidadePolicial>DEPARTAMENTO DE POLÍCIA JUDICIÁRIA DE CARIACICA</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>1</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJC Gab</CodigoUniPol>
+<Sigla>Gab</Sigla>
+<UnidadePolicial>GABINETE DO CHEFE DO DEPARTAMENTO - DPJ-Cariacica</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJC.07DP.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - 7º DP (Jardim América)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJC.08DP.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - 8º DP (Campo Grande)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJC.17DP</CodigoUniPol>
+<Sigla>17ºDP</Sigla>
+<UnidadePolicial>17º DISTRITO POLICIAL (Cariacica)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJC.17DP.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - 17º DP (Cariacica)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJC.18DP</CodigoUniPol>
+<Sigla>18ºDP</Sigla>
+<UnidadePolicial>18º DISTRITO POLICIAL (Porto de Santana)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJC.19DP</CodigoUniPol>
+<Sigla>19ºDP</Sigla>
+<UnidadePolicial>19º DISTRITO POLICIAL (Itacibá)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJC.19DP.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - 19º DP (Itacibá)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJC.DCV</CodigoUniPol>
+<Sigla>DCV</Sigla>
+<UnidadePolicial>DELEGACIA DE CRIMES CONTRA A VIDA (Cariacica)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJC.DMu</CodigoUniPol>
+<Sigla>DMu</Sigla>
+<UnidadePolicial>DELEGACIA DA MULHER (Cariacica)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJC.DMu.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DMu (Cariacica)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJC.SAA</CodigoUniPol>
+<Sigla>SAA</Sigla>
+<UnidadePolicial>SEÇÃO DE APOIO ADMINISTRATIVO - DPJ-Cariacica</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJC.SePTC</CodigoUniPol>
+<Sigla>SePTC</Sigla>
+<UnidadePolicial>SEÇÃO DE POLÍCIA TÉCNICO-CIENTÍFICA - DPJ-Cariacica</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJC.SI</CodigoUniPol>
+<Sigla>SI</Sigla>
+<UnidadePolicial>SEÇÃO DE INVESTIGAÇÃO - DPJ-Cariacica</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJS</CodigoUniPol>
+<Sigla>DPJ-S</Sigla>
+<UnidadePolicial>DEPARTAMENTO DE POLÍCIA JUDICIÁRIA DA SERRA</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>1</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJS Gab</CodigoUniPol>
+<Sigla>Gab</Sigla>
+<UnidadePolicial>GABINETE DO CHEFE DO DEPARTAMENTO - DPJ-Serra</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJS.20DP</CodigoUniPol>
+<Sigla>20ºDP</Sigla>
+<UnidadePolicial>20º DISTRITO POLICIAL (Carapina)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>2</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJS.20DP.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - 20º DP (Carapina)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJS.21DP</CodigoUniPol>
+<Sigla>21ºDP</Sigla>
+<UnidadePolicial>21º DISTRITO POLICIAL (Jacaraípe)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJS.21DP.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - 21º DP (Jacaraípe)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJS.22DP</CodigoUniPol>
+<Sigla>22ºDP</Sigla>
+<UnidadePolicial>22º DISTRITO POLICIAL (Novo Horizonte)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJS.22DP.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - 22º DP (Novo Horizonte)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJS.23DP</CodigoUniPol>
+<Sigla>23ºDP</Sigla>
+<UnidadePolicial>23º DISTRITO POLICIAL (Serra)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJS.23DP.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - 23º DP (Serra)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJS.DCV</CodigoUniPol>
+<Sigla>DCV</Sigla>
+<UnidadePolicial>DELEGACIA DE CRIMES CONTRA A VIDA (Serra)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJS.DeMu</CodigoUniPol>
+<Sigla>DeMu</Sigla>
+<UnidadePolicial>DELEGACIA DA MULHER (Serra)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJS.DMu.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DMu (Serra)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJS.SAA</CodigoUniPol>
+<Sigla>SAA</Sigla>
+<UnidadePolicial>SEÇÃO DE APOIO ADMINISTRATIVO - DPJ-Serra</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJS.SePTC</CodigoUniPol>
+<Sigla>SePTC</Sigla>
+<UnidadePolicial>SEÇÃO DE POLÍCIA TÉCNICO-CIENTÍFICA - DPJ-Serra</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJS.SI</CodigoUniPol>
+<Sigla>SI</Sigla>
+<UnidadePolicial>SEÇÃO DE INVESTIGAÇÃO - DPJ-Serra</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJV</CodigoUniPol>
+<Sigla>DPJ-V</Sigla>
+<UnidadePolicial>DEPARTAMENTO DE POLÍCIA JUDICIÁRIA DE VITÓRIA</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>1</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJV Gab</CodigoUniPol>
+<Sigla>Gab</Sigla>
+<UnidadePolicial>GABINETE DO CHEFE DO DEPARTAMENTO - DPJ-Vitória</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJV.01DP</CodigoUniPol>
+<Sigla>01ºDP</Sigla>
+<UnidadePolicial>01º DISTRITO POLICIAL (Centro)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJV.01DP.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - 1º DP (Praia do Canto)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJV.02DP</CodigoUniPol>
+<Sigla>02ºDP</Sigla>
+<UnidadePolicial>02º DISTRITO POLICIAL (Santo Antônio)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJV.02DP.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - 2º DP (Centro)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJV.03DP</CodigoUniPol>
+<Sigla>03ºDP</Sigla>
+<UnidadePolicial>03º DISTRITO POLICIAL (Jucutuquara)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJV.03DP.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - 3º DP (Jucutuquara)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJV.04DP</CodigoUniPol>
+<Sigla>04ºDP</Sigla>
+<UnidadePolicial>04º DISTRITO POLICIAL (Maruipe)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJV.04DP.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - 4º DP (Goiabeiras)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJV.05DP</CodigoUniPol>
+<Sigla>05ºDP</Sigla>
+<UnidadePolicial>05º DISTRITO POLICIAL (Praia do Canto)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJV.05DP.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - 5º DP (São Torquato)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJV.06DP</CodigoUniPol>
+<Sigla>06ºDP</Sigla>
+<UnidadePolicial>06º DISTRITO POLICIAL (Jardim Camburi)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJV.06DP.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - 6º DP (Vila Velha)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJV.07DP</CodigoUniPol>
+<Sigla>07ºDP</Sigla>
+<UnidadePolicial>07º DISTRITO POLICIAL (São Pedro)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJV.08DP</CodigoUniPol>
+<Sigla>08ºDP</Sigla>
+<UnidadePolicial>08º DISTRITO POLICIAL (Goiabeiras/Jardim da Penha)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJV.09DP</CodigoUniPol>
+<Sigla>09ºDP</Sigla>
+<UnidadePolicial>09º DISTRITO POLICIAL (Vila Rubim)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>2</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJV.09DP.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - 9º DP (Vila Rubim)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJV.10DP</CodigoUniPol>
+<Sigla>10ºDP</Sigla>
+<UnidadePolicial>10º DISTRITO POLICIAL (Santo Antônio)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>2</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJV.10DP.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - 10º DP (Santo Antônio)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJV.11DP</CodigoUniPol>
+<Sigla>11ºDP</Sigla>
+<UnidadePolicial>11º DISTRITO POLICIAL (Maruípe)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>2</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJV.11DP.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - 11º DP (Maruípe)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJV.12DP.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - 12º DP (Cobilândia)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJV.13DP.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - 13º DP (Ibes)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJV.14DP.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - 14º DP (Jardim Itapoã)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJV.15DP.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - 15º DP (Novo México)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJV.16DP.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - 16º DP (Vila Garrido)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJV.DMu.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DMu (Vitória)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJV.SAA</CodigoUniPol>
+<Sigla>SAA</Sigla>
+<UnidadePolicial>SEÇÃO DE APOIO ADMINISTRATIVO - DPJ-Vitória</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJV.SI</CodigoUniPol>
+<Sigla>SI</Sigla>
+<UnidadePolicial>SEÇÃO DE INVESTIGAÇÃO - DPJ-Vitória</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJVi</CodigoUniPol>
+<Sigla>DPJ-Vi</Sigla>
+<UnidadePolicial>DEPARTAMENTO DE POLÍCIA JUDICIÁRIA DE VIANA</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>1</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJVi Gab</CodigoUniPol>
+<Sigla>Gab</Sigla>
+<UnidadePolicial>GABINETE DO CHEFE DO DEPARTAMENTO - DPJ-Viana</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJVi.24DP</CodigoUniPol>
+<Sigla>24ºDP</Sigla>
+<UnidadePolicial>24º DISTRITO POLICIAL (Viana)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJVi.24DP.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - 24º DP (Viana)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJVi.DCV</CodigoUniPol>
+<Sigla>DCV</Sigla>
+<UnidadePolicial>DELEGACIA DE CRIMES CONTRA A VIDA (Viana)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJVi.DeMu.Cart</CodigoUniPol>
+<Sigla>Cart</Sigla>
+<UnidadePolicial>CARTÓRIO - DMu (Viana)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJVi.DMu</CodigoUniPol>
+<Sigla>DMu</Sigla>
+<UnidadePolicial>DELEGACIA DA MULHER (Viana)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJVi.SAA</CodigoUniPol>
+<Sigla>SAA</Sigla>
+<UnidadePolicial>SEÇÃO DE APOIO ADMINISTRATIVO - DPJ-Viana</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJVi.SePTC</CodigoUniPol>
+<Sigla>SePTC</Sigla>
+<UnidadePolicial>SEÇÃO DE POLÍCIA TÉCNICO-CIENTÍFICA - DPJ-Viana</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJVi.SI</CodigoUniPol>
+<Sigla>SI</Sigla>
+<UnidadePolicial>SEÇÃO DE INVESTIGAÇÃO - DPJ-Viana</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJVV</CodigoUniPol>
+<Sigla>DPJ-VV</Sigla>
+<UnidadePolicial>DEPARTAMENTO DE POLÍCIA JUDICIÁRIA DE VILA VELHA</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>1</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJVV Gab</CodigoUniPol>
+<Sigla>Gab</Sigla>
+<UnidadePolicial>GABINETE DO CHEFE DO DEPARTAMENTO - DPJ-Vila Velha</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJVV.12DP</CodigoUniPol>
+<Sigla>12ºDP</Sigla>
+<UnidadePolicial>12º DISTRITO POLICIAL (Cobilândia)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJVV.13DP</CodigoUniPol>
+<Sigla>13ºDP</Sigla>
+<UnidadePolicial>13º DISTRITO POLICIAL (Ibes)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJVV.14DP</CodigoUniPol>
+<Sigla>14ºDP</Sigla>
+<UnidadePolicial>14º DISTRITO POLICIAL (Jardim Itapoã)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJVV.15DP</CodigoUniPol>
+<Sigla>15ºDP</Sigla>
+<UnidadePolicial>15º DISTRITO POLICIAL (Novo México)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJVV.16DP</CodigoUniPol>
+<Sigla>16ºDP</Sigla>
+<UnidadePolicial>16º DISTRITO POLICIAL (Vila Garrido)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJVV.DCV</CodigoUniPol>
+<Sigla>DCV</Sigla>
+<UnidadePolicial>DELEGACIA DE CRIMES CONTRA A VIDA (Vila Velha)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJVV.DMu</CodigoUniPol>
+<Sigla>DMu</Sigla>
+<UnidadePolicial>DELEGACIA DA MULHER (Vila Velha)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJVV.SAA</CodigoUniPol>
+<Sigla>SAA</Sigla>
+<UnidadePolicial>SEÇÃO DE APOIO ADMINISTRATIVO - DPJ-Vila Velha</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJVV.SePTC</CodigoUniPol>
+<Sigla>SePTC</Sigla>
+<UnidadePolicial>SEÇÃO DE POLÍCIA TÉCNICO-CIENTÍFICA - DPJ-Vila Velha</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPM.DPJVV.SI</CodigoUniPol>
+<Sigla>SI</Sigla>
+<UnidadePolicial>SEÇÃO DE INVESTIGAÇÃO - DPJ-Vila Velha</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPP</CodigoUniPol>
+<Sigla>SPP</Sigla>
+<UnidadePolicial>SUPERINTÊNDENCIA DE POLÍCIA PRISIONAL</UnidadePolicial>
+<CodigoChefia>5</CodigoChefia>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<CodigoCargoQO>PC.DP.5</CodigoCargoQO>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPP Gab</CodigoUniPol>
+<Sigla>Gab</Sigla>
+<UnidadePolicial>GABINETE DO SUPERINTENDENTE - SPP</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPP.CaDeC</CodigoUniPol>
+<Sigla>CaDeC</Sigla>
+<UnidadePolicial>CASA DE DETENÇÃO DE COLATINA</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPP.CaDeC.SASF</CodigoUniPol>
+<Sigla>SASF</Sigla>
+<UnidadePolicial>SERVIÇO DE ADMINISTRAÇÃO, SEGURANÇA E FISCALIZAÇÃO - CaDeC</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPP.CaDeC.SASF.SPSG</CodigoUniPol>
+<Sigla>SPSG</Sigla>
+<UnidadePolicial>SEÇÃO DE PESSOAL E SERVIÇOS GERAIS - CaDeC</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPP.CaDeC.SASF.SSF</CodigoUniPol>
+<Sigla>SSF</Sigla>
+<UnidadePolicial>SEÇÃO DE SEGURANÇA E FISCALIZAÇÃO - CaDeC</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPP.CaDeCI</CodigoUniPol>
+<Sigla>CaDeCI</Sigla>
+<UnidadePolicial>CASA DE DETENÇÃO DE CACHOEIRO DE ITAPEMIRIM</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPP.CaDeCI.SASF</CodigoUniPol>
+<Sigla>SASF</Sigla>
+<UnidadePolicial>SERVIÇO DE ADMINISTRAÇÃO, SEGURANÇA E FISCALIZAÇÃO - CaDeCI</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPP.CaDeCI.SASF.SPSG</CodigoUniPol>
+<Sigla>SPSG</Sigla>
+<UnidadePolicial>SEÇÃO DE PESSOAL E SERVIÇOS GERAIS - CaDeCI</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPP.CaDeCI.SASF.SSF</CodigoUniPol>
+<Sigla>SSF</Sigla>
+<UnidadePolicial>SEÇÃO DE SEGURANÇA E FISCALIZAÇÃO - CaDeCI</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPP.CaDeF</CodigoUniPol>
+<Sigla>CaDeF</Sigla>
+<UnidadePolicial>CASA DE DETENÇÃO FEMININA</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPP.CaDeF.SASF</CodigoUniPol>
+<Sigla>SASF</Sigla>
+<UnidadePolicial>SERVIÇO DE ADMINISTRAÇÃO, SEGURANÇA E FISCALIZAÇÃO - CaDeF</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPP.CaDeF.SASF.SPSG</CodigoUniPol>
+<Sigla>SPSG</Sigla>
+<UnidadePolicial>SEÇÃO DE PESSOAL E SERVIÇOS GERAIS - CaDeF</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPP.CaDeF.SASF.SSF</CodigoUniPol>
+<Sigla>SSF</Sigla>
+<UnidadePolicial>SEÇÃO DE SEGURANÇA E FISCALIZAÇÃO - CaDeF</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPP.CaDeL</CodigoUniPol>
+<Sigla>CaDeL</Sigla>
+<UnidadePolicial>CASA DE DETENÇÃO DE LINHARES</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPP.CaDeL.SASF</CodigoUniPol>
+<Sigla>SASF</Sigla>
+<UnidadePolicial>SERVIÇO DE ADMINISTRAÇÃO, SEGURANÇA E FISCALIZAÇÃO - CaDeL</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPP.CaDeL.SASF.SPSG</CodigoUniPol>
+<Sigla>SPSG</Sigla>
+<UnidadePolicial>SEÇÃO DE PESSOAL E SERVIÇOS GERAIS - CaDeL</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPP.CaDeL.SASF.SSF</CodigoUniPol>
+<Sigla>SSF</Sigla>
+<UnidadePolicial>SEÇÃO DE SEGURANÇA E FISCALIZAÇÃO - CaDeL</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPP.CaDeV</CodigoUniPol>
+<Sigla>CaDeV</Sigla>
+<UnidadePolicial>CASA DE DETENÇÃO DE VITÓRIA</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPP.CaDeV.SA</CodigoUniPol>
+<Sigla>SA</Sigla>
+<UnidadePolicial>SERVIÇO DE ADMINISTRAÇÃO - CaDeV</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPP.CaDeV.SA.SP</CodigoUniPol>
+<Sigla>SP</Sigla>
+<UnidadePolicial>SEÇÃO DE PESSOAL - CaDeV</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPP.CaDeV.SA.SSG</CodigoUniPol>
+<Sigla>SSG</Sigla>
+<UnidadePolicial>SEÇÃO DE SERVIÇOS GERAIS - CaDeV</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPP.CaDeV.SSF</CodigoUniPol>
+<Sigla>SSF</Sigla>
+<UnidadePolicial>SERVIÇO DE SEGURANÇA E FISCALIZAÇÃO - CaDeV</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPP.CaDeV.SSF.SF</CodigoUniPol>
+<Sigla>SS</Sigla>
+<UnidadePolicial>SEÇÃO DE FISCALIZAÇÃO - CaDeV</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPP.CaDeV.SSF.SS</CodigoUniPol>
+<Sigla>SS</Sigla>
+<UnidadePolicial>SEÇÃO DE SEGURANÇA - CaDeV</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPTC</CodigoUniPol>
+<Sigla>SPTC</Sigla>
+<UnidadePolicial>SUPERINTÊNDENCIA DE POLÍCIA TÉCNICO-CIENTÍFICA</UnidadePolicial>
+<CodigoChefia>5</CodigoChefia>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<CodigoCargoQO>PC.DP.5</CodigoCargoQO>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPTC Gab</CodigoUniPol>
+<Sigla>Gab</Sigla>
+<UnidadePolicial>GABINETE DO SUPERINTENDENTE - SPTC</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPTC.DeC</CodigoUniPol>
+<Sigla>DeC</Sigla>
+<UnidadePolicial>DEPARTAMENTO DE CRIMINALÍSTICA</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPTC.DeC.SB</CodigoUniPol>
+<Sigla>SB</Sigla>
+<UnidadePolicial>SEÇÃO DE BALÍSTICA</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPTC.DeC.SF</CodigoUniPol>
+<Sigla>SF</Sigla>
+<UnidadePolicial>SEÇÃO DE FOTOGRAFIAS</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPTC.DeC.SPCL</CodigoUniPol>
+<Sigla>SPCL</Sigla>
+<UnidadePolicial>SERVIÇO DE PERÍCIAS CRIMINAIS E LABORATORIAIS</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPTC.DeI</CodigoUniPol>
+<Sigla>DeI</Sigla>
+<UnidadePolicial>DEPARTAMENTO DE IDENTIFICAÇÃO</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPTC.DeI.SAD</CodigoUniPol>
+<Sigla>SAD</Sigla>
+<UnidadePolicial>SEÇÃO DE ARQUIVO DATILOSCÓPICO</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPTC.DeI.SCPI</CodigoUniPol>
+<Sigla>SCPI</Sigla>
+<UnidadePolicial>SEÇÃO DE CONTROLE DE POSTOS DE IDENTIFICAÇÃO</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPTC.DeI.SIC</CodigoUniPol>
+<Sigla>SIC</Sigla>
+<UnidadePolicial>SEÇÃO DE IDENTIFICAÇÃO CIVIL</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPTC.DeI.SICri</CodigoUniPol>
+<Sigla>SICri</Sigla>
+<UnidadePolicial>SEÇÃO DE IDENTIFIÇÃO CRIMINAL</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPTC.DeI.SPCAO</CodigoUniPol>
+<Sigla>SPCAO</Sigla>
+<UnidadePolicial>SEÇÃO DE PRONTUÁRIO CIVIL E ARQUIVO ONOMÁSTICO</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPTC.DML</CodigoUniPol>
+<Sigla>DML</Sigla>
+<UnidadePolicial>DEPARTAMENTO MÉDICO-LEGAL (Vitória)</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPTC.DML.SPML</CodigoUniPol>
+<Sigla>SPML</Sigla>
+<UnidadePolicial>SERVIÇO DE PERICÍAS MÉDICO-LEGAL</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPTC.DML.SPML.SCML</CodigoUniPol>
+<Sigla>SCML</Sigla>
+<UnidadePolicial>SEÇÃO DE CLÍNICA MEDICO-LEGAL</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPTC.DML.SPML.SH</CodigoUniPol>
+<Sigla>SH</Sigla>
+<UnidadePolicial>SEÇÃO DE HISPATOLOGIA</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPTC.DML.SPML.SIm</CodigoUniPol>
+<Sigla>SIm</Sigla>
+<UnidadePolicial>SEÇÃO DE IMUNOBIOLOGIA</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPTC.DML.SPML.SN</CodigoUniPol>
+<Sigla>SN</Sigla>
+<UnidadePolicial>SEÇÃO DE NECRÓPSIA</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPTC.DML.SPML.SR</CodigoUniPol>
+<Sigla>SR</Sigla>
+<UnidadePolicial>SEÇÃO DE RADIOLOGIA</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+<dbo_UniPol>
+<CodigoUniPol>SPTC.DML.SPML.ST</CodigoUniPol>
+<Sigla>SPST</Sigla>
+<UnidadePolicial>SEÇÃO DE TOXICOLOGIA</UnidadePolicial>
+<SituacaoChefia>0</SituacaoChefia>
+<Situacao>1</Situacao>
+<Secri>0</Secri>
+</dbo_UniPol>
+</dataroot>

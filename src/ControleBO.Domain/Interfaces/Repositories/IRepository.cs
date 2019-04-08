@@ -23,10 +23,17 @@ namespace ControleBO.Domain.Interfaces.Repositories
 
         IEnumerable<TModel> GetPaged(Expression<Func<TModel, object>> orderBy, int page, int pageSize);
 
+        IEnumerable<TModel> GetPaged(Expression<Func<TModel, bool>> filter, Expression<Func<TModel, object>> orderBy, int page, int pageSize);
+
         IQueryable<TModel> GetAll(IEnumerable<Expression<Func<TModel, bool>>> filters,
                                   Expression<Func<TModel, object>> orderBy = null);
 
         IEnumerable<TModel> GetAllAsNoTracking(IEnumerable<Expression<Func<TModel, bool>>> filters = null,
                                                Expression<Func<TModel, object>> orderBy = null);
+
+        IEnumerable<TModel> GetAllAsNoTracking(Expression<Func<TModel, bool>> filter,
+                                               Expression<Func<TModel, object>> orderBy = null);
+
+        int Count();
     }
 }

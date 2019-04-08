@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { BaseService } from './base.service';
 import { TipoProcedimento } from '../models/tipo-procedimento';
+import { IServiceBase } from './service-base';
 
 @Injectable({
   providedIn: 'root'
 })
-export class TipoProcedimentoService {
+export class TipoProcedimentoService implements IServiceBase<TipoProcedimento> {
 
   private readonly uri: string = 'api/tipo-procedimento';
 
@@ -19,11 +20,15 @@ export class TipoProcedimentoService {
     return this.baseService.put<TipoProcedimento>(`${this.uri}/${tipoProcedimento.id}`, tipoProcedimento);
   }
 
-  delete(id: string) {
+  delete(id: number) {
     return this.baseService.delete(`${this.uri}/${id}`);
   }
 
   getAll() {
     return this.baseService.get<TipoProcedimento[]>(this.uri);
+  }
+
+  getAllPaged(page: number = 1, pageSize: number = 10) {
+    return this.baseService.get<TipoProcedimento[]>(`${this.uri}/paginate/page=${page}&pageSize=${pageSize}`);
   }
 }

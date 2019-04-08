@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 
 namespace ControleBO.Api
 {
@@ -63,6 +64,14 @@ namespace ControleBO.Api
 
             app.UseHttpsRedirection();
             app.UseMvc();
+            ConfigureDataDirectory(env);
+        }
+
+        private static void ConfigureDataDirectory(IHostingEnvironment env)
+        {
+            string baseDir = env.WebRootPath;
+
+            AppDomain.CurrentDomain.SetData("DataDirectory", System.IO.Path.Combine(baseDir, "App_Data"));
         }
 
         private static void RegisterServices(IServiceCollection services)

@@ -4,17 +4,16 @@ namespace ControleBO.Domain.Models
 {
     public class ProcedimentoTipo : Entity
     {
-        public ProcedimentoTipo(int id, string sigla, string descricao)
-        {
-            Id = id;
-            Sigla = sigla;
-            Descricao = descricao;
-        }
-
         public ProcedimentoTipo(string sigla, string descricao)
         {
             Sigla = sigla;
             Descricao = descricao;
+        }
+
+        public ProcedimentoTipo(int id, string sigla, string descricao)
+            : this(sigla, descricao)
+        {
+            Id = id;
         }
 
         protected ProcedimentoTipo() { }

@@ -20,6 +20,9 @@ namespace ControleBO.Application.ViewModels
         [JsonProperty(PropertyName = "dataNascimento")]
         public DateTime? DataNascimento { get; set; }
 
+        [JsonProperty(PropertyName = "idade")]
+        public int? Idade { get; set; }
+
         [JsonProperty(PropertyName = "telefone")]
         public string Telefone { get; set; }
 

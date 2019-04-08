@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataroot xmlns:od="urn:schemas-microsoft-com:officedata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xsi:noNamespaceSchemaLocation="TipoProcedimento.xsd" generated="2019-04-07T17:30:32">
+  <Procedimento>
+    <Código>1</Código>
+    <Procedimento>IP</Procedimento>
+    <Descrição>Inquerito Policial</Descrição>
+  </Procedimento>
+  <Procedimento>
+    <Código>2</Código>
+    <Procedimento>TC</Procedimento>
+    <Descrição>Termo Circunstanciado</Descrição>
+  </Procedimento>
+  <Procedimento>
+    <Código>3</Código>
+    <Procedimento>BC</Procedimento>
+    <Descrição>Boletim Circunstanciado</Descrição>
+  </Procedimento>
+  <Procedimento>
+    <Código>4</Código>
+    <Procedimento>APFD</Procedimento>
+    <Descrição>Auto de Prisão em Flagrante Delito</Descrição>
+  </Procedimento>
+  <Procedimento>
+    <Código>5</Código>
+    <Procedimento>AI</Procedimento>
+    <Descrição>Ato Infracional</Descrição>
+  </Procedimento>
+  <Procedimento>
+    <Código>6</Código>
+    <Procedimento>ARQ</Procedimento>
+    <Descrição>Arquivado</Descrição>
+  </Procedimento>
+  <Procedimento>
+    <Código>7</Código>
+    <Procedimento>EXP</Procedimento>
+    <Descrição>Expediente</Descrição>
+  </Procedimento>
+  <Procedimento>
+    <Código>8</Código>
+    <Procedimento>NC</Procedimento>
+    <Descrição>Notícia de Crime</Descrição>
+  </Procedimento>
+  <Procedimento>
+    <Código>9</Código>
+    <Procedimento>DQ</Procedimento>
+    <Descrição>Disque Denúncia</Descrição>
+  </Procedimento>
+  <Procedimento>
+    <Código>10</Código>
+    <Procedimento>VPI</Procedimento>
+    <Descrição>Verificação de Procedência da Informação</Descrição>
+  </Procedimento>
+  <Procedimento>
+    <Código>9</Código>
+    <Procedimento>ARQ</Procedimento>
+    <Descrição>Arquivado</Descrição>
+  </Procedimento>
+</dataroot>

@@ -9,13 +9,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infra", "4 - Infra", "{E4298BC2-7C5A-4F0A-BD3E-B861C194EB59}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.1 - Data", "3.1 - Data", "{23B9433D-7205-454F-BA9A-AA7F33463745}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.1 - Data", "4.1 - Data", "{23B9433D-7205-454F-BA9A-AA7F33463745}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControleBO.Domain", "ControleBO.Domain\ControleBO.Domain.csproj", "{F3E90B14-D4F2-408D-8A9F-666651347E48}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControleBO.Infra.Data", "ControleBO.Infra.Data\ControleBO.Infra.Data.csproj", "{426CA732-8007-452E-832A-21F1443C5B10}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.2 - CrossCutting", "3.2 - CrossCutting", "{0A9072F8-D245-4ED1-A299-E226CAA55376}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.2 - CrossCutting", "4.2 - CrossCutting", "{0A9072F8-D245-4ED1-A299-E226CAA55376}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControleBO.Infra.CrossCutting.IoC", "ControleBO.Infra.CrossCutting.IoC\ControleBO.Infra.CrossCutting.IoC.csproj", "{2F9EB23D-82A0-4EE9-AE09-A025FA276169}"
 EndProject

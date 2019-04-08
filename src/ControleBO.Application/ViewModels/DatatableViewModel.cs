@@ -8,7 +8,7 @@ namespace ControleBO.Application.ViewModels
         public DatatableHeaderTitleViewModel[] Headers { get; set; }
 
         [JsonProperty(PropertyName = "dataSet")]
-        public string[][] DataSet { get; set; }
+        public object[][] DataSet { get; set; }
     }
 
     public class DatatableHeaderTitleViewModel

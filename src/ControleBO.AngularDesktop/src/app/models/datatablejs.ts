@@ -1,4 +1,4 @@
 export interface Datatablejs {
-  headers: string[];
-  dataSet: string[][];
+  headers: any[];
+  dataSet: any[][];
 }

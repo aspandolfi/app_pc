@@ -25,6 +25,7 @@ import { CadastroArtigoComponent } from './components/cadastro-artigo/cadastro-a
 import { MunicipioComponent } from './components/municipio/municipio.component';
 import { CadastroMunicipioComponent } from './components/cadastro-municipio/cadastro-municipio.component';
 import { ProcedimentoComponent } from './components/procedimento/procedimento.component';
+import { GrdFilterPipe } from './pipes/grd-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { ProcedimentoComponent } from './components/procedimento/procedimento.co
     CadastroArtigoComponent,
     MunicipioComponent,
     CadastroMunicipioComponent,
-    ProcedimentoComponent
+    ProcedimentoComponent,
+    GrdFilterPipe
   ],
   imports: [
     HttpClientModule,

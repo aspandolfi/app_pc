@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import * as $ from 'jquery';
-import 'datatables.net';
-import 'datatables.net-dt';
 import { ProcedimentoService } from 'src/app/services/procedimento.service';
 import { Datatablejs } from 'src/app/models/datatablejs';
 import { ToastrService } from 'ngx-toastr';
@@ -17,11 +14,14 @@ export class ProcedimentoComponent implements OnInit {
   private datatablejs: Datatablejs;
   private isLoading: boolean;
 
+  dtOptions: DataTables.Settings = {};
+
   constructor(private procedimentoService: ProcedimentoService, private toastr: ToastrService, private spinner: NgxSpinnerService) {
-    this.getProcedimentosAsDatatable();
   }
 
   ngOnInit() {
+    this.spinner.show();
+    this.getProcedimentosAsDatatable();
   }
 
   getProcedimentosAsDatatable() {
@@ -32,18 +32,13 @@ export class ProcedimentoComponent implements OnInit {
         this.datatablejs = res.data;
         this.mountDatatable(this.datatablejs);
       },
-        () => this.toastr.error("Falha ao carregar os procedimentos."));
+        () => this.toastr.error("Falha ao carregar os procedimentos."),
+        () => this.spinner.hide());
   }
 
   private mountDatatable(datatablejs: Datatablejs) {
-    $(document).ready(() => {
-      $('#procedimentos').DataTable({
-        columns: datatablejs.headers,
-        serverSide: true,
-        processing: true,
-        ajax: this.procedimentoService.url + '/datatablequery'
-      });
-    });
+    this.dtOptions.columns = datatablejs.headers;
+    this.dtOptions.data = datatablejs.dataSet;
   }
 
 }

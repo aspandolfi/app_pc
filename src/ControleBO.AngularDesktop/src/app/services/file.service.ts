@@ -12,7 +12,10 @@ export class FileService {
   }
 
   getConfig() {
-    var configFile = this.fs.readFileSync('./config.json');
-    return JSON.parse(configFile);
+    if (fs !== undefined) {
+      var configFile = this.fs.readFileSync('./config.json');
+      return JSON.parse(configFile);
+    }
+    return { apiUrl: "http://localhost:1647/" };
   }
 }

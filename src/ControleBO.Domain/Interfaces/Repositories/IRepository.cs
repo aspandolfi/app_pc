@@ -34,6 +34,12 @@ namespace ControleBO.Domain.Interfaces.Repositories
         IEnumerable<TModel> GetAllAsNoTracking(Expression<Func<TModel, bool>> filter,
                                                Expression<Func<TModel, object>> orderBy = null);
 
+        IEnumerable<TResult> GetAllAsNoTracking<TResult>(Expression<Func<TModel, TResult>> selector,
+                                                         Expression<Func<TModel, bool>> filter,
+                                                         Expression<Func<TModel, object>> orderBy = null);
+
         int Count();
+
+        DateTime? LastUpdate();
     }
 }

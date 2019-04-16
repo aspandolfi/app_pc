@@ -1,1 +1,4 @@
-var fs = require('fs');
+var fs;
+if (Node.length) {
+  fs = require('fs');
+}

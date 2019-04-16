@@ -1,4 +1,5 @@
 ﻿using ControleBO.Application.ViewModels;
+using System.Collections.Generic;
 
 namespace ControleBO.Application.Interfaces
 {
@@ -7,5 +8,6 @@ namespace ControleBO.Application.Interfaces
         DatatableViewModel GetAllAsDatatable();
         DatatableViewModel GetAllPagedAsDatatable(int page, int pageSize = 10);
         DatatableQueryResultViewModel GetAllQueryableAsDatatable(DatatableQueryInputViewModel datatableQuery);
+        IEnumerable<ProcedimentoListViewModel> GetAllAsListViewModel();
     }
 }

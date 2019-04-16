@@ -26,8 +26,6 @@
     "@types/node": "^11.11.6",
     "bootstrap": "^4.3.1",
     "core-js": "^2.5.4",
-    "datatables.net": "^1.10.19",
-    "datatables.net-dt": "^1.10.19",
     "jquery": "^3.3.1",
     "ngx-bootstrap": "^3.2.0",
     "ngx-mask": "^7.7.0",

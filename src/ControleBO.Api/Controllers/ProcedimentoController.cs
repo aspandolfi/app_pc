@@ -27,7 +27,13 @@ namespace ControleBO.Api.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Response(_procedimentoAppService.GetAllAsDatatable());
+            return Response(_procedimentoAppService.GetAllAsListViewModel());
+        }
+
+        [HttpGet("ultimaAtualizacao")]
+        public IActionResult GetUltimaAtualizacao()
+        {
+            return Response(_procedimentoAppService.UltimaAtualizacao());
         }
 
         // GET: api/procedimento/paginate?page={page}&pageSize={pageSize}

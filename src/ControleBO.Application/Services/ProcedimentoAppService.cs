@@ -136,5 +136,32 @@ namespace ControleBO.Application.Services
 
             return dt;
         }
+
+        public IEnumerable<ProcedimentoListViewModel> GetAllAsListViewModel()
+        {
+            var result = Repository.GetAllAsNoTracking(x => new
+            {
+                x.Id,
+                x.BoletimUnificado,
+                x.BoletimOcorrencia,
+                x.NumeroProcessual,
+                TipoProcedimento = x.TipoProcedimento.Sigla,
+                x.CriadoEm,
+                Comarca = x.Comarca.Nome,
+                x.AndamentoProcessual
+            }, null, x => x.CriadoEm);
+
+            return result.Select(p => new ProcedimentoListViewModel
+            {
+                Id = p.Id,
+                BoletimUnificado = p.BoletimUnificado,
+                BoletimOcorrencia = p.BoletimOcorrencia,
+                NumeroProcessual = p.NumeroProcessual,
+                TipoProcedimento = p.TipoProcedimento,
+                DataInsercao = p.CriadoEm,
+                Comarca = p.Comarca,
+                AndamentoProcessual = p.AndamentoProcessual
+            });
+        }
     }
 }

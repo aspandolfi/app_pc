@@ -184,5 +184,29 @@ namespace ControleBO.Infra.Data.Repositories
         {
             return DbSet.Count();
         }
+
+        public virtual DateTime? LastUpdate()
+        {
+            throw new NotImplementedException("Não implementado na classe filha. LastUpdate");
+        }
+
+        public IEnumerable<TResult> GetAllAsNoTracking<TResult>(Expression<Func<TModel, TResult>> selector,
+                                                                Expression<Func<TModel, bool>> filter,
+                                                                Expression<Func<TModel, object>> orderBy = null)
+        {
+            IQueryable<TModel> query = DbSet;
+
+            if (filter != null)
+            {
+                query = query.Where(filter);
+            }
+
+            if (orderBy != null)
+            {
+                return query.OrderBy(orderBy).AsNoTracking().Select(selector);
+            }
+
+            return query.AsNoTracking().Select(selector);
+        }
     }
 }

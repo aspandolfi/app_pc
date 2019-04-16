@@ -1,0 +1,120 @@
+<div class="card">
+  <div class="card-body">
+    <form>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="numeroCadastro">Número de Cadastro</label>
+          <input type="text" class="form-control form-control-sm" [(ngModel)]="procedimento.numeroCadastro" name="numeroCadastro" readonly>
+          <small class="form-text text-muted">
+            O número de cadastro é gerado automaticamente pelo sistema.
+          </small>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="boletimUnificado">Boletim Unificado</label>
+          <input type="text" class="form-control form-control-sm" [(ngModel)]="procedimento.boletimUnificado" name="boletimUnificado" placeholder="00000/2018">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="boletimOcorrencia">Boletim de Ocorrência</label>
+          <input type="text" class="form-control form-control-sm" [(ngModel)]="procedimento.boletimOcorrencia" name="boletimOcorrencia" placeholder="00000/2018">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="numeroProcessual">Número Processual</label>
+        <input type="text" class="form-control form-control-sm" [(ngModel)]="procedimento.numeroProcessual" name="numeroProcessual" placeholder="00000">
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput5">GAMPES</label>
+        <input type="text" class="form-control form-control-sm" id="formGroupExampleInput5" placeholder="00000">
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput6">Tipo de Procedimento</label>
+        <select class="form-control form-control-sm" id="formGroupExampleInput6">
+          <option selected>Escolher...</option>
+          <option>EXP – Expediente</option>
+          <option>APFD – Auto prisão em flagrante delito</option>
+          <option>IP – Inquérito Policial</option>
+          <option>AI – Ato Infracional</option>
+          <option>TC - Termo Circunstanciado</option>
+          <option>BOC - Boletim Circunstanciado</option>
+          <option>NC – Notícia de crime</option>
+          <option>DQ – Disque Denúncia</option>
+          <option>VPI – Verificação da Procedência da Informação</option>
+          <option>Outros</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput7">Anexos</label>
+        <textarea class="form-control form-control-sm" id="formGroupExampleInput7" placeholder=""></textarea>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="data_insercao">Data de Inserção</label>
+          <input type="date" class="form-control form-control-sm" id="data_insercao" readonly>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="data_fato">Data de Fato</label>
+          <input type="date" class="form-control form-control-sm" id="data_fato">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="data_instauracao">Data de Instauração</label>
+          <input type="date" class="form-control form-control-sm" id="data_instauracao">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="formGroupExampleInput12">Vara Criminal</label>
+          <select type="text" class="form-control form-control-sm" id="formGroupExampleInput12">
+            <option selected>1ª</option>
+            <option>2ª</option>
+            <option>3ª</option>
+            <option>4ª</option>
+            <option>5ª</option>
+            <option>6ª</option>
+            <option>7ª</option>
+            <option>8ª</option>
+            <option>9ª</option>
+            <option>10ª</option>
+            <option>11ª</option>
+          </select>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="formGroupExampleInput13">Comarca</label>
+          <select type="text" class="form-control form-control-sm" id="formGroupExampleInput13">
+            <option selected>AFONSO CLAUDIO</option>
+            <option>ÁGUA DOCE DO NORTE</option>
+            <option>AGUIA BRANCA</option>
+            <option>ALEGRE</option>
+            <option>ALFREDO CHAVES</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput14">Tipo Criminal</label>
+        <input type="text" class="form-control form-control-sm" id="formGroupExampleInput14">
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput15">Andamento Processual</label>
+        <input type="text" class="form-control form-control-sm" id="formGroupExampleInput15" placeholder="" />
+      </div>
+      <div class="form-group">
+        <label for="ultimas_movimentacoes">Últimas movimentações</label>
+        <table class="table" id="ultimas_movimentacoes">
+          <thead>
+            <tr>
+              <th scope="col">Destino</th>
+              <th scope="col">Data</th>
+              <th scope="col">Retornou em</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Forum</td>
+              <td>23/12/2018</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </form>
+  </div>
+</div>

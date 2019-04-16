@@ -13,6 +13,8 @@ namespace ControleBO.Application.Interfaces
         void Remove(int id);
         IEnumerable<TViewModel> GetPaged(int page, int pageSize);
 
+        DateTime? UltimaAtualizacao();
+
         //IList<CustomerHistoryData> GetAllHistory(Guid id);
     }
 }

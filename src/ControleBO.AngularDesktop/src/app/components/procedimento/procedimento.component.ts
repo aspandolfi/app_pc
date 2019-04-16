@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ProcedimentoService } from 'src/app/services/procedimento.service';
-import { Datatablejs } from 'src/app/models/datatablejs';
 import { ToastrService } from 'ngx-toastr';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { IProcedimentoViewModel } from 'src/app/models/procedimento';
 
 @Component({
   selector: 'app-procedimento',
@@ -11,34 +11,57 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class ProcedimentoComponent implements OnInit {
 
-  private datatablejs: Datatablejs;
+  searchFilter: string;
+  ultimaAtualizacao: string;
+  private _procedimentos: IProcedimentoViewModel[] = [];
   private isLoading: boolean;
+  private isLoadingUltimaAtualizacao: boolean;
 
-  dtOptions: DataTables.Settings = {};
+  private page = 1;
+  private pageSize = 10;
+  private totalItems = this._procedimentos.length;
 
-  constructor(private procedimentoService: ProcedimentoService, private toastr: ToastrService, private spinner: NgxSpinnerService) {
+  constructor(private procedimentoService: ProcedimentoService,
+    private toastr: ToastrService,
+    private spinner: NgxSpinnerService) {
+  }
+
+  get procedimentos(): IProcedimentoViewModel[] {
+    return this._procedimentos
+      .map((procedimento, i) => ({ id: i + 1, ...procedimento }))
+      .slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize);
   }
 
   ngOnInit() {
-    this.spinner.show();
-    this.getProcedimentosAsDatatable();
+    //this.spinner.show();
+    //this.getProcedimentos();
+    //this.getUltimaAtualizacao();
   }
 
-  getProcedimentosAsDatatable() {
+  pageChanged(event: any): void {
+    this.page = event.page;
+    this.procedimentos;
+  }
+
+  getProcedimentos() {
     this.isLoading = true;
 
     this.procedimentoService.getAll()
       .subscribe(res => {
-        this.datatablejs = res.data;
-        this.mountDatatable(this.datatablejs);
+        this._procedimentos = res.data;
       },
         () => this.toastr.error("Falha ao carregar os procedimentos."),
         () => this.spinner.hide());
   }
 
-  private mountDatatable(datatablejs: Datatablejs) {
-    this.dtOptions.columns = datatablejs.headers;
-    this.dtOptions.data = datatablejs.dataSet;
-  }
+  getUltimaAtualizacao() {
+    this.isLoadingUltimaAtualizacao = true;
 
+    this.procedimentoService.getUltimaAtualizacao()
+      .subscribe(res => {
+        this.ultimaAtualizacao = res.data;
+      },
+        () => this.toastr.error("Falha ao carregar a última atualização."),
+        () => this.isLoadingUltimaAtualizacao = false);
+  }
 }

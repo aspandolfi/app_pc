@@ -65,6 +65,11 @@ namespace ControleBO.Application.Services
             Bus.SendCommand(removeCommand);
         }
 
+        public DateTime? UltimaAtualizacao()
+        {
+            return Repository.LastUpdate();
+        }
+
         public virtual void Update(TViewModel tViewModel)
         {
             var updateCommand = Mapper.Map<TViewModel, TUpdateCommand>(tViewModel);

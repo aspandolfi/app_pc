@@ -4,10 +4,11 @@ import { TipoProcedimentoComponent } from './components/tipo-procedimento/tipo-p
 import { ArtigoComponent } from './components/artigo/artigo.component';
 import { MunicipioComponent } from './components/municipio/municipio.component';
 import { ProcedimentoComponent } from './components/procedimento/procedimento.component';
+import { CadastroProcedimentoComponent } from './components/cadastro-procedimento/cadastro-procedimento.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  //{ path: 'home', component: HomeComponent },
+  { path: 'cadastro-procedimento', component: CadastroProcedimentoComponent },
   { path: 'procedimentos', component: ProcedimentoComponent },
   { path: 'municipio', component: MunicipioComponent },
   { path: 'artigo', component: ArtigoComponent },

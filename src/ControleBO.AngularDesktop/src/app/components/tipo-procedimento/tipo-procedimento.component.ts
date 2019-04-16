@@ -50,10 +50,10 @@ export class TipoProcedimentoComponent implements OnInit, OnDestroy {
   }
 
   postReceiveMessage(message: IMessage) {
-    if (message.text.includes('Cadastrado')) {
+    if (message.text.includes('Salvo')) {
       this.addToTable(message.data);
     }
-    else if (message.text.includes('Excluído')) {
+    else if (message.text.includes('Removido')) {
       this.removeFromTable(message.data);
     }
   }

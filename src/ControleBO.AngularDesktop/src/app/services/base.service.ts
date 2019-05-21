@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Result } from '../models/result';
 import { FileService } from './file.service';
+import { retry } from 'rxjs/operators';
 
 export interface ApiUrl {
   apiUrl: string;
@@ -20,11 +21,12 @@ export class BaseService {
   }
 
   private getBaseUrl() {
-    this.apiUrl = this.fileService.getConfig().apiUrl;
+    //this.apiUrl = this.fileService.getConfig().apiUrl;
+    this.apiUrl = "";
   }
 
   public get<T>(uri: string): Observable<Result<T>> {
-    return this.http.get<Result<T>>(this.apiUrl + uri);
+    return this.http.get<Result<T>>(this.apiUrl + uri).pipe(retry(3));
   }
 
   public post<T>(uri: string, data: T): Observable<Result<T>> {

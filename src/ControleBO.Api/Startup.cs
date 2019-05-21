@@ -36,12 +36,9 @@ namespace ControleBO.Api
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            services.AddCors(x => x.AddPolicy("Allow", policy =>
-            {
-                policy.AllowAnyOrigin()
-                      .AllowAnyMethod()
-                      .AllowAnyHeader();
-            }));
+            services.AddCors();
+
+            services.AddResponseCompression();
 
             services.AddAutoMapperSetup();
 
@@ -69,9 +66,11 @@ namespace ControleBO.Api
 
             app.UseAuthentication();
 
+            app.UseResponseCompression();
+
             //app.UseHttpsRedirection();
             app.UseMvc();
-            app.UseCors("Allow");
+            app.UseCors(x => x.AllowAnyOrigin());
             ConfigureDataDirectory(env);
         }
 

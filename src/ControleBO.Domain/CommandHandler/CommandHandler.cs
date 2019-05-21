@@ -6,7 +6,7 @@ using MediatR;
 
 namespace ControleBO.Domain.CommandHandler
 {
-    public abstract class CommandHandler
+    public class CommandHandler
     {
         private readonly IUnitOfWork _uow;
         protected readonly IMediatorHandler Bus;

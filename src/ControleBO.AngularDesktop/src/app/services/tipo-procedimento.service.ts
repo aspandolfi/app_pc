@@ -31,4 +31,8 @@ export class TipoProcedimentoService implements IServiceBase<TipoProcedimento> {
   getAllPaged(page: number = 1, pageSize: number = 10) {
     return this.baseService.get<TipoProcedimento[]>(`${this.uri}/paginate/page=${page}&pageSize=${pageSize}`);
   }
+
+  get(id: number) {
+    return this.baseService.get<TipoProcedimento>(`${this.uri}/${id}`);
+  }
 }

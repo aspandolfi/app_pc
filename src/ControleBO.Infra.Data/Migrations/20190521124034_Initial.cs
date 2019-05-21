@@ -109,7 +109,7 @@ namespace ControleBO.Infra.Data.Migrations
                     Codigo = table.Column<string>(type: "varchar", maxLength: 50, nullable: false),
                     Sigla = table.Column<string>(type: "varchar", maxLength: 20, nullable: false),
                     Descricao = table.Column<string>(type: "varchar", maxLength: 100, nullable: false),
-                    CodigoCargoQO = table.Column<string>(type: "varchar", maxLength: 50, nullable: false)
+                    CodigoCargoQO = table.Column<string>(type: "varchar", maxLength: 50, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -171,7 +171,7 @@ namespace ControleBO.Infra.Data.Migrations
                     BoletimOcorrencia = table.Column<string>(type: "varchar", maxLength: 30, nullable: false),
                     NumeroProcessual = table.Column<string>(type: "varchar", maxLength: 30, nullable: false),
                     Gampes = table.Column<string>(type: "varchar", maxLength: 30, nullable: false),
-                    Anexos = table.Column<string>(type: "varchar", nullable: true),
+                    Anexos = table.Column<string>(type: "varchar", maxLength: 250, nullable: true),
                     LocalFato = table.Column<string>(type: "varchar", maxLength: 30, nullable: false),
                     DataFato = table.Column<DateTime>(nullable: false),
                     DataInstauracao = table.Column<DateTime>(nullable: true),
@@ -235,6 +235,8 @@ namespace ControleBO.Infra.Data.Migrations
                     ModificadoEm = table.Column<DateTime>(nullable: false),
                     RemovidoEm = table.Column<DateTime>(nullable: true),
                     Versao = table.Column<int>(nullable: false),
+                    DataRelatorio = table.Column<DateTime>(nullable: true),
+                    Observacao = table.Column<string>(type: "varchar", maxLength: 250, nullable: true),
                     ProcedimentoId = table.Column<int>(nullable: false),
                     SituacaoId = table.Column<int>(nullable: false),
                     SituacaoTipoId = table.Column<int>(nullable: true)
@@ -272,13 +274,13 @@ namespace ControleBO.Infra.Data.Migrations
                     ModificadoEm = table.Column<DateTime>(nullable: false),
                     RemovidoEm = table.Column<DateTime>(nullable: true),
                     Versao = table.Column<int>(nullable: false),
-                    Nome = table.Column<string>(nullable: true),
-                    NomePai = table.Column<string>(nullable: true),
-                    NomeMae = table.Column<string>(nullable: true),
+                    Nome = table.Column<string>(type: "varchar", maxLength: 250, nullable: true),
+                    NomePai = table.Column<string>(type: "varchar", maxLength: 250, nullable: true),
+                    NomeMae = table.Column<string>(type: "varchar", maxLength: 250, nullable: true),
                     DataNascimento = table.Column<DateTime>(nullable: true),
                     Idade = table.Column<int>(nullable: true),
                     MenorIdade = table.Column<bool>(nullable: false),
-                    Telefone = table.Column<string>(nullable: true),
+                    Telefone = table.Column<string>(type: "varchar", maxLength: 250, nullable: true),
                     NaturalidadeId = table.Column<int>(nullable: true),
                     Apelido = table.Column<string>(type: "varchar", maxLength: 100, nullable: true),
                     ProcedimentoId = table.Column<int>(nullable: false)
@@ -361,13 +363,13 @@ namespace ControleBO.Infra.Data.Migrations
                     ModificadoEm = table.Column<DateTime>(nullable: false),
                     RemovidoEm = table.Column<DateTime>(nullable: true),
                     Versao = table.Column<int>(nullable: false),
-                    Nome = table.Column<string>(nullable: true),
-                    NomePai = table.Column<string>(nullable: true),
-                    NomeMae = table.Column<string>(nullable: true),
+                    Nome = table.Column<string>(type: "varchar", maxLength: 250, nullable: true),
+                    NomePai = table.Column<string>(type: "varchar", maxLength: 250, nullable: true),
+                    NomeMae = table.Column<string>(type: "varchar", maxLength: 250, nullable: true),
                     DataNascimento = table.Column<DateTime>(nullable: true),
                     Idade = table.Column<int>(nullable: true),
                     MenorIdade = table.Column<bool>(nullable: false),
-                    Telefone = table.Column<string>(nullable: true),
+                    Telefone = table.Column<string>(type: "varchar", maxLength: 250, nullable: true),
                     NaturalidadeId = table.Column<int>(nullable: true),
                     Email = table.Column<string>(type: "varchar", maxLength: 100, nullable: true),
                     ProcedimentoId = table.Column<int>(nullable: false)

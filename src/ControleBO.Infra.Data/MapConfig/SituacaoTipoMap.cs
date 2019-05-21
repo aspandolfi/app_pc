@@ -19,6 +19,7 @@ namespace ControleBO.Infra.Data.MapConfig
 
             builder.HasOne(x => x.Situacao)
                 .WithMany(y => y.Tipos)
+                .HasForeignKey(x => x.SituacaoId)
                 .IsRequired();
         }
     }

@@ -1,13 +1,19 @@
-<div>
-  <tabset #tabs>
-    <tab heading="Controle">
-      <app-cadastro-procedimento-controle [procedimento]="procedimento"></app-cadastro-procedimento-controle>
-    </tab>
-    <tab heading="Vítimas/Autores">
-      <app-cadastro-procedimento-vitimas-autores></app-cadastro-procedimento-vitimas-autores>
-    </tab>
-    <tab heading="Situação">
-      <app-cadastro-procedimento-situacao></app-cadastro-procedimento-situacao>
-    </tab>
-  </tabset>
-</div>
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link" [class.active]="isActiveControle" (click)="navigateToControle();">Controle</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" [class.active]="isActiveVitimas" [class.disabled]="!isTabEnable" [attr.aria-disabled]="!isTabEnable" (click)="navigateToVitimasAutores();">Vítimas/Autores</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" [class.active]="isActiveSituacao" [class.disabled]="!isTabEnable" [attr.aria-disabled]="!isTabEnable" (click)="navigateToSituacoes();">Situação</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" [class.active]="isActiveObjetos" [class.disabled]="!isTabEnable" [attr.aria-disabled]="!isTabEnable" (click)="navigateToObjetos();">Objetos Apreendidos</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+  </li>
+</ul>
+
+

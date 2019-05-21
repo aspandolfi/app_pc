@@ -27,6 +27,9 @@ namespace ControleBO.Application.ViewModels
         [JsonProperty(PropertyName = "localFato")]
         public string LocalFato { get; set; }
 
+        [JsonProperty(PropertyName = "dataInsercao")]
+        public DateTime CriadoEm { get; set; }
+
         [JsonProperty(PropertyName = "dataFato")]
         public DateTime DataFato { get; set; }
 

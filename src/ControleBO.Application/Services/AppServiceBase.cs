@@ -40,7 +40,7 @@ namespace ControleBO.Application.Services
             return Mapper.Map<IEnumerable<TModel>, IEnumerable<TViewModel>>(Repository.GetAllAsNoTracking());
         }
 
-        public TViewModel GetById(int id)
+        public virtual TViewModel GetById(int id)
         {
             return Mapper.Map<TModel, TViewModel>(Repository.GetById(id));
         }

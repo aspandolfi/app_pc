@@ -14,7 +14,14 @@ namespace ControleBO.Infra.Data.UoW
 
         public bool Commit()
         {
-            return _context.SaveChanges() > 0;
+            try
+            {
+                return _context.SaveChanges() > 0;
+            }
+            catch (Microsoft.EntityFrameworkCore.DbUpdateException dbException)
+            {
+                return false;
+            }
         }
 
         public void Dispose()

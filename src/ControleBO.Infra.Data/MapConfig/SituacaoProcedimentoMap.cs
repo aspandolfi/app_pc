@@ -18,10 +18,12 @@ namespace ControleBO.Infra.Data.MapConfig
 
             builder.HasOne(x => x.Situacao)
                 .WithMany()
+                .HasForeignKey(x => x.SituacaoId)
                 .IsRequired();
 
             builder.HasOne(x => x.SituacaoTipo)
-                .WithMany();
+                .WithMany()
+                .HasForeignKey(x => x.SituacaoTipoId);
         }
     }
 }

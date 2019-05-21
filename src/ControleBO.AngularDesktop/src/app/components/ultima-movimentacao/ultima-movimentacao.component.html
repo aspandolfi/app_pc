@@ -1,0 +1,22 @@
+<label for="ultimasMovimentacoes">{{titulo}}</label>
+<table class="table" id="ultimasMovimentacoes">
+  <thead>
+    <tr>
+      <th scope="col">Destino</th>
+      <th scope="col">Data</th>
+      <th scope="col">Retornou em</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let ultimaMovimentacao of ultimasMovimentacoes">
+      <td>{{ultimaMovimentacao.destino}}</td>
+      <td>{{ultimaMovimentacao.data}}</td>
+      <td>{{ultimaMovimentacao.retornouEm}}</td>
+    </tr>
+  </tbody>
+</table>
+<div class="row" *ngIf="totalItems > pageSize">
+  <div class="col-xs-12 col-12">
+    <pagination [totalItems]="totalItems" [(ngModel)]="page" (pageChanged)="pageChanged($event)" class="text-secondary"></pagination>
+  </div>
+</div>

@@ -93,7 +93,7 @@ namespace ControleBO.Domain.Validations
         protected void ValidateDataFato()
         {
             RuleFor(x => x.DataFato)
-                .LessThan(DateTime.Now).WithMessage("A Data do Fato deve ser menor que a data atual.");
+                .LessThanOrEqualTo(DateTime.Today).WithMessage("A Data do Fato deve ser menor que a data atual.");
         }
 
         protected void ValidateTipoCriminal()

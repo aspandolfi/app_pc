@@ -21,6 +21,7 @@ namespace ControleBO.Domain.CommandHandler
         private readonly IAssuntoRepository _assuntoRepository;
         private readonly IMunicipioRepository _municipioRepository;
         private readonly IVaraCriminalRepository _varaCriminalRepository;
+        private readonly IUnidadePolicialRepository _unidadePolicialRepository;
 
         public ProcedimentoCommandHandler(IProcedimentoRepository procedimentoRepository,
                                           IProcedimentoTipoRepository procedimentoTipoRepository,
@@ -28,6 +29,7 @@ namespace ControleBO.Domain.CommandHandler
                                           IAssuntoRepository assuntoRepository,
                                           IMunicipioRepository municipioRepository,
                                           IVaraCriminalRepository varaCriminalRepository,
+                                          IUnidadePolicialRepository unidadePolicialRepository,
                                           IUnitOfWork uow,
                                           IMediatorHandler bus,
                                           INotificationHandler<DomainNotification> notifications) : base(uow, bus, notifications)
@@ -38,6 +40,7 @@ namespace ControleBO.Domain.CommandHandler
             _assuntoRepository = assuntoRepository;
             _municipioRepository = municipioRepository;
             _varaCriminalRepository = varaCriminalRepository;
+            _unidadePolicialRepository = unidadePolicialRepository;
         }
 
         public Task<int> Handle(RegisterNewProcedimentoCommand request, CancellationToken cancellationToken)
@@ -50,7 +53,7 @@ namespace ControleBO.Domain.CommandHandler
 
             if (_procedimentoRepository.Exists(request.NumeroProcessual))
             {
-                Bus.RaiseEvent(new DomainNotification(request.MessageType, "O Boletim Unificado já está sendo usado."));
+                Bus.RaiseEvent(new DomainNotification(request.MessageType, "O Número Processual já está sendo usado."));
                 return Task.FromResult(0);
             }
 
@@ -94,9 +97,17 @@ namespace ControleBO.Domain.CommandHandler
                 return Task.FromResult(0);
             }
 
+            var unidadePolicial = _unidadePolicialRepository.GetById(request.DelegaciaOrigemId);
+
+            if (unidadePolicial == null)
+            {
+                Bus.RaiseEvent(new DomainNotification(request.MessageType, "A Delegacia de Origem não foi encontrada."));
+                return Task.FromResult(0);
+            }
+
             var procedimento = new Procedimento(request.BoletimUnificado, request.BoletimOcorrencia, request.NumeroProcessual, request.Gampes,
                                                 request.Anexos, request.LocalFato, request.DataFato, request.DataInstauracao, request.TipoCriminal,
-                                                request.AndamentoProcessual, tipoProcedimento, varaCriminal, municipio, assunto, artigo);
+                                                request.AndamentoProcessual, tipoProcedimento, varaCriminal, municipio, assunto, artigo, unidadePolicial);
 
             _procedimentoRepository.Add(procedimento);
 
@@ -156,11 +167,19 @@ namespace ControleBO.Domain.CommandHandler
                 return Task.FromResult(0);
             }
 
+            var unidadePolicial = _unidadePolicialRepository.GetById(request.DelegaciaOrigemId);
+
+            if (unidadePolicial == null)
+            {
+                Bus.RaiseEvent(new DomainNotification(request.MessageType, "A Delegacia de Origem não foi encontrada."));
+                return Task.FromResult(0);
+            }
+
             var existringProcedimento = _procedimentoRepository.Get(x => x.BoletimUnificado == request.BoletimUnificado);
 
             var procedimento = new Procedimento(request.Id, request.BoletimUnificado, request.BoletimOcorrencia, request.NumeroProcessual, request.Gampes,
                                                 request.Anexos, request.LocalFato, request.DataFato, request.DataInstauracao, request.TipoCriminal,
-                                                request.AndamentoProcessual, tipoProcedimento, varaCriminal, municipio, assunto, artigo);
+                                                request.AndamentoProcessual, tipoProcedimento, varaCriminal, municipio, assunto, artigo, unidadePolicial);
 
             if (!existringProcedimento.Equals(procedimento))
             {

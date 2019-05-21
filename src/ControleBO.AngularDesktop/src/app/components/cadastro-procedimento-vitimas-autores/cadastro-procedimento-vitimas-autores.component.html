@@ -1,3 +1,144 @@
-<p>
-  cadastro-procedimento-vitimas-autores works!
-</p>
+<div class="card mb-3">
+  <div class="card-header clearfix">
+    Vítimas
+    <a class="btn btn-sm btn-secondary float-right" (click)="openModal(null);">
+      Novo
+    </a>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-striped" id="vitimas" cellspacing="0">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Nome da Vítima</th>
+            <th>Nome do Pai</th>
+            <th>Nome da Mãe</th>
+            <th>Naturalidade</th>
+            <th>Data de Nascimento</th>
+            <th>Idade</th>
+          </tr>
+        </thead>
+        <div class="text-center" *ngIf="isLoadingVitimas">
+          <div class="spinner-border spinner-border-sm" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+        <tbody>
+          <tr *ngFor="let vitima of vitimas">
+            <td data-id="{{vitima.id}}">
+              <div class="form-inline align-items-center">
+                <div class="form-group ml-1">
+                  <a title="Editar" class="text-secondary" (click)="openModal(vitima);">
+                    <i class="fas fa-edit"></i>
+                  </a>
+                </div>
+                <div class="form-group ml-1">
+                  <a title="Excluir" class="text-secondary" (click)="openModalExcluir(vitima);">
+                    <i class="far fa-times-circle"></i>
+                  </a>
+                </div>
+              </div>
+            </td>
+            <td>
+              {{vitima.nome}}
+            </td>
+            <td>
+              {{vitima.nomePai}}
+            </td>
+            <td>
+              {{vitima.nomeMae}}
+            </td>
+            <td>
+              {{vitima.naturalidade}}
+            </td>
+            <td>
+              {{vitima.dataNascimento}}
+            </td>
+            <td>
+              {{vitima.idade}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="row" *ngIf="totalItems > pageSize">
+        <div class="col-xs-12 col-12">
+          <pagination [totalItems]="totalItems" [(ngModel)]="page" (pageChanged)="pageChanged($event)" class="text-secondary"></pagination>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card mb-3">
+  <div class="card-header clearfix">
+    Indiciados
+    <a class="btn btn-sm btn-secondary float-right" (click)="openModalIndiciado(null);">
+      Novo
+    </a>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-striped" id="indiciados" cellspacing="0">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Nome do Indiciado</th>
+            <th>Nome do Pai</th>
+            <th>Nome da Mãe</th>
+            <th>Naturalidade</th>
+            <th>Data de Nascimento</th>
+            <th>Idade</th>
+          </tr>
+        </thead>
+        <div class="text-center" *ngIf="isLoadingIndiciados">
+          <div class="spinner-border spinner-border-sm" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+        <tbody>
+          <tr *ngFor="let indiciado of indiciados">
+            <td data-id="{{indiciado.id}}">
+              <div class="form-inline align-items-center">
+                <div class="form-group ml-1">
+                  <a title="Editar" class="text-secondary" (click)="openModalIndiciado(indiciado);">
+                    <i class="fas fa-edit"></i>
+                  </a>
+                </div>
+                <div class="form-group ml-1">
+                  <a title="Excluir" class="text-secondary" (click)="openModalExcluirIndiciado(indiciado);">
+                    <i class="far fa-times-circle"></i>
+                  </a>
+                </div>
+              </div>
+            </td>
+            <td>
+              {{indiciado.nome}}
+            </td>
+            <td>
+              {{indiciado.nomePai}}
+            </td>
+            <td>
+              {{indiciado.nomeMae}}
+            </td>
+            <td>
+              {{indiciado.naturalidade}}
+            </td>
+            <td>
+              {{indiciado.dataNascimento}}
+            </td>
+            <td>
+              {{indiciado.idade}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="row" *ngIf="totalItems > pageSize">
+        <div class="col-xs-12 col-12">
+          <pagination [totalItems]="totalItems" [(ngModel)]="page" (pageChanged)="pageChanged($event)" class="text-secondary"></pagination>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

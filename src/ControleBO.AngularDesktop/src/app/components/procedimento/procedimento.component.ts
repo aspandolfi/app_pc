@@ -1,8 +1,9 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ProcedimentoService } from 'src/app/services/procedimento.service';
 import { ToastrService } from 'ngx-toastr';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { IProcedimentoViewModel } from 'src/app/models/procedimento';
+import { ProcedimentoList } from 'src/app/models/procedimento';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-procedimento',
@@ -11,31 +12,34 @@ import { IProcedimentoViewModel } from 'src/app/models/procedimento';
 })
 export class ProcedimentoComponent implements OnInit {
 
-  searchFilter: string;
-  ultimaAtualizacao: string;
-  private _procedimentos: IProcedimentoViewModel[] = [];
+  private searchFilter: string = '';
+  private ultimaAtualizacao: string;
+  private _procedimentos: ProcedimentoList[] = [];
   private isLoading: boolean;
   private isLoadingUltimaAtualizacao: boolean;
 
   private page = 1;
   private pageSize = 10;
-  private totalItems = this._procedimentos.length;
+
+  get totalItems() {
+    return this._procedimentos.length;
+  }
 
   constructor(private procedimentoService: ProcedimentoService,
     private toastr: ToastrService,
     private spinner: NgxSpinnerService) {
   }
 
-  get procedimentos(): IProcedimentoViewModel[] {
+  get procedimentos(): ProcedimentoList[] {
     return this._procedimentos
       .map((procedimento, i) => ({ id: i + 1, ...procedimento }))
       .slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize);
   }
 
   ngOnInit() {
-    //this.spinner.show();
-    //this.getProcedimentos();
-    //this.getUltimaAtualizacao();
+    this.spinner.show();
+    this.getProcedimentos();
+    this.getUltimaAtualizacao();
   }
 
   pageChanged(event: any): void {
@@ -51,7 +55,10 @@ export class ProcedimentoComponent implements OnInit {
         this._procedimentos = res.data;
       },
         () => this.toastr.error("Falha ao carregar os procedimentos."),
-        () => this.spinner.hide());
+        () => {
+          this.spinner.hide();
+          this.isLoading = false;
+        });
   }
 
   getUltimaAtualizacao() {

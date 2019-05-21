@@ -16,7 +16,7 @@ namespace ControleBO.Infra.Data.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn)
-                .HasAnnotation("ProductVersion", "2.1.8-servicing-32085")
+                .HasAnnotation("ProductVersion", "2.1.11-servicing-32099")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             modelBuilder.Entity("ControleBO.Domain.Models.Artigo", b =>
@@ -86,18 +86,25 @@ namespace ControleBO.Infra.Data.Migrations
 
                     b.Property<int?>("NaturalidadeId");
 
-                    b.Property<string>("Nome");
+                    b.Property<string>("Nome")
+                        .HasColumnType("varchar")
+                        .HasMaxLength(250);
 
-                    b.Property<string>("NomeMae");
+                    b.Property<string>("NomeMae")
+                        .HasColumnType("varchar")
+                        .HasMaxLength(250);
 
-                    b.Property<string>("NomePai");
+                    b.Property<string>("NomePai")
+                        .HasColumnType("varchar")
+                        .HasMaxLength(250);
 
-                    b.Property<int?>("ProcedimentoId")
-                        .IsRequired();
+                    b.Property<int>("ProcedimentoId");
 
                     b.Property<DateTime?>("RemovidoEm");
 
-                    b.Property<string>("Telefone");
+                    b.Property<string>("Telefone")
+                        .HasColumnType("varchar")
+                        .HasMaxLength(250);
 
                     b.Property<int>("Versao");
 
@@ -126,8 +133,7 @@ namespace ControleBO.Infra.Data.Migrations
 
                     b.Property<DateTime>("ModificadoEm");
 
-                    b.Property<int?>("ProcedimentoId")
-                        .IsRequired();
+                    b.Property<int>("ProcedimentoId");
 
                     b.Property<DateTime?>("RemovidoEm");
 
@@ -193,8 +199,7 @@ namespace ControleBO.Infra.Data.Migrations
 
                     b.Property<DateTime>("ModificadoEm");
 
-                    b.Property<int?>("ProcedimentoId")
-                        .IsRequired();
+                    b.Property<int>("ProcedimentoId");
 
                     b.Property<DateTime?>("RemovidoEm");
 
@@ -217,13 +222,12 @@ namespace ControleBO.Infra.Data.Migrations
                         .HasMaxLength(100);
 
                     b.Property<string>("Anexos")
-                        .HasColumnType("varchar");
+                        .HasColumnType("varchar")
+                        .HasMaxLength(250);
 
-                    b.Property<int?>("ArtigoId")
-                        .IsRequired();
+                    b.Property<int>("ArtigoId");
 
-                    b.Property<int?>("AssuntoId")
-                        .IsRequired();
+                    b.Property<int>("AssuntoId");
 
                     b.Property<string>("BoletimOcorrencia")
                         .IsRequired()
@@ -235,8 +239,7 @@ namespace ControleBO.Infra.Data.Migrations
                         .HasColumnType("varchar")
                         .HasMaxLength(30);
 
-                    b.Property<int?>("ComarcaId")
-                        .IsRequired();
+                    b.Property<int>("ComarcaId");
 
                     b.Property<DateTime>("CriadoEm");
 
@@ -244,8 +247,7 @@ namespace ControleBO.Infra.Data.Migrations
 
                     b.Property<DateTime?>("DataInstauracao");
 
-                    b.Property<int?>("DelegaciaOrigemId")
-                        .IsRequired();
+                    b.Property<int>("DelegaciaOrigemId");
 
                     b.Property<string>("Gampes")
                         .IsRequired()
@@ -270,11 +272,9 @@ namespace ControleBO.Infra.Data.Migrations
                         .HasColumnType("varchar")
                         .HasMaxLength(100);
 
-                    b.Property<int?>("TipoProcedimentoId")
-                        .IsRequired();
+                    b.Property<int>("TipoProcedimentoId");
 
-                    b.Property<int?>("VaraCriminalId")
-                        .IsRequired();
+                    b.Property<int>("VaraCriminalId");
 
                     b.Property<int>("Versao");
 
@@ -352,15 +352,19 @@ namespace ControleBO.Infra.Data.Migrations
 
                     b.Property<DateTime>("CriadoEm");
 
+                    b.Property<DateTime?>("DataRelatorio");
+
                     b.Property<DateTime>("ModificadoEm");
 
-                    b.Property<int?>("ProcedimentoId")
-                        .IsRequired();
+                    b.Property<string>("Observacao")
+                        .HasColumnType("varchar")
+                        .HasMaxLength(250);
+
+                    b.Property<int>("ProcedimentoId");
 
                     b.Property<DateTime?>("RemovidoEm");
 
-                    b.Property<int?>("SituacaoId")
-                        .IsRequired();
+                    b.Property<int>("SituacaoId");
 
                     b.Property<int?>("SituacaoTipoId");
 
@@ -393,8 +397,7 @@ namespace ControleBO.Infra.Data.Migrations
 
                     b.Property<DateTime?>("RemovidoEm");
 
-                    b.Property<int?>("SituacaoId")
-                        .IsRequired();
+                    b.Property<int>("SituacaoId");
 
                     b.Property<int>("Versao");
 
@@ -416,7 +419,6 @@ namespace ControleBO.Infra.Data.Migrations
                         .HasMaxLength(50);
 
                     b.Property<string>("CodigoCargoQO")
-                        .IsRequired()
                         .HasColumnType("varchar")
                         .HasMaxLength(50);
 
@@ -487,18 +489,25 @@ namespace ControleBO.Infra.Data.Migrations
 
                     b.Property<int?>("NaturalidadeId");
 
-                    b.Property<string>("Nome");
+                    b.Property<string>("Nome")
+                        .HasColumnType("varchar")
+                        .HasMaxLength(250);
 
-                    b.Property<string>("NomeMae");
+                    b.Property<string>("NomeMae")
+                        .HasColumnType("varchar")
+                        .HasMaxLength(250);
 
-                    b.Property<string>("NomePai");
+                    b.Property<string>("NomePai")
+                        .HasColumnType("varchar")
+                        .HasMaxLength(250);
 
-                    b.Property<int?>("ProcedimentoId")
-                        .IsRequired();
+                    b.Property<int>("ProcedimentoId");
 
                     b.Property<DateTime?>("RemovidoEm");
 
-                    b.Property<string>("Telefone");
+                    b.Property<string>("Telefone")
+                        .HasColumnType("varchar")
+                        .HasMaxLength(250);
 
                     b.Property<int>("Versao");
 

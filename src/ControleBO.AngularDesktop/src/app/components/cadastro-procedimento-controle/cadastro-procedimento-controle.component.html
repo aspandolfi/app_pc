@@ -1,120 +1,203 @@
 <div class="card">
   <div class="card-body">
-    <form>
+    <form #controleForm="ngForm">
+      <div class="form-row">
+        <div class="form-group">
+          <button type="button" class="btn btn-secondary btn-block float-right" [disabled]="!controleForm.form.valid || isLoading" (click)="salvar();">
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" [hidden]="!isLoading"></span>
+            Salvar
+          </button>
+        </div>
+      </div>
       <div class="form-row">
         <div class="form-group col-md-4">
-          <label for="numeroCadastro">Número de Cadastro</label>
-          <input type="text" class="form-control form-control-sm" [(ngModel)]="procedimento.numeroCadastro" name="numeroCadastro" readonly>
+          <label for="id">Número de Cadastro</label>
+          <input type="text" class="form-control form-control-sm" [(ngModel)]="procedimento.id" name="id" readonly>
           <small class="form-text text-muted">
             O número de cadastro é gerado automaticamente pelo sistema.
           </small>
         </div>
         <div class="form-group col-md-4">
           <label for="boletimUnificado">Boletim Unificado</label>
-          <input type="text" class="form-control form-control-sm" [(ngModel)]="procedimento.boletimUnificado" name="boletimUnificado" placeholder="00000/2018">
+          <input type="text" class="form-control form-control-sm ng-invalid" [(ngModel)]="procedimento.boletimUnificado" name="boletimUnificado" placeholder="00000/2018" required mask="0*/0000">
         </div>
         <div class="form-group col-md-4">
           <label for="boletimOcorrencia">Boletim de Ocorrência</label>
-          <input type="text" class="form-control form-control-sm" [(ngModel)]="procedimento.boletimOcorrencia" name="boletimOcorrencia" placeholder="00000/2018">
+          <input type="text" class="form-control form-control-sm ng-invalid" [(ngModel)]="procedimento.boletimOcorrencia" name="boletimOcorrencia" placeholder="00000/2018" required mask="0*/0000">
         </div>
-      </div>
-      <div class="form-group">
-        <label for="numeroProcessual">Número Processual</label>
-        <input type="text" class="form-control form-control-sm" [(ngModel)]="procedimento.numeroProcessual" name="numeroProcessual" placeholder="00000">
-      </div>
-      <div class="form-group">
-        <label for="formGroupExampleInput5">GAMPES</label>
-        <input type="text" class="form-control form-control-sm" id="formGroupExampleInput5" placeholder="00000">
-      </div>
-      <div class="form-group">
-        <label for="formGroupExampleInput6">Tipo de Procedimento</label>
-        <select class="form-control form-control-sm" id="formGroupExampleInput6">
-          <option selected>Escolher...</option>
-          <option>EXP – Expediente</option>
-          <option>APFD – Auto prisão em flagrante delito</option>
-          <option>IP – Inquérito Policial</option>
-          <option>AI – Ato Infracional</option>
-          <option>TC - Termo Circunstanciado</option>
-          <option>BOC - Boletim Circunstanciado</option>
-          <option>NC – Notícia de crime</option>
-          <option>DQ – Disque Denúncia</option>
-          <option>VPI – Verificação da Procedência da Informação</option>
-          <option>Outros</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="formGroupExampleInput7">Anexos</label>
-        <textarea class="form-control form-control-sm" id="formGroupExampleInput7" placeholder=""></textarea>
       </div>
       <div class="form-row">
         <div class="form-group col-md-4">
-          <label for="data_insercao">Data de Inserção</label>
-          <input type="date" class="form-control form-control-sm" id="data_insercao" readonly>
+          <label for="numeroProcessual">Número Processual</label>
+          <input type="text" class="form-control form-control-sm ng-invalid" [(ngModel)]="procedimento.numeroProcessual" name="numeroProcessual" placeholder="00000" required mask="0*">
         </div>
         <div class="form-group col-md-4">
-          <label for="data_fato">Data de Fato</label>
-          <input type="date" class="form-control form-control-sm" id="data_fato">
+          <label for="gampes">GAMPES</label>
+          <input type="text" class="form-control form-control-sm" [(ngModel)]="procedimento.gampes" name="gampes" placeholder="00000">
         </div>
         <div class="form-group col-md-4">
-          <label for="data_instauracao">Data de Instauração</label>
-          <input type="date" class="form-control form-control-sm" id="data_instauracao">
+          <label for="tipoProcedimento">Tipo de Procedimento</label>
+          <small class="form-text text-muted" *ngIf="isLoadingTipos">
+            Buscando...
+          </small>
+          <input [(ngModel)]="tipoProcedimentoSelected"
+                 [typeahead]="tiposProcedimento"
+                 typeaheadOptionField="descricao"
+                 [typeaheadScrollable]="true"
+                 [typeaheadOptionsInScrollableView]="7"
+                 [typeaheadMinLength]="0"
+                 placeholder="Digite para buscar"
+                 name="tipoProcedimento"
+                 (typeaheadOnSelect)="onSelectTipoProcedimento($event)"
+                 class="form-control form-control-sm"
+                 [class.ng-invalid]="isNoResultProcedimentoTipo"
+                 (typeaheadNoResults)="tipoProcedimentoNoResults($event)"
+                 required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col">
+          <label for="tipoProcedimento">Delegacia de Origem</label>
+          <small class="form-text text-muted" *ngIf="isLoadingDelegacias">
+            Buscando...
+          </small>
+          <input [(ngModel)]="delegaciaSelected"
+                 [typeahead]="delegacias"
+                 adaptivePosition="true"
+                 typeaheadOptionField="descricao"
+                 [typeaheadScrollable]="true"
+                 [typeaheadOptionsInScrollableView]="7"
+                 [typeaheadMinLength]="0"
+                 placeholder="Digite para buscar"
+                 name="delegaciaOrigem"
+                 (typeaheadOnSelect)="onSelectDelegacia($event)"
+                 class="form-control form-control-sm"
+                 [class.ng-invalid]="isNoResultDelegacia"
+                 (typeaheadNoResults)="delegaciaNoResults($event)"
+                 required>
         </div>
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
-          <label for="formGroupExampleInput12">Vara Criminal</label>
-          <select type="text" class="form-control form-control-sm" id="formGroupExampleInput12">
-            <option selected>1ª</option>
-            <option>2ª</option>
-            <option>3ª</option>
-            <option>4ª</option>
-            <option>5ª</option>
-            <option>6ª</option>
-            <option>7ª</option>
-            <option>8ª</option>
-            <option>9ª</option>
-            <option>10ª</option>
-            <option>11ª</option>
-          </select>
+          <label for="varaCriminal">Vara Criminal</label>
+          <small class="form-text text-muted" *ngIf="isLoadingVaras">
+            Buscando...
+          </small>
+          <input [(ngModel)]="varaCriminalSelected"
+                 [typeahead]="varasCriminais"
+                 typeaheadOptionField="descricao"
+                 [typeaheadScrollable]="true"
+                 [typeaheadOptionsInScrollableView]="7"
+                 [typeaheadMinLength]="0"
+                 placeholder="Digite para buscar"
+                 name="varaCriminal"
+                 (typeaheadOnSelect)="onSelectVaraCriminal($event)"
+                 class="form-control form-control-sm"
+                 [class.ng-invalid]="isNoResultVaraCriminal"
+                 (typeaheadNoResults)="varaCriminalNoResults($event)"
+                 required>
         </div>
         <div class="form-group col-md-6">
-          <label for="formGroupExampleInput13">Comarca</label>
-          <select type="text" class="form-control form-control-sm" id="formGroupExampleInput13">
-            <option selected>AFONSO CLAUDIO</option>
-            <option>ÁGUA DOCE DO NORTE</option>
-            <option>AGUIA BRANCA</option>
-            <option>ALEGRE</option>
-            <option>ALFREDO CHAVES</option>
-          </select>
+          <label for="comarca">Comarca</label>
+          <small class="form-text text-muted" *ngIf="isLoadingComarcas">
+            Buscando...
+          </small>
+          <input [(ngModel)]="comarcaSelected"
+                 [typeahead]="municipios"
+                 typeaheadOptionField="nome"
+                 [typeaheadScrollable]="true"
+                 [typeaheadOptionsInScrollableView]="7"
+                 [typeaheadMinLength]="0"
+                 placeholder="Digite para buscar"
+                 name="comarca"
+                 (typeaheadOnSelect)="onSelectComarca($event)"
+                 class="form-control form-control-sm"
+                 [class.ng-invalid]="isNoResultComarca"
+                 (typeaheadNoResults)="comarcaNoResults($event)"
+                 required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="varaCriminal">Artigo</label>
+          <small class="form-text text-muted" *ngIf="isLoadingArtigos">
+            Buscando...
+          </small>
+          <input [(ngModel)]="artigoSelected"
+                 [typeahead]="artigos"
+                 typeaheadOptionField="descricao"
+                 [typeaheadScrollable]="true"
+                 [typeaheadOptionsInScrollableView]="7"
+                 [typeaheadMinLength]="0"
+                 placeholder="Digite para buscar"
+                 name="artigo"
+                 (typeaheadOnSelect)="onSelectArtigo($event)"
+                 class="form-control form-control-sm"
+                 [class.ng-invalid]="isNoResultArtigo"
+                 (typeaheadNoResults)="artigoNoResults($event)"
+                 required>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="comarca">Assunto</label>
+          <small class="form-text text-muted" *ngIf="isLoadingAssuntos">
+            Buscando...
+          </small>
+          <input [(ngModel)]="assuntoSelected"
+                 [typeahead]="assuntos"
+                 typeaheadOptionField="descricao"
+                 [typeaheadScrollable]="true"
+                 [typeaheadOptionsInScrollableView]="7"
+                 [typeaheadMinLength]="0"
+                 placeholder="Digite para buscar"
+                 name="assunto"
+                 (typeaheadOnSelect)="onSelectAssunto($event)"
+                 class="form-control form-control-sm"
+                 [class.ng-invalid]="isNoResultAssunto"
+                 (typeaheadNoResults)="assuntoNoResults($event)"
+                 required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="DataInsercao">Data de Inserção</label>
+          <input type="text" class="form-control form-control-sm" name="DataInsercao" value="{{procedimento.DataInsercao | date: 'dd/MM/yyyy'}}" readonly>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="DataFato">Data do Fato</label>
+          <input type="text" bsDatepicker [bsConfig]="bsConfig" [bsValue]="procedimento.DataFato" class="form-control form-control-sm" [(ngModel)]="procedimento.DataFato" name="DataFato" required>
+        </div>
+        <div class="form-group col-xs-12 col-12 col-md-4">
+          <label for="DataInstauracao">Data de Instauração</label>
+          <input bsDatepicker [bsConfig]="bsConfig" [bsValue]="procedimento.DataInstauracao" type="text" class="form-control form-control-sm" [(ngModel)]="procedimento.DataInstauracao" name="DataInstauracao">
         </div>
       </div>
       <div class="form-group">
-        <label for="formGroupExampleInput14">Tipo Criminal</label>
-        <input type="text" class="form-control form-control-sm" id="formGroupExampleInput14">
+        <label for="localFato">Local do Fato</label>
+        <input type="text" class="form-control form-control-sm" [(ngModel)]="procedimento.localFato" name="localFato" required>
       </div>
       <div class="form-group">
-        <label for="formGroupExampleInput15">Andamento Processual</label>
-        <input type="text" class="form-control form-control-sm" id="formGroupExampleInput15" placeholder="" />
+        <label for="tipoCriminal">Tipo Criminal</label>
+        <input type="text" class="form-control form-control-sm" [(ngModel)]="procedimento.tipoCriminal" name="tipoCriminal">
       </div>
       <div class="form-group">
-        <label for="ultimas_movimentacoes">Últimas movimentações</label>
-        <table class="table" id="ultimas_movimentacoes">
-          <thead>
-            <tr>
-              <th scope="col">Destino</th>
-              <th scope="col">Data</th>
-              <th scope="col">Retornou em</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Forum</td>
-              <td>23/12/2018</td>
-              <td></td>
-            </tr>
-          </tbody>
-        </table>
+        <label for="anexos">Anexos</label>
+        <textarea class="form-control form-control-sm" [(ngModel)]="procedimento.anexos" name="anexos"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="andamentoProcessual">Andamento Processual</label>
+        <input type="text" class="form-control form-control-sm" [(ngModel)]="procedimento.andamentoProcessual" name="andamentoProcessual" />
+      </div>
+      <div class="form-group">
+        <app-ultima-movimentacao [ultimasMovimentacoes]="procedimento.ultimasMovimentacoes"></app-ultima-movimentacao>
       </div>
     </form>
   </div>
 </div>
+<ngx-spinner bdOpacity=0.9
+             bdColor="rgba(51, 51, 51, 0.75)"
+             size="default"
+             color="#fff"
+             type="ball-beat"
+             fullScreen="true">
+  <p style="color: white"> </p>
+</ngx-spinner>

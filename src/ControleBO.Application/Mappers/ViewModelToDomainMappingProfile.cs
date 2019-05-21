@@ -22,13 +22,13 @@ namespace ControleBO.Application.Mappers
                 ConstructUsing(p => new RegisterNewProcedimentoCommand(p.BoletimUnificado.Trim(),
                                                                        p.BoletimOcorrencia.Trim(),
                                                                        p.NumeroProcessual.Trim(),
-                                                                       p.Gampes.Trim(),
-                                                                       p.Anexos.Trim(),
-                                                                       p.LocalFato.Trim(),
+                                                                       (string.IsNullOrEmpty(p.Gampes) ? p.Gampes : p.Gampes.Trim()),
+                                                                       (string.IsNullOrEmpty(p.Anexos) ? p.Anexos : p.Anexos.Trim()),
+                                                                       (string.IsNullOrEmpty(p.LocalFato) ? p.LocalFato : p.LocalFato.Trim()),
                                                                        p.DataFato,
                                                                        p.DataInstauracao,
-                                                                       p.TipoCriminal.Trim(),
-                                                                       p.AndamentoProcessual.Trim(),
+                                                                       (string.IsNullOrEmpty(p.TipoCriminal) ? p.TipoCriminal : p.TipoCriminal.Trim()),
+                                                                       (string.IsNullOrEmpty(p.AndamentoProcessual) ? p.AndamentoProcessual : p.AndamentoProcessual.Trim()),
                                                                        p.TipoProcedimentoId,
                                                                        p.VaraCriminalId,
                                                                        p.ComarcaId,
@@ -65,7 +65,10 @@ namespace ControleBO.Application.Mappers
                 .ConstructUsing(a => new RegisterNewVaraCriminalCommand(a.Descricao.Trim()));
             CreateMap<VaraCriminalViewModel, UpdateVaraCriminalCommand>()
                 .ConstructUsing(a => new UpdateVaraCriminalCommand(a.Id, a.Descricao.Trim()));
-
+            CreateMap<MunicipioViewModel, RegisterNewMunicipioCommand>()
+                .ConstructUsing(m => new RegisterNewMunicipioCommand(m.Nome.Trim(), m.UF.Trim(), m.CEP.Trim()));
+            CreateMap<MunicipioViewModel, UpdateMunicipioCommand>()
+                .ConstructUsing(m => new UpdateMunicipioCommand(m.Id, m.Nome.Trim(), m.UF.Trim(), m.CEP.Trim()));
 
 
         }

@@ -26,9 +26,15 @@ namespace ControleBO.Domain.Models
 
         public string Observacao { get; set; }
 
+        public int ProcedimentoId { get; set; }
+
         public virtual Procedimento Procedimento { get; set; }
 
+        public int SituacaoId { get; set; }
+
         public virtual Situacao Situacao { get; set; }
+
+        public int? SituacaoTipoId { get; set; }
 
         public virtual SituacaoTipo SituacaoTipo { get; set; }
     }

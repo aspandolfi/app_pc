@@ -14,6 +14,8 @@ namespace ControleBO.Domain.Models
 
         public string Descricao { get; set; }
 
+        public int SituacaoId { get; set; }
+
         public virtual Situacao Situacao { get; set; }
     }
 }

@@ -24,7 +24,7 @@ export class TipoProcedimentoComponent implements OnInit, OnDestroy {
     { id: 3, sigla: 'TNE 3', descricao: 'Descrição 3' },
     { id: 4, sigla: 'TNE 4', descricao: 'Descrição 4' },
     { id: 5, sigla: 'TNE 5', descricao: 'Descrição 5' }
-  ]
+  ];
 
   constructor(private modalService: BsModalService,
     private toastr: ToastrService,

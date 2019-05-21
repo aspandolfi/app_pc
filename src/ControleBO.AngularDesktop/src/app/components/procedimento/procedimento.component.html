@@ -7,13 +7,23 @@
   </div>
   <div class="card-body">
     <form>
-      <div class="form-group form-inline">
-        Busca:
-        <input class="form-control ml-2" type="text" ([ngModel])="searchFilter" />
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          Busca:
+          <input class="form-control form-control-sm" type="text" [(ngModel)]="searchFilter" name="searchFilter" />
+        </div>
+        <div class="form-group col-md-3">
+          De:
+          <input class="form-control form-control-sm" type="text" />
+        </div>
+        <div class="form-group col-md-3">
+          Até:
+          <input class="form-control form-control-sm" type="text" />
+        </div>
       </div>
     </form>
     <div class="table-responsive">
-      <table class="table table-striped" id="procedimentos" style="width:100%" cellspacing="0">
+      <table class="table table-striped" id="procedimentos" cellspacing="0">
         <thead>
           <tr>
             <th></th>
@@ -28,11 +38,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let procedimento of procedimentos | grdFilter: {id:searchFilter, numeroCadstro:searchFilter, boletimUnificado:searchFilter, boletimOcorrencia:searchFilter, numeroProcessual:searchFilter, tipoProcedimento:searchFilter, DataInsercao:searchFilter, comarca:searchFilter, andamentoProcessual:searchFilter}; let i=index;">
+          <tr *ngFor="let procedimento of procedimentos | grdFilter: {id:searchFilter, numeroCadstro:searchFilter, boletimUnificado:searchFilter, boletimOcorrencia:searchFilter, numeroProcessual:searchFilter, tipoProcedimento:searchFilter, dataInsercao:searchFilter, comarca:searchFilter, andamentoProcessual:searchFilter}; let i=index;">
             <td data-id="{{procedimento.id}}">
               <div class="form-inline align-items-center">
                 <div class="form-group ml-1">
-                  <a title="Editar" class="text-secondary" (click)="openModal(procedimento);">
+                  <a title="Editar" class="text-secondary" [routerLink]="['/cadastro-procedimento', procedimento.id]">
                     <i class="fas fa-edit"></i>
                   </a>
                 </div>
@@ -44,7 +54,7 @@
               </div>
             </td>
             <td>
-              {{procedimento.numeroCadastro}}
+              {{procedimento.id}}
             </td>
             <td>
               {{procedimento.boletimUnificado}}
@@ -59,7 +69,7 @@
               {{procedimento.tipoProcedimento}}
             </td>
             <td>
-              {{procedimento.dataInsercao}}
+              {{procedimento.dataInsercao | date: 'dd/MM/yyyy'}}
             </td>
             <td>
               {{procedimento.comarca}}
@@ -70,16 +80,16 @@
           </tr>
         </tbody>
       </table>
-      <div class="row">
+      <div class="row" *ngIf="totalItems > pageSize">
         <div class="col-xs-12 col-12">
           <pagination [totalItems]="totalItems" [(ngModel)]="page" (pageChanged)="pageChanged($event)" class="text-secondary"></pagination>
         </div>
       </div>
     </div>
-    <div class="card-footer small text-muted">
+    <div class="card-footer small text-muted" style="margin-top:5px">
       <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" [hidden]="!isLoadingUltimaAtualizacao"></span>
       <span class="sr-only">Loading...</span>
-      Atualizado em {{ultimaAtualizacao}}
+      Atualizado em {{ultimaAtualizacao | date: 'dd/MM/yyyy'}}
     </div>
   </div>
 </div>

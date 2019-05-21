@@ -23,6 +23,8 @@ namespace ControleBO.Domain.Models
 
         public string Local { get; set; }
 
+        public int ProcedimentoId { get; set; }
+
         public virtual Procedimento Procedimento { get; set; }
     }
 }

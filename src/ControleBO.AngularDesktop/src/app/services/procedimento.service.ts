@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BaseService } from './base.service';
 import { IServiceBase } from './service-base';
-import { Procedimento, IProcedimentoViewModel } from '../models/procedimento';
+import { Procedimento, ProcedimentoList } from '../models/procedimento';
 import { Observable } from 'rxjs';
 import { Result } from '../models/result';
 
@@ -26,14 +26,16 @@ export class ProcedimentoService implements IServiceBase<Procedimento> {
   delete(id: number): Observable<Result<any>> {
     return this.baseService.delete(`${this.uri}/${id}`);
   }
-  getAll(): Observable<Result<IProcedimentoViewModel[]>> {
-    return this.baseService.get<IProcedimentoViewModel[]>(this.uri);
+  getAll(): Observable<Result<ProcedimentoList[]>> {
+    return this.baseService.get<ProcedimentoList[]>(this.uri);
   }
-  getAllPaged(page: number = 1, pageSize: number = 10): Observable<Result<IProcedimentoViewModel[]>> {
-    return this.baseService.get<IProcedimentoViewModel[]>(`${this.uri}/paginate/page=${page}&pageSize=${pageSize}`);
+  getAllPaged(page: number = 1, pageSize: number = 10): Observable<Result<ProcedimentoList[]>> {
+    return this.baseService.get<ProcedimentoList[]>(`${this.uri}/paginate/page=${page}&pageSize=${pageSize}`);
   }
-
   getUltimaAtualizacao(): Observable<Result<string>> {
     return this.baseService.get(`${this.uri}/ultimaatualizacao`);
+  }
+  get(id: number) {
+    return this.baseService.get<Procedimento>(`${this.uri}/${id}`);
   }
 }

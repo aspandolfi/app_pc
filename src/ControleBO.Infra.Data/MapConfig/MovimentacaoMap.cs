@@ -22,6 +22,7 @@ namespace ControleBO.Infra.Data.MapConfig
 
             builder.HasOne(x => x.Procedimento)
                 .WithMany(y => y.HistoricoMovimentacoes)
+                .HasForeignKey(x => x.ProcedimentoId)
                 .IsRequired();
         }
     }

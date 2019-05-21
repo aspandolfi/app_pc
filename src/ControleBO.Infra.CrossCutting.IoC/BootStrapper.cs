@@ -26,10 +26,13 @@ namespace ControleBO.Infra.CrossCutting.IoC
             //services.AddScoped<SpcContext>();
             //services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped<IAssuntoRepository, AssuntoRepository>();
+            services.AddScoped<IArtigoRepository, ArtigoRepository>();
+            services.AddScoped<IAssuntoRepository, AssuntoRepository>();
             services.AddScoped<IMunicipioRepository, MunicipioRepository>();
             services.AddScoped<IProcedimentoRepository, ProcedimentoRepository>();
             services.AddScoped<IProcedimentoTipoRepository, ProcedimentoTipoRepository>();
             services.AddScoped<IVaraCriminalRepository, VaraCriminalRepository>();
+            services.AddScoped<IUnidadePolicialRepository, UnidadePolicialRepository>();
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
@@ -56,10 +59,22 @@ namespace ControleBO.Infra.CrossCutting.IoC
             services.AddScoped<IRequestHandler<UpdateProcedimentoTipoCommand, int>, ProcedimentoTipoCommandHandler>();
             services.AddScoped<IRequestHandler<RemoveProcedimentoTipoCommand, int>, ProcedimentoTipoCommandHandler>();
 
-            // Application
+            services.AddScoped<IRequestHandler<RegisterNewVaraCriminalCommand, int>, VaraCriminalCommandHandler>();
+            services.AddScoped<IRequestHandler<UpdateVaraCriminalCommand, int>, VaraCriminalCommandHandler>();
+            services.AddScoped<IRequestHandler<RemoveVaraCriminalCommand, int>, VaraCriminalCommandHandler>();
 
+            services.AddScoped<IRequestHandler<RegisterNewArtigoCommand, int>, ArtigoCommandHandler>();
+            services.AddScoped<IRequestHandler<UpdateArtigoCommand, int>, ArtigoCommandHandler>();
+            services.AddScoped<IRequestHandler<RemoveArtigoCommand, int>, ArtigoCommandHandler>();
+
+            // Application
             services.AddScoped<IProcedimentoAppService, ProcedimentoAppService>();
             services.AddScoped<IProcedimentoTipoAppService, ProcedimentoTipoAppService>();
+            services.AddScoped<IMunicipioAppService, MunicipioAppService>();
+            services.AddScoped<IVaraCriminalAppService, VaraCriminalAppService>();
+            services.AddScoped<IArtigoAppService, ArtigoAppService>();
+            services.AddScoped<IAssuntoAppService, AssuntoAppService>();
+            services.AddScoped<IUnidadePolicialAppService, UnidadePolicialAppService>();
 
         }
     }

@@ -3,6 +3,7 @@ using ControleBO.Application.ViewModels;
 using ControleBO.Domain.Core.Bus;
 using ControleBO.Domain.Core.Notifications;
 using MediatR;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -103,7 +104,7 @@ namespace ControleBO.Api.Controllers
                 return Response(procedimentoVm, "Falha ao salvar o procedimento.");
             }
 
-            return Response(id, "O Procedimento foi salvo com sucesso!");
+            return Response(id, "O Procedimento foi atualizado com sucesso!");
         }
 
         // DELETE: api/Procedimento/5

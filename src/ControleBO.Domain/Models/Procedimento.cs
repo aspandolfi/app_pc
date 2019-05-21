@@ -21,7 +21,8 @@ namespace ControleBO.Domain.Models
                             VaraCriminal varaCriminal,
                             Municipio comarca,
                             Assunto assunto,
-                            Artigo artigo)
+                            Artigo artigo,
+                            UnidadePolicial unidadePolicial)
         {
             BoletimUnificado = boletimUnificado;
             BoletimOcorrencia = boletimOcorrencia;
@@ -38,6 +39,7 @@ namespace ControleBO.Domain.Models
             Comarca = comarca;
             Assunto = assunto;
             Artigo = artigo;
+            DelegaciaOrigem = unidadePolicial;
             Vitimas = new HashSet<Vitima>();
             Autores = new HashSet<Indiciado>();
             ObjetosApreendidos = new HashSet<ObjetoApreendido>();
@@ -60,7 +62,8 @@ namespace ControleBO.Domain.Models
                             VaraCriminal varaCriminal,
                             Municipio comarca,
                             Assunto assunto,
-                            Artigo artigo)
+                            Artigo artigo,
+                            UnidadePolicial unidadePolicial)
             : this(boletimUnificado,
                    boletimOcorrencia,
                    numeroProcessual,
@@ -75,7 +78,8 @@ namespace ControleBO.Domain.Models
                    varaCriminal,
                    comarca,
                    assunto,
-                   artigo)
+                   artigo,
+                   unidadePolicial)
         {
             Id = id;
         }
@@ -102,15 +106,27 @@ namespace ControleBO.Domain.Models
 
         public string AndamentoProcessual { get; set; }
 
+        public int TipoProcedimentoId { get; set; }
+
         public virtual ProcedimentoTipo TipoProcedimento { get; set; }
+
+        public int VaraCriminalId { get; set; }
 
         public virtual VaraCriminal VaraCriminal { get; set; }
 
+        public int ComarcaId { get; set; }
+
         public virtual Municipio Comarca { get; set; }
+
+        public int AssuntoId { get; set; }
 
         public virtual Assunto Assunto { get; set; }
 
+        public int ArtigoId { get; set; }
+
         public virtual Artigo Artigo { get; set; }
+
+        public int DelegaciaOrigemId { get; set; }
 
         public virtual UnidadePolicial DelegaciaOrigem { get; set; }
 

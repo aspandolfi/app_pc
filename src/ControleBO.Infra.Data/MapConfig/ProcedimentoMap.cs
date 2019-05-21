@@ -53,26 +53,32 @@ namespace ControleBO.Infra.Data.MapConfig
 
             builder.HasOne(x => x.TipoProcedimento)
                 .WithMany()
+                .HasForeignKey(x => x.TipoProcedimentoId)
                 .IsRequired();
 
             builder.HasOne(x => x.VaraCriminal)
                 .WithMany()
+                .HasForeignKey(x => x.VaraCriminalId)
                 .IsRequired();
 
             builder.HasOne(x => x.Comarca)
                 .WithMany()
+                .HasForeignKey(x => x.ComarcaId)
                 .IsRequired();
 
             builder.HasOne(x => x.Assunto)
                 .WithMany()
+                .HasForeignKey(x => x.AssuntoId)
                 .IsRequired();
 
             builder.HasOne(x => x.Artigo)
                 .WithMany()
+                .HasForeignKey(x => x.ArtigoId)
                 .IsRequired();
 
             builder.HasOne(x => x.DelegaciaOrigem)
                 .WithMany()
+                .HasForeignKey(x => x.DelegaciaOrigemId)
                 .IsRequired();
         }
     }

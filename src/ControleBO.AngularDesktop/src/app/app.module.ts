@@ -31,6 +31,12 @@ import { TabsCadastroProcedimentoComponent } from './components/tabs-cadastro-pr
 import { CadastroProcedimentoControleComponent } from './components/cadastro-procedimento-controle/cadastro-procedimento-controle.component';
 import { CadastroProcedimentoVitimasAutoresComponent } from './components/cadastro-procedimento-vitimas-autores/cadastro-procedimento-vitimas-autores.component';
 import { CadastroProcedimentoSituacaoComponent } from './components/cadastro-procedimento-situacao/cadastro-procedimento-situacao.component';
+import { UltimaMovimentacaoComponent } from './components/ultima-movimentacao/ultima-movimentacao.component';
+import { MunicipioService } from './services/municipio.service';
+
+import { defineLocale } from 'ngx-bootstrap/chronos';
+import { ptBrLocale } from 'ngx-bootstrap/locale';
+defineLocale('pt-br', ptBrLocale);
 
 @NgModule({
   declarations: [
@@ -49,7 +55,8 @@ import { CadastroProcedimentoSituacaoComponent } from './components/cadastro-pro
     TabsCadastroProcedimentoComponent,
     CadastroProcedimentoControleComponent,
     CadastroProcedimentoVitimasAutoresComponent,
-    CadastroProcedimentoSituacaoComponent
+    CadastroProcedimentoSituacaoComponent,
+    UltimaMovimentacaoComponent
   ],
   imports: [
     HttpClientModule,
@@ -61,9 +68,9 @@ import { CadastroProcedimentoSituacaoComponent } from './components/cadastro-pro
     NgxMaskModule.forRoot(),
     NgxSpinnerModule,
     ToastrModule.forRoot({
-      timeOut: 2000,
       positionClass: 'toast-bottom-right',
-      progressBar: true
+      progressBar: true,
+      easeTime: 600
     })
   ],
   entryComponents: [
@@ -78,7 +85,8 @@ import { CadastroProcedimentoSituacaoComponent } from './components/cadastro-pro
     TipoProcedimentoService,
     MessageService,
     FileService,
-    ProcedimentoService
+    ProcedimentoService,
+    MunicipioService
   ],
   bootstrap: [AppComponent]
 })

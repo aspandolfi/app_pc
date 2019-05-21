@@ -10,6 +10,7 @@ namespace ControleBO.Application.Mappers
         public DomainToViewModelMappingProfile()
         {
             CreateMap<ProcedimentoTipo, ProcedimentoTipoViewModel>();
+            CreateMap<Municipio, MunicipioViewModel>();
             CreateMap<DatatableObject, DatatableViewModel>();
         }
     }

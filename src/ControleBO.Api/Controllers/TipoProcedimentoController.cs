@@ -25,6 +25,7 @@ namespace ControleBO.Api.Controllers
 
         // GET: api/tipo-procedimento
         [HttpGet]
+        [ResponseCache(Duration = 3600, Location = ResponseCacheLocation.Any)]
         public IActionResult Get()
         {
             return Response(_procedimentoTipoAppService.GetAll());

@@ -30,6 +30,13 @@ namespace ControleBO.Api.Controllers
             return Response(_municipioAppService.GetAll());
         }
 
+        // GET: api/Municipio
+        [HttpGet("searchBytext/{text}")]
+        public IActionResult GetByText(string text)
+        {
+            return Response(_municipioAppService.GetAllByText(text));
+        }
+
         // GET: api/Municipio/5
         [HttpGet("{id}")]
         public IActionResult Get(int id)

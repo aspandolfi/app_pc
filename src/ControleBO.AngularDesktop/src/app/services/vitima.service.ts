@@ -8,18 +8,12 @@ import { IServiceBase } from './service-base';
 })
 export class VitimaService implements IServiceBase<Vitima> {
 
-  private readonly keyProcedimentoId = '{procedimentoId}';
-  private readonly uri = `api/${this.keyProcedimentoId}/vitima`;
+  private readonly uri = 'api/vitima';
 
   constructor(private baseService: BaseService) { }
 
-  private buildUri(id: number) {
-    if (id !== undefined)
-      return this.uri.replace(this.keyProcedimentoId, `${id}`);
-  }
-
   create(model: Vitima) {
-    return this.baseService.post(this.buildUri(model.procedimentoId), model);
+    return this.baseService.post(this.uri, model);
   }
   update(model: Vitima) {
     return this.baseService.put(`${this.uri}/${model.id}`, model);
@@ -37,6 +31,6 @@ export class VitimaService implements IServiceBase<Vitima> {
     return this.baseService.get<Vitima[]>(`${this.uri}/paginate/page=${page}&pageSize=${pageSize}`);
   }
   getAllFiltered(procedimentoId: number) {
-    return this.baseService.get<Vitima[]>(this.buildUri(procedimentoId));
+    return this.baseService.get<Vitima[]>(`${this.uri}/procedimento/${procedimentoId}`);
   }
 }

@@ -3,7 +3,6 @@ using ControleBO.Application.ViewModels;
 using ControleBO.Domain.Core.Bus;
 using ControleBO.Domain.Core.Notifications;
 using MediatR;
-using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -83,14 +82,14 @@ namespace ControleBO.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] ProcedimentoViewModel procedimentoVm)
         {
-            int id = await _procedimentoAppService.Register(procedimentoVm);
+            var TaskId = _procedimentoAppService.Register(procedimentoVm);
 
             if (!IsValidOperation())
             {
                 return Response(procedimentoVm, "Falha ao salvar o procedimento.");
             }
 
-            return Response(id, "O Procedimento foi salvo com sucesso!");
+            return Response(await TaskId, "O Procedimento foi salvo com sucesso!");
         }
 
         // PUT: api/Procedimento/5

@@ -33,6 +33,8 @@ namespace ControleBO.Infra.CrossCutting.IoC
             services.AddScoped<IProcedimentoTipoRepository, ProcedimentoTipoRepository>();
             services.AddScoped<IVaraCriminalRepository, VaraCriminalRepository>();
             services.AddScoped<IUnidadePolicialRepository, UnidadePolicialRepository>();
+            services.AddScoped<IVitimaRepository, VitimaRepository>();
+            services.AddScoped<IIndiciadoRepository, IndiciadoRepository>();
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
@@ -67,6 +69,14 @@ namespace ControleBO.Infra.CrossCutting.IoC
             services.AddScoped<IRequestHandler<UpdateArtigoCommand, int>, ArtigoCommandHandler>();
             services.AddScoped<IRequestHandler<RemoveArtigoCommand, int>, ArtigoCommandHandler>();
 
+            services.AddScoped<IRequestHandler<RegisterNewVitimaCommand, int>, VitimaCommandHandler>();
+            services.AddScoped<IRequestHandler<UpdateVitimaCommand, int>, VitimaCommandHandler>();
+            services.AddScoped<IRequestHandler<RemoveVitimaCommand, int>, VitimaCommandHandler>();
+
+            services.AddScoped<IRequestHandler<RegisterNewIndiciadoCommand, int>, IndiciadoCommandHandler>();
+            services.AddScoped<IRequestHandler<UpdateIndiciadoCommand, int>, IndiciadoCommandHandler>();
+            services.AddScoped<IRequestHandler<RemoveIndiciadoCommand, int>, IndiciadoCommandHandler>();
+
             // Application
             services.AddScoped<IProcedimentoAppService, ProcedimentoAppService>();
             services.AddScoped<IProcedimentoTipoAppService, ProcedimentoTipoAppService>();
@@ -75,6 +85,8 @@ namespace ControleBO.Infra.CrossCutting.IoC
             services.AddScoped<IArtigoAppService, ArtigoAppService>();
             services.AddScoped<IAssuntoAppService, AssuntoAppService>();
             services.AddScoped<IUnidadePolicialAppService, UnidadePolicialAppService>();
+            services.AddScoped<IVitimaAppService, VitimaAppService>();
+            services.AddScoped<IIndiciadoAppService, IndiciadoAppService>();
 
         }
     }

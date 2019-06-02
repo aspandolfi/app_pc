@@ -64,7 +64,7 @@ namespace ControleBO.Application.ViewModels
         public IEnumerable<VitimaViewModel> Vitimas { get; set; }
 
         [JsonProperty(PropertyName = "indiciados")]
-        public IEnumerable<AutorViewModel> Autores { get; set; }
+        public IEnumerable<IndiciadoViewModel> Autores { get; set; }
 
         [JsonProperty(PropertyName = "objetosApreendidos")]
         public IEnumerable<ObjetoApreendidoViewModel> ObjetosApreendidos { get; set; }

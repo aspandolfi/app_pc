@@ -9,26 +9,32 @@ namespace ControleBO.Application.Mappers
         public ViewModelToDomainMappingProfile()
         {
             CreateMap<ProcedimentoTipoViewModel, RegisterNewProcedimentoTipoCommand>()
-                .ConstructUsing(c => new RegisterNewProcedimentoTipoCommand(c.Sigla.Trim(), c.Descricao.Trim()));
+                .ConstructUsing(c => new RegisterNewProcedimentoTipoCommand(c.Sigla, c.Descricao));
             CreateMap<ProcedimentoTipoViewModel, UpdateProcedimentoTipoCommand>()
-                .ConstructUsing(c => new UpdateProcedimentoTipoCommand(c.Id, c.Sigla.Trim(), c.Descricao.Trim()));
+                .ConstructUsing(c => new UpdateProcedimentoTipoCommand(c.Id, c.Sigla, c.Descricao));
             CreateMap<VitimaViewModel, RegisterNewVitimaCommand>()
-                .ConstructUsing(v => new RegisterNewVitimaCommand(v.Email.Trim(), v.ProcedimentoId,
-                                     v.Nome.Trim(), v.NomePai.Trim(), v.NomeMae.Trim(), v.DataNascimento, v.Idade, v.Telefone.Trim(), v.MunicipioId));
+                .ConstructUsing(v => new RegisterNewVitimaCommand(v.Email, v.ProcedimentoId,
+                                     v.Nome, v.NomePai, v.NomeMae, v.DataNascimento, v.Idade, v.Telefone, v.MunicipioId));
             CreateMap<VitimaViewModel, UpdateVitimaCommand>()
-                .ConstructUsing(v => new UpdateVitimaCommand(v.Id, v.Email.Trim(), v.ProcedimentoId,
-                                     v.Nome.Trim(), v.NomePai.Trim(), v.NomeMae.Trim(), v.DataNascimento, v.Idade, v.Telefone.Trim(), v.MunicipioId));
+                .ConstructUsing(v => new UpdateVitimaCommand(v.Id, v.Email, v.ProcedimentoId,
+                                     v.Nome, v.NomePai, v.NomeMae, v.DataNascimento, v.Idade, v.Telefone, v.MunicipioId));
+            CreateMap<IndiciadoViewModel, RegisterNewIndiciadoCommand>()
+    .ConstructUsing(v => new RegisterNewIndiciadoCommand(v.Apelido, v.ProcedimentoId,
+                         v.Nome, v.NomePai, v.NomeMae, v.DataNascimento, v.Idade, v.Telefone, v.MunicipioId));
+            CreateMap<IndiciadoViewModel, UpdateIndiciadoCommand>()
+                .ConstructUsing(v => new UpdateIndiciadoCommand(v.Id, v.Apelido, v.ProcedimentoId,
+                                     v.Nome, v.NomePai, v.NomeMae, v.DataNascimento, v.Idade, v.Telefone, v.MunicipioId));
             CreateMap<ProcedimentoViewModel, RegisterNewProcedimentoCommand>().
-                ConstructUsing(p => new RegisterNewProcedimentoCommand(p.BoletimUnificado.Trim(),
-                                                                       p.BoletimOcorrencia.Trim(),
-                                                                       p.NumeroProcessual.Trim(),
-                                                                       (string.IsNullOrEmpty(p.Gampes) ? p.Gampes : p.Gampes.Trim()),
-                                                                       (string.IsNullOrEmpty(p.Anexos) ? p.Anexos : p.Anexos.Trim()),
-                                                                       (string.IsNullOrEmpty(p.LocalFato) ? p.LocalFato : p.LocalFato.Trim()),
+                ConstructUsing(p => new RegisterNewProcedimentoCommand(p.BoletimUnificado,
+                                                                       p.BoletimOcorrencia,
+                                                                       p.NumeroProcessual,
+                                                                       p.Gampes,
+                                                                       p.Anexos,
+                                                                       p.LocalFato,
                                                                        p.DataFato,
                                                                        p.DataInstauracao,
-                                                                       (string.IsNullOrEmpty(p.TipoCriminal) ? p.TipoCriminal : p.TipoCriminal.Trim()),
-                                                                       (string.IsNullOrEmpty(p.AndamentoProcessual) ? p.AndamentoProcessual : p.AndamentoProcessual.Trim()),
+                                                                       p.TipoCriminal,
+                                                                       p.AndamentoProcessual,
                                                                        p.TipoProcedimentoId,
                                                                        p.VaraCriminalId,
                                                                        p.ComarcaId,
@@ -37,16 +43,16 @@ namespace ControleBO.Application.Mappers
                                                                        p.DelegaciaOrigemId));
             CreateMap<ProcedimentoViewModel, UpdateProcedimentoCommand>().
                 ConstructUsing(p => new UpdateProcedimentoCommand(p.Id,
-                                                                  p.BoletimUnificado.Trim(),
-                                                                  p.BoletimOcorrencia.Trim(),
-                                                                  p.NumeroProcessual.Trim(),
-                                                                  p.Gampes.Trim(),
-                                                                  p.Anexos.Trim(),
-                                                                  p.LocalFato.Trim(),
+                                                                  p.BoletimUnificado,
+                                                                  p.BoletimOcorrencia,
+                                                                  p.NumeroProcessual,
+                                                                  p.Gampes,
+                                                                  p.Anexos,
+                                                                  p.LocalFato,
                                                                   p.DataFato,
                                                                   p.DataInstauracao,
-                                                                  p.TipoCriminal.Trim(),
-                                                                  p.AndamentoProcessual.Trim(),
+                                                                  p.TipoCriminal,
+                                                                  p.AndamentoProcessual,
                                                                   p.TipoProcedimentoId,
                                                                   p.VaraCriminalId,
                                                                   p.ComarcaId,
@@ -54,21 +60,21 @@ namespace ControleBO.Application.Mappers
                                                                   p.ArtigoId,
                                                                   p.DelegaciaOrigemId));
             CreateMap<AssuntoViewModel, RegisterNewAssuntoCommand>()
-                .ConstructUsing(a => new RegisterNewAssuntoCommand(a.Descricao.Trim()));
+                .ConstructUsing(a => new RegisterNewAssuntoCommand(a.Descricao));
             CreateMap<AssuntoViewModel, UpdateAssuntoCommand>()
-                .ConstructUsing(a => new UpdateAssuntoCommand(a.Id, a.Descricao.Trim()));
+                .ConstructUsing(a => new UpdateAssuntoCommand(a.Id, a.Descricao));
             CreateMap<ArtigoViewModel, RegisterNewArtigoCommand>()
-                .ConstructUsing(a => new RegisterNewArtigoCommand(a.Descricao.Trim()));
+                .ConstructUsing(a => new RegisterNewArtigoCommand(a.Descricao));
             CreateMap<AssuntoViewModel, UpdateArtigoCommand>()
-                .ConstructUsing(a => new UpdateArtigoCommand(a.Id, a.Descricao.Trim()));
+                .ConstructUsing(a => new UpdateArtigoCommand(a.Id, a.Descricao));
             CreateMap<VaraCriminalCommand, RegisterNewVaraCriminalCommand>()
-                .ConstructUsing(a => new RegisterNewVaraCriminalCommand(a.Descricao.Trim()));
+                .ConstructUsing(a => new RegisterNewVaraCriminalCommand(a.Descricao));
             CreateMap<VaraCriminalViewModel, UpdateVaraCriminalCommand>()
-                .ConstructUsing(a => new UpdateVaraCriminalCommand(a.Id, a.Descricao.Trim()));
+                .ConstructUsing(a => new UpdateVaraCriminalCommand(a.Id, a.Descricao));
             CreateMap<MunicipioViewModel, RegisterNewMunicipioCommand>()
-                .ConstructUsing(m => new RegisterNewMunicipioCommand(m.Nome.Trim(), m.UF.Trim(), m.CEP.Trim()));
+                .ConstructUsing(m => new RegisterNewMunicipioCommand(m.Nome, m.UF, m.CEP));
             CreateMap<MunicipioViewModel, UpdateMunicipioCommand>()
-                .ConstructUsing(m => new UpdateMunicipioCommand(m.Id, m.Nome.Trim(), m.UF.Trim(), m.CEP.Trim()));
+                .ConstructUsing(m => new UpdateMunicipioCommand(m.Id, m.Nome, m.UF, m.CEP));
 
 
         }

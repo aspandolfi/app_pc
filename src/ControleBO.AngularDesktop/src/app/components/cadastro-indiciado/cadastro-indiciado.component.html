@@ -1,0 +1,55 @@
+<div class="modal-header">
+  <h4 class="modal-title pull-left">{{model.id ? model.nome : 'Novo Indiciado'}}</h4>
+  <button type="button" class="close pull-right" aria-label="Fechar" [disabled]="submitted" (click)="modalRef.hide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form #indiciadoForm="ngForm">
+    <div class="form-group">
+      <label for="nome" class="control-label">Nome:</label>
+      <input type="text" [(ngModel)]="model.nome" class="form-control form-control-sm ng-invalid" id="nome" name="nome" required>
+    </div>
+    <div class="form-group">
+      <label for="apelido" class="control-label">Apelido:</label>
+      <input type="text" [(ngModel)]="model.apelido" class="form-control form-control-sm ng-invalid" id="apelido" name="apelido" required>
+    </div>
+    <div class="form-group">
+      <label for="nomePai" class="control-label">Nome do Pai:</label>
+      <input type="text" [(ngModel)]="model.nomePai" class="form-control form-control-sm ng-invalid" id="nomePai" name="nomePai">
+    </div>
+    <div class="form-group">
+      <label for="nomeMae" class="control-label">Nome da Mãe:</label>
+      <input type="text" [(ngModel)]="model.nomeMae" class="form-control form-control-sm ng-invalid" id="nomeMae" name="nomeMae">
+    </div>
+    <div class="form-group">
+      <label for="naturalidade" class="control-label">Naturalidade:</label>
+      <small class="form-text text-muted" *ngIf="isLoadingMunicipios">
+        Buscando...
+      </small>
+      <input [(ngModel)]="naturalidadeSelected"
+             [typeahead]="municipios"
+             typeaheadOptionField="nome"
+             [typeaheadScrollable]="true"
+             [typeaheadOptionsInScrollableView]="10"
+             [typeaheadMinLength]="3"
+             placeholder="Digite para buscar"
+             name="naturalidade"
+             (typeaheadOnSelect)="onSelectNaturalidade($event)"
+             class="form-control form-control-sm"
+             [class.ng-invalid]="isNoResultNaturalidade"
+             (typeaheadNoResults)="naturalidadeNoResults($event)">
+    </div>
+    <div class="form-group">
+      <label for="dataNascimento" class="control-label">Data de Nascimento:</label>
+      <input type="text" [(ngModel)]="model.dataNascimento" class="form-control form-control-sm ng-invalid" id="dataNascimento" name="dataNascimento">
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" data-dismiss="modal" [disabled]="submitted" (click)="modalRef.hide();">Fechar</button>
+  <button type="button" class="btn btn-secondary" [disabled]="!indiciadoForm.form.valid || submitted" (click)="save();">
+    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" [hidden]="!submitted"></span>
+    Salvar
+  </button>
+</div>

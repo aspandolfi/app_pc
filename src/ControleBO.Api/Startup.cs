@@ -44,6 +44,8 @@ namespace ControleBO.Api
 
             services.AddMediatR(typeof(Startup));
 
+            services.AddMemoryCache();
+
             RegisterServices(services);
         }
 

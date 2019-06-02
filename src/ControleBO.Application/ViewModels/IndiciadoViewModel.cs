@@ -2,7 +2,7 @@
 
 namespace ControleBO.Application.ViewModels
 {
-    public class AutorViewModel : PessoaViewModel
+    public class IndiciadoViewModel : PessoaViewModel
     {
         [JsonProperty(PropertyName = "apelido")]
         public string Apelido { get; set; }

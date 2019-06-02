@@ -1,10 +1,23 @@
-﻿using ControleBO.Domain.Core.Commands;
-
-namespace ControleBO.Domain.Commands
+﻿namespace ControleBO.Domain.Commands
 {
     public abstract class VitimaCommand : PessoaCommand
     {
-        public string Email { get; protected set; }
+        private string _email;
+
+        public string Email
+        {
+            get
+            {
+                return _email;
+            }
+            protected set
+            {
+                if (!string.IsNullOrEmpty(value))
+                {
+                    _email = value.Trim();
+                }
+            }
+        }
 
         public int ProcedimentoId { get; protected set; }
     }

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { MessageService } from 'src/app/services/message.service';
 import { BaseService } from 'src/app/services/base.service';
-import { Message } from 'src/app/models/message';
+import { Message, Action } from 'src/app/models/message';
 
 @Component({
   selector: 'app-confirmar-exclusao',
@@ -24,15 +24,19 @@ export class ConfirmarExclusaoComponent implements OnInit {
   }
 
   excluir(id: number) {
-    //this.baseService.delete(this.uri + id)
-    //  .subscribe(result => {
-    //    this.messageService.send(new Message(result.message, result.data));
-    //  }, error => this.messageService.send(new Message(error, null, true)));
     this.submitted = true;
-    setTimeout(() => {
-      this.messageService.send(new Message("Excluído com sucesso!", this.model));
-      this.submitted = false;
-    }, 3000);
+
+    this.baseService.delete(this.uri + id)
+      .subscribe(result => {
+        result.data = this.model;
+        this.messageService.send(new Message(result, Action.Removed));
+      },
+        error => this.messageService.send(new Message(error)),
+        () => this.submitted = false);
+    //setTimeout(() => {
+    //  this.messageService.send(new Message("Excluído com sucesso!", this.model));
+    //  this.submitted = false;
+    //}, 3000);
   }
 
 }

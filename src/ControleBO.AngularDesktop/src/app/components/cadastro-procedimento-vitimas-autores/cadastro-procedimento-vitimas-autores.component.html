@@ -1,12 +1,10 @@
 <div class="card mb-3">
   <div class="card-header clearfix">
     Vítimas
-    <a class="btn btn-sm btn-secondary float-right" (click)="openModal(null);">
-      Novo
-    </a>
+    <input type="button" class="btn btn-sm btn-secondary float-right" value="Novo" data-name="btnVitima" (click)="openModal($event, null);">
   </div>
   <div class="card-body">
-    <div class="table-responsive">
+    <div class="table-responsive-sm">
       <table class="table table-striped" id="vitimas" cellspacing="0">
         <thead>
           <tr>
@@ -25,17 +23,17 @@
           </div>
         </div>
         <tbody>
-          <tr *ngFor="let vitima of vitimas">
+          <tr *ngFor="let vitima of returnedVitimas">
             <td data-id="{{vitima.id}}">
               <div class="form-inline align-items-center">
                 <div class="form-group ml-1">
-                  <a title="Editar" class="text-secondary" (click)="openModal(vitima);">
-                    <i class="fas fa-edit"></i>
+                  <a title="Editar" data-name="btnVitima" class="text-secondary" (click)="openModal($event, vitima);">
+                    <i data-name="btnVitima" class="fas fa-edit"></i>
                   </a>
                 </div>
                 <div class="form-group ml-1">
-                  <a title="Excluir" class="text-secondary" (click)="openModalExcluir(vitima);">
-                    <i class="far fa-times-circle"></i>
+                  <a title="Excluir" data-name="btnVitima" class="text-secondary" (click)="openModalExcluir($event, vitima);">
+                    <i data-name="btnVitima" class="far fa-times-circle"></i>
                   </a>
                 </div>
               </div>
@@ -61,10 +59,18 @@
           </tr>
         </tbody>
       </table>
-      <div class="row" *ngIf="totalItems > pageSize">
-        <div class="col-xs-12 col-12">
-          <pagination [totalItems]="totalItems" [(ngModel)]="page" (pageChanged)="pageChanged($event)" class="text-secondary"></pagination>
-        </div>
+    </div>
+    <div class="row" *ngIf="vitimas.length > pageSize">
+      <div class="col-xs-12 col-12 text-secondary">
+        <pagination [totalItems]="vitimas.length"
+                    (pageChanged)="pageVitimasChanged($event)"
+                    [maxSize]="4"
+                    [previousText]="'Anterior'"
+                    [nextText]="'Próximo'"
+                    [itemsPerPage]="pageSize"
+                    [ngModel]="currentPageVitimas"
+                    class="text-secondary">
+        </pagination>
       </div>
     </div>
   </div>
@@ -73,17 +79,16 @@
 <div class="card mb-3">
   <div class="card-header clearfix">
     Indiciados
-    <a class="btn btn-sm btn-secondary float-right" (click)="openModalIndiciado(null);">
-      Novo
-    </a>
+    <input type="button" class="btn btn-sm btn-secondary float-right" value="Novo" name="btnIndiciado" (click)="openModal($event, null);">
   </div>
   <div class="card-body">
-    <div class="table-responsive">
+    <div class="table-responsive-sm">
       <table class="table table-striped" id="indiciados" cellspacing="0">
         <thead>
           <tr>
             <th></th>
             <th>Nome do Indiciado</th>
+            <th>Apelido</th>
             <th>Nome do Pai</th>
             <th>Nome da Mãe</th>
             <th>Naturalidade</th>
@@ -97,16 +102,16 @@
           </div>
         </div>
         <tbody>
-          <tr *ngFor="let indiciado of indiciados">
+          <tr *ngFor="let indiciado of returnedIndiciados">
             <td data-id="{{indiciado.id}}">
               <div class="form-inline align-items-center">
                 <div class="form-group ml-1">
-                  <a title="Editar" class="text-secondary" (click)="openModalIndiciado(indiciado);">
+                  <a title="Editar" class="text-secondary" (click)="openModal($event, indiciado);">
                     <i class="fas fa-edit"></i>
                   </a>
                 </div>
                 <div class="form-group ml-1">
-                  <a title="Excluir" class="text-secondary" (click)="openModalExcluirIndiciado(indiciado);">
+                  <a title="Excluir" class="text-secondary" (click)="openModalExcluir($event, indiciado);">
                     <i class="far fa-times-circle"></i>
                   </a>
                 </div>
@@ -114,6 +119,9 @@
             </td>
             <td>
               {{indiciado.nome}}
+            </td>
+            <td>
+              {{indiciado.apelido}}
             </td>
             <td>
               {{indiciado.nomePai}}
@@ -133,9 +141,17 @@
           </tr>
         </tbody>
       </table>
-      <div class="row" *ngIf="totalItems > pageSize">
-        <div class="col-xs-12 col-12">
-          <pagination [totalItems]="totalItems" [(ngModel)]="page" (pageChanged)="pageChanged($event)" class="text-secondary"></pagination>
+      <div class="row" *ngIf="indiciados.length > pageSize">
+        <div class="col-xs-12 col-12 text-secondary">
+          <pagination [totalItems]="indiciados.length"
+                      (pageChanged)="pageIndiciadosChanged($event)"
+                      [maxSize]="4"
+                      [previousText]="'Anterior'"
+                      [nextText]="'Próximo'"
+                      [itemsPerPage]="pageSize"
+                      [ngModel]="currentPageIndiciados"
+                      class="text-secondary">
+          </pagination>
         </div>
       </div>
     </div>

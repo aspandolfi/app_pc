@@ -107,9 +107,7 @@ namespace ControleBO.Infra.Data.Context
                             new SituacaoTipo("Representação por intervenção telefônica", situacao2),
                             new SituacaoTipo("Representação por quebra de sigilo de dados", situacao2),
                             new SituacaoTipo("Representação por quebra de sigilo telemáticos", situacao2),
-                            new SituacaoTipo("Representação de prazo", situacao2),
-                            new SituacaoTipo("Representação para quebra de dados", situacao2),
-                            new SituacaoTipo("Representação para quebra de dados", situacao2));
+                            new SituacaoTipo("Solicitação de prazo", situacao2));
                 #endregion
 
                 #region Tipos: Procedimento relatado

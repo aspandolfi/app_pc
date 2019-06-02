@@ -33,9 +33,12 @@ import { CadastroProcedimentoVitimasAutoresComponent } from './components/cadast
 import { CadastroProcedimentoSituacaoComponent } from './components/cadastro-procedimento-situacao/cadastro-procedimento-situacao.component';
 import { UltimaMovimentacaoComponent } from './components/ultima-movimentacao/ultima-movimentacao.component';
 import { MunicipioService } from './services/municipio.service';
+import { CadastroVitimaComponent } from './components/cadastro-vitima/cadastro-vitima.component';
+import { CadastroIndiciadoComponent } from './components/cadastro-indiciado/cadastro-indiciado.component';
 
 import { defineLocale } from 'ngx-bootstrap/chronos';
 import { ptBrLocale } from 'ngx-bootstrap/locale';
+import { CadastroProcedimentoObjetosApreendidosComponent } from './components/cadastro-procedimento-objetos-apreendidos/cadastro-procedimento-objetos-apreendidos.component';
 defineLocale('pt-br', ptBrLocale);
 
 @NgModule({
@@ -56,7 +59,10 @@ defineLocale('pt-br', ptBrLocale);
     CadastroProcedimentoControleComponent,
     CadastroProcedimentoVitimasAutoresComponent,
     CadastroProcedimentoSituacaoComponent,
-    UltimaMovimentacaoComponent
+    UltimaMovimentacaoComponent,
+    CadastroVitimaComponent,
+    CadastroIndiciadoComponent,
+    CadastroProcedimentoObjetosApreendidosComponent
   ],
   imports: [
     HttpClientModule,
@@ -77,7 +83,9 @@ defineLocale('pt-br', ptBrLocale);
     CadastroTipoProcedimentoComponent,
     ConfirmarExclusaoComponent,
     CadastroArtigoComponent,
-    CadastroMunicipioComponent
+    CadastroMunicipioComponent,
+    CadastroVitimaComponent,
+    CadastroIndiciadoComponent
   ],
   providers: [
     { provide: 'BASE_URL', useFactory: getBaseUrl },

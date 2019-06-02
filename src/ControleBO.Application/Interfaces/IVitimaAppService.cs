@@ -6,5 +6,6 @@ namespace ControleBO.Application.Interfaces
     public interface IVitimaAppService : IAppServiceBase<VitimaViewModel>
     {
         IEnumerable<VitimaViewModel> GetVitimasByText(string text);
+        IEnumerable<VitimaViewModel> GetAllByProcedimentoId(int procedimentoId);
     }
 }

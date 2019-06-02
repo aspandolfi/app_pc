@@ -20,6 +20,7 @@ namespace ControleBO.Infra.Data.UoW
             }
             catch (Microsoft.EntityFrameworkCore.DbUpdateException dbException)
             {
+                dbException.GetBaseException();
                 return false;
             }
         }

@@ -26,7 +26,7 @@ namespace ControleBO.Application.ViewModels
         [JsonProperty(PropertyName = "telefone")]
         public string Telefone { get; set; }
 
-        [JsonProperty(PropertyName = "municipio")]
+        [JsonProperty(PropertyName = "naturalidadeId")]
         public int MunicipioId { get; set; }
     }
 }

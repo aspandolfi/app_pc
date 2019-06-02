@@ -3,7 +3,7 @@ import { TipoProcedimento } from 'src/app/models/tipo-procedimento';
 import { TipoProcedimentoService } from 'src/app/services/tipo-procedimento.service';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { MessageService } from 'src/app/services/message.service';
-import { Message } from 'src/app/models/message';
+import { Message, Action } from 'src/app/models/message';
 
 @Component({
   selector: 'app-cadastro-tipo-procedimento',
@@ -19,16 +19,15 @@ export class CadastroTipoProcedimentoComponent implements OnInit {
   constructor(public modalRef: BsModalRef, private tipoProcedimentoService: TipoProcedimentoService, private messageService: MessageService) { }
 
   ngOnInit() {
-
   }
 
-  save() {
+  private save() {
     if (this.tipoProcedimento.id) {
       this.tipoProcedimentoService.update(this.tipoProcedimento)
         .subscribe(res => {
-          this.messageService.send(new Message(res.message, res.data));
+          this.messageService.send(new Message(res, Action.Updated));
         }, error => {
-          this.messageService.send(new Message(error.message, error, true));
+          this.messageService.send(new Message(error));
         }, () => {
           this.submitted = false;
           this.modalRef.hide();
@@ -37,9 +36,9 @@ export class CadastroTipoProcedimentoComponent implements OnInit {
     else {
       this.tipoProcedimentoService.create(this.tipoProcedimento)
         .subscribe(res => {
-          this.messageService.send(new Message(res.message, res.data));
+          this.messageService.send(new Message(res, Action.Created));
         }, error => {
-          this.messageService.send(new Message(error.message, error, true));
+          this.messageService.send(new Message(error));
         }, () => {
           this.submitted = false;
           this.modalRef.hide();

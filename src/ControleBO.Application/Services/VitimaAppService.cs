@@ -12,10 +12,17 @@ namespace ControleBO.Application.Services
     public class VitimaAppService : AppServiceBase<VitimaViewModel, Vitima, RegisterNewVitimaCommand, UpdateVitimaCommand, RemoveVitimaCommand>, IVitimaAppService
     {
         public VitimaAppService(IMapper mapper,
-                                IRepository<Vitima> repository,
+                                IVitimaRepository repository,
                                 IMediatorHandler bus)
             : base(mapper, repository, bus)
         {
+        }
+
+        public IEnumerable<VitimaViewModel> GetAllByProcedimentoId(int procedimentoId)
+        {
+            var result = Repository.GetAllAsNoTracking(x => x.ProcedimentoId == procedimentoId, x => x.Nome);
+
+            return Mapper.Map<IEnumerable<VitimaViewModel>>(result);
         }
 
         public IEnumerable<VitimaViewModel> GetVitimasByText(string text)

@@ -15,11 +15,12 @@ import { Artigo } from 'src/app/models/artigo';
 import { Assunto } from 'src/app/models/assunto';
 import { ArtigoService } from 'src/app/services/artigo.service';
 import { AssuntoService } from 'src/app/services/assunto.service';
-import { Message } from 'src/app/models/message';
+import { Message, Action } from 'src/app/models/message';
 import { TabsMessageService } from 'src/app/services/tabs-message.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UnidadePolicialService } from 'src/app/services/unidade-policial.service';
 import { UnidadePolicial } from 'src/app/models/unidade-policial';
+import { Result } from 'src/app/models/result';
 
 @Component({
   selector: 'app-cadastro-procedimento-controle',
@@ -374,11 +375,11 @@ export class CadastroProcedimentoControleComponent implements OnInit, AfterViewI
       this.procedimentoService.create(this.procedimento).subscribe(res => {
         if (res.success) {
           this.toastr.success(res.message);
-          this.tabsMessageService.send(new Message(res.message, res.data));
+          this.tabsMessageService.send(new Message(res, Action.Created));
         }
-      }, (res) => {
-        this.toastr.error(res.error.message);
-        res.error.errors.forEach(m => this.toastr.error(m));
+      }, (error: Result<any>) => {
+        this.toastr.error(error.message);
+        error.errors.forEach(m => this.toastr.error(m));
       }).add(() => {
         this.spinner.hide();
         this.isLoading = false;

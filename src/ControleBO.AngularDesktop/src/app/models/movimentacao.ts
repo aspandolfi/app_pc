@@ -1,4 +1,4 @@
-export class UltimaMovimentacao {
+export class Movimentacao {
   id: number;
   destino: string;
   data: Date;

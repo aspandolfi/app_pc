@@ -1,4 +1,4 @@
-import { UltimaMovimentacao } from './ultima-movimentacao';
+import { Movimentacao } from './movimentacao';
 
 export class Procedimento {
 
@@ -20,7 +20,7 @@ export class Procedimento {
   artigoId: number;
   delegaciaId: number;
   situacao: string;
-  ultimasMovimentacoes: UltimaMovimentacao[];
+  ultimasMovimentacoes: Movimentacao[];
 
   set DataInsercao(value: any) {
     if (value) {

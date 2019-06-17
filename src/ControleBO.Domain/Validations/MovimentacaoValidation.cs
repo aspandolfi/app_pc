@@ -6,6 +6,12 @@ namespace ControleBO.Domain.Validations
 {
     public abstract class MovimentacaoValidation<T> : AbstractValidator<T> where T : MovimentacaoCommand
     {
+        protected void ValidateId()
+        {
+            RuleFor(x => x.Id)
+                .GreaterThan(0).WithMessage("Por favor verifique se é um ID válido.");
+        }
+
         protected void ValidateDestino()
         {
             RuleFor(x => x.Destino)

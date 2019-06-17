@@ -82,7 +82,7 @@ export class TabsCadastroProcedimentoComponent implements OnInit, AfterViewInit,
     this.isActiveSituacao = true;
     this.isActiveVitimas = false;
     this.clearRoute();
-    this.router.navigate(['cadastro-procedimento', this.procedimentoId, { outlets: { procedimento: ['situacoes'] } }]);
+    this.router.navigate(['cadastro-procedimento', this.procedimentoId, { outlets: { procedimento: ['situacao'] } }]);
   }
 
   private navigateToObjetos() {

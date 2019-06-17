@@ -3,6 +3,7 @@
 @import '~ngx-toastr/toastr.css';
 @import 'assets/forms.css';
 @import '~ngx-bootstrap/datepicker/bs-datepicker.css';
+@import "~@ng-select/ng-select/themes/default.theme.css";
 
 #wrapper {
   margin-top: 10px

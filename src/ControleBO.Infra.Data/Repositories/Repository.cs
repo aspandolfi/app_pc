@@ -24,14 +24,38 @@ namespace ControleBO.Infra.Data.Repositories
         }
 
         public IQueryable<TModel> GetAll(IEnumerable<Expression<Func<TModel, bool>>> filters,
-                                         Expression<Func<TModel, object>> orderBy = null)
+                                         params Expression<Func<TModel, object>>[] includes)
         {
             IQueryable<TModel> query = DbSet;
 
-            foreach (var filter in filters)
+            if (filters != null)
             {
-                query = query.Where(filter);
+                foreach (var filter in filters)
+                {
+                    query = query.Where(filter);
+                }
             }
+
+            query = query.IncludeMultiple(includes);
+
+            return query;
+        }
+
+        public IQueryable<TModel> GetAll(IEnumerable<Expression<Func<TModel, bool>>> filters,
+                                         Expression<Func<TModel, object>> orderBy,
+                                         params Expression<Func<TModel, object>>[] includes)
+        {
+            IQueryable<TModel> query = DbSet;
+
+            if (filters != null)
+            {
+                foreach (var filter in filters)
+                {
+                    query = query.Where(filter);
+                }
+            }
+
+            query = query.IncludeMultiple(includes);
 
             if (orderBy != null)
             {
@@ -120,8 +144,8 @@ namespace ControleBO.Infra.Data.Repositories
             DbSet.RemoveRange(objs);
         }
 
-        public IEnumerable<TModel> GetAllAsNoTracking(IEnumerable<Expression<Func<TModel, bool>>> filters = null,
-                                                      Expression<Func<TModel, object>> orderBy = null)
+        public virtual IEnumerable<TModel> GetAllAsNoTracking(IEnumerable<Expression<Func<TModel, bool>>> filters,
+                                                             params Expression<Func<TModel, object>>[] includes)
         {
             IQueryable<TModel> query = DbSet;
 
@@ -133,10 +157,7 @@ namespace ControleBO.Infra.Data.Repositories
                 }
             }
 
-            if (orderBy != null)
-            {
-                return query.OrderBy(orderBy).AsNoTracking();
-            }
+            query = query.IncludeMultiple(includes);
 
             return query.AsNoTracking();
         }
@@ -157,11 +178,18 @@ namespace ControleBO.Infra.Data.Repositories
             return DbSet.SingleOrDefault(filter);
         }
 
-        public IEnumerable<TModel> GetAllAsNoTracking(Expression<Func<TModel, bool>> filter, Expression<Func<TModel, object>> orderBy = null)
+        public virtual IEnumerable<TModel> GetAllAsNoTracking(Expression<Func<TModel, bool>> filter,
+                                                      Expression<Func<TModel, object>> orderBy,
+                                                      params Expression<Func<TModel, object>>[] includes)
         {
             IQueryable<TModel> query = DbSet;
 
-            query = query.Where(filter);
+            if (filter != null)
+            {
+                query = query.Where(filter);
+            }
+
+            query = query.IncludeMultiple(includes);
 
             if (orderBy != null)
             {
@@ -190,9 +218,10 @@ namespace ControleBO.Infra.Data.Repositories
             throw new NotImplementedException("Não implementado na classe filha. LastUpdate");
         }
 
-        public IEnumerable<TResult> GetAllAsNoTracking<TResult>(Expression<Func<TModel, TResult>> selector,
+        public virtual IEnumerable<TResult> GetAllAsNoTracking<TResult>(Expression<Func<TModel, TResult>> selector,
                                                                 Expression<Func<TModel, bool>> filter,
-                                                                Expression<Func<TModel, object>> orderBy = null)
+                                                                Expression<Func<TModel, object>> orderBy,
+                                                                params Expression<Func<TModel, object>>[] includes)
         {
             IQueryable<TModel> query = DbSet;
 
@@ -201,12 +230,23 @@ namespace ControleBO.Infra.Data.Repositories
                 query = query.Where(filter);
             }
 
+            query = query.IncludeMultiple(includes);
+
             if (orderBy != null)
             {
                 return query.OrderBy(orderBy).AsNoTracking().Select(selector);
             }
 
             return query.AsNoTracking().Select(selector);
+        }
+
+        public IEnumerable<TModel> GetAllAsNoTracking(params Expression<Func<TModel, object>>[] includes)
+        {
+            IQueryable<TModel> query = DbSet;
+
+            query = query.IncludeMultiple(includes);
+
+            return query;
         }
     }
 }

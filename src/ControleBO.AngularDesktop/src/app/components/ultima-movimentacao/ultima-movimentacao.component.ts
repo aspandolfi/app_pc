@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { UltimaMovimentacao } from 'src/app/models/ultima-movimentacao';
+import { Movimentacao } from 'src/app/models/movimentacao';
 
 @Component({
   selector: 'app-ultima-movimentacao',
@@ -8,10 +8,10 @@ import { UltimaMovimentacao } from 'src/app/models/ultima-movimentacao';
 })
 export class UltimaMovimentacaoComponent implements OnInit {
 
-  private _ultimasMovimentacoes: UltimaMovimentacao[] = [];
+  private _ultimasMovimentacoes: Movimentacao[] = [];
 
   @Input("ultimasMovimentacoes")
-  set ultimasMovimentacoes(ultimasMovimentacoes: UltimaMovimentacao[]) {
+  set ultimasMovimentacoes(ultimasMovimentacoes: Movimentacao[]) {
     if (!ultimasMovimentacoes) {
       this._ultimasMovimentacoes = [];
     }

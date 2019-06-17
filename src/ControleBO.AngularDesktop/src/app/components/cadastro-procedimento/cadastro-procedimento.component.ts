@@ -17,13 +17,11 @@ export class CadastroProcedimentoComponent implements OnInit, AfterViewInit {
       params => {
         this.procedimentoId = params.get('id');
         if (this.procedimentoId) {
-          console.log('com id', this.procedimentoId);
-          this.router.navigate(['cadastro-procedimento', { outlets: { procedimento: null } }]);
+          //this.router.navigate(['cadastro-procedimento', { outlets: { procedimento: null } }]);
           this.router.navigate(['cadastro-procedimento', this.procedimentoId, { outlets: { procedimento: 'controle' } }]);
         }
         else {
-          console.log('sem id');
-          this.router.navigate(['cadastro-procedimento', { outlets: { procedimento: null } }]);
+          //this.router.navigate(['cadastro-procedimento', { outlets: { procedimento: null } }]);
           this.router.navigate(['cadastro-procedimento', { outlets: { procedimento: 'controle' } }]);
         }
       }

@@ -30,7 +30,7 @@ export class VitimaService implements IServiceBase<Vitima> {
   getAllPaged(page: number, pageSize: number) {
     return this.baseService.get<Vitima[]>(`${this.uri}/paginate/page=${page}&pageSize=${pageSize}`);
   }
-  getAllFiltered(procedimentoId: number) {
+  getByProcedimentoId(procedimentoId: number) {
     return this.baseService.get<Vitima[]>(`${this.uri}/procedimento/${procedimentoId}`);
   }
 }

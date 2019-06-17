@@ -26,17 +26,25 @@ namespace ControleBO.Domain.Interfaces.Repositories
         IEnumerable<TModel> GetPaged(Expression<Func<TModel, bool>> filter, Expression<Func<TModel, object>> orderBy, int page, int pageSize);
 
         IQueryable<TModel> GetAll(IEnumerable<Expression<Func<TModel, bool>>> filters,
-                                  Expression<Func<TModel, object>> orderBy = null);
+                                  params Expression<Func<TModel, object>>[] includes);
 
-        IEnumerable<TModel> GetAllAsNoTracking(IEnumerable<Expression<Func<TModel, bool>>> filters = null,
-                                               Expression<Func<TModel, object>> orderBy = null);
+        IQueryable<TModel> GetAll(IEnumerable<Expression<Func<TModel, bool>>> filters,
+                                  Expression<Func<TModel, object>> orderBy,
+                                  params Expression<Func<TModel, object>>[] includes);
+
+        IEnumerable<TModel> GetAllAsNoTracking(params Expression<Func<TModel, object>>[] includes);
+
+        IEnumerable<TModel> GetAllAsNoTracking(IEnumerable<Expression<Func<TModel, bool>>> filters,
+                                               params Expression<Func<TModel, object>>[] includes);
 
         IEnumerable<TModel> GetAllAsNoTracking(Expression<Func<TModel, bool>> filter,
-                                               Expression<Func<TModel, object>> orderBy = null);
+                                               Expression<Func<TModel, object>> orderBy,
+                                               params Expression<Func<TModel, object>>[] includes);
 
         IEnumerable<TResult> GetAllAsNoTracking<TResult>(Expression<Func<TModel, TResult>> selector,
                                                          Expression<Func<TModel, bool>> filter,
-                                                         Expression<Func<TModel, object>> orderBy = null);
+                                                         Expression<Func<TModel, object>> orderBy,
+                                                         params Expression<Func<TModel, object>>[] includes);
 
         int Count();
 

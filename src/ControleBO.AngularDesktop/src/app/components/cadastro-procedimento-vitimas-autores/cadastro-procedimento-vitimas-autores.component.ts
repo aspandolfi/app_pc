@@ -62,7 +62,7 @@ export class CadastroProcedimentoVitimasAutoresComponent implements OnInit, OnDe
 
   private getVitimas(procedimentoId) {
     this.isLoadingVitimas = true;
-    this.vitimaService.getAllFiltered(procedimentoId).subscribe(res => {
+    this.vitimaService.getByProcedimentoId(procedimentoId).subscribe(res => {
       this.vitimas = res.data;
       this.returnedVitimas = this.vitimas.slice(0, this.pageSize);
     },

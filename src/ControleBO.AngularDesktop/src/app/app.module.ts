@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { NgxMaskModule } from 'ngx-mask';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 import { TipoProcedimentoService } from './services/tipo-procedimento.service';
 import { BaseService } from './services/base.service';
@@ -73,6 +74,7 @@ defineLocale('pt-br', ptBrLocale);
     FormsModule,
     NgxMaskModule.forRoot(),
     NgxSpinnerModule,
+    NgSelectModule,
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right',
       progressBar: true,

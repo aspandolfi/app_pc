@@ -56,7 +56,7 @@ namespace ControleBO.Api.Controllers
 
             vitimaVm = _vitimaAppService.GetById(await taskId);
 
-            return Response(vitimaVm, "A Vítima foi salvo com sucesso!");
+            return Response(vitimaVm, "A Vítima foi salva com sucesso!");
         }
 
         // PUT: api/Vitima/5

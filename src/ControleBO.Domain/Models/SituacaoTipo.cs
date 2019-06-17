@@ -10,6 +10,12 @@ namespace ControleBO.Domain.Models
             Situacao = situacao;
         }
 
+        public SituacaoTipo(int id, string descricao, Situacao situacao)
+            : this(descricao, situacao)
+        {
+            Id = id;
+        }
+
         protected SituacaoTipo() { }
 
         public string Descricao { get; set; }

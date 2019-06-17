@@ -1,6 +1,6 @@
 ﻿using ControleBO.Domain.Core.Commands;
 
-namespace ControleBO.Domain.Commands.Situacao
+namespace ControleBO.Domain.Commands
 {
     public abstract class SituacaoCommand : Command
     {

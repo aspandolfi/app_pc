@@ -35,6 +35,10 @@ namespace ControleBO.Infra.CrossCutting.IoC
             services.AddScoped<IUnidadePolicialRepository, UnidadePolicialRepository>();
             services.AddScoped<IVitimaRepository, VitimaRepository>();
             services.AddScoped<IIndiciadoRepository, IndiciadoRepository>();
+            services.AddScoped<ISituacaoRepository, SituacaoRepository>();
+            services.AddScoped<ISituacaoProcedimentoRepository, SituacaoProcedimentoRepository>();
+            services.AddScoped<ISituacaoTipoRepository, SituacaoTipoRepository>();
+            services.AddScoped<IMovimentacaoRepository, MovimentacaoRepository>();
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
@@ -77,6 +81,18 @@ namespace ControleBO.Infra.CrossCutting.IoC
             services.AddScoped<IRequestHandler<UpdateIndiciadoCommand, int>, IndiciadoCommandHandler>();
             services.AddScoped<IRequestHandler<RemoveIndiciadoCommand, int>, IndiciadoCommandHandler>();
 
+            services.AddScoped<IRequestHandler<RegisterNewSituacaoCommand, int>, SituacaoCommandHandler>();
+            services.AddScoped<IRequestHandler<UpdateSituacaoCommand, int>, SituacaoCommandHandler>();
+            services.AddScoped<IRequestHandler<RemoveSituacaoCommand, int>, SituacaoCommandHandler>();
+
+            services.AddScoped<IRequestHandler<RegisterNewSituacaoProcedimentoCommand, int>, SituacaoProcedimentoCommandHandler>();
+            services.AddScoped<IRequestHandler<UpdateSituacaoProcedimentoCommand, int>, SituacaoProcedimentoCommandHandler>();
+            services.AddScoped<IRequestHandler<RemoveSituacaoProcedimentoCommand, int>, SituacaoProcedimentoCommandHandler>();
+
+            services.AddScoped<IRequestHandler<RegisterNewMovimentacaoCommand, int>, MovimentacaoCommandHandler>();
+            services.AddScoped<IRequestHandler<UpdateMovimentacaoCommand, int>, MovimentacaoCommandHandler>();
+            services.AddScoped<IRequestHandler<RemoveMovimentacaoCommand, int>, MovimentacaoCommandHandler>();
+
             // Application
             services.AddScoped<IProcedimentoAppService, ProcedimentoAppService>();
             services.AddScoped<IProcedimentoTipoAppService, ProcedimentoTipoAppService>();
@@ -87,6 +103,9 @@ namespace ControleBO.Infra.CrossCutting.IoC
             services.AddScoped<IUnidadePolicialAppService, UnidadePolicialAppService>();
             services.AddScoped<IVitimaAppService, VitimaAppService>();
             services.AddScoped<IIndiciadoAppService, IndiciadoAppService>();
+            services.AddScoped<ISituacaoAppService, SituacaoAppService>();
+            services.AddScoped<ISituacaoProcedimentoAppService, SituacaoProcedimentoAppService>();
+            services.AddScoped<IMovimentacaoAppService, MovimentacaoAppService>();
 
         }
     }

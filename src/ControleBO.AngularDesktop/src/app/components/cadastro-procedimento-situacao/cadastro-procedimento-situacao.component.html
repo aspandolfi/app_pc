@@ -1,6 +1,7 @@
 <div class="card mb-3">
   <div class="card-header clearfix">
     Situação
+    <input type="button" class="btn btn-sm btn-secondary float-right" value="Salvar" (click)="salvar();">
   </div>
   <div class="card-body">
     <div class="form-row">
@@ -15,6 +16,18 @@
                    [(ngModel)]="selectedSituacaoId">
         </ng-select>
       </div>
+
+      <div class="form-group col-md-6" *ngIf="situacao.id == 3">
+        <label for="dataRelatorio" class="control-label">Data do Relatório:</label>
+        <input bsDatepicker
+               [bsConfig]="bsConfig"
+               [bsValue]="situacaoProcedimento.dataRelatorio"
+               type="text"
+               class="form-control"
+               [(ngModel)]="situacaoProcedimento.dataRelatorio"
+               name="dataRelatorio">
+      </div>
+
     </div>
 
     <div class="form-row" *ngIf="situacao.id == 2">
@@ -24,21 +37,37 @@
                    bindLabel="descricao"
                    bindValue="id"
                    [searchable]="false"
+                   (change)="onTipoSituacaoChange($event)"
                    [clearable]="false"
-                   id="motivos">
+                   id="motivos"
+                   [(ngModel)]="selectedTipoSituacaoId">
         </ng-select>
       </div>
     </div>
 
     <div class="form-row" *ngIf="situacao.id == 3">
       <div class="form-group col-md-6">
+        <label for="indiciamento" class="control-label">Indiciamento ?</label>
+        <ng-select [items]="indiciamentos"
+                   bindLabel="descricao"
+                   bindValue="id"
+                   [searchable]="false"
+                   [clearable]="false"
+                   id="indiciamento"
+                   [(ngModel)]="selectedIndiciamentoId">
+        </ng-select>
+      </div>
+
+      <div class="form-group col-md-6" *ngIf="selectedIndiciamentoId == 2">
         <label for="motivos" class="control-label">Motivo:</label>
         <ng-select [items]="situacao.tipos"
                    bindLabel="descricao"
                    bindValue="id"
                    [searchable]="false"
+                   (change)="onTipoSituacaoChange($event)"
                    [clearable]="false"
-                   id="motivos">
+                   id="motivos"
+                   [(ngModel)]="selectedTipoSituacaoId">
         </ng-select>
       </div>
     </div>

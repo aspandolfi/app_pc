@@ -5,4 +5,10 @@ export class SituacaoProcedimento {
   procedimentoId: number;
   situacaoId: number;
   situacaoTipoId?: number;
+
+  constructor(obj: object) {
+    if (obj) {
+      Object.assign(this, obj);
+    }
+  }
 }

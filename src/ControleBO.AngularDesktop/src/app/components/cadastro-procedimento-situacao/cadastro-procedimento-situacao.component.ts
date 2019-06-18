@@ -8,6 +8,7 @@ import { MovimentacaoService } from 'src/app/services/movimentacao.service';
 import { SituacaoProcedimento } from 'src/app/models/situacao-procedimento';
 import { SituacaoProcedimentoService } from 'src/app/services/situacao-procedimento.service';
 import { TipoSituacao } from 'src/app/models/tipo-situacao';
+import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker/public_api';
 
 @Component({
   selector: 'app-cadastro-procedimento-situacao',
@@ -16,22 +17,33 @@ import { TipoSituacao } from 'src/app/models/tipo-situacao';
 })
 export class CadastroProcedimentoSituacaoComponent implements OnInit {
 
+  private bsConfig: Partial<BsDatepickerConfig> = { containerClass: 'theme-default' };
+
   private procedimentoId: number;
 
   private isLoadingSituacaoProcedimento: boolean;
   private isLoadingSituacoes: boolean;
   private isLoadingMovimentacoes: boolean;
 
+  private observacao: string = '';
+
   private situacao: Situacao = { id: 1 };
   private situacoes: Situacao[] = [];
   private movimentacoes: Movimentacao[] = [];
-  private situacaoProcedimento: SituacaoProcedimento;
+  private situacaoProcedimento: SituacaoProcedimento = { id: 0, observacao: this.observacao, procedimentoId: this.procedimentoId, situacaoId: this.situacao.id, dataRelatorio: new Date() };
   private tipoSituacao: TipoSituacao;
+  private indiciamentos = [
+    {
+      id: 1, descricao: 'Com indiciamento'
+    },
+    {
+      id: 2, descricao: 'Sem indiciamento'
+    }
+  ];
 
   private selectedSituacaoId: number;
   private selectedTipoSituacaoId: number = 0;
-
-  private observacao: string = '';
+  private selectedIndiciamentoId: number = 1;
 
   constructor(private route: ActivatedRoute,
     private toastr: ToastrService,
@@ -51,7 +63,9 @@ export class CadastroProcedimentoSituacaoComponent implements OnInit {
   private getSituacaoProcedimento(procedimentoId: number) {
     this.isLoadingSituacaoProcedimento = true;
     this.situacaoProcedimentoService.getByProcedimento(procedimentoId).subscribe(res => {
-      this.situacaoProcedimento = res.data;
+      if (res.data) {
+        this.situacaoProcedimento = res.data;
+      }
     },
       () => this.toastr.error('Falha ao buscar a Situação Atual.'),
       () => {
@@ -102,6 +116,29 @@ export class CadastroProcedimentoSituacaoComponent implements OnInit {
 
   private onSituacaoChange(event) {
     this.situacao = event;
+  }
+
+  private onTipoSituacaoChange(event) {
+    this.tipoSituacao = event;
+  }
+
+  private salvar() {
+    if (!this.situacao) {
+      this.toastr.warning('Por favor selecione uma situação válida.');
+      return;
+    }
+
+    this.situacaoProcedimento.situacaoId = this.situacao.id;
+
+    if (this.situacao.id != 1 && !this.tipoSituacao) {
+      this.toastr.warning('Por favor selecione uma motivo válido.');
+      return;
+    }
+
+    this.situacaoProcedimento.situacaoId = this.tipoSituacao.id;
+    this.situacaoProcedimento.observacao = this.observacao;
+
+
   }
 
 }

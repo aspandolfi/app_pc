@@ -87,6 +87,11 @@ namespace ControleBO.Application.Mappers
                 .ConstructUsing(m => new RegisterNewMovimentacaoCommand(m.Destino, m.Data, m.RetornouEm, m.ProcedimentoId));
             CreateMap<MovimentacaoViewModel, UpdateMovimentacaoCommand>()
                 .ConstructUsing(m => new UpdateMovimentacaoCommand(m.Id, m.Destino, m.Data, m.RetornouEm, m.ProcedimentoId));
+
+            CreateMap<SituacaoProcedimentoViewModel, RegisterNewSituacaoProcedimentoCommand>()
+                .ConstructUsing(m => new RegisterNewSituacaoProcedimentoCommand(m.ProcedimentoId, m.SituacaoId, m.SituacaoTipoId, m.DataRelatorio, m.Observacao));
+            CreateMap<SituacaoProcedimentoViewModel, UpdateSituacaoProcedimentoCommand>()
+                .ConstructUsing(m => new UpdateSituacaoProcedimentoCommand(m.Id, m.ProcedimentoId, m.SituacaoId, m.SituacaoTipoId, m.DataRelatorio, m.Observacao));
         }
     }
 }

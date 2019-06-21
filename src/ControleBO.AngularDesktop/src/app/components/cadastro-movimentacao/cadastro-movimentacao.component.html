@@ -1,0 +1,37 @@
+<div class="modal-header">
+  <h4 class="modal-title pull-left">{{model.id ? model.descricao : 'Nova Movimentação'}}</h4>
+  <button type="button" class="close pull-right" aria-label="Fechar" [disabled]="submitted" (click)="modalRef.hide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form #movimentacaoForm="ngForm">
+    <div class="form-group">
+      <label for="descricao" class="control-label">Descrição:</label>
+      <input type="text" [(ngModel)]="model.descricao" class="form-control form-control-sm ng-invalid" id="descricao" name="descricao" required>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="data" class="control-label">Data:</label>
+        <input type="text" value="{{model.data | date: 'dd/MM/yyyy' }}" class="form-control form-control-sm" id="data" name="data" required readonly>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="retornouEm" class="control-label">Retornou em:</label>
+        <input type="text"
+               bsDatepicker
+               [bsConfig]="bsConfig"
+               [bsValue]="model.retornouEm"
+               class="form-control form-control-sm ng-invalid"
+               [(ngModel)]="model.retornouEm"
+               name="retornouEm">
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" data-dismiss="modal" [disabled]="submitted" (click)="modalRef.hide();">Fechar</button>
+  <button type="button" class="btn btn-secondary" [disabled]="!movimentacaoForm.form.valid || submitted" (click)="save();">
+    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" [hidden]="!submitted"></span>
+    Salvar
+  </button>
+</div>

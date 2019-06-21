@@ -16,7 +16,7 @@ export class SituacaoProcedimentoService implements IServiceBase<SituacaoProcedi
     return this.baseService.post<SituacaoProcedimento>(this.uri, model);
   }
   update(model: SituacaoProcedimento) {
-    return this.baseService.put<SituacaoProcedimento>(this.uri, model);
+    return this.baseService.put<SituacaoProcedimento>(`${this.uri}/${model.id}`, model);
   }
   delete(id: number) {
     return this.baseService.delete(`${this.uri}/${id}`);

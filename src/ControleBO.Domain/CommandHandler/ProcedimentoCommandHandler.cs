@@ -22,6 +22,8 @@ namespace ControleBO.Domain.CommandHandler
         private readonly IMunicipioRepository _municipioRepository;
         private readonly IVaraCriminalRepository _varaCriminalRepository;
         private readonly IUnidadePolicialRepository _unidadePolicialRepository;
+        private readonly ISituacaoProcedimentoRepository _situacaoProcedimentoRepository;
+        private readonly ISituacaoRepository _situacaoRepository;
 
         public ProcedimentoCommandHandler(IProcedimentoRepository procedimentoRepository,
                                           IProcedimentoTipoRepository procedimentoTipoRepository,
@@ -30,6 +32,8 @@ namespace ControleBO.Domain.CommandHandler
                                           IMunicipioRepository municipioRepository,
                                           IVaraCriminalRepository varaCriminalRepository,
                                           IUnidadePolicialRepository unidadePolicialRepository,
+                                          ISituacaoProcedimentoRepository situacaoProcedimentoRepository,
+                                          ISituacaoRepository situacaoRepository,
                                           IUnitOfWork uow,
                                           IMediatorHandler bus,
                                           INotificationHandler<DomainNotification> notifications) : base(uow, bus, notifications)
@@ -41,6 +45,8 @@ namespace ControleBO.Domain.CommandHandler
             _municipioRepository = municipioRepository;
             _varaCriminalRepository = varaCriminalRepository;
             _unidadePolicialRepository = unidadePolicialRepository;
+            _situacaoProcedimentoRepository = situacaoProcedimentoRepository;
+            _situacaoRepository = situacaoRepository;
         }
 
         public Task<int> Handle(RegisterNewProcedimentoCommand request, CancellationToken cancellationToken)
@@ -111,6 +117,12 @@ namespace ControleBO.Domain.CommandHandler
 
             _procedimentoRepository.Add(procedimento);
 
+            var situacao = _situacaoRepository.GetById(1);
+
+            var situacaoProcedimento = new SituacaoProcedimento(procedimento, situacao);
+
+            _situacaoProcedimentoRepository.Add(situacaoProcedimento);
+
             if (Commit())
             {
                 // TO DO: Raise Event
@@ -175,13 +187,15 @@ namespace ControleBO.Domain.CommandHandler
                 return Task.FromResult(0);
             }
 
-            var existringProcedimento = _procedimentoRepository.Get(x => x.BoletimUnificado == request.BoletimUnificado);
+            var existringProcedimento = _procedimentoRepository.GetAsNoTracking(x => x.BoletimUnificado.Contains(request.BoletimUnificado)
+                                                                                  && x.NumeroProcessual.Contains(request.NumeroProcessual)
+                                                                                  && x.Id == request.Id);
 
             var procedimento = new Procedimento(request.Id, request.BoletimUnificado, request.BoletimOcorrencia, request.NumeroProcessual, request.Gampes,
                                                 request.Anexos, request.LocalFato, request.DataFato, request.DataInstauracao, request.TipoCriminal,
                                                 request.AndamentoProcessual, tipoProcedimento, varaCriminal, municipio, assunto, artigo, unidadePolicial);
 
-            if (!existringProcedimento.Equals(procedimento))
+            if (!procedimento.Equals(existringProcedimento))
             {
                 Bus.RaiseEvent(new DomainNotification(request.MessageType, "O Boletim Unificado já está sendo usado."));
                 return Task.FromResult(0);

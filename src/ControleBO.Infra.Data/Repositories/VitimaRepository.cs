@@ -2,7 +2,6 @@
 using ControleBO.Domain.Models;
 using ControleBO.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -14,12 +13,12 @@ namespace ControleBO.Infra.Data.Repositories
         {
         }
 
-        public override bool Exists(params string[] stringToSearch)
+        public override bool Exists(params object[] paramsToSearch)
         {
             //bool exists = DbSet.Any(x => stringToSearch.Contains(x.Nome));
 
-            string nome = stringToSearch[0];
-            int procedimentoId = Convert.ToInt32(stringToSearch[1]);
+            string nome = paramsToSearch[0] as string;
+            int? procedimentoId = paramsToSearch[1] as int?;
 
             return DbSet.Any(x => EF.Functions.Like(nome, x.Nome) && x.ProcedimentoId == procedimentoId);
         }

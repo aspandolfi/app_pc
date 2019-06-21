@@ -56,7 +56,7 @@ namespace ControleBO.Domain.CommandHandler
                 return Task.FromResult(0);
             }
 
-            if (_vitimaRepository.Exists(request.Nome, request.ProcedimentoId.ToString()))
+            if (_vitimaRepository.Exists(request.Nome, request.ProcedimentoId))
             {
                 Bus.RaiseEvent(new DomainNotification(request.MessageType, "A Vítima já está sendo usada."));
                 return Task.FromResult(0);

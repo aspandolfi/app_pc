@@ -1,14 +1,27 @@
 export class SituacaoProcedimento {
+
+  private dataRelatorio?: Date;
+
   id: number;
-  dataRelatorio?: Date;
   observacao: string;
   procedimentoId: number;
   situacaoId: number;
   situacaoTipoId?: number;
 
-  constructor(obj: object) {
+  get DataRelatorio() {
+    return this.dataRelatorio;
+  }
+
+  set DataRelatorio(value: any) {
+    if (value) {
+      this.dataRelatorio = new Date(value);
+    }
+  }
+
+  constructor(obj: any) {
     if (obj) {
       Object.assign(this, obj);
+      this.DataRelatorio = obj.dataRelatorio;
     }
   }
 }

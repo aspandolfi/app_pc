@@ -17,9 +17,11 @@ namespace ControleBO.Domain.Interfaces.Repositories
         void RemoveRange(IEnumerable<TModel> objs);
         int SaveChanges();
 
-        bool Exists(params string[] stringToSearch);
+        bool Exists(params object[] paramsToSearch);
 
         TModel Get(Expression<Func<TModel, bool>> filter);
+
+        TModel GetAsNoTracking(Expression<Func<TModel, bool>> filter);
 
         IEnumerable<TModel> GetPaged(Expression<Func<TModel, object>> orderBy, int page, int pageSize);
 

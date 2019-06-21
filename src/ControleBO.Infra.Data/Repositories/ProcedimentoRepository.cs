@@ -13,10 +13,10 @@ namespace ControleBO.Infra.Data.Repositories
         {
         }
 
-        public override bool Exists(params string[] stringToSearch)
+        public override bool Exists(params object[] paramsToSearch)
         {
-            //return DbSet.Any(x => stringToSearch.Contains(x.BoletimUnificado));
-            return DbSet.Any(x => EF.Functions.Like(stringToSearch[0], x.BoletimUnificado));
+            string str = paramsToSearch[0] as string;
+            return DbSet.Any(x => EF.Functions.Like(str, x.BoletimUnificado));
         }
 
         public override DateTime? LastUpdate()

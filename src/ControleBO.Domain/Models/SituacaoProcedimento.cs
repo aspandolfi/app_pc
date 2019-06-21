@@ -37,5 +37,32 @@ namespace ControleBO.Domain.Models
         public int? SituacaoTipoId { get; set; }
 
         public virtual SituacaoTipo SituacaoTipo { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is null || !(obj is SituacaoProcedimento))
+            {
+                return false;
+            }
+
+            var situacaoProcedimento = obj as SituacaoProcedimento;
+
+            if (situacaoProcedimento.SituacaoTipoId.HasValue)
+            {
+                return this.Id == situacaoProcedimento.Id
+                    && this.Procedimento.Id == situacaoProcedimento.ProcedimentoId
+                    && this.Situacao.Id == situacaoProcedimento.SituacaoId
+                    && this.SituacaoTipo.Id == situacaoProcedimento.SituacaoTipoId;
+            }
+
+            return this.Id == situacaoProcedimento.Id
+                    && this.Procedimento.Id == situacaoProcedimento.ProcedimentoId
+                    && this.Situacao.Id == situacaoProcedimento.SituacaoId;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }

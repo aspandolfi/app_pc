@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Situacao } from 'src/app/models/situacao';
@@ -8,14 +8,21 @@ import { MovimentacaoService } from 'src/app/services/movimentacao.service';
 import { SituacaoProcedimento } from 'src/app/models/situacao-procedimento';
 import { SituacaoProcedimentoService } from 'src/app/services/situacao-procedimento.service';
 import { TipoSituacao } from 'src/app/models/tipo-situacao';
-import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker/public_api';
+import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { Subscription } from 'rxjs';
+import { MessageService } from 'src/app/services/message.service';
+import { CadastroMovimentacaoComponent } from '../cadastro-movimentacao/cadastro-movimentacao.component';
+import { IMessage, Action } from 'src/app/models/message';
+import { ConfirmarExclusaoComponent } from '../confirmar-exclusao/confirmar-exclusao.component';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-cadastro-procedimento-situacao',
   templateUrl: './cadastro-procedimento-situacao.component.html',
   styleUrls: ['./cadastro-procedimento-situacao.component.css']
 })
-export class CadastroProcedimentoSituacaoComponent implements OnInit {
+export class CadastroProcedimentoSituacaoComponent implements OnInit, OnDestroy {
 
   private bsConfig: Partial<BsDatepickerConfig> = { containerClass: 'theme-default' };
 
@@ -30,7 +37,7 @@ export class CadastroProcedimentoSituacaoComponent implements OnInit {
   private situacao: Situacao = { id: 1 };
   private situacoes: Situacao[] = [];
   private movimentacoes: Movimentacao[] = [];
-  private situacaoProcedimento: SituacaoProcedimento = { id: 0, observacao: this.observacao, procedimentoId: this.procedimentoId, situacaoId: this.situacao.id, dataRelatorio: new Date() };
+  private situacaoProcedimento: SituacaoProcedimento = { id: 0, observacao: this.observacao, procedimentoId: this.procedimentoId, situacaoId: this.situacao.id, DataRelatorio: null };
   private tipoSituacao: TipoSituacao;
   private indiciamentos = [
     {
@@ -40,19 +47,30 @@ export class CadastroProcedimentoSituacaoComponent implements OnInit {
       id: 2, descricao: 'Sem indiciamento'
     }
   ];
+  private dataRelatorio: Date = new Date();
 
   private selectedSituacaoId: number;
   private selectedTipoSituacaoId: number = 0;
   private selectedIndiciamentoId: number = 1;
+
+  private modalRef: BsModalRef;
+  private subscription: Subscription;
 
   constructor(private route: ActivatedRoute,
     private toastr: ToastrService,
     private situacaoService: SituacaoService,
     private movimentacaoService: MovimentacaoService,
     private situacaoProcedimentoService: SituacaoProcedimentoService,
-    private cdr: ChangeDetectorRef) { }
+    private modalService: BsModalService,
+    private messageService: MessageService,
+    private cdr: ChangeDetectorRef,
+    private spinner: NgxSpinnerService) {
+    this.onReceiveMessage();
+  }
 
   ngOnInit() {
+    this.spinner.show();
+
     this.route.parent.paramMap.subscribe(params => {
       this.procedimentoId = +params.get('id');
       this.getSituacaoProcedimento(this.procedimentoId);
@@ -64,7 +82,14 @@ export class CadastroProcedimentoSituacaoComponent implements OnInit {
     this.isLoadingSituacaoProcedimento = true;
     this.situacaoProcedimentoService.getByProcedimento(procedimentoId).subscribe(res => {
       if (res.data) {
-        this.situacaoProcedimento = res.data;
+        this.situacaoProcedimento = new SituacaoProcedimento(res.data);
+        this.observacao = this.situacaoProcedimento.observacao;
+        this.dataRelatorio = this.situacaoProcedimento.DataRelatorio;
+
+        if (this.situacaoProcedimento.situacaoTipoId) {
+          this.selectedIndiciamentoId = this.indiciamentos[1].id;
+        }
+
       }
     },
       () => this.toastr.error('Falha ao buscar a Situação Atual.'),
@@ -111,7 +136,10 @@ export class CadastroProcedimentoSituacaoComponent implements OnInit {
       this.movimentacoes = res.data;
     },
       () => this.toastr.error('Falha ao buscar as Movimentações'),
-      () => this.isLoadingMovimentacoes = false)
+      () => {
+        this.isLoadingMovimentacoes = false;
+        this.spinner.hide();
+      });
   }
 
   private onSituacaoChange(event) {
@@ -123,9 +151,16 @@ export class CadastroProcedimentoSituacaoComponent implements OnInit {
   }
 
   private salvar() {
+
+    this.situacaoProcedimento.procedimentoId = this.procedimentoId;
+
     if (!this.situacao) {
       this.toastr.warning('Por favor selecione uma situação válida.');
       return;
+    }
+
+    if (this.situacaoProcedimento.situacaoId != this.situacao.id) {
+      this.situacaoProcedimento.id = 0;
     }
 
     this.situacaoProcedimento.situacaoId = this.situacao.id;
@@ -135,10 +170,96 @@ export class CadastroProcedimentoSituacaoComponent implements OnInit {
       return;
     }
 
-    this.situacaoProcedimento.situacaoId = this.tipoSituacao.id;
+    if (this.situacao.id == 3) {
+      this.situacaoProcedimento.DataRelatorio = this.dataRelatorio;
+
+      if (this.tipoSituacao.id != this.situacaoProcedimento.situacaoTipoId) {
+        this.situacaoProcedimento.id = 0;
+      }
+    }
+
+    if (this.tipoSituacao) {
+      this.situacaoProcedimento.situacaoTipoId = this.tipoSituacao.id;
+    }
     this.situacaoProcedimento.observacao = this.observacao;
 
+    if (this.situacaoProcedimento.id) {
+      this.situacaoProcedimentoService.update(this.situacaoProcedimento).subscribe(res => {
+        if (res.success) {
+          this.toastr.success(res.message);
+        }
+      }, (res) => {
+        this.toastr.error(res.message);
+        res.errors.forEach(m => this.toastr.error(m));
+      }).add(() => {
+        this.spinner.hide();
+        this.isLoadingSituacaoProcedimento = false;
+      });
+    }
+    else {
+      this.situacaoProcedimentoService.create(this.situacaoProcedimento).subscribe(res => {
+        if (res.success) {
+          this.toastr.success(res.message);
+        }
+      }, (res) => {
+        this.toastr.error(res.message);
+        res.errors.forEach(m => this.toastr.error(m));
+      }).add(() => {
+        this.spinner.hide();
+        this.isLoadingSituacaoProcedimento = false;
+      });
+    }
 
   }
 
+  private openModalMovimentacao(movimentacao: Movimentacao) {
+    const initialState = {
+      model: movimentacao == undefined ? new Movimentacao() : movimentacao
+    };
+    this.modalRef = this.modalService.show(CadastroMovimentacaoComponent, { initialState, class: 'modal-lg modal-dialog-centered', ignoreBackdropClick: true, backdrop: true });
+  }
+
+  private onReceiveMessage() {
+    this.subscription = this.messageService.messageListener$.subscribe(
+      message => {
+        if (!message.isError) {
+          this.toastr.success(message.text);
+          this.postReceiveMessage(message);
+        }
+        else {
+          this.toastr.error(message.text);
+        }
+        this.modalRef.hide();
+      });
+  }
+
+  private postReceiveMessage(message: IMessage) {
+    if (message.action == Action.Created) {
+      this.addToTable(message.data);
+    }
+    else if (message.action == Action.Removed) {
+      this.removeFromTable(message.data);
+    }
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
+
+  private addToTable(movimentacao: Movimentacao) {
+    this.movimentacoes.push(movimentacao);
+  }
+
+  private removeFromTable(movimentacao: Movimentacao) {
+    let index = this.movimentacoes.indexOf(movimentacao);
+    this.movimentacoes.splice(index, 1);
+  }
+
+  private openModalExcluir(movimentacao: Movimentacao) {
+    const initialState = {
+      model: movimentacao,
+      uri: 'api/movimentacao/'
+    };
+    this.modalRef = this.modalService.show(ConfirmarExclusaoComponent, { initialState, class: 'modal-dialog-centered', ignoreBackdropClick: true, backdrop: true });
+  }
 }

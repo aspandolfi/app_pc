@@ -171,11 +171,16 @@ namespace ControleBO.Infra.Data.Repositories
             return query.OrderBy(orderBy).Skip(skip).Take(pageSize).AsNoTracking().AsEnumerable();
         }
 
-        public abstract bool Exists(params string[] stringToSearch);
+        public virtual bool Exists(params object[] paramsToSearch) { return false; }
 
         public TModel Get(Expression<Func<TModel, bool>> filter)
         {
             return DbSet.SingleOrDefault(filter);
+        }
+
+        public TModel GetAsNoTracking(Expression<Func<TModel, bool>> filter)
+        {
+            return DbSet.AsNoTracking().SingleOrDefault(filter);
         }
 
         public virtual IEnumerable<TModel> GetAllAsNoTracking(Expression<Func<TModel, bool>> filter,

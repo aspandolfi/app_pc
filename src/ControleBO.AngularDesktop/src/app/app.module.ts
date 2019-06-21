@@ -40,6 +40,7 @@ import { CadastroIndiciadoComponent } from './components/cadastro-indiciado/cada
 import { defineLocale } from 'ngx-bootstrap/chronos';
 import { ptBrLocale } from 'ngx-bootstrap/locale';
 import { CadastroProcedimentoObjetosApreendidosComponent } from './components/cadastro-procedimento-objetos-apreendidos/cadastro-procedimento-objetos-apreendidos.component';
+import { CadastroMovimentacaoComponent } from './components/cadastro-movimentacao/cadastro-movimentacao.component';
 defineLocale('pt-br', ptBrLocale);
 
 @NgModule({
@@ -63,7 +64,8 @@ defineLocale('pt-br', ptBrLocale);
     UltimaMovimentacaoComponent,
     CadastroVitimaComponent,
     CadastroIndiciadoComponent,
-    CadastroProcedimentoObjetosApreendidosComponent
+    CadastroProcedimentoObjetosApreendidosComponent,
+    CadastroMovimentacaoComponent
   ],
   imports: [
     HttpClientModule,
@@ -87,7 +89,8 @@ defineLocale('pt-br', ptBrLocale);
     CadastroArtigoComponent,
     CadastroMunicipioComponent,
     CadastroVitimaComponent,
-    CadastroIndiciadoComponent
+    CadastroIndiciadoComponent,
+    CadastroMovimentacaoComponent
   ],
   providers: [
     { provide: 'BASE_URL', useFactory: getBaseUrl },

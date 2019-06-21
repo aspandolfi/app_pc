@@ -56,7 +56,7 @@ namespace ControleBO.Domain.CommandHandler
                 return Task.FromResult(0);
             }
 
-            if (_indiciadoRepository.Exists(request.Nome, request.ProcedimentoId.ToString()))
+            if (_indiciadoRepository.Exists(request.Nome, request.ProcedimentoId))
             {
                 Bus.RaiseEvent(new DomainNotification(request.MessageType, "A Indiciado já está sendo usada."));
                 return Task.FromResult(0);

@@ -1,8 +1,6 @@
 ﻿using ControleBO.Domain.Interfaces.Repositories;
 using ControleBO.Domain.Models;
 using ControleBO.Infra.Data.Context;
-using Microsoft.EntityFrameworkCore;
-using System;
 using System.Linq;
 
 namespace ControleBO.Infra.Data.Repositories
@@ -13,24 +11,22 @@ namespace ControleBO.Infra.Data.Repositories
         {
         }
 
-        public override bool Exists(params string[] stringToSearch)
+        public override bool Exists(params object[] paramsToSearch)
         {
-            int procedimentoId = Convert.ToInt32(stringToSearch[1]);
-            int situacaoId = Convert.ToInt32(stringToSearch[2]);
-            int? situacaoTipoId = stringToSearch.Length > 2 ? Convert.ToInt32(stringToSearch[3]) as int? : null;
+            int? procedimentoId = paramsToSearch[0] as int?;
+            int? situacaoId = paramsToSearch[1] as int?;
+            int? situacaoTipoId = paramsToSearch.Length > 1 ? paramsToSearch[2] as int? : null;
 
 
             if (situacaoTipoId.HasValue)
             {
-                return DbSet.Any(x => EF.Functions.Like(stringToSearch[0], x.Observacao)
-                                     && x.ProcedimentoId == procedimentoId
-                                     && x.SituacaoId == situacaoId
-                                     && x.SituacaoTipoId == situacaoTipoId);
+                return DbSet.Any(x => x.ProcedimentoId == procedimentoId
+                                   && x.SituacaoId == situacaoId
+                                   && x.SituacaoTipoId == situacaoTipoId);
             }
 
-            return DbSet.Any(x => EF.Functions.Like(stringToSearch[0], x.Observacao)
-                                     && x.ProcedimentoId == procedimentoId
-                                     && x.SituacaoId == situacaoId);
+            return DbSet.Any(x => x.ProcedimentoId == procedimentoId
+                               && x.SituacaoId == situacaoId);
         }
 
         public SituacaoProcedimento GetCurrentByProcedimentoId(int procedimentoId)

@@ -21,10 +21,10 @@
         <label for="dataRelatorio" class="control-label">Data do Relatório:</label>
         <input bsDatepicker
                [bsConfig]="bsConfig"
-               [bsValue]="situacaoProcedimento.dataRelatorio"
+               [bsValue]="dataRelatorio"
                type="text"
                class="form-control"
-               [(ngModel)]="situacaoProcedimento.dataRelatorio"
+               [(ngModel)]="dataRelatorio"
                name="dataRelatorio">
       </div>
 
@@ -85,6 +85,7 @@
 <div class="card mb-3">
   <div class="card-header clearfix">
     Movimentações
+    <input type="button" class="btn btn-sm btn-secondary float-right" value="Novo" (click)="openModalMovimentacao(null);">
   </div>
   <div class="card-body">
     <div class="text-left" *ngIf="isLoadingMovimentacoes">
@@ -95,3 +96,11 @@
     <app-ultima-movimentacao [ultimasMovimentacoes]="movimentacoes" [titulo]="''"></app-ultima-movimentacao>
   </div>
 </div>
+<ngx-spinner bdOpacity=0.9
+             bdColor="rgba(51, 51, 51, 0.75)"
+             size="default"
+             color="#fff"
+             type="ball-beat"
+             fullScreen="true">
+  <p style="color: white"> </p>
+</ngx-spinner>

@@ -153,6 +153,7 @@ export class CadastroProcedimentoSituacaoComponent implements OnInit, OnDestroy 
   private salvar() {
 
     this.situacaoProcedimento.procedimentoId = this.procedimentoId;
+    this.situacaoProcedimento.situacaoTipoId = null;
 
     if (!this.situacao) {
       this.toastr.warning('Por favor selecione uma situação válida.');

@@ -11,7 +11,7 @@ import { CadastroProcedimentoSituacaoComponent } from './components/cadastro-pro
 import { CadastroProcedimentoObjetosApreendidosComponent } from './components/cadastro-procedimento-objetos-apreendidos/cadastro-procedimento-objetos-apreendidos.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: 'procedimentos', pathMatch: 'full' },
   {
     path: 'cadastro-procedimento', component: CadastroProcedimentoComponent,
     children: [
@@ -31,7 +31,7 @@ const routes: Routes = [
   { path: 'municipio', component: MunicipioComponent },
   { path: 'artigo', component: ArtigoComponent },
   { path: 'tipo-procedimento', component: TipoProcedimentoComponent },
-  { path: '**', redirectTo: 'home' }
+  { path: '**', redirectTo: 'procedimentos' }
 ];
 
 @NgModule({

@@ -72,11 +72,11 @@ namespace ControleBO.Domain.CommandHandler
                 }
             }
 
-            if (_situacaoProcedimentoRepository.Exists(request.ProcedimentoId, request.SituacaoId, request.SituacaoTipoId))
-            {
-                Bus.RaiseEvent(new DomainNotification(request.MessageType, "O procedimento encontra-se na situação atual. Nada pra atualizar."));
-                return Task.FromResult(0);
-            }
+            //if (_situacaoProcedimentoRepository.Exists(request.ProcedimentoId, request.SituacaoId, request.SituacaoTipoId))
+            //{
+            //    Bus.RaiseEvent(new DomainNotification(request.MessageType, "O procedimento encontra-se na situação atual. Nada pra atualizar."));
+            //    return Task.FromResult(0);
+            //}
 
             var situacaoProcedimento = new SituacaoProcedimento(procedimento, situacao, tipoSituacao, request.DataRelatorio, request.Observacao);
 

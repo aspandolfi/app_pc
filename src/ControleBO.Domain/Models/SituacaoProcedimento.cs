@@ -47,7 +47,7 @@ namespace ControleBO.Domain.Models
 
             var situacaoProcedimento = obj as SituacaoProcedimento;
 
-            if (situacaoProcedimento.SituacaoTipoId.HasValue)
+            if (situacaoProcedimento.SituacaoTipoId.HasValue && SituacaoTipoId.HasValue)
             {
                 return this.Id == situacaoProcedimento.Id
                     && this.Procedimento.Id == situacaoProcedimento.ProcedimentoId

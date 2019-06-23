@@ -5,15 +5,15 @@
   </button>
 </div>
 <div class="modal-body">
-  <form #tipoForm="ngForm">
+  <form #exclusaoForm="ngForm">
     <div class="form-group">
-      <label for="sigla" class="control-label">{{model.descricao ? model.descricao : model.nome}}</label>
+      <label for="sigla" class="control-label">{{getDescribe()}}</label>
     </div>
   </form>
 </div>
 <div class="modal-footer">
   <button type="button" class="btn btn-default" data-dismiss="modal" [disabled]="submitted" (click)="modalRef.hide();">Fechar</button>
-  <button type="button" class="btn btn-secondary" [disabled]="!tipoForm.form.valid || submitted" (click)="excluir(model.id);">
+  <button type="button" class="btn btn-secondary" [disabled]="!exclusaoForm.form.valid || submitted" (click)="excluir(model.id);">
     <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" [hidden]="!submitted"></span>
     Excluir
   </button>

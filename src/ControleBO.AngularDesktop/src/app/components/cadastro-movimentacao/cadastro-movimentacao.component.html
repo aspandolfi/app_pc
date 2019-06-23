@@ -1,5 +1,5 @@
 <div class="modal-header">
-  <h4 class="modal-title pull-left">{{model.id ? model.descricao : 'Nova Movimentação'}}</h4>
+  <h4 class="modal-title pull-left">{{model.id ? model.destino : 'Nova Movimentação'}}</h4>
   <button type="button" class="close pull-right" aria-label="Fechar" [disabled]="submitted" (click)="modalRef.hide()">
     <span aria-hidden="true">&times;</span>
   </button>
@@ -7,8 +7,8 @@
 <div class="modal-body">
   <form #movimentacaoForm="ngForm">
     <div class="form-group">
-      <label for="descricao" class="control-label">Descrição:</label>
-      <input type="text" [(ngModel)]="model.descricao" class="form-control form-control-sm ng-invalid" id="descricao" name="descricao" required>
+      <label for="destino" class="control-label">Descrição:</label>
+      <input type="text" [(ngModel)]="model.destino" class="form-control form-control-sm ng-invalid" id="destino" name="destino" required>
     </div>
     <div class="form-row">
       <div class="form-group col-md-6">

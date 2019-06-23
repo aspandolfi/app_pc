@@ -15,7 +15,16 @@ namespace ControleBO.Infra.Data.Repositories
         public override bool Exists(params object[] paramsToSearch)
         {
             string str = paramsToSearch[0] as string;
-            return DbSet.Any(x => EF.Functions.Like(str, x.Destino));
+            int? procedimentoId = paramsToSearch[1] as int?;
+
+            return DbSet.Any(x => EF.Functions.Like(str, x.Destino) && x.ProcedimentoId == procedimentoId);
+        }
+
+        public Movimentacao GetLastByProcedimentoId(int procedimentoId)
+        {
+            return DbSet.Where(x => x.ProcedimentoId == procedimentoId)
+                        .OrderBy(x => x.Data)
+                        .SingleOrDefault();
         }
     }
 }

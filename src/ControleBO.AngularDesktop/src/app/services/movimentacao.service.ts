@@ -33,4 +33,7 @@ export class MovimentacaoService implements IServiceBase<Movimentacao> {
   getByProcedimentoId(procedimentoId: number) {
     return this.baseService.get<Movimentacao[]>(`${this.uri}/procedimento/${procedimentoId}`);
   }
+  geLastByProcedimentoId(procedimentoId: number) {
+    return this.baseService.get<Movimentacao>(`${this.uri}/ultima/${procedimentoId}`);
+  }
 }

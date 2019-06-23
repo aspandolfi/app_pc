@@ -2,16 +2,31 @@
 <table class="table" id="ultimasMovimentacoes">
   <thead>
     <tr>
+      <th *ngIf="enableActions"></th>
       <th scope="col">Destino</th>
       <th scope="col">Data</th>
       <th scope="col">Retornou em</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let ultimaMovimentacao of ultimasMovimentacoes">
-      <td>{{ultimaMovimentacao.destino}}</td>
-      <td>{{ultimaMovimentacao.data}}</td>
-      <td>{{ultimaMovimentacao.retornouEm}}</td>
+    <tr *ngFor="let movimentacao of ultimasMovimentacoes">
+      <td data-id="{{movimentacao.id}}" *ngIf="enableActions">
+        <div class="form-inline align-items-center">
+          <div class="form-group ml-1">
+            <a title="Editar" class="text-secondary" (click)="openModalCadastro(movimentacao)">
+              <i class="fas fa-edit"></i>
+            </a>
+          </div>
+          <div class="form-group ml-1">
+            <a title="Excluir" class="text-secondary" (click)="openModalExcluir(movimentacao);">
+              <i class="far fa-times-circle"></i>
+            </a>
+          </div>
+        </div>
+      </td>
+      <td>{{movimentacao.destino}}</td>
+      <td>{{movimentacao.data | date: 'dd/MM/yyyy'}}</td>
+      <td>{{movimentacao.retornouEm | date: 'dd//MM/yyyy'}}</td>
     </tr>
   </tbody>
 </table>

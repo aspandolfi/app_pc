@@ -188,7 +188,10 @@
         <input type="text" class="form-control form-control-sm" [(ngModel)]="procedimento.andamentoProcessual" name="andamentoProcessual" />
       </div>
       <div class="form-group">
-        <app-ultima-movimentacao [ultimasMovimentacoes]="procedimento.ultimasMovimentacoes"></app-ultima-movimentacao>
+        <app-ultima-movimentacao [ultimasMovimentacoes]="procedimento.ultimasMovimentacoes"
+                                 [enableActions]="false"
+                                 [titulo]="'Última movimentação'">
+        </app-ultima-movimentacao>
       </div>
     </form>
   </div>

@@ -12,6 +12,13 @@ namespace ControleBO.Domain.Models
             Procedimento = procedimento;
         }
 
+        public Movimentacao(int id, string destino, DateTime data, Procedimento procedimento, DateTime? retornouEm)
+            : this(destino, data, procedimento)
+        {
+            Id = id;
+            RetornouEm = retornouEm;
+        }
+
         protected Movimentacao() { }
 
         public string Destino { get; set; }

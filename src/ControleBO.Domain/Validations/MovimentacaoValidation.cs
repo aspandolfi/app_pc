@@ -22,8 +22,8 @@ namespace ControleBO.Domain.Validations
         protected void ValidateData()
         {
             RuleFor(x => x.Data)
-                .GreaterThan(DateTime.Now.AddDays(-1)).WithMessage($"A data deve ser igual a hoje {DateTime.Today.ToString("dd/MM/yyyy")}")
-                .LessThan(DateTime.Now.AddDays(-1)).WithMessage($"A data deve ser igual a hoje {DateTime.Today.ToString("dd/MM/yyyy")}");
+                .GreaterThan(DateTime.Today.AddDays(-1)).WithMessage($"A data deve ser igual a hoje {DateTime.Today.ToString("dd/MM/yyyy")}")
+                .LessThan(DateTime.Today.AddDays(1)).WithMessage($"A data deve ser igual a hoje {DateTime.Today.ToString("dd/MM/yyyy")}");
         }
 
         protected void ValidateProcedimentoId()

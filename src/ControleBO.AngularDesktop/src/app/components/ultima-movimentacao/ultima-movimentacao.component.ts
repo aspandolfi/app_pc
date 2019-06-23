@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Movimentacao } from 'src/app/models/movimentacao';
+import { ConfirmarExclusaoComponent } from '../confirmar-exclusao/confirmar-exclusao.component';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { CadastroMovimentacaoComponent } from '../cadastro-movimentacao/cadastro-movimentacao.component';
 
 @Component({
   selector: 'app-ultima-movimentacao',
@@ -9,6 +12,8 @@ import { Movimentacao } from 'src/app/models/movimentacao';
 export class UltimaMovimentacaoComponent implements OnInit {
 
   private _ultimasMovimentacoes: Movimentacao[] = [];
+
+  private modalRef: BsModalRef;
 
   @Input("ultimasMovimentacoes")
   set ultimasMovimentacoes(ultimasMovimentacoes: Movimentacao[]) {
@@ -33,7 +38,10 @@ export class UltimaMovimentacaoComponent implements OnInit {
   private pageSize = 3;
   private totalItems = this.ultimasMovimentacoes.length;
 
-  constructor() { }
+  @Input('enableActions')
+  enableActions: boolean = true;
+
+  constructor(private modalService: BsModalService) { }
 
   ngOnInit() {
   }
@@ -41,6 +49,22 @@ export class UltimaMovimentacaoComponent implements OnInit {
   pageChanged(event: any): void {
     this.page = event.page;
     this.ultimasMovimentacoes;
+  }
+
+  private openModalExcluir(movimentacao: Movimentacao) {
+    const initialState = {
+      model: movimentacao,
+      uri: 'api/movimentacao/',
+      propertyToDescribe: 'destino'
+    };
+    this.modalRef = this.modalService.show(ConfirmarExclusaoComponent, { initialState, class: 'modal-dialog-centered', ignoreBackdropClick: true, backdrop: true });
+  }
+
+  private openModalCadastro(movimentacao: Movimentacao) {
+    const initialState = {
+      model: movimentacao
+    };
+    this.modalRef = this.modalService.show(CadastroMovimentacaoComponent, { initialState, class: 'modal-lg modal-dialog-centered', ignoreBackdropClick: true, backdrop: true });
   }
 
 }

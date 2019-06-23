@@ -3,8 +3,10 @@ export class Movimentacao {
   destino: string;
   data: Date;
   retornouEm?: Date;
+  procedimentoId: number;
 
-  constructor() {
+  constructor(procedimentoId?: number) {
     this.data = new Date();
+    this.procedimentoId = procedimentoId;
   }
 }

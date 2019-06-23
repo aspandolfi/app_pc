@@ -22,7 +22,7 @@ namespace ControleBO.Api.Controllers
             _movimentacaoAppService = movimentacaoAppService;
         }
 
-        // GET: api/UltimaMovimentacao
+        // GET: api/movimentacao
         [HttpGet]
         public IActionResult Get()
         {
@@ -36,14 +36,21 @@ namespace ControleBO.Api.Controllers
             return Response(_movimentacaoAppService.GetByProcedimentoId(procedimentoId));
         }
 
-        // GET: api/UltimaMovimentacao/5
+        // GET: api/movimentacao/Procedimento/1/
+        [HttpGet("ultima/{procedimentoId}")]
+        public IActionResult GetLastByProcedimentoId(int procedimentoId)
+        {
+            return Response(_movimentacaoAppService.GetLastByProcedimentoId(procedimentoId));
+        }
+
+        // GET: api/movimentacao/5
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
             return Response(_movimentacaoAppService.GetById(id));
         }
 
-        // POST: api/UltimaMovimentacao
+        // POST: api/movimentacao
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] MovimentacaoViewModel movimentacaoVm)
         {
@@ -59,7 +66,7 @@ namespace ControleBO.Api.Controllers
             return Response(movimentacaoVm, "A movimentação foi salva com sucesso!");
         }
 
-        // PUT: api/UltimaMovimentacao/5
+        // PUT: api/movimentacao/5
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody] MovimentacaoViewModel movimentacaoVm)
         {

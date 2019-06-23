@@ -16,11 +16,14 @@ namespace ControleBO.Application.Services
                                                          RemoveMovimentacaoCommand>,
                                           IMovimentacaoAppService
     {
+        private readonly IMovimentacaoRepository _movimentacaoRepository;
+
         public MovimentacaoAppService(IMapper mapper,
                                       IMovimentacaoRepository repository,
                                       IMediatorHandler bus)
             : base(mapper, repository, bus)
         {
+            _movimentacaoRepository = repository;
         }
 
         public IEnumerable<MovimentacaoViewModel> GetByProcedimentoId(int procedimentoId)
@@ -28,6 +31,13 @@ namespace ControleBO.Application.Services
             var result = Repository.GetAllAsNoTracking(x => x.ProcedimentoId == procedimentoId, x => x.Data);
 
             return Mapper.Map<IEnumerable<MovimentacaoViewModel>>(result);
+        }
+
+        public MovimentacaoViewModel GetLastByProcedimentoId(int procedimentoId)
+        {
+            var result = _movimentacaoRepository.GetLastByProcedimentoId(procedimentoId);
+
+            return Mapper.Map<MovimentacaoViewModel>(result);
         }
     }
 }

@@ -21,6 +21,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { UnidadePolicialService } from 'src/app/services/unidade-policial.service';
 import { UnidadePolicial } from 'src/app/models/unidade-policial';
 import { Result } from 'src/app/models/result';
+import { MovimentacaoService } from '../../services/movimentacao.service';
 
 @Component({
   selector: 'app-cadastro-procedimento-controle',
@@ -78,6 +79,7 @@ export class CadastroProcedimentoControleComponent implements OnInit, AfterViewI
     private artigoService: ArtigoService,
     private assuntoService: AssuntoService,
     private unidadePolicialService: UnidadePolicialService,
+    private movimentacaoService: MovimentacaoService,
     private spinner: NgxSpinnerService,
     private localeService: BsLocaleService,
     private toastr: ToastrService,
@@ -125,6 +127,7 @@ export class CadastroProcedimentoControleComponent implements OnInit, AfterViewI
         this.getVarasCriminais();
         this.getArtigos();
         this.getAssuntos();
+        this.getUltimaMovimentacao();
       });
     }
     else {
@@ -226,6 +229,12 @@ export class CadastroProcedimentoControleComponent implements OnInit, AfterViewI
         this.delegaciaSelected = this.delegacia.descricao;
       }
     });
+  }
+
+  private getUltimaMovimentacao() {
+    this.movimentacaoService.geLastByProcedimentoId(this.procedimentoId).subscribe(res => {
+      this.procedimento.ultimasMovimentacoes.push(res.data);
+    }, (error) => this.toastr.error(error.message));
   }
 
   private onSelectTipoProcedimento(event: TypeaheadMatch) {

@@ -184,6 +184,8 @@ export class CadastroProcedimentoSituacaoComponent implements OnInit, OnDestroy 
     }
     this.situacaoProcedimento.observacao = this.observacao;
 
+    this.spinner.show();
+
     if (this.situacaoProcedimento.id) {
       this.situacaoProcedimentoService.update(this.situacaoProcedimento).subscribe(res => {
         if (res.success) {
@@ -195,6 +197,7 @@ export class CadastroProcedimentoSituacaoComponent implements OnInit, OnDestroy 
       }).add(() => {
         this.spinner.hide();
         this.isLoadingSituacaoProcedimento = false;
+        this.spinner.hide();
       });
     }
     else {
@@ -208,6 +211,7 @@ export class CadastroProcedimentoSituacaoComponent implements OnInit, OnDestroy 
       }).add(() => {
         this.spinner.hide();
         this.isLoadingSituacaoProcedimento = false;
+        this.spinner.hide();
       });
     }
 
@@ -215,7 +219,7 @@ export class CadastroProcedimentoSituacaoComponent implements OnInit, OnDestroy 
 
   private openModalMovimentacao(movimentacao: Movimentacao) {
     const initialState = {
-      model: movimentacao == undefined ? new Movimentacao() : movimentacao
+      model: movimentacao == undefined ? new Movimentacao(this.procedimentoId) : movimentacao
     };
     this.modalRef = this.modalService.show(CadastroMovimentacaoComponent, { initialState, class: 'modal-lg modal-dialog-centered', ignoreBackdropClick: true, backdrop: true });
   }
@@ -229,6 +233,7 @@ export class CadastroProcedimentoSituacaoComponent implements OnInit, OnDestroy 
         }
         else {
           this.toastr.error(message.text);
+          message.errors.forEach(m => this.toastr.error(m));
         }
         this.modalRef.hide();
       });
@@ -241,6 +246,9 @@ export class CadastroProcedimentoSituacaoComponent implements OnInit, OnDestroy 
     else if (message.action == Action.Removed) {
       this.removeFromTable(message.data);
     }
+    else if (message.action == Action.Updated) {
+      this.updateTable(message.data);
+    }
   }
 
   ngOnDestroy(): void {
@@ -251,16 +259,13 @@ export class CadastroProcedimentoSituacaoComponent implements OnInit, OnDestroy 
     this.movimentacoes.push(movimentacao);
   }
 
+  private updateTable(movimentacao: Movimentacao) {
+    let index = this.movimentacoes.findIndex(x => x.id == movimentacao.id);
+    this.movimentacoes[index] = movimentacao;
+  }
+
   private removeFromTable(movimentacao: Movimentacao) {
     let index = this.movimentacoes.indexOf(movimentacao);
     this.movimentacoes.splice(index, 1);
-  }
-
-  private openModalExcluir(movimentacao: Movimentacao) {
-    const initialState = {
-      model: movimentacao,
-      uri: 'api/movimentacao/'
-    };
-    this.modalRef = this.modalService.show(ConfirmarExclusaoComponent, { initialState, class: 'modal-dialog-centered', ignoreBackdropClick: true, backdrop: true });
   }
 }

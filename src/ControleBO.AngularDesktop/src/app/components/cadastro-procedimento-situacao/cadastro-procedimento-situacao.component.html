@@ -93,7 +93,10 @@
         <span class="sr-only">Loading...</span>
       </div>
     </div>
-    <app-ultima-movimentacao [ultimasMovimentacoes]="movimentacoes" [titulo]="''"></app-ultima-movimentacao>
+    <app-ultima-movimentacao [ultimasMovimentacoes]="movimentacoes"
+                             [titulo]="''"
+                             [enableActions]="true">
+    </app-ultima-movimentacao>
   </div>
 </div>
 <ngx-spinner bdOpacity=0.9

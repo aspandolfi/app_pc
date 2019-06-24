@@ -18,6 +18,7 @@ namespace ControleBO.Application.Mappers
             CreateMap<SituacaoTipo, SituacaoTipoViewModel>();
             CreateMap<Movimentacao, MovimentacaoViewModel>();
             CreateMap<SituacaoProcedimento, SituacaoProcedimentoViewModel>();
+            CreateMap<ObjetoApreendido, ObjetoApreendidoViewModel>();
         }
     }
 }

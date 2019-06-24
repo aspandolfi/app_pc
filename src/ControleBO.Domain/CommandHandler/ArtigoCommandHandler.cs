@@ -33,22 +33,22 @@ namespace ControleBO.Domain.CommandHandler
                 return Task.FromResult(0);
             }
 
-            var assunto = new Artigo(request.Descricao);
+            var artigo = new Artigo(request.Descricao);
 
-            if (_artigoRepository.Exists(assunto.Descricao))
+            if (_artigoRepository.Exists(artigo.Descricao))
             {
                 Bus.RaiseEvent(new DomainNotification(request.MessageType, "O Artigo já está sendo usado."));
                 return Task.FromResult(0);
             }
 
-            _artigoRepository.Add(assunto);
+            _artigoRepository.Add(artigo);
 
             if (Commit())
             {
                 //TO DO
             }
 
-            return Task.FromResult(assunto.Id);
+            return Task.FromResult(artigo.Id);
         }
 
         public Task<int> Handle(UpdateArtigoCommand request, CancellationToken cancellationToken)
@@ -59,23 +59,23 @@ namespace ControleBO.Domain.CommandHandler
                 return Task.FromResult(0);
             }
 
-            var assunto = new Artigo(request.Id, request.Descricao);
-            var existingAssunto = _artigoRepository.Get(x => assunto.Descricao.Contains(x.Descricao));
+            var artigo = new Artigo(request.Id, request.Descricao);
+            var existingAssunto = _artigoRepository.Get(x => artigo.Descricao.Contains(x.Descricao));
 
-            if (!existingAssunto.Equals(assunto))
+            if (!existingAssunto.Equals(artigo))
             {
                 Bus.RaiseEvent(new DomainNotification(request.MessageType, "O Artigo já está sendo usado."));
                 return Task.FromResult(0);
             }
 
-            _artigoRepository.Update(assunto);
+            _artigoRepository.Update(artigo);
 
             if (Commit())
             {
                 //TO DO
             }
 
-            return Task.FromResult(assunto.Id);
+            return Task.FromResult(artigo.Id);
         }
 
         public Task<int> Handle(RemoveArtigoCommand request, CancellationToken cancellationToken)
@@ -86,15 +86,15 @@ namespace ControleBO.Domain.CommandHandler
                 return Task.FromResult(0);
             }
 
-            var assunto = _artigoRepository.GetById(request.Id);
+            var artigo = _artigoRepository.GetById(request.Id);
 
-            if (assunto == null)
+            if (artigo == null)
             {
                 Bus.RaiseEvent(new DomainNotification(request.MessageType, "O Artigo não foi encontrado."));
                 return Task.FromResult(0);
             }
 
-            _artigoRepository.Remove(assunto.Id);
+            _artigoRepository.Remove(artigo.Id);
 
             if (Commit())
             {

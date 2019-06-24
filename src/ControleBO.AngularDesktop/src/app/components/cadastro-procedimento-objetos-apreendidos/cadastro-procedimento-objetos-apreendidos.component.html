@@ -1,3 +1,33 @@
-<p>
-  cadastro-procedimento-objetos-apreendidos works!
-</p>
+<div class="card mb-3">
+  <div class="card-header clearfix">
+    <button type="button" class="btn btn-sm btn-secondary float-right" [disabled]="!formObjetos.form.valid || submitted" value="Salvar" (click)="salvar();">
+      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" [hidden]="!submitted"></span>
+      Salvar
+    </button>
+    Objetos Apreendidos
+  </div>
+  <div class="card-body">
+    <form #formObjetos="ngForm">
+      <div class="form-row">
+        <div class="form-group col">
+          <label for="descricao" class="control-label">Objetos:</label>
+          <textarea class="form-control form-control-sm ng-invalid" [(ngModel)]="objeto.descricao" name="descricao" required></textarea>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col">
+          <label for="local" class="control-label">Local:</label>
+          <input class="form-control form-control-sm" [(ngModel)]="objeto.local" name="local">
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<ngx-spinner bdOpacity=0.9
+             bdColor="rgba(51, 51, 51, 0.75)"
+             size="default"
+             color="#fff"
+             type="ball-beat"
+             fullScreen="true">
+  <p style="color: white"> </p>
+</ngx-spinner>

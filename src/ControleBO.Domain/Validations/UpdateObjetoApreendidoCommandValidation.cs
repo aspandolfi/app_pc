@@ -2,9 +2,9 @@
 
 namespace ControleBO.Domain.Validations
 {
-    public class UpdateObjetoApreedidoCommandValidation : ObjetoApreendidoValidation<UpdateObjetoApreedidoCommand>
+    public class UpdateObjetoApreendidoCommandValidation : ObjetoApreendidoValidation<UpdateObjetoApreendidoCommand>
     {
-        public UpdateObjetoApreedidoCommandValidation()
+        public UpdateObjetoApreendidoCommandValidation()
         {
             ValidateId();
             ValidateDescricao();

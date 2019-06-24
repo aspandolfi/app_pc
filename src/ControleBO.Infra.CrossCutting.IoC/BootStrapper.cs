@@ -39,6 +39,7 @@ namespace ControleBO.Infra.CrossCutting.IoC
             services.AddScoped<ISituacaoProcedimentoRepository, SituacaoProcedimentoRepository>();
             services.AddScoped<ISituacaoTipoRepository, SituacaoTipoRepository>();
             services.AddScoped<IMovimentacaoRepository, MovimentacaoRepository>();
+            services.AddScoped<IObjetoApreendidoRepository, ObjetoApreendidoRepository>();
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
@@ -93,6 +94,10 @@ namespace ControleBO.Infra.CrossCutting.IoC
             services.AddScoped<IRequestHandler<UpdateMovimentacaoCommand, int>, MovimentacaoCommandHandler>();
             services.AddScoped<IRequestHandler<RemoveMovimentacaoCommand, int>, MovimentacaoCommandHandler>();
 
+            services.AddScoped<IRequestHandler<RegisterNewObjetoApreendidoCommand, int>, ObjetoApreendidoCommandHandler>();
+            services.AddScoped<IRequestHandler<UpdateObjetoApreendidoCommand, int>, ObjetoApreendidoCommandHandler>();
+            services.AddScoped<IRequestHandler<RemoveObjetoApreendidoCommand, int>, ObjetoApreendidoCommandHandler>();
+
             // Application
             services.AddScoped<IProcedimentoAppService, ProcedimentoAppService>();
             services.AddScoped<IProcedimentoTipoAppService, ProcedimentoTipoAppService>();
@@ -106,6 +111,7 @@ namespace ControleBO.Infra.CrossCutting.IoC
             services.AddScoped<ISituacaoAppService, SituacaoAppService>();
             services.AddScoped<ISituacaoProcedimentoAppService, SituacaoProcedimentoAppService>();
             services.AddScoped<IMovimentacaoAppService, MovimentacaoAppService>();
+            services.AddScoped<IObjetoApreendidoAppService, ObjetoApreendidoAppService>();
 
         }
     }

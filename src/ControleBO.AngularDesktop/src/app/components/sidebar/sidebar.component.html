@@ -1,32 +1,37 @@
-<nav class="navbar navbar-expand-lg navbar-light">
-  <a class="navbar-brand" [routerLink]="['/home']">S. C. P. C. PC-ES</a>
+<nav class="navbar navbar-expand navbar-light static-top">
+  <div class="clearfix">
+    <a class="navbar-brand" [routerLink]="['/home']">
+      <img src="../../../assets/img/logo.jpg" class="rounded float-left" alt="...">
+      CONTROLE DE PROCEDIMENTOS CRIMINAIS
+    </a>
+  </div>
   <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>-->
   <div class="" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item" [routerLinkActive]="['link-active']">
-        <a class="nav-link" [routerLink]="['/home']">Visão Geral <span class="sr-only">(current)</span></a>
+        <a class="nav-link" [routerLink]="['/home']">VISÃO GERAL<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item" [routerLinkActive]="['link-active']">
-        <a class="nav-link" [routerLink]="['/procedimentos']">Procedimentos <span class="sr-only">(current)</span></a>
+        <a class="nav-link" [routerLink]="['/procedimentos']">PROCEDIMENTOS <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item dropdown" dropdown>
         <a dropdownToggle class="nav-link dropdown-toggle sortable" id="relatorioDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Relatórios
+          RELATÓRIOS
         </a>
         <div *dropdownMenu class="dropdown-menu" aria-labelledby="relatorioDropdown">
-          <a class="dropdown-item" [routerLink]="['/estatistica-assunto']">Estatística por Assunto</a>
-          <a class="dropdown-item" [routerLink]="['/relacao-procedimentos']">Relação de Procedimentos</a>
-          <a class="dropdown-item" [routerLink]="['/relacao-indiciados']">Relação de Indiciados</a>
-          <a class="dropdown-item" [routerLink]="['/relacao-vitimas']">Relação de Vítimas</a>
+          <a class="dropdown-item" [routerLink]="['/estatistica-assunto']">ESTATÍSTICA POR ASSUNTO</a>
+          <a class="dropdown-item" [routerLink]="['/relacao-procedimentos']">RELAÇÃO DE PROCEDIMENTOS</a>
+          <a class="dropdown-item" [routerLink]="['/relacao-indiciados']">RELAÇÃO DE INDICIADOS</a>
+          <a class="dropdown-item" [routerLink]="['/relacao-vitimas']">RELAÇÃO DE VÍTIMAS</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" [routerLink]="['/']">Something else here</a>
         </div>
       </li>
       <li class="nav-item dropdown" dropdown>
         <a dropdownToggle class="nav-link dropdown-toggle sortable" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Cadastro
+          CADASTROS
         </a>
         <div *dropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" [routerLink]="['/artigo']">Artigo</a>

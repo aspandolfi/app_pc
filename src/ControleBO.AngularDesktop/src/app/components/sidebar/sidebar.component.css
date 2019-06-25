@@ -1,5 +1,11 @@
-.sortable {
+.sortable, a {
   cursor: pointer
+}
+
+nav > div > a > img {
+  max-width: 32px;
+  max-height: 32px;
+  margin-right: 10px;
 }
 
 nav {

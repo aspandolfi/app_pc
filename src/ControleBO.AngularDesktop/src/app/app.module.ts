@@ -42,6 +42,7 @@ import { EstatisticaAssuntoComponent } from './relatorios/estatistica-assunto/es
 
 import { defineLocale } from 'ngx-bootstrap/chronos';
 import { ptBrLocale } from 'ngx-bootstrap/locale';
+import { SidemenuComponent } from './components/sidemenu/sidemenu.component';
 defineLocale('pt-br', ptBrLocale);
 
 @NgModule({
@@ -67,7 +68,8 @@ defineLocale('pt-br', ptBrLocale);
     CadastroIndiciadoComponent,
     CadastroProcedimentoObjetosApreendidosComponent,
     CadastroMovimentacaoComponent,
-    EstatisticaAssuntoComponent
+    EstatisticaAssuntoComponent,
+    SidemenuComponent
   ],
   imports: [
     HttpClientModule,

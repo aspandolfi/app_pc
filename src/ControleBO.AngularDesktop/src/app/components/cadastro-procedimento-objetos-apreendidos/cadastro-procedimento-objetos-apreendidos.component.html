@@ -23,11 +23,7 @@
     </form>
   </div>
 </div>
-<ngx-spinner bdOpacity=0.9
-             bdColor="rgba(51, 51, 51, 0.75)"
-             size="default"
-             color="#fff"
-             type="ball-beat"
-             fullScreen="true">
-  <p style="color: white"> </p>
-</ngx-spinner>
+<ngx-loading-bar [color]="'#6c757d'"
+                 [includeSpinner]="false"
+                 [height]="'3px'">
+</ngx-loading-bar>

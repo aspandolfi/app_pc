@@ -7,8 +7,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { NgxMaskModule } from 'ngx-mask';
-import { NgxSpinnerModule } from 'ngx-spinner';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 
 import { TipoProcedimentoService } from './services/tipo-procedimento.service';
 import { BaseService } from './services/base.service';
@@ -36,11 +36,12 @@ import { UltimaMovimentacaoComponent } from './components/ultima-movimentacao/ul
 import { MunicipioService } from './services/municipio.service';
 import { CadastroVitimaComponent } from './components/cadastro-vitima/cadastro-vitima.component';
 import { CadastroIndiciadoComponent } from './components/cadastro-indiciado/cadastro-indiciado.component';
+import { CadastroProcedimentoObjetosApreendidosComponent } from './components/cadastro-procedimento-objetos-apreendidos/cadastro-procedimento-objetos-apreendidos.component';
+import { CadastroMovimentacaoComponent } from './components/cadastro-movimentacao/cadastro-movimentacao.component';
+import { EstatisticaAssuntoComponent } from './relatorios/estatistica-assunto/estatistica-assunto.component';
 
 import { defineLocale } from 'ngx-bootstrap/chronos';
 import { ptBrLocale } from 'ngx-bootstrap/locale';
-import { CadastroProcedimentoObjetosApreendidosComponent } from './components/cadastro-procedimento-objetos-apreendidos/cadastro-procedimento-objetos-apreendidos.component';
-import { CadastroMovimentacaoComponent } from './components/cadastro-movimentacao/cadastro-movimentacao.component';
 defineLocale('pt-br', ptBrLocale);
 
 @NgModule({
@@ -65,7 +66,8 @@ defineLocale('pt-br', ptBrLocale);
     CadastroVitimaComponent,
     CadastroIndiciadoComponent,
     CadastroProcedimentoObjetosApreendidosComponent,
-    CadastroMovimentacaoComponent
+    CadastroMovimentacaoComponent,
+    EstatisticaAssuntoComponent
   ],
   imports: [
     HttpClientModule,
@@ -75,8 +77,8 @@ defineLocale('pt-br', ptBrLocale);
     BrowserAnimationsModule,
     FormsModule,
     NgxMaskModule.forRoot(),
-    NgxSpinnerModule,
     NgSelectModule,
+    LoadingBarHttpClientModule,
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right',
       progressBar: true,

@@ -14,8 +14,6 @@ import { Subscription } from 'rxjs';
 import { MessageService } from 'src/app/services/message.service';
 import { CadastroMovimentacaoComponent } from '../cadastro-movimentacao/cadastro-movimentacao.component';
 import { IMessage, Action } from 'src/app/models/message';
-import { ConfirmarExclusaoComponent } from '../confirmar-exclusao/confirmar-exclusao.component';
-import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-cadastro-procedimento-situacao',
@@ -63,13 +61,11 @@ export class CadastroProcedimentoSituacaoComponent implements OnInit, OnDestroy 
     private situacaoProcedimentoService: SituacaoProcedimentoService,
     private modalService: BsModalService,
     private messageService: MessageService,
-    private cdr: ChangeDetectorRef,
-    private spinner: NgxSpinnerService) {
+    private cdr: ChangeDetectorRef) {
     this.onReceiveMessage();
   }
 
   ngOnInit() {
-    this.spinner.show();
 
     this.route.parent.paramMap.subscribe(params => {
       this.procedimentoId = +params.get('id');
@@ -138,7 +134,6 @@ export class CadastroProcedimentoSituacaoComponent implements OnInit, OnDestroy 
       () => this.toastr.error('Falha ao buscar as Movimentações'),
       () => {
         this.isLoadingMovimentacoes = false;
-        this.spinner.hide();
       });
   }
 
@@ -184,8 +179,6 @@ export class CadastroProcedimentoSituacaoComponent implements OnInit, OnDestroy 
     }
     this.situacaoProcedimento.observacao = this.observacao;
 
-    this.spinner.show();
-
     if (this.situacaoProcedimento.id) {
       this.situacaoProcedimentoService.update(this.situacaoProcedimento).subscribe(res => {
         if (res.success) {
@@ -195,9 +188,7 @@ export class CadastroProcedimentoSituacaoComponent implements OnInit, OnDestroy 
         this.toastr.error(res.message);
         res.errors.forEach(m => this.toastr.error(m));
       }).add(() => {
-        this.spinner.hide();
         this.isLoadingSituacaoProcedimento = false;
-        this.spinner.hide();
       });
     }
     else {
@@ -209,9 +200,7 @@ export class CadastroProcedimentoSituacaoComponent implements OnInit, OnDestroy 
         this.toastr.error(res.message);
         res.errors.forEach(m => this.toastr.error(m));
       }).add(() => {
-        this.spinner.hide();
         this.isLoadingSituacaoProcedimento = false;
-        this.spinner.hide();
       });
     }
 

@@ -11,7 +11,7 @@ namespace ControleBO.Application.Mappers
         {
             CreateMap<ProcedimentoTipo, ProcedimentoTipoViewModel>();
             CreateMap<Municipio, MunicipioViewModel>();
-            CreateMap<DatatableObject, DatatableViewModel>();
+            CreateMap<DataTableObject, DataTableViewModel>();
             CreateMap<Vitima, VitimaViewModel>();
             CreateMap<Indiciado, IndiciadoViewModel>();
             CreateMap<Situacao, SituacaoViewModel>();

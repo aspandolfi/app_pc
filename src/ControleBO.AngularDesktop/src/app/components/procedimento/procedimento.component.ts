@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProcedimentoService } from 'src/app/services/procedimento.service';
 import { ToastrService } from 'ngx-toastr';
-import { NgxSpinnerService } from 'ngx-spinner';
 import { ProcedimentoList } from 'src/app/models/procedimento';
-import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-procedimento',
@@ -26,8 +24,7 @@ export class ProcedimentoComponent implements OnInit {
   }
 
   constructor(private procedimentoService: ProcedimentoService,
-    private toastr: ToastrService,
-    private spinner: NgxSpinnerService) {
+    private toastr: ToastrService) {
   }
 
   get procedimentos(): ProcedimentoList[] {
@@ -37,7 +34,6 @@ export class ProcedimentoComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.spinner.show();
     this.getProcedimentos();
     this.getUltimaAtualizacao();
   }
@@ -56,7 +52,6 @@ export class ProcedimentoComponent implements OnInit {
       },
         () => this.toastr.error("Falha ao carregar os procedimentos."),
         () => {
-          this.spinner.hide();
           this.isLoading = false;
         });
   }

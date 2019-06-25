@@ -38,22 +38,22 @@ namespace ControleBO.Application.Services
                 x=> x.AndamentoProcessual
             };
 
-        public DatatableViewModel GetAllAsDatatable()
+        public DataTableViewModel GetAllAsDatatable()
         {
             var result = Repository.GetAllAsNoTracking(x => x.RemovidoEm == null, x => x.CriadoEm);
 
             var dt = CreateDatatableObject(result);
 
-            return Mapper.Map<DatatableViewModel>(dt);
+            return Mapper.Map<DataTableViewModel>(dt);
         }
 
-        public DatatableViewModel GetAllPagedAsDatatable(int page, int pageSize = 10)
+        public DataTableViewModel GetAllPagedAsDatatable(int page, int pageSize = 10)
         {
             var result = Repository.GetPaged(x => x.CriadoEm, page, pageSize);
 
             var dt = CreateDatatableObject(result);
 
-            return Mapper.Map<DatatableViewModel>(dt);
+            return Mapper.Map<DataTableViewModel>(dt);
         }
 
         public DatatableQueryResultViewModel GetAllQueryableAsDatatable(DatatableQueryInputViewModel datatableQuery)
@@ -101,9 +101,9 @@ namespace ControleBO.Application.Services
             };
         }
 
-        private DatatableObject CreateDatatableObject(IEnumerable<Procedimento> procedimentos = null)
+        private DataTableObject CreateDatatableObject(IEnumerable<Procedimento> procedimentos = null)
         {
-            var dt = new DatatableObject();
+            var dt = new DataTableObject();
 
             dt.AddHeaders(new List<string>
             {

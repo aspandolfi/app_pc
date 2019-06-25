@@ -16,6 +16,6 @@ export class FileService {
       var configFile = this.fs.readFileSync('./config.json');
       return JSON.parse(configFile);
     }
-    return { apiUrl: "http://localhost:1647/" };
+    return { apiUrl: "http://localhost:51694/" };
   }
 }

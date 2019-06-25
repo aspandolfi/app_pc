@@ -40,6 +40,7 @@ namespace ControleBO.Infra.CrossCutting.IoC
             services.AddScoped<ISituacaoTipoRepository, SituacaoTipoRepository>();
             services.AddScoped<IMovimentacaoRepository, MovimentacaoRepository>();
             services.AddScoped<IObjetoApreendidoRepository, ObjetoApreendidoRepository>();
+            services.AddScoped<IRelatorioRepository, RelatorioRepository>();
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
@@ -112,6 +113,7 @@ namespace ControleBO.Infra.CrossCutting.IoC
             services.AddScoped<ISituacaoProcedimentoAppService, SituacaoProcedimentoAppService>();
             services.AddScoped<IMovimentacaoAppService, MovimentacaoAppService>();
             services.AddScoped<IObjetoApreendidoAppService, ObjetoApreendidoAppService>();
+            services.AddScoped<IRelatorioAppService, RelatorioAppService>();
 
         }
     }

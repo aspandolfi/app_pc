@@ -24,7 +24,7 @@ namespace ControleBO.Infra.Data.Repositories
         {
             return DbSet.Where(x => x.ProcedimentoId == procedimentoId)
                         .OrderBy(x => x.Data)
-                        .SingleOrDefault();
+                        .LastOrDefault();
         }
     }
 }

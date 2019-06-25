@@ -9,7 +9,6 @@ import { VaraCriminalService } from 'src/app/services/vara-criminal.service';
 import { Municipio } from 'src/app/models/municipio';
 import { MunicipioService } from 'src/app/services/municipio.service';
 import { ProcedimentoService } from 'src/app/services/procedimento.service';
-import { NgxSpinnerService } from 'ngx-spinner';
 import { BsLocaleService, BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { Artigo } from 'src/app/models/artigo';
 import { Assunto } from 'src/app/models/assunto';
@@ -80,7 +79,6 @@ export class CadastroProcedimentoControleComponent implements OnInit, AfterViewI
     private assuntoService: AssuntoService,
     private unidadePolicialService: UnidadePolicialService,
     private movimentacaoService: MovimentacaoService,
-    private spinner: NgxSpinnerService,
     private localeService: BsLocaleService,
     private toastr: ToastrService,
     private tabsMessageService: TabsMessageService,
@@ -103,7 +101,6 @@ export class CadastroProcedimentoControleComponent implements OnInit, AfterViewI
 
   private getProcedimento(procedimentoId) {
     if (procedimentoId) {
-      this.spinner.show();
       this.procedimentoService.get(procedimentoId).subscribe(res => {
         if (res.data) {
           this.procedimento = new Procedimento(res.data); // Success
@@ -117,7 +114,6 @@ export class CadastroProcedimentoControleComponent implements OnInit, AfterViewI
         () => this.toastr.error(`Falha ao buscar o Procedimento # ${procedimentoId}.`), // Fail
         () => {
           this.isLoading = false;
-          this.spinner.hide();
           this.cdr.detectChanges();
         } // Completed
       ).add(() => {
@@ -365,7 +361,6 @@ export class CadastroProcedimentoControleComponent implements OnInit, AfterViewI
     this.procedimento.delegaciaId = this.delegacia.id;
 
     this.isLoading = true;
-    this.spinner.show();
 
     if (this.procedimento.id) {
       this.procedimentoService.update(this.procedimento).subscribe(res => {
@@ -376,7 +371,6 @@ export class CadastroProcedimentoControleComponent implements OnInit, AfterViewI
         this.toastr.error(res.message);
         res.error.errors.forEach(m => this.toastr.error(m));
       }).add(() => {
-        this.spinner.hide();
         this.isLoading = false;
       });
     }
@@ -390,7 +384,6 @@ export class CadastroProcedimentoControleComponent implements OnInit, AfterViewI
         this.toastr.error(error.message);
         error.errors.forEach(m => this.toastr.error(m));
       }).add(() => {
-        this.spinner.hide();
         this.isLoading = false;
       });
     }

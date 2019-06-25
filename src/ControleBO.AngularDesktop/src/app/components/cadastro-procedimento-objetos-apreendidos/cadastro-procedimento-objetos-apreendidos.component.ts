@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ObjetoApreendido } from '../../models/objeto-apreendido';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { NgxSpinnerService } from 'ngx-spinner';
 import { ObjetoApreendidoService } from '../../services/objeto-apreendido.service';
 import { Result } from '../../models/result';
 
@@ -21,11 +20,9 @@ export class CadastroProcedimentoObjetosApreendidosComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
     private toastr: ToastrService,
-    private spinner: NgxSpinnerService,
     private objetoApreendidoService: ObjetoApreendidoService) { }
 
   ngOnInit() {
-    this.spinner.show();
 
     this.route.parent.paramMap.subscribe(params => {
       this.procedimentoId = +params.get('id');
@@ -42,9 +39,7 @@ export class CadastroProcedimentoObjetosApreendidosComponent implements OnInit {
       (error: Result<any>) => {
         this.toastr.error('Falha ao buscar os objetos apreendidos.');
         error.errors.forEach(m => this.toastr.error(m));
-        this.spinner.hide();
-      },
-      () => this.spinner.hide());
+      });
   }
 
   private salvar() {

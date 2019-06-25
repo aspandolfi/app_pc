@@ -9,6 +9,7 @@ import { CadastroProcedimentoVitimasAutoresComponent } from './components/cadast
 import { CadastroProcedimentoControleComponent } from './components/cadastro-procedimento-controle/cadastro-procedimento-controle.component';
 import { CadastroProcedimentoSituacaoComponent } from './components/cadastro-procedimento-situacao/cadastro-procedimento-situacao.component';
 import { CadastroProcedimentoObjetosApreendidosComponent } from './components/cadastro-procedimento-objetos-apreendidos/cadastro-procedimento-objetos-apreendidos.component';
+import { EstatisticaAssuntoComponent } from './relatorios/estatistica-assunto/estatistica-assunto.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'procedimentos', pathMatch: 'full' },
@@ -31,6 +32,7 @@ const routes: Routes = [
   { path: 'municipio', component: MunicipioComponent },
   { path: 'artigo', component: ArtigoComponent },
   { path: 'tipo-procedimento', component: TipoProcedimentoComponent },
+  { path: 'estatistica-assunto', component: EstatisticaAssuntoComponent },
   { path: '**', redirectTo: 'procedimentos' }
 ];
 

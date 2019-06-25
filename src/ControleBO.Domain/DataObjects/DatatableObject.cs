@@ -1,48 +1,58 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace ControleBO.Domain.DataObjects
 {
-    public class DatatableObject
+    public class DataTableObject
     {
-        public DatatableObject()
+        public DataTableObject()
         {
-            Headers = new List<DatatableHeaderTitle>();
-            DataSet = new List<List<object>>();
+            Headers = new Collection<DataTableHeaderTitle>();
+            DataSet = new Collection<IEnumerable<object>>();
         }
 
-        public IList<DatatableHeaderTitle> Headers { get; }
-        public IList<List<object>> DataSet { get; }
+        public ICollection<DataTableHeaderTitle> Headers { get; }
+        public ICollection<IEnumerable<object>> DataSet { get; }
 
         public void AddHeader(string title)
         {
-            Headers.Add(new DatatableHeaderTitle(title));
+            Headers.Add(new DataTableHeaderTitle(title));
         }
 
         public void AddHeaders(IEnumerable<string> titles)
         {
             foreach (var title in titles)
             {
-                Headers.Add(new DatatableHeaderTitle(title));
+                Headers.Add(new DataTableHeaderTitle(title));
             }
         }
 
-        public void AddDataSet(List<object> dataSet)
+        public void AddHeaders(params string[] titles)
         {
-            DataSet.Add(dataSet);
+            for (int i = 0; i < titles.Length; i++)
+            {
+                Headers.Add(new DataTableHeaderTitle(titles[i]));
+            }
         }
 
-        public void AddDataSet(List<List<object>> dataSet)
+        public void AddDataSet(IEnumerable<object> collection)
+        {
+            DataSet.Add(collection);
+        }
+
+        public void AddDataSet(IEnumerable<IEnumerable<object>> dataSet)
         {
             foreach (var data in dataSet)
             {
-                DataSet.Add(data);
+                AddDataSet(data);
             }
         }
     }
 
-    public class DatatableHeaderTitle
+    public class DataTableHeaderTitle
     {
-        public DatatableHeaderTitle(string title)
+        public DataTableHeaderTitle(string title)
         {
             Title = title;
         }

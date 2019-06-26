@@ -39,10 +39,10 @@ import { CadastroIndiciadoComponent } from './components/cadastro-indiciado/cada
 import { CadastroProcedimentoObjetosApreendidosComponent } from './components/cadastro-procedimento-objetos-apreendidos/cadastro-procedimento-objetos-apreendidos.component';
 import { CadastroMovimentacaoComponent } from './components/cadastro-movimentacao/cadastro-movimentacao.component';
 import { EstatisticaAssuntoComponent } from './relatorios/estatistica-assunto/estatistica-assunto.component';
+import { SidemenuComponent } from './components/sidemenu/sidemenu.component';
 
 import { defineLocale } from 'ngx-bootstrap/chronos';
 import { ptBrLocale } from 'ngx-bootstrap/locale';
-import { SidemenuComponent } from './components/sidemenu/sidemenu.component';
 defineLocale('pt-br', ptBrLocale);
 
 @NgModule({

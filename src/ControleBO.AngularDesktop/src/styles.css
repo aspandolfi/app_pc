@@ -31,3 +31,11 @@ table a:hover {
 .cadastro-procedimento {
   margin-top: 10px
 }
+
+pagination a {
+}
+
+span {
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+}

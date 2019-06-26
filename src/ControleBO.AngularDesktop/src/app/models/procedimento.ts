@@ -59,13 +59,25 @@ export class Procedimento {
 }
 
 export class ProcedimentoList {
+
+  private _dataInsercao: Date;
+
+  set dataInsercao(value: any) {
+    if (value) {
+      this._dataInsercao = new Date(value);
+    }
+  }
+
+  get dataInsercao() {
+    return this._dataInsercao;
+  }
+
   id: number;
   numeroCadastro: string;
   boletimUnificado: string;
   boletimOcorrencia: string;
   numeroProcessual: string;
   tipoProcedimento: string;
-  dataInsercao: Date;
   comarca: string;
   andamentoProcessual: string;
 

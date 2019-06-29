@@ -15,6 +15,7 @@ import { BaseService } from './services/base.service';
 import { MessageService } from './services/message.service';
 import { FileService } from './services/file.service';
 import { ProcedimentoService } from './services/procedimento.service';
+import { AuthGuardService } from './guards/auth-guard.service';
 
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
@@ -40,9 +41,13 @@ import { CadastroProcedimentoObjetosApreendidosComponent } from './components/ca
 import { CadastroMovimentacaoComponent } from './components/cadastro-movimentacao/cadastro-movimentacao.component';
 import { EstatisticaAssuntoComponent } from './relatorios/estatistica-assunto/estatistica-assunto.component';
 import { SidemenuComponent } from './components/sidemenu/sidemenu.component';
+import { LoginComponent } from './components/login/login.component';
+import { UserRegisterComponent } from './components/user-register/user-register.component';
+import { UserListComponent } from './components/user-list/user-list.component';
 
 import { defineLocale } from 'ngx-bootstrap/chronos';
 import { ptBrLocale } from 'ngx-bootstrap/locale';
+
 defineLocale('pt-br', ptBrLocale);
 
 @NgModule({
@@ -69,7 +74,10 @@ defineLocale('pt-br', ptBrLocale);
     CadastroProcedimentoObjetosApreendidosComponent,
     CadastroMovimentacaoComponent,
     EstatisticaAssuntoComponent,
-    SidemenuComponent
+    SidemenuComponent,
+    LoginComponent,
+    UserRegisterComponent,
+    UserListComponent
   ],
   imports: [
     HttpClientModule,
@@ -94,7 +102,9 @@ defineLocale('pt-br', ptBrLocale);
     CadastroMunicipioComponent,
     CadastroVitimaComponent,
     CadastroIndiciadoComponent,
-    CadastroMovimentacaoComponent
+    CadastroMovimentacaoComponent,
+    LoginComponent,
+    UserRegisterComponent
   ],
   providers: [
     { provide: 'BASE_URL', useFactory: getBaseUrl },
@@ -103,7 +113,8 @@ defineLocale('pt-br', ptBrLocale);
     MessageService,
     FileService,
     ProcedimentoService,
-    MunicipioService
+    MunicipioService,
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })

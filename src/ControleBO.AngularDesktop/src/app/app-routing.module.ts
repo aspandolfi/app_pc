@@ -10,13 +10,15 @@ import { CadastroProcedimentoControleComponent } from './components/cadastro-pro
 import { CadastroProcedimentoSituacaoComponent } from './components/cadastro-procedimento-situacao/cadastro-procedimento-situacao.component';
 import { CadastroProcedimentoObjetosApreendidosComponent } from './components/cadastro-procedimento-objetos-apreendidos/cadastro-procedimento-objetos-apreendidos.component';
 import { EstatisticaAssuntoComponent } from './relatorios/estatistica-assunto/estatistica-assunto.component';
+import { AuthGuardService } from './guards/auth-guard.service';
+import { UserListComponent } from './components/user-list/user-list.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'procedimentos', pathMatch: 'full' },
+  { path: '', redirectTo: 'procedimentos', pathMatch: 'full', canActivate: [AuthGuardService] },
   {
-    path: 'cadastro-procedimento', component: CadastroProcedimentoComponent,
+    path: 'cadastro-procedimento', component: CadastroProcedimentoComponent, canActivate: [AuthGuardService],
     children: [
-      { path: 'controle', component: CadastroProcedimentoControleComponent, outlet: 'procedimento' }
+      { path: 'controle', component: CadastroProcedimentoControleComponent, outlet: 'procedimento', canActivateChild: [AuthGuardService] }
     ]
   },
   {
@@ -28,11 +30,17 @@ const routes: Routes = [
       { path: 'objetos-apreendidos', component: CadastroProcedimentoObjetosApreendidosComponent, outlet: 'procedimento' },
     ]
   },
-  { path: 'procedimentos', component: ProcedimentoComponent },
+  { path: 'procedimentos', component: ProcedimentoComponent, canActivate: [AuthGuardService] },
   { path: 'municipio', component: MunicipioComponent },
   { path: 'artigo', component: ArtigoComponent },
   { path: 'tipo-procedimento', component: TipoProcedimentoComponent },
   { path: 'estatistica-assunto', component: EstatisticaAssuntoComponent },
+  {
+    path: 'account',
+    children: [
+      { path: 'users', component: UserListComponent }
+    ]
+  },
   { path: '**', redirectTo: 'procedimentos' }
 ];
 

@@ -1,8 +1,11 @@
 ﻿using ControleBO.Api.Configurations;
+using ControleBO.Infra.CrossCutting.Identity.Context;
+using ControleBO.Infra.CrossCutting.Identity.Models;
 using ControleBO.Infra.CrossCutting.IoC;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -19,22 +22,17 @@ namespace ControleBO.Api
 
         public IConfiguration Configuration { get; }
 
-        //public Startup(IHostingEnvironment env)
-        //{
-        //    var builder = new ConfigurationBuilder()
-        //        .SetBasePath(env.ContentRootPath)
-        //        .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-        //        .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
-        //        .AddEnvironmentVariables();
-        //    Configuration = builder.Build();
-        //}
-
-        //public IConfigurationRoot Configuration { get; }
-
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddEntityFrameworkNpgsql()
+                .AddDbContext<ApplicationDbContext>();
+
+            services.AddIdentity();
+
+            services.AddJwt(Configuration);
 
             services.AddCors();
 
@@ -50,7 +48,10 @@ namespace ControleBO.Api
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env,
+            ApplicationDbContext context,
+            UserManager<ApplicationUser> userManager,
+            RoleManager<IdentityRole> roleManager)
         {
             if (env.IsDevelopment())
             {
@@ -66,13 +67,20 @@ namespace ControleBO.Api
             //    ForwardedHeaders = Microsoft.AspNetCore.HttpOverrides.ForwardedHeaders.XForwardedFor | Microsoft.AspNetCore.HttpOverrides.ForwardedHeaders.XForwardedProto
             //});
 
-            app.UseAuthentication();
-
             app.UseResponseCompression();
 
             //app.UseHttpsRedirection();
+
+            // Criação de estruturas, usuários e permissões
+            // na base do ASP.NET Identity Core (caso ainda não
+            // existam)
+            new IdentityInitializer(context, userManager, roleManager)
+                .Initialize();
+
             app.UseMvc();
+
             app.UseCors(x => x.AllowAnyOrigin());
+
             ConfigureDataDirectory(env);
         }
 

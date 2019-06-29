@@ -1,6 +1,7 @@
 ﻿using ControleBO.Domain.Core.Bus;
 using ControleBO.Domain.Core.Notifications;
 using MediatR;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
@@ -59,6 +60,14 @@ namespace ControleBO.Api.Controllers
         protected void NotifyError(string code, string message)
         {
             _mediator.RaiseEvent(new DomainNotification(code, message));
+        }
+
+        protected void AddIdentityErrors(IdentityResult result)
+        {
+            foreach (var error in result.Errors)
+            {
+                NotifyError(result.ToString(), error.Description);
+            }
         }
     }
 }

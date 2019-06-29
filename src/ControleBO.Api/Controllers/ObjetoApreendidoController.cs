@@ -1,19 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using ControleBO.Application.Interfaces;
 using ControleBO.Application.ViewModels;
 using ControleBO.Domain.Core.Bus;
 using ControleBO.Domain.Core.Notifications;
 using MediatR;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ControleBO.Api.Controllers
 {
     [Route("api/objeto-apreendido")]
     [Produces("application/json")]
+    [Authorize("Bearer")]
     [ApiController]
     public class ObjetoApreendidoController : ApiController
     {

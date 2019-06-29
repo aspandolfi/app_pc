@@ -17,8 +17,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="src\app\components\" />
     <Folder Include="src\app\directives\" />
+    <Folder Include="src\app\modules\" />
   </ItemGroup>
 
   <PropertyGroup>

@@ -1,0 +1,47 @@
+<div class="card mx-auto">
+  <div class="card-header">Registrar um usuário</div>
+  <div class="card-body">
+    <form #registerForm="ngForm">
+      <div class="form-group">
+        <div class="form-row">
+          <div class="col-md">
+            <div class="form-label-group">
+              <input type="text" id="nome" name="nome" [(ngModel)]="usuario.nome" class="form-control" placeholder="Nome" required="required" autofocus="autofocus" [readonly]="submitted">
+              <label for="nome">Nome</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="form-label-group">
+          <input type="email" id="inputEmail" name="email" [(ngModel)]="usuario.email" class="form-control" placeholder="Email" required="required" [readonly]="submitted">
+          <label for="inputEmail">Email</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="form-row">
+          <div class="col-md-6">
+            <div class="form-label-group">
+              <input type="password" id="inputPassword" name="senha" [(ngModel)]="usuario.senha" class="form-control" placeholder="Password" required="required" [readonly]="submitted">
+              <label for="inputPassword">Senha</label>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-label-group">
+              <input type="password" id="confirmPassword" name="confirmarSenha" [(ngModel)]="usuario.confirmarSenha" class="form-control" placeholder="Confirm password" required="required" [readonly]="submitted">
+              <label for="confirmPassword">Confirmar senha</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button type="button" class="btn btn-secondary btn-block" [disabled]="!registerForm.form.valid || submitted" (click)="registrar();">
+        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" [hidden]="!submitted"></span>
+        Registrar
+      </button>
+    </form>
+    <div class="text-center">
+      <!--<a class="d-block small mt-3" href="login.html">Login Page</a>
+      <a class="d-block small" href="forgot-password.html">Forgot Password?</a>-->
+    </div>
+  </div>
+</div>

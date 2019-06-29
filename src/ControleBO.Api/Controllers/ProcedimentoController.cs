@@ -3,6 +3,7 @@ using ControleBO.Application.ViewModels;
 using ControleBO.Domain.Core.Bus;
 using ControleBO.Domain.Core.Notifications;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -10,6 +11,7 @@ namespace ControleBO.Api.Controllers
 {
     [Route("api/procedimento")]
     [Produces("application/json")]
+    [Authorize("Bearer")]
     [ApiController]
     public class ProcedimentoController : ApiController
     {

@@ -2,12 +2,14 @@
 using ControleBO.Domain.Core.Bus;
 using ControleBO.Domain.Core.Notifications;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ControleBO.Api.Controllers
 {
     [Route("api/[controller]")]
     [Produces("application/json")]
+    [Authorize("Bearer")]
     [ApiController]
     public class SituacaoController : ApiController
     {

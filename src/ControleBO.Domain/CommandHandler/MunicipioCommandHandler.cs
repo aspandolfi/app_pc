@@ -54,12 +54,66 @@ namespace ControleBO.Domain.CommandHandler
 
         public Task<int> Handle(UpdateMunicipioCommand request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            if (!request.IsValid())
+            {
+                NotifyValidationErrors(request);
+                return Task.FromResult(0);
+            }
+
+            var municipio = new Municipio(request.Id, request.Nome, request.UF, request.CEP);
+
+            var existingMunicipio = _municipioRepository.GetById(request.Id);
+
+            if (existingMunicipio == null)
+            {
+                Bus.RaiseEvent(new DomainNotification(request.MessageType, "O Município não foi encontrado."));
+                return Task.FromResult(0);
+            }
+
+            existingMunicipio.Nome = municipio.Nome;
+            existingMunicipio.UF = municipio.UF;
+            existingMunicipio.CEP = municipio.CEP;
+
+            if (!municipio.Equals(existingMunicipio))
+            {
+                Bus.RaiseEvent(new DomainNotification(request.MessageType, "O Município já está existe."));
+                return Task.FromResult(0);
+            }
+
+            _municipioRepository.Update(existingMunicipio);
+
+            if (Commit())
+            {
+                //TO DO
+            }
+
+            return Task.FromResult(municipio.Id);
         }
 
         public Task<int> Handle(RemoveMunicipioCommand request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            if (!request.IsValid())
+            {
+                NotifyValidationErrors(request);
+                return Task.FromResult(0);
+            }
+
+            var existingMunicipio = _municipioRepository.GetById(request.Id);
+
+            if (existingMunicipio == null)
+            {
+                Bus.RaiseEvent(new DomainNotification(request.MessageType, "O Município não foi encontrado."));
+                return Task.FromResult(0);
+            }
+
+            _municipioRepository.Remove(existingMunicipio.Id);
+
+            if (Commit())
+            {
+                //TO DO
+            }
+
+            return Task.FromResult(request.Id);
         }
     }
 }

@@ -87,5 +87,11 @@ namespace ControleBO.Api.Controllers
 
             return Response(id, "O município foi removido com sucesso!");
         }
+
+        [HttpGet("ultimaAtualizacao")]
+        public IActionResult GetUltimaAtualizacao()
+        {
+            return Response(_municipioAppService.UltimaAtualizacao());
+        }
     }
 }

@@ -114,7 +114,8 @@ defineLocale('pt-br', ptBrLocale);
     LoginComponent,
     UserRegisterComponent,
     CadastroAssuntoComponent,
-    CadastroVaraCriminalComponent
+    CadastroVaraCriminalComponent,
+    CadastroMunicipioComponent
   ],
   providers: [
     { provide: 'BASE_URL', useFactory: getBaseUrl },

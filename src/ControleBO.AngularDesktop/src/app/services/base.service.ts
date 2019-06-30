@@ -78,7 +78,13 @@ export class BaseService {
       //console.log(error.error);
     }
     // return an observable with a user-facing error message
+
+    if (error.status == 500) {
+      return throwError(
+        error);
+    }
     return throwError(
-      error);
+      error.error);
+
   };
 }

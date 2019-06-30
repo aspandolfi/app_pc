@@ -1,6 +1,7 @@
 ﻿using ControleBO.Domain.Interfaces.Repositories;
 using ControleBO.Domain.Models;
 using ControleBO.Infra.Data.Context;
+using System;
 using System.Linq;
 
 namespace ControleBO.Infra.Data.Repositories
@@ -16,6 +17,18 @@ namespace ControleBO.Infra.Data.Repositories
             string nome = paramsToSearch[0] as string;
             string uf = paramsToSearch[1] as string;
             return DbSet.Any(m => nome.Contains(m.Nome) && uf.Contains(m.UF));
+        }
+
+        public override DateTime? LastUpdate()
+        {
+            DateTime? maxDate = null;
+
+            if (Count() > 0)
+            {
+                maxDate = DbSet.Max(x => x.ModificadoEm);
+            }
+
+            return maxDate;
         }
     }
 }

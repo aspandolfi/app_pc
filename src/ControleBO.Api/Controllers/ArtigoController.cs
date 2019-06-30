@@ -80,5 +80,11 @@ namespace ControleBO.Api.Controllers
 
             return Response(id, "O Artigo foi removido com sucesso!");
         }
+
+        [HttpGet("ultimaAtualizacao")]
+        public IActionResult GetUltimaAtualizacao()
+        {
+            return Response(_artigoAppService.UltimaAtualizacao());
+        }
     }
 }

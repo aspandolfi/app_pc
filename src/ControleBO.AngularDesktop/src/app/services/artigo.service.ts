@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { BaseService } from './base.service';
 import { Artigo } from '../models/artigo';
 import { IServiceBase } from './service-base';
+import { Observable } from 'rxjs';
+import { Result } from '../models/result';
 
 @Injectable({
   providedIn: 'root'
@@ -28,5 +30,8 @@ export class ArtigoService implements IServiceBase<Artigo> {
   }
   getAllPaged(page: number, pageSize: number) {
     return this.baseService.get<Artigo[]>(`${this.uri}/paginate/page=${page}&pageSize=${pageSize}`);
+  }
+  getUltimaAtualizacao(): Observable<Result<string>> {
+    return this.baseService.get(`${this.uri}/ultimaatualizacao`);
   }
 }

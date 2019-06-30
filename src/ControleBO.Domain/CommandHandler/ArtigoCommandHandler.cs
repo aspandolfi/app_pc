@@ -60,7 +60,7 @@ namespace ControleBO.Domain.CommandHandler
             }
 
             var artigo = new Artigo(request.Id, request.Descricao);
-            var existingAssunto = _artigoRepository.Get(x => artigo.Descricao.Contains(x.Descricao));
+            var existingAssunto = _artigoRepository.GetAsNoTracking(x => artigo.Descricao.Contains(x.Descricao));
 
             if (!existingAssunto.Equals(artigo))
             {

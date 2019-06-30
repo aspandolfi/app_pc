@@ -38,7 +38,7 @@ export class ProcedimentoComponent implements OnInit {
     this.getUltimaAtualizacao();
   }
 
-  getProcedimentos() {
+  private getProcedimentos() {
     this.isLoading = true;
 
     this.procedimentoService.getAll()
@@ -52,7 +52,7 @@ export class ProcedimentoComponent implements OnInit {
         });
   }
 
-  getUltimaAtualizacao() {
+  private getUltimaAtualizacao() {
     this.isLoadingUltimaAtualizacao = true;
 
     this.procedimentoService.getUltimaAtualizacao()

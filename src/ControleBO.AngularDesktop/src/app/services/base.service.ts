@@ -71,10 +71,10 @@ export class BaseService {
       //console.error(
       //  `Backend returned code ${error.status}, ` +
       //  `body was: ${error.error}`);
-      console.log(error.error);
+      //console.log(error.error);
     }
     // return an observable with a user-facing error message
     return throwError(
-      error.error);
+      error);
   };
 }

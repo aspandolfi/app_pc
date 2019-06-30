@@ -80,5 +80,11 @@ namespace ControleBO.Api.Controllers
 
             return Response(id, "A Vara Criminal foi removida com sucesso!");
         }
+
+        [HttpGet("ultimaAtualizacao")]
+        public IActionResult GetUltimaAtualizacao()
+        {
+            return Response(_varaCriminalAppService.UltimaAtualizacao());
+        }
     }
 }

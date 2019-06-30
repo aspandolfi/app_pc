@@ -13,6 +13,7 @@ import { EstatisticaAssuntoComponent } from './relatorios/estatistica-assunto/es
 import { AuthGuardService } from './guards/auth-guard.service';
 import { UserListComponent } from './components/user-list/user-list.component';
 import { AssuntoComponent } from './components/assunto/assunto.component';
+import { VaraCriminalComponent } from './components/vara-criminal/vara-criminal.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'procedimentos', pathMatch: 'full', canActivate: [AuthGuardService] },
@@ -37,6 +38,7 @@ const routes: Routes = [
   { path: 'assunto', component: AssuntoComponent, canActivate: [AuthGuardService] },
   { path: 'tipo-procedimento', component: TipoProcedimentoComponent, canActivate: [AuthGuardService] },
   { path: 'estatistica-assunto', component: EstatisticaAssuntoComponent, canActivate: [AuthGuardService] },
+  { path: 'vara-criminal', component: VaraCriminalComponent, canActivate: [AuthGuardService] },
   {
     path: 'account',
     children: [

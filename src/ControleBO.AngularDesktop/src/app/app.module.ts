@@ -49,6 +49,8 @@ import { defineLocale } from 'ngx-bootstrap/chronos';
 import { ptBrLocale } from 'ngx-bootstrap/locale';
 import { AssuntoComponent } from './components/assunto/assunto.component';
 import { CadastroAssuntoComponent } from './components/cadastro-assunto/cadastro-assunto.component';
+import { VaraCriminalComponent } from './components/vara-criminal/vara-criminal.component';
+import { CadastroVaraCriminalComponent } from './components/cadastro-vara-criminal/cadastro-vara-criminal.component';
 
 defineLocale('pt-br', ptBrLocale);
 
@@ -81,7 +83,9 @@ defineLocale('pt-br', ptBrLocale);
     UserRegisterComponent,
     UserListComponent,
     AssuntoComponent,
-    CadastroAssuntoComponent
+    CadastroAssuntoComponent,
+    VaraCriminalComponent,
+    CadastroVaraCriminalComponent
   ],
   imports: [
     HttpClientModule,
@@ -109,7 +113,8 @@ defineLocale('pt-br', ptBrLocale);
     CadastroMovimentacaoComponent,
     LoginComponent,
     UserRegisterComponent,
-    CadastroAssuntoComponent
+    CadastroAssuntoComponent,
+    CadastroVaraCriminalComponent
   ],
   providers: [
     { provide: 'BASE_URL', useFactory: getBaseUrl },

@@ -61,7 +61,7 @@ namespace ControleBO.Domain.CommandHandler
 
             var varaCriminal = new VaraCriminal(request.Id, request.Descricao);
 
-            var existingVaraCriminal = _varaCriminalRepository.Get(x => varaCriminal.Descricao.Contains(x.Descricao));
+            var existingVaraCriminal = _varaCriminalRepository.GetAsNoTracking(x => varaCriminal.Descricao.Contains(x.Descricao));
 
             if (!existingVaraCriminal.Equals(varaCriminal))
             {

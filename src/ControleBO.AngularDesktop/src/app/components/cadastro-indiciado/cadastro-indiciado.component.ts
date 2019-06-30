@@ -68,6 +68,8 @@ export class CadastroIndiciadoComponent implements OnInit {
   }
 
   private save() {
+    this.submitted = true;
+
     if (this.model.id) {
       this.indiciadoService.update(this.model)
         .subscribe(res => {

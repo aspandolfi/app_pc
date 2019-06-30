@@ -27,6 +27,8 @@ export class CadastroMovimentacaoComponent implements OnInit {
   }
 
   private save() {
+    this.submitted = true;
+
     if (this.model.id) {
       this.movimentacaoService.update(this.model)
         .subscribe(res => {

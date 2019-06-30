@@ -46,6 +46,8 @@ export class CadastroVitimaComponent implements OnInit {
     }
     this.model.naturalidadeId = this.naturalidade.id;
 
+    this.submitted = true;
+
     if (this.model.id) {
       this.vitimaService.update(this.model)
         .subscribe(res => {

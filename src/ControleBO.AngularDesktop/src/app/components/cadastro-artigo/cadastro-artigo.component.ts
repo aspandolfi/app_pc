@@ -27,6 +27,8 @@ export class CadastroArtigoComponent implements OnInit {
   }
 
   private save() {
+    this.submitted = true;
+
     if (this.artigo.id) {
       this.artigoService.update(this.artigo)
         .subscribe(res => {

@@ -14,6 +14,7 @@ import { Subscription } from 'rxjs';
 import { MessageService } from 'src/app/services/message.service';
 import { CadastroMovimentacaoComponent } from '../cadastro-movimentacao/cadastro-movimentacao.component';
 import { IMessage, Action } from 'src/app/models/message';
+import { Result } from '../../models/result';
 
 @Component({
   selector: 'app-cadastro-procedimento-situacao',
@@ -184,9 +185,11 @@ export class CadastroProcedimentoSituacaoComponent implements OnInit, OnDestroy 
         if (res.success) {
           this.toastr.success(res.message);
         }
-      }, (res) => {
+      }, (res: Result<any>) => {
         this.toastr.error(res.message);
-        res.errors.forEach(m => this.toastr.error(m));
+        if (res.errors) {
+          res.errors.forEach(m => this.toastr.error(m));
+        }
       }).add(() => {
         this.isLoadingSituacaoProcedimento = false;
       });
@@ -196,9 +199,11 @@ export class CadastroProcedimentoSituacaoComponent implements OnInit, OnDestroy 
         if (res.success) {
           this.toastr.success(res.message);
         }
-      }, (res) => {
+      }, (res: Result<any>) => {
         this.toastr.error(res.message);
-        res.errors.forEach(m => this.toastr.error(m));
+        if (res.errors) {
+          res.errors.forEach(m => this.toastr.error(m));
+        }
       }).add(() => {
         this.isLoadingSituacaoProcedimento = false;
       });

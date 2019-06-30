@@ -33,7 +33,11 @@ export class BaseService {
 
   public getHttpHeaders() {
     const headers: HttpHeaders = new HttpHeaders();
-    return headers.set('Authorization', `Bearer ${this.getAuthorizationToken().token}`);
+    const auth = this.getAuthorizationToken();
+    if (auth) {
+      const token = auth.token;
+      return headers.set('Authorization', `Bearer ${token}`);
+    }
   }
 
   private getBaseUrl() {

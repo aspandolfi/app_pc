@@ -85,5 +85,11 @@ namespace ControleBO.Api.Controllers
 
             return Response(null, "Tipo de Procedimento removido com sucesso!");
         }
+
+        [HttpGet("ultimaAtualizacao")]
+        public IActionResult GetUltimaAtualizacao()
+        {
+            return Response(_procedimentoTipoAppService.UltimaAtualizacao());
+        }
     }
 }

@@ -14,7 +14,7 @@ export class CadastroTipoProcedimentoComponent implements OnInit {
 
   tipoProcedimento: TipoProcedimento;
 
-  submitted = false;
+  private submitted = false;
 
   constructor(public modalRef: BsModalRef, private tipoProcedimentoService: TipoProcedimentoService, private messageService: MessageService) { }
 
@@ -22,6 +22,8 @@ export class CadastroTipoProcedimentoComponent implements OnInit {
   }
 
   private save() {
+    this.submitted = true;
+
     if (this.tipoProcedimento.id) {
       this.tipoProcedimentoService.update(this.tipoProcedimento)
         .subscribe(res => {

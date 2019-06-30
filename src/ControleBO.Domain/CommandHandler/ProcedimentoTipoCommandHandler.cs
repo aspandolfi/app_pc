@@ -60,7 +60,7 @@ namespace ControleBO.Domain.CommandHandler
             }
 
             var procedimentoTipo = new ProcedimentoTipo(request.Id, request.Sigla, request.Descricao);
-            var existingProcedimentoTipo = _procedimentoTipoRepository.GetById(procedimentoTipo.Id);
+            var existingProcedimentoTipo = _procedimentoTipoRepository.GetAsNoTracking(x => x.Id == procedimentoTipo.Id);
 
             if (existingProcedimentoTipo != null)
             {

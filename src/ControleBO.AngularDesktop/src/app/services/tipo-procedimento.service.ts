@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { BaseService } from './base.service';
 import { TipoProcedimento } from '../models/tipo-procedimento';
 import { IServiceBase } from './service-base';
+import { Observable } from 'rxjs';
+import { Result } from '../models/result';
 
 @Injectable({
   providedIn: 'root'
@@ -34,5 +36,8 @@ export class TipoProcedimentoService implements IServiceBase<TipoProcedimento> {
 
   get(id: number) {
     return this.baseService.get<TipoProcedimento>(`${this.uri}/${id}`);
+  }
+  getUltimaAtualizacao(): Observable<Result<string>> {
+    return this.baseService.get(`${this.uri}/ultimaatualizacao`);
   }
 }

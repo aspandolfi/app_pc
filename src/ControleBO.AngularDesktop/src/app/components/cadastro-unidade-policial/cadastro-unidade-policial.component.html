@@ -1,0 +1,35 @@
+<div class="modal-header">
+  <h4 class="modal-title pull-left">{{unidadePolicial.id ? unidadePolicial.descricao : 'Nova Unidade Policial'}}</h4>
+  <button type="button" class="close pull-right" aria-label="Fechar" [disabled]="submitted" (click)="modalRef.hide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form #unidadePolicialForm="ngForm">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="codigo" class="control-label">Código:</label>
+        <input type="text" [(ngModel)]="unidadePolicial.codigo" class="form-control ng-invalid" id="codigo" name="codigo" pattern=".{2,}" required>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="sigla" class="control-label">Sigla:</label>
+        <input type="text" [(ngModel)]="unidadePolicial.sigla" class="form-control ng-invalid" id="sigla" name="sigla" pattern=".{2,}" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="descricao" class="control-label">Descrição:</label>
+      <input type="text" [(ngModel)]="unidadePolicial.descricao" class="form-control ng-invalid" id="descricao" name="descricao" pattern=".{2,}" required>
+    </div>
+    <div class="form-group">
+      <label for="codigoCargoQO" class="control-label">Código Cargo QO:</label>
+      <input type="text" [(ngModel)]="unidadePolicial.codigoCargoQO" class="form-control ng-invalid" id="codigoCargoQO" name="codigoCargoQO" pattern=".{2,}">
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" data-dismiss="modal" [disabled]="submitted" (click)="modalRef.hide();">Fechar</button>
+  <button type="button" class="btn btn-secondary" [disabled]="!unidadePolicialForm.form.valid || submitted" (click)="save();">
+    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" [hidden]="!submitted"></span>
+    Salvar
+  </button>
+</div>

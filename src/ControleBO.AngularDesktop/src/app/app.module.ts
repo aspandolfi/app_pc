@@ -51,6 +51,8 @@ import { AssuntoComponent } from './components/assunto/assunto.component';
 import { CadastroAssuntoComponent } from './components/cadastro-assunto/cadastro-assunto.component';
 import { VaraCriminalComponent } from './components/vara-criminal/vara-criminal.component';
 import { CadastroVaraCriminalComponent } from './components/cadastro-vara-criminal/cadastro-vara-criminal.component';
+import { UnidadePolicialComponent } from './components/unidade-policial/unidade-policial.component';
+import { CadastroUnidadePolicialComponent } from './components/cadastro-unidade-policial/cadastro-unidade-policial.component';
 
 defineLocale('pt-br', ptBrLocale);
 
@@ -85,7 +87,9 @@ defineLocale('pt-br', ptBrLocale);
     AssuntoComponent,
     CadastroAssuntoComponent,
     VaraCriminalComponent,
-    CadastroVaraCriminalComponent
+    CadastroVaraCriminalComponent,
+    UnidadePolicialComponent,
+    CadastroUnidadePolicialComponent
   ],
   imports: [
     HttpClientModule,
@@ -115,7 +119,8 @@ defineLocale('pt-br', ptBrLocale);
     UserRegisterComponent,
     CadastroAssuntoComponent,
     CadastroVaraCriminalComponent,
-    CadastroMunicipioComponent
+    CadastroMunicipioComponent,
+    CadastroUnidadePolicialComponent
   ],
   providers: [
     { provide: 'BASE_URL', useFactory: getBaseUrl },

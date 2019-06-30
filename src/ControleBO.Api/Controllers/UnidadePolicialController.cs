@@ -79,5 +79,11 @@ namespace ControleBO.Api.Controllers
 
             return Response(id, "A Unidade Policial foi removida com sucesso!");
         }
+
+        [HttpGet("ultimaAtualizacao")]
+        public IActionResult GetUltimaAtualizacao()
+        {
+            return Response(_unidadePolicialAppService.UltimaAtualizacao());
+        }
     }
 }

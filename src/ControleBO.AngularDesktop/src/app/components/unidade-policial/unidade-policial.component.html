@@ -1,0 +1,64 @@
+<div class="card">
+  <div class="card-header clearfix">
+    Lista de Unidades Policiais
+    <button type="button" class="btn btn-sm btn-secondary float-right" data-toggle="modal" data-target="#cadastro-unidadePolicial" (click)="openModal(null);">Novo</button>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive-sm">
+      <table class="table" id="dataTable" style="width:100%" cellspacing="0">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Código</th>
+            <th>Sigla</th>
+            <th>Descrição</th>
+            <th>Código Cargo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let unidadePolicial of returnedUnidadesPoliciais">
+            <td data-id="{{unidadePolicial.id}}">
+              <div class="form-inline align-items-center">
+                <div class="form-group ml-1">
+                  <a title="Editar" class="text-secondary" (click)="openModal(unidadePolicial);">
+                    <i class="fas fa-edit"></i>
+                  </a>
+                </div>
+                <div class="form-group ml-1">
+                  <a title="Excluir" class="text-secondary" (click)="openModalExcluir(unidadePolicial);">
+                    <i class="far fa-times-circle"></i>
+                  </a>
+                </div>
+              </div>
+            </td>
+            <td>{{unidadePolicial.codigo}}</td>
+            <td>{{unidadePolicial.sigla}}</td>
+            <td>{{unidadePolicial.descricao}}</td>
+            <td>{{unidadePolicial.codigoCargoQO}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="row" *ngIf="unidadesPoliciais.length > pageSize">
+        <div class="col-xs-12 col-12">
+          <pagination [totalItems]="unidadesPoliciais.length"
+                      [maxSize]="pageSize"
+                      (pageChanged)="pageChanged($event)"
+                      [previousText]="'Anterior'"
+                      [nextText]="'Próximo'"
+                      [itemsPerPage]="pageSize"
+                      [ngModel]="currentPage"
+                      class="text-secondary"></pagination>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer small text-muted" style="margin-top:5px">
+    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" [hidden]="!isLoadingUltimaAtualizacao"></span>
+    <span class="sr-only">Loading...</span>
+    Atualizado em {{ultimaAtualizacao | date: 'dd/MM/yyyy HH:mm'}}
+  </div>
+</div>
+<ngx-loading-bar [color]="'#6c757d'"
+                 [includeSpinner]="false"
+                 [height]="'3px'">
+</ngx-loading-bar>

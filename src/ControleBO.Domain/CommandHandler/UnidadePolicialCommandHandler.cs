@@ -60,7 +60,7 @@ namespace ControleBO.Domain.CommandHandler
             }
 
             var unidadePolicial = new UnidadePolicial(request.Id, request.Codigo, request.Sigla, request.Descricao, request.CodigoCargoQO);
-            var existingUnidadePolicial = _unidadePolicialRepository.Get(x => unidadePolicial.Descricao.Contains(x.Descricao));
+            var existingUnidadePolicial = _unidadePolicialRepository.GetAsNoTracking(x => unidadePolicial.Descricao.Contains(x.Descricao));
 
             if (!existingUnidadePolicial.Equals(unidadePolicial))
             {

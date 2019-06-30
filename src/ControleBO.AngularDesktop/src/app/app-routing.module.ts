@@ -14,6 +14,7 @@ import { AuthGuardService } from './guards/auth-guard.service';
 import { UserListComponent } from './components/user-list/user-list.component';
 import { AssuntoComponent } from './components/assunto/assunto.component';
 import { VaraCriminalComponent } from './components/vara-criminal/vara-criminal.component';
+import { UnidadePolicialComponent } from './components/unidade-policial/unidade-policial.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'procedimentos', pathMatch: 'full', canActivate: [AuthGuardService] },
@@ -39,6 +40,7 @@ const routes: Routes = [
   { path: 'tipo-procedimento', component: TipoProcedimentoComponent, canActivate: [AuthGuardService] },
   { path: 'estatistica-assunto', component: EstatisticaAssuntoComponent, canActivate: [AuthGuardService] },
   { path: 'vara-criminal', component: VaraCriminalComponent, canActivate: [AuthGuardService] },
+  { path: 'unidade-policial', component: UnidadePolicialComponent, canActivate: [AuthGuardService] },
   {
     path: 'account',
     children: [

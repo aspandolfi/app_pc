@@ -12,6 +12,7 @@ import { CadastroProcedimentoObjetosApreendidosComponent } from './components/ca
 import { EstatisticaAssuntoComponent } from './relatorios/estatistica-assunto/estatistica-assunto.component';
 import { AuthGuardService } from './guards/auth-guard.service';
 import { UserListComponent } from './components/user-list/user-list.component';
+import { AssuntoComponent } from './components/assunto/assunto.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'procedimentos', pathMatch: 'full', canActivate: [AuthGuardService] },
@@ -33,6 +34,7 @@ const routes: Routes = [
   { path: 'procedimentos', component: ProcedimentoComponent, canActivate: [AuthGuardService] },
   { path: 'municipio', component: MunicipioComponent, canActivate: [AuthGuardService] },
   { path: 'artigo', component: ArtigoComponent, canActivate: [AuthGuardService] },
+  { path: 'assunto', component: AssuntoComponent, canActivate: [AuthGuardService] },
   { path: 'tipo-procedimento', component: TipoProcedimentoComponent, canActivate: [AuthGuardService] },
   { path: 'estatistica-assunto', component: EstatisticaAssuntoComponent, canActivate: [AuthGuardService] },
   {

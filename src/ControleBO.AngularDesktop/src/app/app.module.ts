@@ -47,6 +47,8 @@ import { UserListComponent } from './components/user-list/user-list.component';
 
 import { defineLocale } from 'ngx-bootstrap/chronos';
 import { ptBrLocale } from 'ngx-bootstrap/locale';
+import { AssuntoComponent } from './components/assunto/assunto.component';
+import { CadastroAssuntoComponent } from './components/cadastro-assunto/cadastro-assunto.component';
 
 defineLocale('pt-br', ptBrLocale);
 
@@ -77,7 +79,9 @@ defineLocale('pt-br', ptBrLocale);
     SidemenuComponent,
     LoginComponent,
     UserRegisterComponent,
-    UserListComponent
+    UserListComponent,
+    AssuntoComponent,
+    CadastroAssuntoComponent
   ],
   imports: [
     HttpClientModule,
@@ -104,7 +108,8 @@ defineLocale('pt-br', ptBrLocale);
     CadastroIndiciadoComponent,
     CadastroMovimentacaoComponent,
     LoginComponent,
-    UserRegisterComponent
+    UserRegisterComponent,
+    CadastroAssuntoComponent
   ],
   providers: [
     { provide: 'BASE_URL', useFactory: getBaseUrl },

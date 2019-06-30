@@ -60,7 +60,7 @@ namespace ControleBO.Domain.CommandHandler
             }
 
             var assunto = new Assunto(request.Id, request.Descricao);
-            var existingAssunto = _assuntoRepository.Get(x => assunto.Descricao.Contains(x.Descricao));
+            var existingAssunto = _assuntoRepository.GetAsNoTracking(x => assunto.Descricao.Contains(x.Descricao));
 
             if (!existingAssunto.Equals(assunto))
             {

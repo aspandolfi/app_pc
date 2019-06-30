@@ -22,23 +22,23 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'cadastro-procedimento/:id', component: CadastroProcedimentoComponent,
+    path: 'cadastro-procedimento/:id', component: CadastroProcedimentoComponent, canActivate: [AuthGuardService],
     children: [
-      { path: 'controle', component: CadastroProcedimentoControleComponent, outlet: 'procedimento' },
-      { path: 'vitimas-autores', component: CadastroProcedimentoVitimasAutoresComponent, outlet: 'procedimento' },
-      { path: 'situacao', component: CadastroProcedimentoSituacaoComponent, outlet: 'procedimento' },
-      { path: 'objetos-apreendidos', component: CadastroProcedimentoObjetosApreendidosComponent, outlet: 'procedimento' },
+      { path: 'controle', component: CadastroProcedimentoControleComponent, outlet: 'procedimento', canActivate: [AuthGuardService] },
+      { path: 'vitimas-autores', component: CadastroProcedimentoVitimasAutoresComponent, outlet: 'procedimento', canActivate: [AuthGuardService] },
+      { path: 'situacao', component: CadastroProcedimentoSituacaoComponent, outlet: 'procedimento', canActivate: [AuthGuardService] },
+      { path: 'objetos-apreendidos', component: CadastroProcedimentoObjetosApreendidosComponent, outlet: 'procedimento', canActivate: [AuthGuardService] },
     ]
   },
   { path: 'procedimentos', component: ProcedimentoComponent, canActivate: [AuthGuardService] },
-  { path: 'municipio', component: MunicipioComponent },
-  { path: 'artigo', component: ArtigoComponent },
-  { path: 'tipo-procedimento', component: TipoProcedimentoComponent },
-  { path: 'estatistica-assunto', component: EstatisticaAssuntoComponent },
+  { path: 'municipio', component: MunicipioComponent, canActivate: [AuthGuardService] },
+  { path: 'artigo', component: ArtigoComponent, canActivate: [AuthGuardService] },
+  { path: 'tipo-procedimento', component: TipoProcedimentoComponent, canActivate: [AuthGuardService] },
+  { path: 'estatistica-assunto', component: EstatisticaAssuntoComponent, canActivate: [AuthGuardService] },
   {
     path: 'account',
     children: [
-      { path: 'users', component: UserListComponent }
+      { path: 'users', component: UserListComponent, canActivate: [AuthGuardService] }
     ]
   },
   { path: '**', redirectTo: 'procedimentos' }

@@ -43,5 +43,12 @@ namespace ControleBO.Api.Controllers
         {
             return Response(_relatorioAppService.GetRelacaoIndiciados());
         }
+
+        // GET: api/relatorio/relacao-vitimas
+        [HttpGet("relacao-vitimas")]
+        public IActionResult GetRelacaoVitimas()
+        {
+            return Response(_relatorioAppService.GetRelacaoVitimas());
+        }
     }
 }

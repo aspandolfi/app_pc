@@ -11,5 +11,7 @@ namespace ControleBO.Application.Interfaces
 
         DataTableViewModel GetRelacaoIndiciados();
 
+        DataTableViewModel GetRelacaoVitimas();
+
     }
 }

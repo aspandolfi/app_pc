@@ -71,5 +71,21 @@ namespace ControleBO.Infra.Data.Repositories
 
             return query;
         }
+
+        public IEnumerable<RelacaoVitimaQuery> GetRelacaoVitimas()
+        {
+            var query = DbContext.Vitimas
+                .Select(x => new RelacaoVitimaQuery
+                {
+                    Vitima = x.Nome,
+                    NumeroProcedimento = x.ProcedimentoId,
+                    Artigo = x.Procedimento.Artigo.Descricao,
+                    TipoProcedimento = x.Procedimento.TipoProcedimento.Descricao,
+                    SituacaoAtual = x.Procedimento.SituacaoAtual.Descricao
+                })
+                .ToList();
+
+            return query;
+        }
     }
 }

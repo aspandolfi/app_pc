@@ -20,4 +20,7 @@ export class RelatorioService {
   getRelacaoIndiciados() {
     return this.baseService.get<Datatablejs>(`${this.uri}/relacao-indiciados`);
   }
+  getRelacaoVitimas() {
+    return this.baseService.get<Datatablejs>(`${this.uri}/relacao-vitimas`);
+  }
 }

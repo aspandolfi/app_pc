@@ -55,6 +55,7 @@ import { UnidadePolicialComponent } from './components/unidade-policial/unidade-
 import { CadastroUnidadePolicialComponent } from './components/cadastro-unidade-policial/cadastro-unidade-policial.component';
 import { RelacaoProcedimentosComponent } from './relatorios/relacao-procedimentos/relacao-procedimentos.component';
 import { RelacaoIndiciadosComponent } from './relatorios/relacao-indiciados/relacao-indiciados.component';
+import { RelacaoVitimasComponent } from './relatorios/relacao-vitimas/relacao-vitimas.component';
 
 defineLocale('pt-br', ptBrLocale);
 
@@ -93,7 +94,8 @@ defineLocale('pt-br', ptBrLocale);
     UnidadePolicialComponent,
     CadastroUnidadePolicialComponent,
     RelacaoProcedimentosComponent,
-    RelacaoIndiciadosComponent
+    RelacaoIndiciadosComponent,
+    RelacaoVitimasComponent
   ],
   imports: [
     HttpClientModule,

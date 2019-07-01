@@ -62,6 +62,9 @@ export class UserListComponent implements OnInit, OnDestroy {
     else if (message.action == Action.Removed) {
       this.removeFromTable(message.data);
     }
+    else if (message.action == Action.Updated) {
+      this.updateTable(message.data);
+    }
   }
 
   ngOnDestroy(): void {
@@ -75,6 +78,11 @@ export class UserListComponent implements OnInit, OnDestroy {
   private removeFromTable(usuario: Usuario) {
     let index = this.usuarios.indexOf(usuario);
     this.usuarios.splice(index, 1);
+  }
+
+  private updateTable(usuario: Usuario) {
+    let index = this.usuarios.findIndex(x => x.id == usuario.id);
+    this.usuarios[index] = usuario;
   }
 
   private openModal(usuario: Usuario) {

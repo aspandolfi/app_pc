@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { AuthService } from '../../services/auth.service';
 import { MessageService } from '../../services/message.service';
@@ -12,11 +12,12 @@ import { Message, Action } from '../../models/message';
   templateUrl: './user-register.component.html',
   styleUrls: ['./user-register.component.css']
 })
-export class UserRegisterComponent implements OnInit {
+export class UserRegisterComponent implements OnInit, AfterViewInit {
 
   private submitted: boolean = false;
+  private isCollapsed: boolean = false;
 
-  usuario: RegisterUsuario = { id: '', email: '', nome: '', senha: '', confirmarSenha: '' };
+  usuario: RegisterUsuario = new RegisterUsuario();
 
   constructor(public modalRef: BsModalRef,
     private authService: AuthService,
@@ -26,20 +27,45 @@ export class UserRegisterComponent implements OnInit {
   ngOnInit() {
   }
 
-  private registrar() {
+  ngAfterViewInit(): void {
+    if (this.usuario.id) {
+      this.isCollapsed = true
+    }
+  }
+
+  private salvar() {
     this.submitted = true;
 
-    this.authService.create(this.usuario).subscribe(res => {
-      if (res.success) {
-        this.messageService.send(new Message(res, Action.Created));
-      }
-    }, (err: Result<any>) => {
-      this.toastr.error(err.message);
-      if (err.errors) {
-        err.errors.forEach(m => this.toastr.error(m));
-      }
-      this.submitted = false;
-    }, () => this.submitted = false);
+    if (this.usuario.id) {
+      this.authService.update(this.usuario).subscribe(res => {
+        if (res.success) {
+          this.messageService.send(new Message(res, Action.Updated));
+        }
+      }, (err: Result<any>) => {
+        this.toastr.error(err.message);
+        if (err.errors) {
+          err.errors.forEach(m => this.toastr.error(m));
+        }
+        this.submitted = false;
+      }, () => this.submitted = false);
+    }
+    else {
+      this.authService.create(this.usuario).subscribe(res => {
+        if (res.success) {
+          this.messageService.send(new Message(res, Action.Created));
+        }
+      }, (err: Result<any>) => {
+        this.toastr.error(err.message);
+        if (err.errors) {
+          err.errors.forEach(m => this.toastr.error(m));
+        }
+        this.submitted = false;
+      }, () => this.submitted = false);
+    }
+  }
+
+  private onChangeAlterarSenha(event: any) {
+    this.isCollapsed = !event.target.checked;
   }
 
 }

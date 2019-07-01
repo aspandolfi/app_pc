@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { NgxMaskModule } from 'ngx-mask';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
+import { CollapseModule } from 'ngx-bootstrap/collapse';
 
 import { TipoProcedimentoService } from './services/tipo-procedimento.service';
 import { BaseService } from './services/base.service';
@@ -107,6 +108,7 @@ defineLocale('pt-br', ptBrLocale);
     NgxMaskModule.forRoot(),
     NgSelectModule,
     LoadingBarHttpClientModule,
+    CollapseModule.forRoot(),
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right',
       progressBar: true,

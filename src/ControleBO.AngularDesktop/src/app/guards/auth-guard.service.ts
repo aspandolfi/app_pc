@@ -4,6 +4,7 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { Subscription } from 'rxjs';
 import { MessageService } from '../services/message.service';
 import { LoginComponent } from '../components/login/login.component';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Injectable({
   providedIn: 'root'
@@ -17,27 +18,25 @@ export class AuthGuardService implements CanActivate, CanActivateChild, CanLoad 
 
   constructor(private router: Router,
     private modalService: BsModalService,
-    private messageService: MessageService) {
+    private authentication: AuthenticationService) {
     this.onReceiveMessage();
   }
 
-  private isAuthenticated: boolean = false;
-
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if (!this.isAuthenticated) {
+    if (!this.authentication.isValidToken) {
       this.state = state;
       this.openModal();
     }
 
-    return this.isAuthenticated;
+    return this.authentication.isValidToken;
   }
 
   canActivateChild(next: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    return this.isAuthenticated;
+    return this.authentication.isValidToken;
   }
 
   canLoad(route: Route, segments: UrlSegment[]) {
-    return this.isAuthenticated;
+    return this.authentication.isValidToken;
   }
 
   private openModal() {
@@ -45,12 +44,10 @@ export class AuthGuardService implements CanActivate, CanActivateChild, CanLoad 
   }
 
   private onReceiveMessage() {
-    this.subscription = this.messageService.messageListener$.subscribe(
+    this.subscription = this.authentication.messageListener$.subscribe(
       message => {
         if (message.data.authenticated) {
-          this.isAuthenticated = true;
           this.modalRef.hide();
-          this.subscription.unsubscribe();
           this.router.navigate([this.state.url]);
         }
       });

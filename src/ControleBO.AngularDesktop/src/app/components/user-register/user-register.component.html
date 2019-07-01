@@ -1,5 +1,10 @@
 <div class="card mx-auto">
-  <div class="card-header">Registrar um usuário</div>
+  <div class="card-header">
+    {{usuario.id ? 'Atualizar o usuário' : 'Registrar um usuário'}}
+    <button type="button" class="close pull-right" aria-label="Fechar" [disabled]="submitted" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
   <div class="card-body">
     <form #registerForm="ngForm">
       <div class="form-group">
@@ -18,25 +23,49 @@
           <label for="inputEmail">Email</label>
         </div>
       </div>
-      <div class="form-group">
-        <div class="form-row">
-          <div class="col-md-6">
-            <div class="form-label-group">
-              <input type="password" id="inputPassword" name="senha" [(ngModel)]="usuario.senha" class="form-control" placeholder="Password" required="required" [readonly]="submitted">
-              <label for="inputPassword">Senha</label>
+      <div class="form-group" *ngIf="usuario.id">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="alterarSenha" (change)="onChangeAlterarSenha($event);">
+          <label class="form-check-label" for="alterarSenha">
+            Alterar a senha?
+          </label>
+        </div>
+      </div>
+      <div class="form-group" id="collapseBasic" [collapse]="isCollapsed">
+        <div class="form-group" *ngIf="usuario.id">
+          <div class="form-row">
+            <div class="col-md">
+              <div class="form-label-group">
+                <input type="password" id="inputCurrentPassword" name="senhaAtual" [(ngModel)]="usuario.senhaAtual" class="form-control" placeholder="Password" [required]="!isCollapsed || !usuario.id" [readonly]="submitted">
+                <label for="inputCurrentPassword">Senha Atual</label>
+              </div>
             </div>
           </div>
-          <div class="col-md-6">
-            <div class="form-label-group">
-              <input type="password" id="confirmPassword" name="confirmarSenha" [(ngModel)]="usuario.confirmarSenha" class="form-control" placeholder="Confirm password" required="required" [readonly]="submitted">
-              <label for="confirmPassword">Confirmar senha</label>
+        </div>
+        <div class="form-group">
+          <div class="form-row">
+            <div class="col-md">
+              <div class="form-label-group">
+                <input type="password" id="inputPassword" name="senha" [(ngModel)]="usuario.senha" class="form-control" placeholder="Password" [required]="!isCollapsed || !usuario.id" [readonly]="submitted">
+                <label for="inputPassword">Senha</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="form-row">
+            <div class="col-md">
+              <div class="form-label-group">
+                <input type="password" id="confirmPassword" name="confirmarSenha" [(ngModel)]="usuario.confirmarSenha" class="form-control" placeholder="Confirm password" [required]="!isCollapsed || !usuario.id" [readonly]="submitted">
+                <label for="confirmPassword">Confirmar senha</label>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <button type="button" class="btn btn-secondary btn-block" [disabled]="!registerForm.form.valid || submitted" (click)="registrar();">
+      <button type="button" class="btn btn-secondary btn-block" [disabled]="!registerForm.form.valid || submitted" (click)="salvar();">
         <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" [hidden]="!submitted"></span>
-        Registrar
+        {{usuario.id ? 'Atualizar' : 'Registrar'}}
       </button>
     </form>
     <div class="text-center">

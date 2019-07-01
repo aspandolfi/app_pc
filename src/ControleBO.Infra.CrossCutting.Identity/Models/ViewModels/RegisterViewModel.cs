@@ -29,5 +29,11 @@ namespace ControleBO.Infra.CrossCutting.Identity.Models.ViewModels
         [Compare("Password", ErrorMessage = "A senha e a confirmação de senha devem ser iguais.")]
         [JsonProperty(PropertyName = "confirmarSenha")]
         public string ConfirmPassword { get; set; }
+
+        public void Clean()
+        {
+            Password = null;
+            ConfirmPassword = null;
+        }
     }
 }

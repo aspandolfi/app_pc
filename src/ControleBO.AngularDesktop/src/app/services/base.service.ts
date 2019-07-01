@@ -5,6 +5,7 @@ import { Result } from '../models/result';
 import { FileService } from './file.service';
 import { retry, catchError } from 'rxjs/operators';
 import { Authentication } from '../models/login';
+import { AuthenticationService } from './authentication.service';
 
 export interface ApiUrl {
   apiUrl: string;
@@ -17,25 +18,18 @@ export class BaseService {
 
   public apiUrl: string;
 
-  private _authentication: Authentication;
-
-  constructor(private http: HttpClient, @Inject('BASE_URL') private localUrl: string, private fileService: FileService) {
+  constructor(private http: HttpClient,
+    @Inject('BASE_URL') private localUrl: string,
+    private fileService: FileService,
+    private authentication: AuthenticationService) {
     this.getBaseUrl();
-  }
-
-  public getAuthorizationToken() {
-    if (!this._authentication) {
-      let item = localStorage.getItem('access_token');
-      this._authentication = JSON.parse(item) as Authentication;
-    }
-    return this._authentication;
   }
 
   public getHttpHeaders() {
     const headers: HttpHeaders = new HttpHeaders();
-    const auth = this.getAuthorizationToken();
+    const auth = this.authentication;
     if (auth) {
-      const token = auth.token;
+      const token = auth.authentication.token;
       return headers.set('Authorization', `Bearer ${token}`);
     }
   }

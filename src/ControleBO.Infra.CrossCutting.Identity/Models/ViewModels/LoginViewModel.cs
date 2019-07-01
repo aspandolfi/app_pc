@@ -6,7 +6,7 @@ namespace ControleBO.Infra.CrossCutting.Identity.Models.ViewModels
     public class LoginViewModel
     {
         [Required]
-        [EmailAddress]
+        [EmailAddress(ErrorMessage = "O campo e-mail não é válido.")]
         [JsonProperty(PropertyName = "email")]
         public string Email { get; set; }
 

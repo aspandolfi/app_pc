@@ -10,6 +10,7 @@ export class Authentication {
   private _expiration: Date;
 
   token: string;
+  authenticated: boolean = false;
 
   get created() {
     return this._created;

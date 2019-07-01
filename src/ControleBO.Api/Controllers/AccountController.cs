@@ -21,6 +21,7 @@ namespace ControleBO.Api.Controllers
 {
     [Route("api/[controller]")]
     [Produces("application/json")]
+    [Authorize("Bearer")]
     [ApiController]
     public class AccountController : ApiController
     {
@@ -113,7 +114,6 @@ namespace ControleBO.Api.Controllers
         }
 
         [HttpPost]
-        [Authorize(Policy = "Bearer")]
         public async Task<IActionResult> Create([FromBody] RegisterViewModel model)
         {
             if (!ModelState.IsValid)
@@ -133,17 +133,81 @@ namespace ControleBO.Api.Controllers
                 await _userManager.AddToRoleAsync(user, "Admin");
 
                 //await _signInManager.SignInAsync(user, false);
+                model.Clean();
                 return Response(model, "O usuário foi cadastro com sucesso!");
             }
 
             AddIdentityErrors(result);
+
+            model.Clean();
+
             return Response(model, "Falha ao cadastrar o usuário.");
         }
 
         // PUT: api/Account/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public async Task<IActionResult> Put(string id, [FromBody] UpdateViewModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                NotifyModelStateErrors();
+                return Response(model, "Por favor verifique os campos preenchidos.");
+            }
+
+            bool atualizarSenha = false;
+
+            if (!string.IsNullOrEmpty(model.Password))
+            {
+                if (string.IsNullOrEmpty(model.ConfirmPassword))
+                {
+                    return Response(model, "Por favor preencha a senha e a confirmação de senha.");
+                }
+
+                if (string.Compare(model.Password, model.ConfirmPassword) != 0)
+                {
+                    return Response(model, "A senha e a confirmação de senha não conferem.");
+                }
+
+                if (string.IsNullOrEmpty(model.CurrentPassword))
+                {
+                    return Response(model, "Por favor preencha a senha atual.");
+                }
+
+                atualizarSenha = true;
+            }
+
+            var user = await _userManager.FindByIdAsync(model.Id);
+
+            if (user == null)
+            {
+                return Response(model, "O usuário não foi encontrado.");
+            }
+
+            user.Name = model.Name.Trim();
+            user.Email = model.Email.Trim();
+
+            var result = await _userManager.UpdateAsync(user);
+
+            if (!result.Succeeded)
+            {
+                AddIdentityErrors(result);
+                return Response(model, "Falha ao atualizar o usuário.");
+            }
+
+            if (atualizarSenha)
+            {
+                result = await _userManager.ChangePasswordAsync(user, model.CurrentPassword, model.Password);
+
+                if (!result.Succeeded)
+                {
+                    AddIdentityErrors(result);
+                    return Response(model, "Falha ao atualizar o usuário.");
+                }
+            }
+
+            model.Clean();
+
+            return Response(model, "O usuário foi atualizado com sucesso!");
         }
 
         // DELETE: api/ApiWithActions/5

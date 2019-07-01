@@ -7,6 +7,7 @@ import { AuthService } from '../../services/auth.service';
 import { MessageService } from '../../services/message.service';
 import { Message } from '../../models/message';
 import { Result } from '../../models/result';
+import { AuthenticationService } from '../../services/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -22,11 +23,12 @@ export class LoginComponent implements OnInit {
 
   constructor(public modalRef: BsModalRef,
     private authService: AuthService,
-    private messageService: MessageService,
+    private authentication: AuthenticationService,
     private toastr: ToastrService) { }
 
   ngOnInit() {
     $('body').addClass('bg-dark');
+    $('#wrapper').css('display', 'none');
     $('app-sidebar').hide();
   }
 
@@ -49,8 +51,9 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.login).subscribe(res => {
       if (res.success) {
         localStorage.setItem('access_token', JSON.stringify(res.data));
-        this.messageService.send(new Message(res));
+        this.authentication.send(new Message(res));
         $('body').removeClass('bg-dark');
+        $('#wrapper').css('display', '');
         $('app-sidebar').show();
       }
     }, (err: Result<any>) => {

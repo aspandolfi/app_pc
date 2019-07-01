@@ -50,7 +50,10 @@ export class EstatisticaAssuntoComponent implements OnInit {
           buttons: [
             'pdf'
           ],
-          dom: 'Bfrtip'
+          dom: 'Bfrtip',
+          language: {
+            url: 'assets/Portuguese-Brasil.json'
+          }
         };
 
         $('#estatistica-assunto').DataTable(dtOptions);

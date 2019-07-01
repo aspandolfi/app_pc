@@ -50,7 +50,10 @@ export class RelacaoIndiciadosComponent implements OnInit {
           buttons: [
             'pdf'
           ],
-          dom: 'Bfrtip'
+          dom: 'Bfrtip',
+          language: {
+            url: 'assets/Portuguese-Brasil.json'
+          }
         };
 
         $('#relacao-indiciados').DataTable(dtOptions);

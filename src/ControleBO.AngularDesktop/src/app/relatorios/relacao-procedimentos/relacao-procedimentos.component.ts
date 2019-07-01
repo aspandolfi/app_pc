@@ -66,7 +66,10 @@ export class RelacaoProcedimentosComponent implements OnInit {
           buttons: [
             'pdf'
           ],
-          dom: 'Bfrtip'
+          dom: 'Bfrtip',
+          language: {
+            url: 'assets/Portuguese-Brasil.json'
+          }
         };
 
         if (this.dt) {

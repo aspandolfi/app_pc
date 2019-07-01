@@ -10,7 +10,7 @@
       </div>
       <div class="form-group">
         <div class="form-label-group">
-          <input type="password" id="inputPassword" name="password" [(ngModel)]="login.password" class="form-control" placeholder="Senha" required="required" [readonly]="submitted">
+          <input type="password" (keyup.enter)="onKeyEnter($event);" id="inputPassword" name="password" [(ngModel)]="login.password" class="form-control" placeholder="Senha" required="required" [readonly]="submitted">
           <label for="inputPassword">Senha</label>
         </div>
       </div>

@@ -78,7 +78,16 @@ namespace ControleBO.Api.Controllers
                 return Response(user);
             }
 
-            var result = await _signInManager.PasswordSignInAsync(user.Email, user.Password, false, true);
+            var appUser = await _userManager.FindByEmailAsync(user.Email);
+
+            if (appUser == null)
+            {
+                NotifyError("Usuário inválido", "Falha ao logar");
+                return Response(user, "Usuário inválido.");
+            }
+
+            var result = await _signInManager.CheckPasswordSignInAsync(appUser, user.Password, false);
+
             if (!result.Succeeded)
             {
                 NotifyError(result.ToString(), "Falha ao logar");

@@ -32,6 +32,10 @@ export class LoginComponent implements OnInit {
     $('app-sidebar').hide();
   }
 
+  private onKeyEnter(event: any) {
+    this.doLogin();
+  }
+
   private doLogin() {
 
     this.message = '';

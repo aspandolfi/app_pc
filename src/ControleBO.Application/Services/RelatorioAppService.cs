@@ -50,5 +50,35 @@ namespace ControleBO.Application.Services
 
             return Mapper.Map<DataTableViewModel>(dt);
         }
+
+        public DataTableViewModel GetRelacaoProcedimentos(int situacaoId)
+        {
+            var result = _relatorioRepository.GetRelacaoProcedimentos(situacaoId);
+
+            var dt = new DataTableObject();
+
+            dt.AddHeaders("Proced n°",
+                "Boletim de Ocorrência",
+                "Artigo",
+                "Indiciados",
+                "Unidade Policial",
+                "Data do Fato",
+                "Instauração",
+                "Situação");
+
+            dt.AddDataSet(result.Select(x => new Collection<object>
+            {
+                x.NumeroProcedimento,
+                x.BoletimOcorrencia,
+                x.Artigo,
+                x.Indiciados,
+                x.UnidadePolicial,
+                x.DataFato.ToString("dd/MM/yyyy"),
+                x.Instauracao?.ToString("dd/MM/yyyy"),
+                x.Situacao
+            }));
+
+            return Mapper.Map<DataTableViewModel>(dt);
+        }
     }
 }

@@ -111,13 +111,13 @@ namespace ControleBO.Domain.CommandHandler
                 return Task.FromResult(0);
             }
 
+            var situacao = _situacaoRepository.GetById(1);
+
             var procedimento = new Procedimento(request.BoletimUnificado, request.BoletimOcorrencia, request.NumeroProcessual, request.Gampes,
                                                 request.Anexos, request.LocalFato, request.DataFato, request.DataInstauracao, request.TipoCriminal,
-                                                request.AndamentoProcessual, tipoProcedimento, varaCriminal, municipio, assunto, artigo, unidadePolicial);
+                                                request.AndamentoProcessual, tipoProcedimento, varaCriminal, municipio, assunto, artigo, unidadePolicial, situacao);
 
             _procedimentoRepository.Add(procedimento);
-
-            var situacao = _situacaoRepository.GetById(1);
 
             var situacaoProcedimento = new SituacaoProcedimento(procedimento, situacao);
 
@@ -191,9 +191,11 @@ namespace ControleBO.Domain.CommandHandler
                                                                                   && x.NumeroProcessual.Contains(request.NumeroProcessual)
                                                                                   && x.Id == request.Id);
 
+            var situacaoAtual = _situacaoRepository.GetById(existringProcedimento.SituacaoAtualId);
+
             var procedimento = new Procedimento(request.Id, request.BoletimUnificado, request.BoletimOcorrencia, request.NumeroProcessual, request.Gampes,
                                                 request.Anexos, request.LocalFato, request.DataFato, request.DataInstauracao, request.TipoCriminal,
-                                                request.AndamentoProcessual, tipoProcedimento, varaCriminal, municipio, assunto, artigo, unidadePolicial);
+                                                request.AndamentoProcessual, tipoProcedimento, varaCriminal, municipio, assunto, artigo, unidadePolicial, situacaoAtual);
 
             if (!procedimento.Equals(existringProcedimento))
             {

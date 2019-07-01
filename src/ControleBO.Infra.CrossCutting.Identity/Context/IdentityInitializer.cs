@@ -21,7 +21,7 @@ namespace ControleBO.Infra.CrossCutting.Identity.Context
         }
         public void Initialize()
         {
-            if (_context.Users.Count() == 0)
+            if (_context.Database.EnsureCreated())
             {
                 if (!_roleManager.RoleExistsAsync(Roles.Admin).Result)
                 {

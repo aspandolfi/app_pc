@@ -13,7 +13,7 @@ namespace ControleBO.Infra.Data.Context
         public SpcContext(DbContextOptions options)
             : base(options)
         {
-            Database.EnsureCreated();
+            //Database.EnsureCreated();
             //this.Seed();
         }
 

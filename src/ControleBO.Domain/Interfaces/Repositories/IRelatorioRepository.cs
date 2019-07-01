@@ -7,5 +7,6 @@ namespace ControleBO.Domain.Interfaces.Repositories
     public interface IRelatorioRepository : IDisposable
     {
         IEnumerable<EstatisticaAssuntoQuery> GetEstatisticaAssunto();
+        IEnumerable<RelacaoProcedimentoQuery> GetRelacaoProcedimentos(int situacaoId);
     }
 }

@@ -22,7 +22,8 @@ namespace ControleBO.Domain.Models
                             Municipio comarca,
                             Assunto assunto,
                             Artigo artigo,
-                            UnidadePolicial unidadePolicial)
+                            UnidadePolicial unidadePolicial,
+                            Situacao situacaoAtual)
         {
             BoletimUnificado = boletimUnificado;
             BoletimOcorrencia = boletimOcorrencia;
@@ -40,6 +41,7 @@ namespace ControleBO.Domain.Models
             Assunto = assunto;
             Artigo = artigo;
             DelegaciaOrigem = unidadePolicial;
+            SituacaoAtual = situacaoAtual;
             Vitimas = new HashSet<Vitima>();
             Autores = new HashSet<Indiciado>();
             ObjetosApreendidos = new HashSet<ObjetoApreendido>();
@@ -63,7 +65,8 @@ namespace ControleBO.Domain.Models
                             Municipio comarca,
                             Assunto assunto,
                             Artigo artigo,
-                            UnidadePolicial unidadePolicial)
+                            UnidadePolicial unidadePolicial,
+                            Situacao situacaoAtual)
             : this(boletimUnificado,
                    boletimOcorrencia,
                    numeroProcessual,
@@ -79,7 +82,8 @@ namespace ControleBO.Domain.Models
                    comarca,
                    assunto,
                    artigo,
-                   unidadePolicial)
+                   unidadePolicial,
+                   situacaoAtual)
         {
             Id = id;
         }
@@ -140,10 +144,10 @@ namespace ControleBO.Domain.Models
 
         public virtual ICollection<Movimentacao> HistoricoMovimentacoes { get; set; }
 
-
         public Movimentacao UltimaMovimentacao => HistoricoMovimentacoes.LastOrDefault();
 
-        public SituacaoProcedimento SituacaoAtual => HistoricoSituacoes.LastOrDefault();
+        public int SituacaoAtualId { get; set; }
 
+        public virtual Situacao SituacaoAtual { get; set; }
     }
 }

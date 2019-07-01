@@ -2,6 +2,7 @@
 using ControleBO.Infra.CrossCutting.Identity.Context;
 using ControleBO.Infra.CrossCutting.Identity.Models;
 using ControleBO.Infra.CrossCutting.IoC;
+using ControleBO.Infra.Data.Context;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -49,7 +50,8 @@ namespace ControleBO.Api
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env,
-            ApplicationDbContext context,
+            SpcContext spcContext,
+            ApplicationDbContext applicationDbContext,
             UserManager<ApplicationUser> userManager,
             RoleManager<IdentityRole> roleManager)
         {
@@ -71,10 +73,15 @@ namespace ControleBO.Api
 
             //app.UseHttpsRedirection();
 
+            // Criação das estruturas e inserção 
+            // de dados iniciais
+            new SpcContextInitializer(spcContext)
+                .Initialize();
+
             // Criação de estruturas, usuários e permissões
             // na base do ASP.NET Identity Core (caso ainda não
             // existam)
-            new IdentityInitializer(context, userManager, roleManager)
+            new IdentityInitializer(applicationDbContext, userManager, roleManager)
                 .Initialize();
 
             app.UseMvc();

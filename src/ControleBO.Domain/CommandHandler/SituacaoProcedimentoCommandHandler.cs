@@ -82,6 +82,10 @@ namespace ControleBO.Domain.CommandHandler
 
             _situacaoProcedimentoRepository.Add(situacaoProcedimento);
 
+            procedimento.SituacaoAtual = situacao;
+
+            _procedimentoRepository.Update(procedimento);
+
             if (Commit())
             {
                 //TO DO
@@ -127,7 +131,7 @@ namespace ControleBO.Domain.CommandHandler
                 }
             }
 
-            var existingSituacaoProcedimento = _situacaoProcedimentoRepository.GetAsNoTracking(x=> x.Id == request.Id);
+            var existingSituacaoProcedimento = _situacaoProcedimentoRepository.GetAsNoTracking(x => x.Id == request.Id);
 
             var situacaoProcedimento = new SituacaoProcedimento(request.Id, procedimento, situacao, tipoSituacao, request.DataRelatorio, request.Observacao);
 
@@ -138,6 +142,10 @@ namespace ControleBO.Domain.CommandHandler
             }
 
             _situacaoProcedimentoRepository.Update(situacaoProcedimento);
+
+            procedimento.SituacaoAtual = situacao;
+
+            _procedimentoRepository.Update(procedimento);
 
             if (Commit())
             {

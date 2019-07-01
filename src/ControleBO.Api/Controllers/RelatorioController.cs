@@ -25,34 +25,16 @@ namespace ControleBO.Api.Controllers
 
         // GET: api/relatorio/estatistica-assunto
         [HttpGet("estatistica-assunto")]
-        public IActionResult Get()
+        public IActionResult GetEstatisticaAssunto()
         {
             return Response(_relatorioAppService.GetEstatisticaAssunto());
         }
 
-        // GET: api/Relatorio/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        // GET: api/relatorio/relacao-procedimentos?situacaoId?={situacaoId}
+        [HttpGet("relacao-procedimentos")]
+        public IActionResult GetRelacaoProcedimentos([FromQuery]int situacaoId)
         {
-            return "value";
-        }
-
-        // POST: api/Relatorio
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT: api/Relatorio/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            return Response(_relatorioAppService.GetRelacaoProcedimentos(situacaoId));
         }
     }
 }

@@ -268,6 +268,8 @@ namespace ControleBO.Infra.Data.Migrations
 
                     b.Property<DateTime?>("RemovidoEm");
 
+                    b.Property<int>("SituacaoAtualId");
+
                     b.Property<string>("TipoCriminal")
                         .HasColumnType("varchar")
                         .HasMaxLength(100);
@@ -287,6 +289,8 @@ namespace ControleBO.Infra.Data.Migrations
                     b.HasIndex("ComarcaId");
 
                     b.HasIndex("DelegaciaOrigemId");
+
+                    b.HasIndex("SituacaoAtualId");
 
                     b.HasIndex("TipoProcedimentoId");
 
@@ -568,6 +572,11 @@ namespace ControleBO.Infra.Data.Migrations
                     b.HasOne("ControleBO.Domain.Models.UnidadePolicial", "DelegaciaOrigem")
                         .WithMany()
                         .HasForeignKey("DelegaciaOrigemId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ControleBO.Domain.Models.Situacao", "SituacaoAtual")
+                        .WithMany()
+                        .HasForeignKey("SituacaoAtualId")
                         .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("ControleBO.Domain.Models.ProcedimentoTipo", "TipoProcedimento")

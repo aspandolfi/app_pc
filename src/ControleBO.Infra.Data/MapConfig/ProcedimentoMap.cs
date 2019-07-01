@@ -80,6 +80,11 @@ namespace ControleBO.Infra.Data.MapConfig
                 .WithMany()
                 .HasForeignKey(x => x.DelegaciaOrigemId)
                 .IsRequired();
+
+            builder.HasOne(x => x.SituacaoAtual)
+                .WithMany()
+                .HasForeignKey(x => x.SituacaoAtualId)
+                .IsRequired();
         }
     }
 }

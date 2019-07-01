@@ -15,6 +15,7 @@ import { UserListComponent } from './components/user-list/user-list.component';
 import { AssuntoComponent } from './components/assunto/assunto.component';
 import { VaraCriminalComponent } from './components/vara-criminal/vara-criminal.component';
 import { UnidadePolicialComponent } from './components/unidade-policial/unidade-policial.component';
+import { RelacaoProcedimentosComponent } from './relatorios/relacao-procedimentos/relacao-procedimentos.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'procedimentos', pathMatch: 'full', canActivate: [AuthGuardService] },
@@ -38,9 +39,10 @@ const routes: Routes = [
   { path: 'artigo', component: ArtigoComponent, canActivate: [AuthGuardService] },
   { path: 'assunto', component: AssuntoComponent, canActivate: [AuthGuardService] },
   { path: 'tipo-procedimento', component: TipoProcedimentoComponent, canActivate: [AuthGuardService] },
-  { path: 'estatistica-assunto', component: EstatisticaAssuntoComponent, canActivate: [AuthGuardService] },
   { path: 'vara-criminal', component: VaraCriminalComponent, canActivate: [AuthGuardService] },
   { path: 'unidade-policial', component: UnidadePolicialComponent, canActivate: [AuthGuardService] },
+  { path: 'estatistica-assunto', component: EstatisticaAssuntoComponent, canActivate: [AuthGuardService] },
+  { path: 'relacao-procedimentos', component: RelacaoProcedimentosComponent, canActivate: [AuthGuardService] },
   {
     path: 'account',
     children: [

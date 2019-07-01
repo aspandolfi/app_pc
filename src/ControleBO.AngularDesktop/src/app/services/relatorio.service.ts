@@ -14,4 +14,7 @@ export class RelatorioService {
   getEstatisticaPorAssunto() {
     return this.baseService.get<Datatablejs>(`${this.uri}/estatistica-assunto`);
   }
+  getRelacaoProcedimentos(situacaoId: number) {
+    return this.baseService.get<Datatablejs>(`${this.uri}/relacao-procedimentos?situacaoId=${situacaoId}`);
+  }
 }

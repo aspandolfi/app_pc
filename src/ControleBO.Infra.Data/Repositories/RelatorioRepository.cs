@@ -3,6 +3,7 @@ using System.Linq;
 using ControleBO.Domain.Interfaces.Repositories;
 using ControleBO.Domain.Queries;
 using ControleBO.Infra.Data.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace ControleBO.Infra.Data.Repositories
 {
@@ -31,6 +32,26 @@ namespace ControleBO.Infra.Data.Repositories
                     Relatado = a.Sum(x => x.HistoricoSituacoes.Count(p => p.SituacaoId == 3))
                 })
                 .ToList();
+
+            return query;
+        }
+
+        public IEnumerable<RelacaoProcedimentoQuery> GetRelacaoProcedimentos(int situacaoId)
+        {
+            var query = DbContext.Procedimentos
+                                 .Where(x => x.SituacaoAtualId == situacaoId)
+                                 .Select(p => new RelacaoProcedimentoQuery
+                                 {
+                                     Artigo = p.Artigo.Descricao,
+                                     BoletimOcorrencia = p.BoletimOcorrencia,
+                                     DataFato = p.DataFato,
+                                     Instauracao = p.DataInstauracao,
+                                     Indiciados = string.Join("<br/>", p.Autores.Select(a => a.Nome)),
+                                     NumeroProcedimento = p.Id,
+                                     Situacao = p.SituacaoAtual.Descricao,
+                                     UnidadePolicial = p.DelegaciaOrigem.Descricao
+                                 })
+                                 .ToList();
 
             return query;
         }

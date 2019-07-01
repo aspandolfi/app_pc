@@ -53,6 +53,7 @@ import { VaraCriminalComponent } from './components/vara-criminal/vara-criminal.
 import { CadastroVaraCriminalComponent } from './components/cadastro-vara-criminal/cadastro-vara-criminal.component';
 import { UnidadePolicialComponent } from './components/unidade-policial/unidade-policial.component';
 import { CadastroUnidadePolicialComponent } from './components/cadastro-unidade-policial/cadastro-unidade-policial.component';
+import { RelacaoProcedimentosComponent } from './relatorios/relacao-procedimentos/relacao-procedimentos.component';
 
 defineLocale('pt-br', ptBrLocale);
 
@@ -89,7 +90,8 @@ defineLocale('pt-br', ptBrLocale);
     VaraCriminalComponent,
     CadastroVaraCriminalComponent,
     UnidadePolicialComponent,
-    CadastroUnidadePolicialComponent
+    CadastroUnidadePolicialComponent,
+    RelacaoProcedimentosComponent
   ],
   imports: [
     HttpClientModule,

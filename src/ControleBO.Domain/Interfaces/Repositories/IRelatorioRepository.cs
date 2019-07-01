@@ -8,5 +8,6 @@ namespace ControleBO.Domain.Interfaces.Repositories
     {
         IEnumerable<EstatisticaAssuntoQuery> GetEstatisticaAssunto();
         IEnumerable<RelacaoProcedimentoQuery> GetRelacaoProcedimentos(int situacaoId);
+        IEnumerable<RelacaoIndiciadoQuery> GetRelacaoIndiciados();
     }
 }

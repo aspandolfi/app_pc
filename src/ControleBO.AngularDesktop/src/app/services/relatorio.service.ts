@@ -17,4 +17,7 @@ export class RelatorioService {
   getRelacaoProcedimentos(situacaoId: number) {
     return this.baseService.get<Datatablejs>(`${this.uri}/relacao-procedimentos?situacaoId=${situacaoId}`);
   }
+  getRelacaoIndiciados() {
+    return this.baseService.get<Datatablejs>(`${this.uri}/relacao-indiciados`);
+  }
 }

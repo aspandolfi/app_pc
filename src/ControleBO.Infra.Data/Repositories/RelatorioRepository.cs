@@ -27,9 +27,25 @@ namespace ControleBO.Infra.Data.Repositories
                 .Select(a => new EstatisticaAssuntoQuery
                 {
                     Assunto = a.Key,
-                    EmAndamento = a.Sum(x => x.HistoricoSituacoes.Count(p => p.SituacaoId == 1)),
-                    NaJustica = a.Sum(x => x.HistoricoSituacoes.Count(p => p.SituacaoId == 2)),
-                    Relatado = a.Sum(x => x.HistoricoSituacoes.Count(p => p.SituacaoId == 3))
+                    EmAndamento = a.Count(p => p.SituacaoAtualId == 1),
+                    NaJustica = a.Count(p => p.SituacaoAtualId == 2),
+                    Relatado = a.Count(p => p.SituacaoAtualId == 3)
+                })
+                .ToList();
+
+            return query;
+        }
+
+        public IEnumerable<RelacaoIndiciadoQuery> GetRelacaoIndiciados()
+        {
+            var query = DbContext.Indiciados
+                .Select(x => new RelacaoIndiciadoQuery
+                {
+                    Investigado = x.Nome,
+                    NumeroProcedimento = x.ProcedimentoId,
+                    Artigo = x.Procedimento.Artigo.Descricao,
+                    TipoProcedimento = x.Procedimento.TipoProcedimento.Descricao,
+                    SituacaoAtual = x.Procedimento.SituacaoAtual.Descricao
                 })
                 .ToList();
 

@@ -51,6 +51,30 @@ namespace ControleBO.Application.Services
             return Mapper.Map<DataTableViewModel>(dt);
         }
 
+        public DataTableViewModel GetRelacaoIndiciados()
+        {
+            var result = _relatorioRepository.GetRelacaoIndiciados();
+
+            var dt = new DataTableObject();
+
+            dt.AddHeaders("Investigado",
+                "Proced. n°",
+                "Artigo",
+                "Tipo de Procedimento",
+                "Situação");
+
+            dt.AddDataSet(result.Select(x => new Collection<object>
+            {
+                x.Investigado,
+                x.NumeroProcedimento,
+                x.Artigo,
+                x.TipoProcedimento,
+                x.SituacaoAtual
+            }));
+
+            return Mapper.Map<DataTableViewModel>(dt);
+        }
+
         public DataTableViewModel GetRelacaoProcedimentos(int situacaoId)
         {
             var result = _relatorioRepository.GetRelacaoProcedimentos(situacaoId);

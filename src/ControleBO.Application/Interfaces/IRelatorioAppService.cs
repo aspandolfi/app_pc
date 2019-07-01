@@ -8,5 +8,8 @@ namespace ControleBO.Application.Interfaces
         DataTableViewModel GetEstatisticaAssunto();
 
         DataTableViewModel GetRelacaoProcedimentos(int situacaoId);
+
+        DataTableViewModel GetRelacaoIndiciados();
+
     }
 }

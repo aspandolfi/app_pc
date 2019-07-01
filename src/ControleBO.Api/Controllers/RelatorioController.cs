@@ -36,5 +36,12 @@ namespace ControleBO.Api.Controllers
         {
             return Response(_relatorioAppService.GetRelacaoProcedimentos(situacaoId));
         }
+
+        // GET: api/relatorio/relacao-indiciados
+        [HttpGet("relacao-indiciados")]
+        public IActionResult GetRelacaoIndiciados()
+        {
+            return Response(_relatorioAppService.GetRelacaoIndiciados());
+        }
     }
 }

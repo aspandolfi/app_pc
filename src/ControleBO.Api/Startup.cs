@@ -26,7 +26,7 @@ namespace ControleBO.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.Configure<ApiBehaviorOptions>(options =>
             {
@@ -80,14 +80,14 @@ namespace ControleBO.Api
 
             // Criação das estruturas e inserção 
             // de dados iniciais
-            new SpcContextInitializer(spcContext)
-                .Initialize();
+            //new SpcContextInitializer(spcContext)
+            //    .Initialize();
 
             // Criação de estruturas, usuários e permissões
             // na base do ASP.NET Identity Core (caso ainda não
             // existam)
-            new IdentityInitializer(applicationDbContext, userManager, roleManager)
-                .Initialize();
+            //new IdentityInitializer(applicationDbContext, userManager, roleManager)
+            //    .Initialize();
 
             app.UseMvc();
 

@@ -37,10 +37,11 @@ namespace ControleBO.Infra.CrossCutting.Identity.Context
                 CreateUser(
                     new ApplicationUser()
                     {
+                        Name = "André Serafim Pandolfi",
                         UserName = "aspandolfi",
                         Email = "aspandolfi@gmail.com",
                         EmailConfirmed = true
-                    }, "Aspandolf1!");
+                    }, "and1991");
             }
         }
 

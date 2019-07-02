@@ -9,16 +9,23 @@ namespace ControleBO.Application.Mappers
     {
         public DomainToViewModelMappingProfile()
         {
+            CreateMap<Procedimento, ProcedimentoViewModel>();
             CreateMap<ProcedimentoTipo, ProcedimentoTipoViewModel>();
             CreateMap<Municipio, MunicipioViewModel>();
             CreateMap<DataTableObject, DataTableViewModel>();
+            CreateMap<DataTableHeaderTitle, DataTableHeaderTitleViewModel>();
             CreateMap<Vitima, VitimaViewModel>();
             CreateMap<Indiciado, IndiciadoViewModel>();
             CreateMap<Situacao, SituacaoViewModel>();
             CreateMap<SituacaoTipo, SituacaoTipoViewModel>();
+            CreateMap<SituacaoProcedimento, SituacaoProcedimentoViewModel>();
             CreateMap<Movimentacao, MovimentacaoViewModel>();
             CreateMap<SituacaoProcedimento, SituacaoProcedimentoViewModel>();
             CreateMap<ObjetoApreendido, ObjetoApreendidoViewModel>();
+            CreateMap<Artigo, ArtigoViewModel>();
+            CreateMap<Assunto, AssuntoViewModel>();
+            CreateMap<UnidadePolicial, UnidadePolicialViewModel>();
+            CreateMap<VaraCriminal, VaraCriminalViewModel>();
         }
     }
 }

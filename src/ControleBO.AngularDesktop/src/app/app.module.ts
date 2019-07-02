@@ -10,6 +10,7 @@ import { NgxMaskModule } from 'ngx-mask';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { NgxElectronModule } from 'ngx-electron';
 
 import { TipoProcedimentoService } from './services/tipo-procedimento.service';
 import { BaseService } from './services/base.service';
@@ -108,6 +109,7 @@ defineLocale('pt-br', ptBrLocale);
     NgxMaskModule.forRoot(),
     NgSelectModule,
     LoadingBarHttpClientModule,
+    NgxElectronModule,
     CollapseModule.forRoot(),
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right',

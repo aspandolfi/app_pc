@@ -35,8 +35,8 @@ export class BaseService {
   }
 
   private getBaseUrl() {
-    //this.apiUrl = this.fileService.getConfig().apiUrl;
-    this.apiUrl = "";
+    this.apiUrl = this.fileService.getConfig().apiUrl;
+    //this.apiUrl = "";
   }
 
   public get<T>(uri: string): Observable<Result<T>> {

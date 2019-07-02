@@ -5,7 +5,7 @@
   "author": "André Serafim Pandolfi",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --proxy-config proxy.config.json",
+    "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -36,6 +36,7 @@
     "datatables.net-rowgroup-bs4": "^1.1.0",
     "jquery": "^3.3.1",
     "ngx-bootstrap": "^3.2.0",
+    "ngx-electron": "^2.1.1",
     "ngx-mask": "^7.7.0",
     "ngx-toastr": "^9.1.2",
     "pdfmake": "^0.1.57",

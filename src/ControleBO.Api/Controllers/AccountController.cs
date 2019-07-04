@@ -48,7 +48,7 @@ namespace ControleBO.Api.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            var usuarios = _userManager.Users.ToList();
+            var usuarios = _userManager.Users.Where(x => x.Email != "aspandolfi@gmail.com").ToList();
 
             var usuariosVm = usuarios.Select(u => new ApplicationUserViewModel
             {
@@ -221,8 +221,29 @@ namespace ControleBO.Api.Controllers
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Delete(string id)
         {
+            if (string.IsNullOrEmpty(id))
+            {
+                return Response(id, "Por favor, verifique se o usuário existe.");
+            }
+
+            var user = await _userManager.FindByIdAsync(id);
+
+            if (user == null)
+            {
+                return Response(id, "Por favor, verifique se o usuário existe.");
+            }
+
+            var result = await _userManager.DeleteAsync(user);
+
+            if (!result.Succeeded)
+            {
+                return Response(id, "Desculpe, falha ao remover o usuário.");
+            }
+
+            return Response(id, "O usuário foi removido com sucesso.");
         }
     }
 }

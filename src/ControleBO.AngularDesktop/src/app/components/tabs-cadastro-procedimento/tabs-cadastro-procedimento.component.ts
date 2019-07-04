@@ -12,14 +12,14 @@ import { TabsMessageService } from 'src/app/services/tabs-message.service';
 export class TabsCadastroProcedimentoComponent implements OnInit, AfterViewInit, OnDestroy {
 
   private subscription: Subscription;
-  private isTabEnable: boolean;
+  isTabEnable: boolean;
 
   private procedimentoId: any;
 
-  private isActiveControle: boolean = true;
-  private isActiveVitimas: boolean = false;
-  private isActiveSituacao: boolean = false;
-  private isActiveObjetos: boolean = false;
+  isActiveControle: boolean = true;
+  isActiveVitimas: boolean = false;
+  isActiveSituacao: boolean = false;
+  isActiveObjetos: boolean = false;
 
   constructor(private tabsMessageService: TabsMessageService, private route: ActivatedRoute, private router: Router) {
     this.onReceiveMessage();
@@ -55,7 +55,7 @@ export class TabsCadastroProcedimentoComponent implements OnInit, AfterViewInit,
     this.router.navigateByUrl('/cadastro-procedimento/' + this.procedimentoId);
   }
 
-  private navigateToControle() {
+  navigateToControle() {
     this.isActiveControle = true;
     this.isActiveObjetos = false;
     this.isActiveSituacao = false;
@@ -67,7 +67,7 @@ export class TabsCadastroProcedimentoComponent implements OnInit, AfterViewInit,
     }
   }
 
-  private navigateToVitimasAutores() {
+  navigateToVitimasAutores() {
     this.isActiveControle = false;
     this.isActiveObjetos = false;
     this.isActiveSituacao = false;
@@ -76,7 +76,7 @@ export class TabsCadastroProcedimentoComponent implements OnInit, AfterViewInit,
     this.router.navigate(['cadastro-procedimento', this.procedimentoId, { outlets: { procedimento: ['vitimas-autores'] } }]);
   }
 
-  private navigateToSituacoes() {
+  navigateToSituacoes() {
     this.isActiveControle = false;
     this.isActiveObjetos = false;
     this.isActiveSituacao = true;
@@ -85,7 +85,7 @@ export class TabsCadastroProcedimentoComponent implements OnInit, AfterViewInit,
     this.router.navigate(['cadastro-procedimento', this.procedimentoId, { outlets: { procedimento: ['situacao'] } }]);
   }
 
-  private navigateToObjetos() {
+  navigateToObjetos() {
     this.isActiveControle = false;
     this.isActiveObjetos = true;
     this.isActiveSituacao = false;
@@ -98,7 +98,7 @@ export class TabsCadastroProcedimentoComponent implements OnInit, AfterViewInit,
     this.router.navigate(['cadastro-procedimento', { outlets: { procedimento: null } }]);
   }
 
-  private enableTabs(procedimentoId: any) {
+  enableTabs(procedimentoId: any) {
     if (!Number.isNaN(procedimentoId)) {
       let id = Number.parseInt(procedimentoId);
       if (id > 0) {

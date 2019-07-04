@@ -19,14 +19,14 @@ export class ArtigoComponent implements OnInit, OnDestroy {
 
   private modalRef: BsModalRef;
   private subscription: Subscription;
-  private isLoadingUltimaAtualizacao: boolean = false;
-  private ultimaAtualizacao: string;
+  isLoadingUltimaAtualizacao: boolean = false;
+  ultimaAtualizacao: string;
 
-  private artigos: Artigo[] = [];
-  private returnedArtigos: Artigo[] = [];
+  artigos: Artigo[] = [];
+  returnedArtigos: Artigo[] = [];
 
-  private pageSize = 10;
-  private currentPage = 1;
+  pageSize = 10;
+  currentPage = 1;
 
   constructor(private modalService: BsModalService,
     private messageService: MessageService,
@@ -104,14 +104,14 @@ export class ArtigoComponent implements OnInit, OnDestroy {
     this.artigos[index] = artigo;
   }
 
-  private openModal(artigo: Artigo) {
+  openModal(artigo: Artigo) {
     const initialState = {
       artigo: artigo == undefined ? new Artigo() : artigo
     };
     this.modalRef = this.modalService.show(CadastroArtigoComponent, { initialState, class: 'modal-lg modal-dialog-centered', ignoreBackdropClick: true, backdrop: true });
   }
 
-  private openModalExcluir(artigo: Artigo) {
+  openModalExcluir(artigo: Artigo) {
     const initialState = {
       model: artigo,
       uri: 'api/artigo/'
@@ -119,7 +119,7 @@ export class ArtigoComponent implements OnInit, OnDestroy {
     this.modalRef = this.modalService.show(ConfirmarExclusaoComponent, { initialState, class: 'modal-dialog-centered', ignoreBackdropClick: true, backdrop: true });
   }
 
-  private pageChanged(event: PageChangedEvent) {
+  pageChanged(event: PageChangedEvent) {
     this.currentPage = event.page;
     const startItem = (event.page - 1) * event.itemsPerPage;
     const endItem = event.page * event.itemsPerPage;

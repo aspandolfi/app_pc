@@ -14,14 +14,14 @@ export class CadastroTipoProcedimentoComponent implements OnInit {
 
   tipoProcedimento: TipoProcedimento;
 
-  private submitted = false;
+  submitted = false;
 
   constructor(public modalRef: BsModalRef, private tipoProcedimentoService: TipoProcedimentoService, private messageService: MessageService) { }
 
   ngOnInit() {
   }
 
-  private save() {
+  save() {
     this.submitted = true;
 
     if (this.tipoProcedimento.id) {

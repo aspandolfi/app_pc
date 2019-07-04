@@ -15,7 +15,7 @@ import { Result } from '../../models/result';
 export class CadastroMunicipioComponent implements OnInit {
 
   municipio: Municipio;
-  private submitted = false;
+  submitted = false;
 
   constructor(public modalRef: BsModalRef,
     private municipioService: MunicipioService,

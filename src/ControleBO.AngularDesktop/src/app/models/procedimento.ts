@@ -14,6 +14,8 @@ export class Procedimento {
   tipoProcedimentoId: number;
   anexos: string;
   localFato: string;
+  tipoCriminal: string;
+  andamentoProcessual: string;
   varaCriminalId: number;
   comarcaId: number;
   assuntoId: number;

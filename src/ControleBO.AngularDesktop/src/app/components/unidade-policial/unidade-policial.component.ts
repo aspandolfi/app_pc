@@ -19,14 +19,14 @@ export class UnidadePolicialComponent implements OnInit {
 
   private modalRef: BsModalRef;
   private subscription: Subscription;
-  private isLoadingUltimaAtualizacao: boolean = false;
-  private ultimaAtualizacao: string;
+  isLoadingUltimaAtualizacao: boolean = false;
+  ultimaAtualizacao: string;
 
-  private unidadesPoliciais: UnidadePolicial[] = [];
-  private returnedUnidadesPoliciais: UnidadePolicial[] = [];
+  unidadesPoliciais: UnidadePolicial[] = [];
+  returnedUnidadesPoliciais: UnidadePolicial[] = [];
 
-  private pageSize = 10;
-  private currentPage = 1;
+  pageSize = 10;
+  currentPage = 1;
 
   constructor(private modalService: BsModalService,
     private toastr: ToastrService,
@@ -104,14 +104,14 @@ export class UnidadePolicialComponent implements OnInit {
     this.unidadesPoliciais[index] = unidadePolicial;
   }
 
-  private openModal(unidadePolicial: UnidadePolicial) {
+  openModal(unidadePolicial: UnidadePolicial) {
     const initialState = {
       unidadePolicial: unidadePolicial == undefined ? new UnidadePolicial() : unidadePolicial
     };
     this.modalRef = this.modalService.show(CadastroUnidadePolicialComponent, { initialState, class: 'modal-lg modal-dialog-centered', ignoreBackdropClick: true, backdrop: true });
   }
 
-  private openModalExcluir(unidadePolicial: UnidadePolicial) {
+  openModalExcluir(unidadePolicial: UnidadePolicial) {
     const initialState = {
       model: unidadePolicial,
       uri: 'api/unidade-policial/'
@@ -119,7 +119,7 @@ export class UnidadePolicialComponent implements OnInit {
     this.modalRef = this.modalService.show(ConfirmarExclusaoComponent, { initialState, class: 'modal-dialog-centered', ignoreBackdropClick: true, backdrop: true });
   }
 
-  private pageChanged(event: PageChangedEvent) {
+  pageChanged(event: PageChangedEvent) {
     this.currentPage = event.page;
     const startItem = (event.page - 1) * event.itemsPerPage;
     const endItem = event.page * event.itemsPerPage;

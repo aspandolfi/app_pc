@@ -15,7 +15,7 @@ export class ConfirmarExclusaoComponent implements OnInit {
   uri: string;
   propertyToDescribe: string;
 
-  private submitted: boolean = false;
+  submitted: boolean = false;
 
   constructor(public modalRef: BsModalRef,
     private messageService: MessageService,
@@ -24,7 +24,7 @@ export class ConfirmarExclusaoComponent implements OnInit {
   ngOnInit() {
   }
 
-  private excluir(id: number) {
+  excluir(id: number) {
     this.submitted = true;
 
     this.baseService.delete(this.uri + id)
@@ -37,7 +37,7 @@ export class ConfirmarExclusaoComponent implements OnInit {
         () => this.submitted = false);
   }
 
-  private getDescribe() {
+  getDescribe() {
     if (this.model.hasOwnProperty(this.propertyToDescribe)) {
       return this.model[this.propertyToDescribe];
     }

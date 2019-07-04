@@ -19,13 +19,13 @@ export class CadastroVitimaComponent implements OnInit {
 
   model: Vitima;
 
-  private submitted = false;
-  private isLoadingMunicipios = false;
-  private isNoResultNaturalidade = false;
+  submitted = false;
+  isLoadingMunicipios = false;
+  isNoResultNaturalidade = false;
 
-  private municipios: Municipio[] = [];
-  private naturalidade: Municipio;
-  private naturalidadeSelected: string;
+  municipios: Municipio[] = [];
+  naturalidade: Municipio;
+  naturalidadeSelected: string;
 
   constructor(public modalRef: BsModalRef,
     private vitimaService: VitimaService,
@@ -38,7 +38,7 @@ export class CadastroVitimaComponent implements OnInit {
     this.getMunicipios();
   }
 
-  private save() {
+  save() {
 
     if (!this.naturalidade) {
       this.toastr.error('Município inválido. Por favor selecione um item válido.');
@@ -89,7 +89,7 @@ export class CadastroVitimaComponent implements OnInit {
     });
   }
 
-  private onSelectNaturalidade(event: TypeaheadMatch) {
+  onSelectNaturalidade(event: TypeaheadMatch) {
     if (!this.municipios.find(x => x.id == event.item.id)) {
       this.isNoResultNaturalidade = true;
       this.naturalidade = null;
@@ -99,7 +99,7 @@ export class CadastroVitimaComponent implements OnInit {
     this.naturalidade = event.item;
   }
 
-  private naturalidadeNoResults(event: boolean): void {
+  naturalidadeNoResults(event: boolean): void {
     this.isNoResultNaturalidade = event;
   }
 

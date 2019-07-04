@@ -19,14 +19,14 @@ export class VaraCriminalComponent implements OnInit {
 
   private modalRef: BsModalRef;
   private subscription: Subscription;
-  private isLoadingUltimaAtualizacao: boolean = false;
-  private ultimaAtualizacao: string;
+  isLoadingUltimaAtualizacao: boolean = false;
+  ultimaAtualizacao: string;
 
-  private varas: VaraCriminal[] = [];
-  private returnedVaras: VaraCriminal[] = [];
+  varas: VaraCriminal[] = [];
+  returnedVaras: VaraCriminal[] = [];
 
-  private pageSize = 10;
-  private currentPage = 1;
+  pageSize = 10;
+  currentPage = 1;
 
   constructor(private modalService: BsModalService,
     private messageService: MessageService,
@@ -104,14 +104,14 @@ export class VaraCriminalComponent implements OnInit {
     this.varas[index] = vara;
   }
 
-  private openModal(vara: VaraCriminal) {
+  openModal(vara: VaraCriminal) {
     const initialState = {
       vara: vara == undefined ? new VaraCriminal() : vara
     };
     this.modalRef = this.modalService.show(CadastroVaraCriminalComponent, { initialState, class: 'modal-lg modal-dialog-centered', ignoreBackdropClick: true, backdrop: true });
   }
 
-  private openModalExcluir(vara: VaraCriminal) {
+  openModalExcluir(vara: VaraCriminal) {
     const initialState = {
       model: vara,
       uri: 'api/vara-criminal/'
@@ -119,7 +119,7 @@ export class VaraCriminalComponent implements OnInit {
     this.modalRef = this.modalService.show(ConfirmarExclusaoComponent, { initialState, class: 'modal-dialog-centered', ignoreBackdropClick: true, backdrop: true });
   }
 
-  private pageChanged(event: PageChangedEvent) {
+  pageChanged(event: PageChangedEvent) {
     this.currentPage = event.page;
     const startItem = (event.page - 1) * event.itemsPerPage;
     const endItem = event.page * event.itemsPerPage;

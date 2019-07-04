@@ -8,7 +8,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class CadastroProcedimentoComponent implements OnInit, AfterViewInit {
 
-  private procedimentoId: string;
+  procedimentoId: string;
 
   constructor(private route: ActivatedRoute, private router: Router) { }
 

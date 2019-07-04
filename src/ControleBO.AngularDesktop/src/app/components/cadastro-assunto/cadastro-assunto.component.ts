@@ -16,7 +16,7 @@ export class CadastroAssuntoComponent implements OnInit {
 
   assunto: Assunto;
 
-  private submitted = false;
+  submitted = false;
 
   constructor(public modalRef: BsModalRef,
     private assuntoService: AssuntoService,
@@ -26,7 +26,7 @@ export class CadastroAssuntoComponent implements OnInit {
   ngOnInit() {
   }
 
-  private save() {
+  save() {
     this.submitted = true;
 
     if (this.assunto.id) {

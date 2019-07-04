@@ -16,7 +16,7 @@ export class CadastroVaraCriminalComponent implements OnInit {
 
   vara: VaraCriminal;
 
-  private submitted = false;
+  submitted = false;
 
   constructor(public modalRef: BsModalRef,
     private varaCriminalService: VaraCriminalService,
@@ -26,7 +26,7 @@ export class CadastroVaraCriminalComponent implements OnInit {
   ngOnInit() {
   }
 
-  private save() {
+  save() {
     this.submitted = true;
 
     if (this.vara.id) {

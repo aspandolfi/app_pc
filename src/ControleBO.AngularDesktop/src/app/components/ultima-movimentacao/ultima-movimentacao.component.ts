@@ -13,7 +13,7 @@ export class UltimaMovimentacaoComponent implements OnInit {
 
   private _ultimasMovimentacoes: Movimentacao[] = [];
 
-  private modalRef: BsModalRef;
+  modalRef: BsModalRef;
 
   @Input("ultimasMovimentacoes")
   set ultimasMovimentacoes(ultimasMovimentacoes: Movimentacao[]) {
@@ -34,9 +34,9 @@ export class UltimaMovimentacaoComponent implements OnInit {
   @Input("titulo")
   titulo: string = "Últimas Movimentações";
 
-  private page = 1;
-  private pageSize = 3;
-  private totalItems = this.ultimasMovimentacoes.length;
+  page = 1;
+  pageSize = 3;
+  totalItems = this.ultimasMovimentacoes.length;
 
   @Input('enableActions')
   enableActions: boolean = true;
@@ -51,7 +51,7 @@ export class UltimaMovimentacaoComponent implements OnInit {
     this.ultimasMovimentacoes;
   }
 
-  private openModalExcluir(movimentacao: Movimentacao) {
+  openModalExcluir(movimentacao: Movimentacao) {
     const initialState = {
       model: movimentacao,
       uri: 'api/movimentacao/',
@@ -60,7 +60,7 @@ export class UltimaMovimentacaoComponent implements OnInit {
     this.modalRef = this.modalService.show(ConfirmarExclusaoComponent, { initialState, class: 'modal-dialog-centered', ignoreBackdropClick: true, backdrop: true });
   }
 
-  private openModalCadastro(movimentacao: Movimentacao) {
+  openModalCadastro(movimentacao: Movimentacao) {
     const initialState = {
       model: movimentacao
     };

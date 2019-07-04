@@ -23,14 +23,14 @@ export class MunicipioComponent implements OnInit, OnDestroy, AfterViewInit {
 
   private modalRef: BsModalRef;
   private subscription: Subscription;
-  private isLoadingUltimaAtualizacao: boolean = false;
-  private ultimaAtualizacao: string;
+  isLoadingUltimaAtualizacao: boolean = false;
+  ultimaAtualizacao: string;
 
-  private municipios: Municipio[] = []
-  private returnedMunicipios: Municipio[] = [];
+  municipios: Municipio[] = []
+  returnedMunicipios: Municipio[] = [];
 
-  private pageSize = 10;
-  private currentPage = 1;
+  pageSize = 10;
+  currentPage = 1;
 
   constructor(private modalService: BsModalService,
     private messageService: MessageService,
@@ -108,14 +108,14 @@ export class MunicipioComponent implements OnInit, OnDestroy, AfterViewInit {
     this.municipios.splice(index, 1);
   }
 
-  private openModal(municipio: Municipio) {
+  openModal(municipio: Municipio) {
     const initialState = {
       municipio: municipio == undefined ? new Municipio() : municipio
     };
     this.modalRef = this.modalService.show(CadastroMunicipioComponent, { initialState, class: 'modal-lg modal-dialog-centered', ignoreBackdropClick: true, backdrop: true });
   }
 
-  private openModalExcluir(municipio: Municipio) {
+  openModalExcluir(municipio: Municipio) {
     const initialState = {
       model: municipio,
       uri: 'api/municipio/'
@@ -123,7 +123,7 @@ export class MunicipioComponent implements OnInit, OnDestroy, AfterViewInit {
     this.modalRef = this.modalService.show(ConfirmarExclusaoComponent, { initialState, class: 'modal-dialog-centered', ignoreBackdropClick: true, backdrop: true });
   }
 
-  private pageChanged(event: PageChangedEvent) {
+  pageChanged(event: PageChangedEvent) {
     this.currentPage = event.page;
     const startItem = (event.page - 1) * event.itemsPerPage;
     const endItem = event.page * event.itemsPerPage;

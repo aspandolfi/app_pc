@@ -19,14 +19,14 @@ export class AssuntoComponent implements OnInit, OnDestroy {
 
   private modalRef: BsModalRef;
   private subscription: Subscription;
-  private isLoadingUltimaAtualizacao: boolean = false;
-  private ultimaAtualizacao: string;
+  isLoadingUltimaAtualizacao: boolean = false;
+  ultimaAtualizacao: string;
 
-  private assuntos: Assunto[] = [];
-  private returnedAssuntos: Assunto[] = [];
+  assuntos: Assunto[] = [];
+  returnedAssuntos: Assunto[] = [];
 
-  private pageSize = 10;
-  private currentPage = 1;
+  pageSize = 10;
+  currentPage = 1;
 
   constructor(private modalService: BsModalService,
     private messageService: MessageService,
@@ -104,14 +104,14 @@ export class AssuntoComponent implements OnInit, OnDestroy {
     this.assuntos[index] = assunto;
   }
 
-  private openModal(assunto: Assunto) {
+  openModal(assunto: Assunto) {
     const initialState = {
       assunto: assunto == undefined ? new Assunto() : assunto
     };
     this.modalRef = this.modalService.show(CadastroAssuntoComponent, { initialState, class: 'modal-lg modal-dialog-centered', ignoreBackdropClick: true, backdrop: true });
   }
 
-  private openModalExcluir(assunto: Assunto) {
+  openModalExcluir(assunto: Assunto) {
     const initialState = {
       model: assunto,
       uri: 'api/assunto/'
@@ -119,7 +119,7 @@ export class AssuntoComponent implements OnInit, OnDestroy {
     this.modalRef = this.modalService.show(ConfirmarExclusaoComponent, { initialState, class: 'modal-dialog-centered', ignoreBackdropClick: true, backdrop: true });
   }
 
-  private pageChanged(event: PageChangedEvent) {
+  pageChanged(event: PageChangedEvent) {
     this.currentPage = event.page;
     const startItem = (event.page - 1) * event.itemsPerPage;
     const endItem = event.page * event.itemsPerPage;

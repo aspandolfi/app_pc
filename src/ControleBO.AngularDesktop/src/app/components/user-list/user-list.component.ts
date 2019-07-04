@@ -19,7 +19,7 @@ export class UserListComponent implements OnInit, OnDestroy {
   private modalRef: BsModalRef;
   private subscription: Subscription;
 
-  private usuarios: Usuario[] = [];
+  usuarios: Usuario[] = [];
 
   constructor(private modalService: BsModalService,
     private toastr: ToastrService,
@@ -85,14 +85,14 @@ export class UserListComponent implements OnInit, OnDestroy {
     this.usuarios[index] = usuario;
   }
 
-  private openModal(usuario: Usuario) {
+  openModal(usuario: Usuario) {
     const initialState = {
       usuario: usuario == undefined ? new Usuario() : usuario
     };
     this.modalRef = this.modalService.show(UserRegisterComponent, { initialState, class: 'modal-dialog-centered', ignoreBackdropClick: true, backdrop: true });
   }
 
-  private openModalExcluir(usuario: Usuario) {
+  openModalExcluir(usuario: Usuario) {
     const initialState = {
       model: usuario,
       uri: 'api/account/',

@@ -29,47 +29,47 @@ import { MovimentacaoService } from '../../services/movimentacao.service';
 })
 export class CadastroProcedimentoControleComponent implements OnInit, AfterViewInit {
 
-  private bsConfig: Partial<BsDatepickerConfig> = { containerClass: 'theme-default' };
+  bsConfig: Partial<BsDatepickerConfig> = { containerClass: 'theme-default' };
 
   private tipoProcedimento: TipoProcedimento;
-  private tipoProcedimentoSelected: string;
+  tipoProcedimentoSelected: string;
   private varaCriminal: VaraCriminal;
-  private varaCriminalSelected: string;
+  varaCriminalSelected: string;
   private comarca: Municipio;
-  private comarcaSelected: string;
+  comarcaSelected: string;
   private artigo: Artigo;
-  private artigoSelected: string;
+  artigoSelected: string;
   private assunto: Assunto;
-  private assuntoSelected: string;
+  assuntoSelected: string;
   private delegacia: UnidadePolicial;
-  private delegaciaSelected: string;
+  delegaciaSelected: string;
 
-  private procedimento: Procedimento = new Procedimento();
+  procedimento: Procedimento = new Procedimento();
 
-  private tiposProcedimento: TipoProcedimento[] = [];
-  private varasCriminais: VaraCriminal[] = [];
-  private municipios: Municipio[] = [];
-  private assuntos: Assunto[] = [];
-  private artigos: Artigo[] = [];
-  private delegacias: UnidadePolicial[] = [];
+  tiposProcedimento: TipoProcedimento[] = [];
+  varasCriminais: VaraCriminal[] = [];
+  municipios: Municipio[] = [];
+  assuntos: Assunto[] = [];
+  artigos: Artigo[] = [];
+  delegacias: UnidadePolicial[] = [];
 
   @Input("procedimentoId")
   procedimentoId: number;
 
-  private isLoading: boolean = false;
-  private isLoadingTipos: boolean = false;
-  private isLoadingComarcas: boolean = false;
-  private isLoadingVaras: boolean = false;
-  private isLoadingArtigos: boolean = false;
-  private isLoadingAssuntos: boolean = false;
-  private isLoadingDelegacias: boolean = false;
+  isLoading: boolean = false;
+  isLoadingTipos: boolean = false;
+  isLoadingComarcas: boolean = false;
+  isLoadingVaras: boolean = false;
+  isLoadingArtigos: boolean = false;
+  isLoadingAssuntos: boolean = false;
+  isLoadingDelegacias: boolean = false;
 
-  private isNoResultProcedimentoTipo: boolean = false;
-  private isNoResultComarca: boolean = false;
-  private isNoResultVaraCriminal: boolean = false;
-  private isNoResultAssunto: boolean = false;
-  private isNoResultArtigo: boolean = false;
-  private isNoResultDelegacia: boolean = false;
+  isNoResultProcedimentoTipo: boolean = false;
+  isNoResultComarca: boolean = false;
+  isNoResultVaraCriminal: boolean = false;
+  isNoResultAssunto: boolean = false;
+  isNoResultArtigo: boolean = false;
+  isNoResultDelegacia: boolean = false;
 
   constructor(private tipoProcedimentoService: TipoProcedimentoService,
     private varaCriminalService: VaraCriminalService,
@@ -233,7 +233,7 @@ export class CadastroProcedimentoControleComponent implements OnInit, AfterViewI
     }, (error) => this.toastr.error(error.message));
   }
 
-  private onSelectTipoProcedimento(event: TypeaheadMatch) {
+  onSelectTipoProcedimento(event: TypeaheadMatch) {
     if (!this.tiposProcedimento.find(x => x.id == event.item.id)) {
       this.isNoResultProcedimentoTipo = true;
       this.tipoProcedimento = undefined;
@@ -243,7 +243,7 @@ export class CadastroProcedimentoControleComponent implements OnInit, AfterViewI
     this.tipoProcedimento = event.item;
   }
 
-  private onSelectComarca(event: TypeaheadMatch) {
+  onSelectComarca(event: TypeaheadMatch) {
     if (!this.municipios.find(x => x.id == event.item.id)) {
       this.isNoResultComarca = true;
       this.comarca = undefined;
@@ -253,7 +253,7 @@ export class CadastroProcedimentoControleComponent implements OnInit, AfterViewI
     this.comarca = event.item;
   }
 
-  private onSelectVaraCriminal(event: TypeaheadMatch) {
+  onSelectVaraCriminal(event: TypeaheadMatch) {
     if (!this.varasCriminais.find(x => x.id == event.item.id)) {
       this.isNoResultVaraCriminal = true;
       this.varaCriminal = undefined;
@@ -263,7 +263,7 @@ export class CadastroProcedimentoControleComponent implements OnInit, AfterViewI
     this.varaCriminal = event.item;
   }
 
-  private onSelectArtigo(event: TypeaheadMatch) {
+  onSelectArtigo(event: TypeaheadMatch) {
     if (!this.artigos.find(x => x.id == event.item.id)) {
       this.isNoResultArtigo = true;
       this.artigo = undefined;
@@ -273,7 +273,7 @@ export class CadastroProcedimentoControleComponent implements OnInit, AfterViewI
     this.artigo = event.item;
   }
 
-  private onSelectAssunto(event: TypeaheadMatch) {
+  onSelectAssunto(event: TypeaheadMatch) {
     if (!this.assuntos.find(x => x.id == event.item.id)) {
       this.isNoResultAssunto = true;
       this.assunto = undefined;
@@ -283,7 +283,7 @@ export class CadastroProcedimentoControleComponent implements OnInit, AfterViewI
     this.assunto = event.item;
   }
 
-  private onSelectDelegacia(event: TypeaheadMatch) {
+  onSelectDelegacia(event: TypeaheadMatch) {
     if (!this.delegacias.find(x => x.id == event.item.id)) {
       this.isNoResultDelegacia = true;
       this.delegacia = undefined;
@@ -297,31 +297,31 @@ export class CadastroProcedimentoControleComponent implements OnInit, AfterViewI
     this.localeService.use('pt-br');
   }
 
-  private tipoProcedimentoNoResults(event: boolean): void {
+  tipoProcedimentoNoResults(event: boolean): void {
     this.isNoResultProcedimentoTipo = event;
   }
 
-  private comarcaNoResults(event: boolean): void {
+  comarcaNoResults(event: boolean): void {
     this.isNoResultComarca = event;
   }
 
-  private varaCriminalNoResults(event: boolean): void {
+  varaCriminalNoResults(event: boolean): void {
     this.isNoResultVaraCriminal = event;
   }
 
-  private artigoNoResults(event: boolean): void {
+  artigoNoResults(event: boolean): void {
     this.isNoResultArtigo = event;
   }
 
-  private assuntoNoResults(event: boolean): void {
+  assuntoNoResults(event: boolean): void {
     this.isNoResultAssunto = event;
   }
 
-  private delegaciaNoResults(event: boolean): void {
+  delegaciaNoResults(event: boolean): void {
     this.isNoResultDelegacia = event;
   }
 
-  private salvar() {
+  salvar() {
 
     if (!this.tipoProcedimento) {
       this.toastr.error('Tipo de Procedimento inválido. Por favor selecione um item válido.');

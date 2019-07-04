@@ -23,8 +23,8 @@ import 'datatables.net-buttons-bs4';
 })
 export class RelacaoProcedimentosComponent implements OnInit {
 
-  private situacoes: Situacao[] = [];
-  private selectedSituacaoId: number;
+  situacoes: Situacao[] = [];
+  selectedSituacaoId: number;
 
   private dt: DataTables.DataTables;
 
@@ -88,7 +88,7 @@ export class RelacaoProcedimentosComponent implements OnInit {
     });
   }
 
-  private onSituacaoChange(event) {
+  onSituacaoChange(event) {
     this.selectedSituacaoId = event.id;
     this.getRelacaoProcedimentos(this.selectedSituacaoId);
   }

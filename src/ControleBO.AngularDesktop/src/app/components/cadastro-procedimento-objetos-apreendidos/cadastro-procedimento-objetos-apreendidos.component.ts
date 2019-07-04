@@ -14,9 +14,9 @@ export class CadastroProcedimentoObjetosApreendidosComponent implements OnInit {
 
   private procedimentoId: number;
 
-  private submitted: boolean = false;
+  submitted: boolean = false;
 
-  private objeto: ObjetoApreendido = { id: 0, descricao: '', procedimentoId: 0 };
+  objeto: ObjetoApreendido = { id: 0, descricao: '', procedimentoId: 0 };
 
   constructor(private route: ActivatedRoute,
     private toastr: ToastrService,
@@ -42,7 +42,7 @@ export class CadastroProcedimentoObjetosApreendidosComponent implements OnInit {
       });
   }
 
-  private salvar() {
+  salvar() {
 
     if (!this.objeto.descricao) {
       this.toastr.warning('O campo Objetos é obrigatório.');

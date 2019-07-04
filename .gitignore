@@ -329,3 +329,4 @@ ASALocalRun/
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
 /deploy
+/src/ControleBO.AngularDesktop/release-builds/controle-procedimentos-pc-win32-ia32

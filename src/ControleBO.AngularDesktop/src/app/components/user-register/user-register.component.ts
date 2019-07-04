@@ -14,8 +14,8 @@ import { Message, Action } from '../../models/message';
 })
 export class UserRegisterComponent implements OnInit, AfterViewInit {
 
-  private submitted: boolean = false;
-  private isCollapsed: boolean = false;
+  submitted: boolean = false;
+  isCollapsed: boolean = false;
 
   usuario: RegisterUsuario = new RegisterUsuario();
 
@@ -33,7 +33,7 @@ export class UserRegisterComponent implements OnInit, AfterViewInit {
     }
   }
 
-  private salvar() {
+  salvar() {
     this.submitted = true;
 
     if (this.usuario.id) {
@@ -64,7 +64,7 @@ export class UserRegisterComponent implements OnInit, AfterViewInit {
     }
   }
 
-  private onChangeAlterarSenha(event: any) {
+  onChangeAlterarSenha(event: any) {
     this.isCollapsed = !event.target.checked;
   }
 

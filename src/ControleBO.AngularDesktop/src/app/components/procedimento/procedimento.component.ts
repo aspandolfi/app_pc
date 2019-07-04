@@ -12,20 +12,20 @@ import { BsDatepickerConfig, BsLocaleService } from 'ngx-bootstrap/datepicker';
 })
 export class ProcedimentoComponent implements OnInit {
 
-  private bsConfig: Partial<BsDatepickerConfig> = { containerClass: 'theme-default' };
+  bsConfig: Partial<BsDatepickerConfig> = { containerClass: 'theme-default' };
 
-  private searchDe: Date;
-  private searchAte: Date;
+  searchDe: Date;
+  searchAte: Date;
 
-  private searchFilter: string = '';
-  private ultimaAtualizacao: string;
-  private returnedProcedimentos: ProcedimentoList[] = [];
-  private procedimentos: ProcedimentoList[] = [];
-  private isLoading: boolean;
-  private isLoadingUltimaAtualizacao: boolean;
+  searchFilter: string = '';
+  ultimaAtualizacao: string;
+  returnedProcedimentos: ProcedimentoList[] = [];
+  procedimentos: ProcedimentoList[] = [];
+  isLoading: boolean;
+  isLoadingUltimaAtualizacao: boolean;
 
-  private pageSize = 10;
-  private currentPage = 1;
+  pageSize = 10;
+  currentPage = 1;
 
   constructor(private procedimentoService: ProcedimentoService,
     private toastr: ToastrService,
@@ -74,24 +74,24 @@ export class ProcedimentoComponent implements OnInit {
     return items;
   }
 
-  private pageChanged(event: PageChangedEvent) {
+  pageChanged(event: PageChangedEvent) {
     this.currentPage = event.page;
     const startItem = (event.page - 1) * event.itemsPerPage;
     const endItem = event.page * event.itemsPerPage;
     this.returnedProcedimentos = this.procedimentos.slice(startItem, endItem);
   }
 
-  private onSearchDeChange(value: Date): void {
+  onSearchDeChange(value: Date): void {
     this.searchDe = value;
     this.searchByDate(this.searchDe, this.searchAte);
   }
 
-  private onSearchAteChange(value: Date): void {
+  onSearchAteChange(value: Date): void {
     this.searchAte = value;
     this.searchByDate(this.searchDe, this.searchAte);
   }
 
-  private searchByDate(de?: Date, ate?: Date) {
+  searchByDate(de?: Date, ate?: Date) {
     if (de && ate) {
       this.returnedProcedimentos = this.procedimentos.filter(x => x.dataInsercao >= de && x.dataInsercao <= ate);
     }
@@ -106,7 +106,7 @@ export class ProcedimentoComponent implements OnInit {
     }
   }
 
-  private limparFiltros() {
+  limparFiltros() {
     this.searchFilter = '';
     this.searchDe = null;
     this.searchAte = null;

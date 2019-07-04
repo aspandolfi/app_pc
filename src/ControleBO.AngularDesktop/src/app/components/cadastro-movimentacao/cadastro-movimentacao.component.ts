@@ -13,7 +13,7 @@ import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker/public_api';
 })
 export class CadastroMovimentacaoComponent implements OnInit {
 
-  private bsConfig: Partial<BsDatepickerConfig> = { containerClass: 'theme-default' };
+  bsConfig: Partial<BsDatepickerConfig> = { containerClass: 'theme-default' };
 
   model: Movimentacao;
 
@@ -26,7 +26,7 @@ export class CadastroMovimentacaoComponent implements OnInit {
   ngOnInit() {
   }
 
-  private save() {
+  save() {
     this.submitted = true;
 
     if (this.model.id) {

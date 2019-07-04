@@ -23,16 +23,16 @@ export class CadastroProcedimentoVitimasAutoresComponent implements OnInit, OnDe
 
   private procedimentoId: any;
 
-  private isLoadingVitimas: boolean;
-  private isLoadingIndiciados: boolean;
+  isLoadingVitimas: boolean;
+  isLoadingIndiciados: boolean;
 
-  private vitimas: Vitima[] = [];
-  private indiciados: Indiciado[] = [];
-  private pageSize = 4;
-  private currentPageVitimas = 1;
-  private currentPageIndiciados = 1;
-  private returnedVitimas: Vitima[] = [];
-  private returnedIndiciados: Indiciado[] = [];
+  vitimas: Vitima[] = [];
+  indiciados: Indiciado[] = [];
+  pageSize = 4;
+  currentPageVitimas = 1;
+  currentPageIndiciados = 1;
+  returnedVitimas: Vitima[] = [];
+  returnedIndiciados: Indiciado[] = [];
 
   private subscription: Subscription;
 
@@ -131,7 +131,7 @@ export class CadastroProcedimentoVitimasAutoresComponent implements OnInit, OnDe
     }
   }
 
-  private openModal(event, model: any) {
+  openModal(event, model: any) {
     const config = {
       initialState: {
         model: null
@@ -151,7 +151,7 @@ export class CadastroProcedimentoVitimasAutoresComponent implements OnInit, OnDe
     }
   }
 
-  private openModalExcluir(event, model: any) {
+  openModalExcluir(event, model: any) {
     const config = {
       initialState: {
         model: model,
@@ -170,14 +170,14 @@ export class CadastroProcedimentoVitimasAutoresComponent implements OnInit, OnDe
     this.modalRef = this.modalService.show(ConfirmarExclusaoComponent, config);
   }
 
-  private pageVitimasChanged(event: PageChangedEvent) {
+  pageVitimasChanged(event: PageChangedEvent) {
     this.currentPageVitimas = event.page;
     const startItem = (event.page - 1) * event.itemsPerPage;
     const endItem = event.page * event.itemsPerPage;
     this.returnedVitimas = this.vitimas.slice(startItem, endItem);
   }
 
-  private pageIndiciadosChanged(event: PageChangedEvent) {
+  pageIndiciadosChanged(event: PageChangedEvent) {
     this.currentPageIndiciados = event.page;
     const startItem = (event.page - 1) * event.itemsPerPage;
     const endItem = event.page * event.itemsPerPage;

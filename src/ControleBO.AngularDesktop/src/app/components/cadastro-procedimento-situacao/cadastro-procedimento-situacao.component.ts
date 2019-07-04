@@ -23,22 +23,22 @@ import { Result } from '../../models/result';
 })
 export class CadastroProcedimentoSituacaoComponent implements OnInit, OnDestroy {
 
-  private bsConfig: Partial<BsDatepickerConfig> = { containerClass: 'theme-default' };
+  bsConfig: Partial<BsDatepickerConfig> = { containerClass: 'theme-default' };
 
   private procedimentoId: number;
 
-  private isLoadingSituacaoProcedimento: boolean;
-  private isLoadingSituacoes: boolean;
-  private isLoadingMovimentacoes: boolean;
+  isLoadingSituacaoProcedimento: boolean;
+  isLoadingSituacoes: boolean;
+  isLoadingMovimentacoes: boolean;
 
-  private observacao: string = '';
+  observacao: string = '';
 
-  private situacao: Situacao = { id: 1 };
-  private situacoes: Situacao[] = [];
-  private movimentacoes: Movimentacao[] = [];
-  private situacaoProcedimento: SituacaoProcedimento = { id: 0, observacao: this.observacao, procedimentoId: this.procedimentoId, situacaoId: this.situacao.id, DataRelatorio: null };
-  private tipoSituacao: TipoSituacao;
-  private indiciamentos = [
+  situacao: Situacao = { id: 1 };
+  situacoes: Situacao[] = [];
+  movimentacoes: Movimentacao[] = [];
+  situacaoProcedimento: SituacaoProcedimento = { id: 0, observacao: this.observacao, procedimentoId: this.procedimentoId, situacaoId: this.situacao.id, DataRelatorio: null };
+  tipoSituacao: TipoSituacao;
+  indiciamentos = [
     {
       id: 1, descricao: 'Com indiciamento'
     },
@@ -46,11 +46,11 @@ export class CadastroProcedimentoSituacaoComponent implements OnInit, OnDestroy 
       id: 2, descricao: 'Sem indiciamento'
     }
   ];
-  private dataRelatorio: Date = new Date();
+  dataRelatorio: Date = new Date();
 
-  private selectedSituacaoId: number;
-  private selectedTipoSituacaoId: number = 0;
-  private selectedIndiciamentoId: number = 1;
+  selectedSituacaoId: number;
+  selectedTipoSituacaoId: number = 0;
+  selectedIndiciamentoId: number = 1;
 
   private modalRef: BsModalRef;
   private subscription: Subscription;
@@ -138,15 +138,15 @@ export class CadastroProcedimentoSituacaoComponent implements OnInit, OnDestroy 
       });
   }
 
-  private onSituacaoChange(event) {
+  onSituacaoChange(event) {
     this.situacao = event;
   }
 
-  private onTipoSituacaoChange(event) {
+  onTipoSituacaoChange(event) {
     this.tipoSituacao = event;
   }
 
-  private salvar() {
+  salvar() {
 
     this.situacaoProcedimento.procedimentoId = this.procedimentoId;
     this.situacaoProcedimento.situacaoTipoId = null;
@@ -211,7 +211,7 @@ export class CadastroProcedimentoSituacaoComponent implements OnInit, OnDestroy 
 
   }
 
-  private openModalMovimentacao(movimentacao: Movimentacao) {
+  openModalMovimentacao(movimentacao: Movimentacao) {
     const initialState = {
       model: movimentacao == undefined ? new Movimentacao(this.procedimentoId) : movimentacao
     };

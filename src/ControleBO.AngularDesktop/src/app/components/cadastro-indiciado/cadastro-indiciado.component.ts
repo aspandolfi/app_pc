@@ -19,13 +19,13 @@ export class CadastroIndiciadoComponent implements OnInit {
 
   model: Indiciado;
 
-  private submitted = false;
-  private isLoadingMunicipios = false;
-  private isNoResultNaturalidade = false;
+  submitted = false;
+  isLoadingMunicipios = false;
+  isNoResultNaturalidade = false;
 
-  private municipios: Municipio[] = [];
-  private naturalidade: Municipio;
-  private naturalidadeSelected: string;
+  municipios: Municipio[] = [];
+  naturalidade: Municipio;
+  naturalidadeSelected: string;
 
 
   constructor(public modalRef: BsModalRef,
@@ -53,7 +53,7 @@ export class CadastroIndiciadoComponent implements OnInit {
     });
   }
 
-  private onSelectNaturalidade(event: TypeaheadMatch) {
+  onSelectNaturalidade(event: TypeaheadMatch) {
     if (!this.municipios.find(x => x.id == event.item.id)) {
       this.isNoResultNaturalidade = true;
       this.naturalidade = null;
@@ -63,11 +63,11 @@ export class CadastroIndiciadoComponent implements OnInit {
     this.naturalidade = event.item;
   }
 
-  private naturalidadeNoResults(event: boolean): void {
+  naturalidadeNoResults(event: boolean): void {
     this.isNoResultNaturalidade = event;
   }
 
-  private save() {
+  save() {
     this.submitted = true;
 
     if (this.model.id) {

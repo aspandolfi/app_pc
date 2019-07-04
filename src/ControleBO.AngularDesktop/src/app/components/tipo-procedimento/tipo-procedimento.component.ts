@@ -19,14 +19,14 @@ export class TipoProcedimentoComponent implements OnInit, OnDestroy {
 
   private modalRef: BsModalRef;
   private subscription: Subscription;
-  private isLoadingUltimaAtualizacao: boolean = false;
-  private ultimaAtualizacao: string;
+  isLoadingUltimaAtualizacao: boolean = false;
+  ultimaAtualizacao: string;
 
-  private tipos: TipoProcedimento[] = [];
-  private returnedTipos: TipoProcedimento[] = [];
+  tipos: TipoProcedimento[] = [];
+  returnedTipos: TipoProcedimento[] = [];
 
-  private pageSize = 10;
-  private currentPage = 1;
+  pageSize = 10;
+  currentPage = 1;
 
   constructor(private modalService: BsModalService,
     private toastr: ToastrService,
@@ -104,14 +104,14 @@ export class TipoProcedimentoComponent implements OnInit, OnDestroy {
     this.tipos[index] = tipoProcedimento;
   }
 
-  private openModal(tipoProcedimento: TipoProcedimento) {
+  openModal(tipoProcedimento: TipoProcedimento) {
     const initialState = {
       tipoProcedimento: tipoProcedimento == undefined ? new TipoProcedimento() : tipoProcedimento
     };
     this.modalRef = this.modalService.show(CadastroTipoProcedimentoComponent, { initialState, class: 'modal-lg modal-dialog-centered', ignoreBackdropClick: true, backdrop: true });
   }
 
-  private openModalExcluir(tipoProcedimento: TipoProcedimento) {
+  openModalExcluir(tipoProcedimento: TipoProcedimento) {
     const initialState = {
       model: tipoProcedimento,
       uri: 'api/tipo-procedimento/'
@@ -119,7 +119,7 @@ export class TipoProcedimentoComponent implements OnInit, OnDestroy {
     this.modalRef = this.modalService.show(ConfirmarExclusaoComponent, { initialState, class: 'modal-dialog-centered', ignoreBackdropClick: true, backdrop: true });
   }
 
-  private pageChanged(event: PageChangedEvent) {
+  pageChanged(event: PageChangedEvent) {
     this.currentPage = event.page;
     const startItem = (event.page - 1) * event.itemsPerPage;
     const endItem = event.page * event.itemsPerPage;

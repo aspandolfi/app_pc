@@ -16,7 +16,7 @@ export class CadastroUnidadePolicialComponent implements OnInit {
 
   unidadePolicial: UnidadePolicial;
 
-  private submitted = false;
+  submitted = false;
 
   constructor(public modalRef: BsModalRef,
     private unidadePolicialService: UnidadePolicialService,
@@ -26,7 +26,7 @@ export class CadastroUnidadePolicialComponent implements OnInit {
   ngOnInit() {
   }
 
-  private save() {
+  save() {
     this.submitted = true;
 
     if (this.unidadePolicial.id) {

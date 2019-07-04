@@ -16,10 +16,10 @@ import { AuthenticationService } from '../../services/authentication.service';
 })
 export class LoginComponent implements OnInit {
 
-  private login: Login = { email: '', password: '', rememberMe: false };
-  private message: string = '';
+  login: Login = { email: '', password: '', rememberMe: false };
+  message: string = '';
 
-  private submitted: boolean = false;
+  submitted: boolean = false;
 
   constructor(public modalRef: BsModalRef,
     private authService: AuthService,
@@ -32,11 +32,11 @@ export class LoginComponent implements OnInit {
     $('app-sidebar').hide();
   }
 
-  private onKeyEnter(event: any) {
+  onKeyEnter(event: any) {
     this.doLogin();
   }
 
-  private doLogin() {
+  doLogin() {
 
     this.message = '';
 

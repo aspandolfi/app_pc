@@ -48,7 +48,17 @@ export class EstatisticaAssuntoComponent implements OnInit {
             { className: 'dt-body-center', targets: '_all' }
           ],
           buttons: [
-            'pdf'
+            {
+              extend: 'pdf',
+              extension: '.pdf',
+              text: 'Exportar para PDF',
+              title: 'Controle de Procedimentos Criminais - Estatística por Assunto',
+              filename: 'Estatistica por assunto.pdf',
+              pageSize: 'A4',
+              customize: function (doc) {
+                doc.content[1].table.widths = Array(doc.content[1].table.body[0].length + 1).join('*').split('');
+              }
+            }
           ],
           dom: 'Bfrtip',
           language: {

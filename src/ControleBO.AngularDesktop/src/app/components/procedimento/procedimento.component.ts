@@ -8,7 +8,7 @@ import { BsDatepickerConfig, BsLocaleService } from 'ngx-bootstrap/datepicker';
 @Component({
   selector: 'app-procedimento',
   templateUrl: './procedimento.component.html',
-  styleUrls: ['./procedimento.component.css']
+  styleUrls: ['./procedimento.component.scss']
 })
 export class ProcedimentoComponent implements OnInit {
 

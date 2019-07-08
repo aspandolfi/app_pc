@@ -10,7 +10,7 @@ import { Result } from '../../models/result';
 @Component({
   selector: 'app-cadastro-assunto',
   templateUrl: './cadastro-assunto.component.html',
-  styleUrls: ['./cadastro-assunto.component.css']
+  styleUrls: ['./cadastro-assunto.component.scss']
 })
 export class CadastroAssuntoComponent implements OnInit {
 

@@ -13,7 +13,7 @@ import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 @Component({
   selector: 'app-artigo',
   templateUrl: './artigo.component.html',
-  styleUrls: ['./artigo.component.css']
+  styleUrls: ['./artigo.component.scss']
 })
 export class ArtigoComponent implements OnInit, OnDestroy {
 

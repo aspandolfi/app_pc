@@ -33,6 +33,6 @@ export class FileService {
       console.log(path);
 
     }
-    return { apiUrl: "http://localhost:51694/" };
+    return { apiUrl: '' };
   }
 }

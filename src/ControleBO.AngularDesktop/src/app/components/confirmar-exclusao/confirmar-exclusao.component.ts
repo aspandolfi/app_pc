@@ -7,7 +7,7 @@ import { Message, Action } from 'src/app/models/message';
 @Component({
   selector: 'app-confirmar-exclusao',
   templateUrl: './confirmar-exclusao.component.html',
-  styleUrls: ['./confirmar-exclusao.component.css']
+  styleUrls: ['./confirmar-exclusao.component.scss']
 })
 export class ConfirmarExclusaoComponent implements OnInit {
 

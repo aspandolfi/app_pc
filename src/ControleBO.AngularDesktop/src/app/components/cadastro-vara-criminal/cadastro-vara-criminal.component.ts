@@ -10,7 +10,7 @@ import { Result } from '../../models/result';
 @Component({
   selector: 'app-cadastro-vara-criminal',
   templateUrl: './cadastro-vara-criminal.component.html',
-  styleUrls: ['./cadastro-vara-criminal.component.css']
+  styleUrls: ['./cadastro-vara-criminal.component.scss']
 })
 export class CadastroVaraCriminalComponent implements OnInit {
 

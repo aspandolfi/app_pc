@@ -17,7 +17,7 @@ import 'datatables.net-buttons-bs4';
 @Component({
   selector: 'app-relacao-indiciados',
   templateUrl: './relacao-indiciados.component.html',
-  styleUrls: ['./relacao-indiciados.component.css']
+  styleUrls: ['./relacao-indiciados.component.scss']
 })
 export class RelacaoIndiciadosComponent implements OnInit {
 

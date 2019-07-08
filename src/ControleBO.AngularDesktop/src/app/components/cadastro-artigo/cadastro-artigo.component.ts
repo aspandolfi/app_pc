@@ -10,7 +10,7 @@ import { Action, Message } from '../../models/message';
 @Component({
   selector: 'app-cadastro-artigo',
   templateUrl: './cadastro-artigo.component.html',
-  styleUrls: ['./cadastro-artigo.component.css']
+  styleUrls: ['./cadastro-artigo.component.scss']
 })
 export class CadastroArtigoComponent implements OnInit {
 

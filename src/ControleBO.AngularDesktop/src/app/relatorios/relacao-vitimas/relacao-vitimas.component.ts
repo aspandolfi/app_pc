@@ -17,7 +17,7 @@ import 'datatables.net-buttons-bs4';
 @Component({
   selector: 'app-relacao-vitimas',
   templateUrl: './relacao-vitimas.component.html',
-  styleUrls: ['./relacao-vitimas.component.css']
+  styleUrls: ['./relacao-vitimas.component.scss']
 })
 export class RelacaoVitimasComponent implements OnInit {
 

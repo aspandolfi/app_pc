@@ -4,7 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-cadastro-procedimento',
   templateUrl: './cadastro-procedimento.component.html',
-  styleUrls: ['./cadastro-procedimento.component.css']
+  styleUrls: ['./cadastro-procedimento.component.scss']
 })
 export class CadastroProcedimentoComponent implements OnInit, AfterViewInit {
 

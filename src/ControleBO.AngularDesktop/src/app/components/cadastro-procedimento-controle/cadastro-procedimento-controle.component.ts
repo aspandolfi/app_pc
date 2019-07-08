@@ -25,7 +25,7 @@ import { MovimentacaoService } from '../../services/movimentacao.service';
 @Component({
   selector: 'app-cadastro-procedimento-controle',
   templateUrl: './cadastro-procedimento-controle.component.html',
-  styleUrls: ['./cadastro-procedimento-controle.component.css']
+  styleUrls: ['./cadastro-procedimento-controle.component.scss']
 })
 export class CadastroProcedimentoControleComponent implements OnInit, AfterViewInit {
 

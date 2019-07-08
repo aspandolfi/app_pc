@@ -13,7 +13,7 @@ import { MessageService } from 'src/app/services/message.service';
 @Component({
   selector: 'app-cadastro-indiciado',
   templateUrl: './cadastro-indiciado.component.html',
-  styleUrls: ['./cadastro-indiciado.component.css']
+  styleUrls: ['./cadastro-indiciado.component.scss']
 })
 export class CadastroIndiciadoComponent implements OnInit {
 

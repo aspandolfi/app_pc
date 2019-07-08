@@ -7,7 +7,7 @@ import { CadastroMovimentacaoComponent } from '../cadastro-movimentacao/cadastro
 @Component({
   selector: 'app-ultima-movimentacao',
   templateUrl: './ultima-movimentacao.component.html',
-  styleUrls: ['./ultima-movimentacao.component.css']
+  styleUrls: ['./ultima-movimentacao.component.scss']
 })
 export class UltimaMovimentacaoComponent implements OnInit {
 

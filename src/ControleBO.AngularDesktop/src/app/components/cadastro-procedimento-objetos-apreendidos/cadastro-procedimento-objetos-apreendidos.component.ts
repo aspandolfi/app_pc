@@ -8,7 +8,7 @@ import { Result } from '../../models/result';
 @Component({
   selector: 'app-cadastro-procedimento-objetos-apreendidos',
   templateUrl: './cadastro-procedimento-objetos-apreendidos.component.html',
-  styleUrls: ['./cadastro-procedimento-objetos-apreendidos.component.css']
+  styleUrls: ['./cadastro-procedimento-objetos-apreendidos.component.scss']
 })
 export class CadastroProcedimentoObjetosApreendidosComponent implements OnInit {
 

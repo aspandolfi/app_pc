@@ -11,5 +11,9 @@ nav > div > a > img {
 nav {
   background-color: #eee;
   border: 1px solid rgba(0, 0, 0, 0.125);
-  /*opacity: 1;*/
+  font-size: 1rem;
+}
+
+.navbar-brand {
+  font-size: 1rem;
 }

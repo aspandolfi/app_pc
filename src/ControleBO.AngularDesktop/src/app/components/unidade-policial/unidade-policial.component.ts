@@ -13,7 +13,7 @@ import { CadastroUnidadePolicialComponent } from '../cadastro-unidade-policial/c
 @Component({
   selector: 'app-unidade-policial',
   templateUrl: './unidade-policial.component.html',
-  styleUrls: ['./unidade-policial.component.css']
+  styleUrls: ['./unidade-policial.component.scss']
 })
 export class UnidadePolicialComponent implements OnInit {
 

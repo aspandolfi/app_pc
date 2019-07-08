@@ -7,7 +7,7 @@ import { TabsMessageService } from 'src/app/services/tabs-message.service';
 @Component({
   selector: 'app-tabs-cadastro-procedimento',
   templateUrl: './tabs-cadastro-procedimento.component.html',
-  styleUrls: ['./tabs-cadastro-procedimento.component.css']
+  styleUrls: ['./tabs-cadastro-procedimento.component.scss']
 })
 export class TabsCadastroProcedimentoComponent implements OnInit, AfterViewInit, OnDestroy {
 

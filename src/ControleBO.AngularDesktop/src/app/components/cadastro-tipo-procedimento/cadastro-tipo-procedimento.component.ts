@@ -8,7 +8,7 @@ import { Message, Action } from 'src/app/models/message';
 @Component({
   selector: 'app-cadastro-tipo-procedimento',
   templateUrl: './cadastro-tipo-procedimento.component.html',
-  styleUrls: ['./cadastro-tipo-procedimento.component.css']
+  styleUrls: ['./cadastro-tipo-procedimento.component.scss']
 })
 export class CadastroTipoProcedimentoComponent implements OnInit {
 

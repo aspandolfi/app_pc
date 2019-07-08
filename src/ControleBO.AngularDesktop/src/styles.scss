@@ -1,5 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
-@import 'bootstrap';
+/*@import 'bootstrap';*/
+@import 'custom-bootstrap.scss';
+@import "node_modules/bootstrap/scss/bootstrap";
 @import 'assets/css/sb-admin.min.css';
 @import '~ngx-toastr/toastr.css';
 @import 'assets/forms.css';
@@ -10,6 +12,10 @@
 body {
   padding-top: 65px;
 }
+
+/*input, button, a, table, span, form, div, textarea {
+  font-size: 12px !important
+}*/
 
 #content-wrapper {
   /*overflow-y: scroll;*/

@@ -13,7 +13,7 @@ import { PageChangedEvent } from 'ngx-bootstrap/pagination/public_api';
 @Component({
   selector: 'app-municipio',
   templateUrl: './municipio.component.html',
-  styleUrls: ['./municipio.component.css']
+  styleUrls: ['./municipio.component.scss']
 })
 export class MunicipioComponent implements OnInit, OnDestroy, AfterViewInit {
 

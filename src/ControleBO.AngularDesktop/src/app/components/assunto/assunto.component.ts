@@ -13,7 +13,7 @@ import { CadastroAssuntoComponent } from '../cadastro-assunto/cadastro-assunto.c
 @Component({
   selector: 'app-assunto',
   templateUrl: './assunto.component.html',
-  styleUrls: ['./assunto.component.css']
+  styleUrls: ['./assunto.component.scss']
 })
 export class AssuntoComponent implements OnInit, OnDestroy {
 

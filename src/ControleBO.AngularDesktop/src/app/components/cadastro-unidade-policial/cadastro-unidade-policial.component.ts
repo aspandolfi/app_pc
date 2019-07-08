@@ -10,7 +10,7 @@ import { Result } from '../../models/result';
 @Component({
   selector: 'app-cadastro-unidade-policial',
   templateUrl: './cadastro-unidade-policial.component.html',
-  styleUrls: ['./cadastro-unidade-policial.component.css']
+  styleUrls: ['./cadastro-unidade-policial.component.scss']
 })
 export class CadastroUnidadePolicialComponent implements OnInit {
 

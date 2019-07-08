@@ -19,7 +19,7 @@ import { Result } from '../../models/result';
 @Component({
   selector: 'app-cadastro-procedimento-situacao',
   templateUrl: './cadastro-procedimento-situacao.component.html',
-  styleUrls: ['./cadastro-procedimento-situacao.component.css']
+  styleUrls: ['./cadastro-procedimento-situacao.component.scss']
 })
 export class CadastroProcedimentoSituacaoComponent implements OnInit, OnDestroy {
 

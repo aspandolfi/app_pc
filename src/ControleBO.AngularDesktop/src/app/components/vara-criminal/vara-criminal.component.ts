@@ -13,7 +13,7 @@ import { CadastroVaraCriminalComponent } from '../cadastro-vara-criminal/cadastr
 @Component({
   selector: 'app-vara-criminal',
   templateUrl: './vara-criminal.component.html',
-  styleUrls: ['./vara-criminal.component.css']
+  styleUrls: ['./vara-criminal.component.scss']
 })
 export class VaraCriminalComponent implements OnInit {
 

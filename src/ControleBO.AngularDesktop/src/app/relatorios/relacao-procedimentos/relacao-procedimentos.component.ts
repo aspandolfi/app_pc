@@ -19,7 +19,7 @@ import 'datatables.net-buttons-bs4';
 @Component({
   selector: 'app-relacao-procedimentos',
   templateUrl: './relacao-procedimentos.component.html',
-  styleUrls: ['./relacao-procedimentos.component.css']
+  styleUrls: ['./relacao-procedimentos.component.scss']
 })
 export class RelacaoProcedimentosComponent implements OnInit {
 

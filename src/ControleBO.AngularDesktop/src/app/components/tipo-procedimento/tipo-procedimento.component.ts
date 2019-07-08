@@ -13,7 +13,7 @@ import { PageChangedEvent } from 'ngx-bootstrap/pagination/public_api';
 @Component({
   selector: 'app-tipo-procedimento',
   templateUrl: './tipo-procedimento.component.html',
-  styleUrls: ['./tipo-procedimento.component.css']
+  styleUrls: ['./tipo-procedimento.component.scss']
 })
 export class TipoProcedimentoComponent implements OnInit, OnDestroy {
 

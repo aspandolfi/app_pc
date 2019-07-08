@@ -9,7 +9,7 @@ import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker/public_api';
 @Component({
   selector: 'app-cadastro-movimentacao',
   templateUrl: './cadastro-movimentacao.component.html',
-  styleUrls: ['./cadastro-movimentacao.component.css']
+  styleUrls: ['./cadastro-movimentacao.component.scss']
 })
 export class CadastroMovimentacaoComponent implements OnInit {
 

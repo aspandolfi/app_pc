@@ -1,3 +1,5 @@
 {
-  "apiUrl": "https://app-pc.azurewebsites.net/controle-bo/"
+  "apiUrl": "http://localhost:51694/",
+  "apiUrlPrd": "https://app-pc.azurewebsites.net/controle-bo/"
+
 }

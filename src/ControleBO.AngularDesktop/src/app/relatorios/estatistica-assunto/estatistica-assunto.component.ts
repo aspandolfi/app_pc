@@ -17,7 +17,7 @@ import { Result } from '../../models/result';
 @Component({
   selector: 'app-estatistica-assunto',
   templateUrl: './estatistica-assunto.component.html',
-  styleUrls: ['./estatistica-assunto.component.css']
+  styleUrls: ['./estatistica-assunto.component.scss']
 })
 export class EstatisticaAssuntoComponent implements OnInit {
 

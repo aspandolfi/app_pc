@@ -13,7 +13,7 @@ import { Result } from 'src/app/models/result';
 @Component({
   selector: 'app-cadastro-vitima',
   templateUrl: './cadastro-vitima.component.html',
-  styleUrls: ['./cadastro-vitima.component.css']
+  styleUrls: ['./cadastro-vitima.component.scss']
 })
 export class CadastroVitimaComponent implements OnInit {
 

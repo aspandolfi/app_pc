@@ -10,7 +10,7 @@ import { Result } from '../../models/result';
 @Component({
   selector: 'app-cadastro-municipio',
   templateUrl: './cadastro-municipio.component.html',
-  styleUrls: ['./cadastro-municipio.component.css']
+  styleUrls: ['./cadastro-municipio.component.scss']
 })
 export class CadastroMunicipioComponent implements OnInit {
 

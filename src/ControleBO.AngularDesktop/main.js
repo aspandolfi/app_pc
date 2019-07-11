@@ -1,7 +1,8 @@
-const { app, BrowserWindow, globalShortcut } = require('electron');
-const { readFileSync } = require('fs');
-const { path } = require('path');
+const { app, BrowserWindow, dialog } = require('electron');
+const { autoUpdater } = require("electron-updater");
 
+let updater;
+autoUpdater.autoDownload = false;
 let win;
 function createWindow() {
   // Create the browser window.
@@ -18,6 +19,37 @@ function createWindow() {
     win = null
   });
 };
+
+autoUpdater.on('error', (error) => {
+  dialog.showErrorBox('Erro: ', error == null ? "Desconhecido" : (error.stack || error).toString())
+});
+
+autoUpdater.on('update-available', () => {
+  dialog.showMessageBox({
+    type: 'info',
+    title: 'Atualizações encontradas',
+    message: 'Foram encontradas novas atualizações, você deseja atualizar agora?',
+    buttons: ['Sim', 'Não']
+  }, (buttonIndex) => {
+    if (buttonIndex === 0) {
+      autoUpdater.downloadUpdate()
+    }
+    else {
+      updater.enabled = true
+      updater = null
+    }
+  })
+});
+
+autoUpdater.on('update-downloaded', () => {
+  dialog.showMessageBox({
+    title: 'Instalando atualizações',
+    message: 'Atualizações baixadas, a aplicação irá fechar para atualizar...'
+  }, () => {
+    setImmediate(() => autoUpdater.quitAndInstall())
+  })
+});
+
 // This method will be called when Electron has finished   
 // initialization and is ready to create browser windows.   
 // Some APIs can only be used after this event occurs.   

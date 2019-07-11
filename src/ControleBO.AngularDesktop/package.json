@@ -3,6 +3,28 @@
   "version": "1.0.0",
   "main": "main.js",
   "author": "André Serafim Pandolfi",
+  "build": {
+    "appId": "AndrePandolfi.ControleProcedimentosCriminais",
+    "productName": "Controle de Procedimentos Criminais",
+    "copyright": "Copyright © 2019 André Serafim Pandolfi ",
+    "files": [ "**/*", "build/favicon.ico" ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "ia32"
+          ]
+        }
+      ],
+      "icon": "build/src/favicon.ico"
+    },
+    "publish": {
+      "provider": "github",
+      "owner": "aspandolfi",
+      "repo": "app_pc"
+    }
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -13,7 +35,8 @@
     "e2e": "ng e2e",
     "electron-build": "ng build --prod",
     "electron": "electron .",
-    "package-win": "electron-packager . controle-procedimentos-pc --overwrite --asar=true --platform=win32 --arch=ia32 --icon=src/favicon.ico --prune=true --out=release-builds --version-string.CompanyName=ASP --version-string.FileDescription=ASP"
+    "package-win": "electron-packager . controle-procedimentos-pc --overwrite --asar=true --platform=win32 --arch=ia32 --icon=src/favicon.ico --prune=true --out=release-builds --version-string.CompanyName=ASP --version-string.FileDescription=ASP",
+    "publish": "build -p always"
   },
   "private": true,
   "dependencies": {
@@ -36,6 +59,7 @@
     "datatables.net-buttons": "^1.5.6",
     "datatables.net-buttons-bs4": "^1.5.6",
     "datatables.net-rowgroup-bs4": "^1.1.0",
+    "electron-updater": "^4.0.14",
     "jquery": "^3.3.1",
     "ngx-bootstrap": "^3.2.0",
     "ngx-electron": "^2.1.1",
@@ -59,6 +83,7 @@
     "@types/jquery": "^3.3.29",
     "codelyzer": "~4.5.0",
     "electron": "^4.2.5",
+    "electron-builder": "^20.44.4",
     "electron-packager": "^14.0.1",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",

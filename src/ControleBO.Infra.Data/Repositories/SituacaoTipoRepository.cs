@@ -15,7 +15,9 @@ namespace ControleBO.Infra.Data.Repositories
         public override bool Exists(params object[] paramsToSearch)
         {
             string str = paramsToSearch[0] as string;
-            return DbSet.Any(x => EF.Functions.Like(str, x.Descricao));
+            int? situacaoId = paramsToSearch[1] as int?;
+
+            return DbSet.Any(x => EF.Functions.Like(str, x.Descricao) && x.SituacaoId == situacaoId);
         }
     }
 }

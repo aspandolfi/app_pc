@@ -5,7 +5,7 @@ using ControleBO.Domain.Interfaces;
 using ControleBO.Domain.Interfaces.Repositories;
 using ControleBO.Domain.Models;
 using MediatR;
-using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -18,9 +18,11 @@ namespace ControleBO.Domain.CommandHandler
     {
         private readonly ISituacaoTipoRepository _situacaoTipoRepository;
         private readonly ISituacaoRepository _situacaoRepository;
+        private readonly ISituacaoProcedimentoRepository _situacaoProcedimentoRepository;
 
         public SituacaoTipoCommandHandler(ISituacaoTipoRepository situacaoTipoRepository,
                                           ISituacaoRepository situacaoRepository,
+                                          ISituacaoProcedimentoRepository situacaoProcedimentoRepository,
                                           IUnitOfWork uow,
                                           IMediatorHandler bus,
                                           INotificationHandler<DomainNotification> notifications)
@@ -28,6 +30,7 @@ namespace ControleBO.Domain.CommandHandler
         {
             _situacaoTipoRepository = situacaoTipoRepository;
             _situacaoRepository = situacaoRepository;
+            _situacaoProcedimentoRepository = situacaoProcedimentoRepository;
         }
 
         public Task<int> Handle(RegisterNewSituacaoTipoCommand request, CancellationToken cancellationToken)
@@ -108,7 +111,34 @@ namespace ControleBO.Domain.CommandHandler
 
         public Task<int> Handle(RemoveSituacaoTipoCommand request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            if (!request.IsValid())
+            {
+                NotifyValidationErrors(request);
+                return Task.FromResult(0);
+            }
+
+            var existingTipoSituacao = _situacaoTipoRepository.GetById(request.Id);
+
+            if (existingTipoSituacao == null)
+            {
+                Bus.RaiseEvent(new DomainNotification(request.MessageType, "O Tipo de Situação não foi encontrado."));
+                return Task.FromResult(0);
+            }
+
+            if (_situacaoProcedimentoRepository.GetAll().Any(x => x.SituacaoTipoId == existingTipoSituacao.Id))
+            {
+                Bus.RaiseEvent(new DomainNotification(request.MessageType, "Existem procedimentos associados a este tipo. Por favor verifique-os antes de remover este tipo."));
+                return Task.FromResult(0);
+            }
+
+            _situacaoTipoRepository.Remove(existingTipoSituacao.Id);
+
+            if (Commit())
+            {
+                // TO DO
+            }
+
+            return Task.FromResult(request.Id);
         }
     }
 }

@@ -1,42 +1,90 @@
-﻿using System.Collections.Generic;
+﻿using System.Threading.Tasks;
+using ControleBO.Application.Interfaces;
+using ControleBO.Application.ViewModels;
+using ControleBO.Domain.Core.Bus;
+using ControleBO.Domain.Core.Notifications;
+using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ControleBO.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/tipo-situacao")]
+    [Produces("application/json")]
+    [Authorize("Bearer")]
     [ApiController]
-    public class TipoSituacaoController : ControllerBase
+    public class TipoSituacaoController : ApiController
     {
-        // GET: api/TipoSituacao
+        private readonly ISituacaoTipoAppService _situacaoTipoAppService;
+
+        public TipoSituacaoController(ISituacaoTipoAppService situacaoTipoAppService,
+                                      INotificationHandler<DomainNotification> notifications,
+                                      IMediatorHandler mediator)
+            : base(notifications, mediator)
+        {
+            _situacaoTipoAppService = situacaoTipoAppService;
+        }
+
+        // GET: api/situacao-tipo
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IActionResult Get()
         {
-            return new string[] { "value1", "value2" };
+            return Response(_situacaoTipoAppService.GetAll());
         }
 
-        // GET: api/TipoSituacao/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        // GET: api/situacao-tipo/5
+        [HttpGet("{id}")]
+        public IActionResult Get(int id)
         {
-            return "value";
+            return Response(_situacaoTipoAppService.GetById(id));
         }
 
-        // POST: api/TipoSituacao
+        // POST: api/situacao-tipo
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<IActionResult> Post([FromBody] SituacaoTipoViewModel situacaoTipoVm)
         {
+            var taskRegister = _situacaoTipoAppService.Register(situacaoTipoVm);
+
+            if (!IsValidOperation())
+            {
+                return Response(situacaoTipoVm, "Falha ao salvar o tipo.");
+            }
+
+            return Response(await taskRegister, "O Tipo foi salvo com sucesso!");
         }
 
-        // PUT: api/TipoSituacao/5
+        // PUT: api/situacao-tipo/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public IActionResult Put(int id, [FromBody] SituacaoTipoViewModel situacaoTipoVm)
         {
+            _situacaoTipoAppService.Update(situacaoTipoVm);
+
+            if (!IsValidOperation())
+            {
+                return Response(situacaoTipoVm, "Falha ao salvar o tipo.");
+            }
+
+            return Response(situacaoTipoVm, "O Tipo foi atualizado com sucesso!");
         }
 
-        // DELETE: api/ApiWithActions/5
+        // DELETE: api/situacao-tipo/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
+            _situacaoTipoAppService.Remove(id);
+
+            if (!IsValidOperation())
+            {
+                return Response(id, "Falha ao remover o tipo.");
+            }
+
+            return Response(id, "O Tipo foi removido com sucesso!");
+        }
+
+        [HttpGet("ultimaAtualizacao/situacao/{situacaoId}")]
+        public IActionResult GetUltimaAtualizacao(int situacaoId)
+        {
+            return Response(_situacaoTipoAppService.UltimaAtualizacao(situacaoId));
         }
     }
 }

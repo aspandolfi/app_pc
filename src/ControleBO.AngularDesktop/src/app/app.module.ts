@@ -58,6 +58,8 @@ import { CadastroUnidadePolicialComponent } from './components/cadastro-unidade-
 import { RelacaoProcedimentosComponent } from './relatorios/relacao-procedimentos/relacao-procedimentos.component';
 import { RelacaoIndiciadosComponent } from './relatorios/relacao-indiciados/relacao-indiciados.component';
 import { RelacaoVitimasComponent } from './relatorios/relacao-vitimas/relacao-vitimas.component';
+import { TipoSituacaoComponent } from './components/tipo-situacao/tipo-situacao.component';
+import { CadastroTipoSituacaoComponent } from './components/cadastro-tipo-situacao/cadastro-tipo-situacao.component';
 
 defineLocale('pt-br', ptBrLocale);
 
@@ -97,7 +99,9 @@ defineLocale('pt-br', ptBrLocale);
     CadastroUnidadePolicialComponent,
     RelacaoProcedimentosComponent,
     RelacaoIndiciadosComponent,
-    RelacaoVitimasComponent
+    RelacaoVitimasComponent,
+    TipoSituacaoComponent,
+    CadastroTipoSituacaoComponent
   ],
   imports: [
     HttpClientModule,
@@ -130,7 +134,8 @@ defineLocale('pt-br', ptBrLocale);
     CadastroAssuntoComponent,
     CadastroVaraCriminalComponent,
     CadastroMunicipioComponent,
-    CadastroUnidadePolicialComponent
+    CadastroUnidadePolicialComponent,
+    CadastroTipoSituacaoComponent
   ],
   providers: [
     { provide: 'BASE_URL', useFactory: getBaseUrl },

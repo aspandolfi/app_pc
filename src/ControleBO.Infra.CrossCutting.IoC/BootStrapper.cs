@@ -99,6 +99,10 @@ namespace ControleBO.Infra.CrossCutting.IoC
             services.AddScoped<IRequestHandler<UpdateObjetoApreendidoCommand, int>, ObjetoApreendidoCommandHandler>();
             services.AddScoped<IRequestHandler<RemoveObjetoApreendidoCommand, int>, ObjetoApreendidoCommandHandler>();
 
+            services.AddScoped<IRequestHandler<RegisterNewSituacaoTipoCommand, int>, SituacaoTipoCommandHandler>();
+            services.AddScoped<IRequestHandler<UpdateSituacaoTipoCommand, int>, SituacaoTipoCommandHandler>();
+            services.AddScoped<IRequestHandler<RemoveSituacaoTipoCommand, int>, SituacaoTipoCommandHandler>();
+
             // Application
             services.AddScoped<IProcedimentoAppService, ProcedimentoAppService>();
             services.AddScoped<IProcedimentoTipoAppService, ProcedimentoTipoAppService>();
@@ -114,6 +118,7 @@ namespace ControleBO.Infra.CrossCutting.IoC
             services.AddScoped<IMovimentacaoAppService, MovimentacaoAppService>();
             services.AddScoped<IObjetoApreendidoAppService, ObjetoApreendidoAppService>();
             services.AddScoped<IRelatorioAppService, RelatorioAppService>();
+            services.AddScoped<ISituacaoTipoAppService, SituacaoTipoAppService>();
 
         }
     }

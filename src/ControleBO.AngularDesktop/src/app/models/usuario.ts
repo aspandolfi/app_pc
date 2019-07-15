@@ -12,9 +12,13 @@ abstract class UsuarioBase {
 
 export class Usuario extends UsuarioBase {
   regra: string;
+
+  constructor(obj?: any) {
+    super(obj);
+  }
 }
 
-export class RegisterUsuario extends UsuarioBase {
+export class RegisterUsuario extends Usuario {
   senhaAtual?: string;
   senha?: string;
   confirmarSenha?: string;

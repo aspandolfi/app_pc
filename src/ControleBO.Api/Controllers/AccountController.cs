@@ -27,11 +27,13 @@ namespace ControleBO.Api.Controllers
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
         private readonly SigningConfigurations _signingConfigurations;
         private readonly TokenConfigurations _tokenConfigurations;
 
         public AccountController(UserManager<ApplicationUser> userManager,
                                  SignInManager<ApplicationUser> signInManager,
+                                 RoleManager<IdentityRole> roleManager,
                                  SigningConfigurations signingConfigurations,
                                  TokenConfigurations tokenConfigurations,
                                  INotificationHandler<DomainNotification> notifications,
@@ -40,6 +42,7 @@ namespace ControleBO.Api.Controllers
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _roleManager = roleManager;
             _signingConfigurations = signingConfigurations;
             _tokenConfigurations = tokenConfigurations;
         }
@@ -70,36 +73,36 @@ namespace ControleBO.Api.Controllers
         // POST: api/Account
         [HttpPost("login")]
         [AllowAnonymous]
-        public async Task<IActionResult> Login([FromBody] LoginViewModel user)
+        public async Task<IActionResult> Login([FromBody] LoginViewModel userVm)
         {
             if (!ModelState.IsValid)
             {
                 NotifyModelStateErrors();
-                return Response(user);
+                return Response(userVm);
             }
 
-            var appUser = await _userManager.FindByEmailAsync(user.Email);
+            var user = await _userManager.FindByEmailAsync(userVm.Email);
 
-            if (appUser == null)
+            if (user == null)
             {
                 NotifyError("Usuário inválido", "Falha ao logar");
-                return Response(user, "Usuário inválido.");
+                return Response(userVm, "Usuário inválido.");
             }
 
-            var result = await _signInManager.CheckPasswordSignInAsync(appUser, user.Password, false);
+            var result = await _signInManager.CheckPasswordSignInAsync(user, userVm.Password, false);
 
             if (!result.Succeeded)
             {
                 NotifyError(result.ToString(), "Falha ao logar");
-                return Response(user, "Usuário ou senha inválido.");
+                return Response(userVm, "Usuário ou senha inválido.");
             }
 
-            ClaimsIdentity identity = new ClaimsIdentity(
-                    new GenericIdentity(user.Email, "Login"),
-                    new[] {
-                        new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString("N")),
-                        new Claim(JwtRegisteredClaimNames.UniqueName, user.Email)
-                    });
+            var roles = await _userManager.GetRolesAsync(user);
+            var claims = await _userManager.GetClaimsAsync(user);
+
+            ClaimsIdentity identity = user.GenerateClaimsIdentity(ClaimsIdentity.DefaultRoleClaimType, roles);
+
+            identity.AddClaims(claims);
 
             DateTime dataCriacao = DateTime.Now;
             DateTime dataExpiracao = dataCriacao + TimeSpan.FromSeconds(_tokenConfigurations.Seconds);
@@ -139,7 +142,14 @@ namespace ControleBO.Api.Controllers
             {
                 // User claim for write customers data
                 //await _userManager.AddClaimAsync(user, new Claim("Users", "Admin"));
-                await _userManager.AddToRoleAsync(user, "Admin");
+
+                if (!string.IsNullOrEmpty(model.Role))
+                {
+                    if (Roles.Contains(model.Role))
+                    {
+                        await _userManager.AddToRoleAsync(user, model.Role);
+                    }
+                }
 
                 //await _signInManager.SignInAsync(user, false);
                 model.Clean();

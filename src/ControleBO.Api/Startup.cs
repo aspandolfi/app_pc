@@ -86,8 +86,8 @@ namespace ControleBO.Api
             // Criação de estruturas, usuários e permissões
             // na base do ASP.NET Identity Core (caso ainda não
             // existam)
-            //new IdentityInitializer(applicationDbContext, userManager, roleManager)
-            //    .Initialize();
+            new IdentityInitializer(applicationDbContext, userManager, roleManager)
+                .Initialize();
 
             app.UseMvc();
 

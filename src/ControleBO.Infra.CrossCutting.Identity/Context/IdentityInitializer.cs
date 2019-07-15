@@ -1,5 +1,6 @@
 ﻿using ControleBO.Infra.CrossCutting.Identity.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 
@@ -19,30 +20,65 @@ namespace ControleBO.Infra.CrossCutting.Identity.Context
             _userManager = userManager;
             _roleManager = roleManager;
         }
-        public void Initialize()
+
+        private bool IsIdentityCreated()
         {
-            if (_context.Database.EnsureCreated())
+            var sqlRaw = @"SELECT EXISTS (
+                                       SELECT 1
+                                       FROM information_schema.tables
+                                     WHERE table_name = 'AspNetUsers'
+                                       ); ";
+            var query = _context.Database.ExecuteSqlCommand(new RawSqlString(sqlRaw));
+
+            return query > 0;
+        }
+
+        private void CreateIdentityIfNotExists()
+        {
+            if (!IsIdentityCreated())
             {
-                if (!_roleManager.RoleExistsAsync(Roles.Admin).Result)
+                if (_context.Database.GetPendingMigrations().Count() > 0)
+                {
+                    _context.Database.Migrate();
+                }
+            }
+        }
+
+        private void CreateRolesIfNotExists()
+        {
+            foreach (var role in Roles.GetAll)
+            {
+                if (!_roleManager.RoleExistsAsync(role).Result)
                 {
                     var resultado = _roleManager.CreateAsync(
-                        new IdentityRole(Roles.Admin)).Result;
+                        new IdentityRole(role)).Result;
                     if (!resultado.Succeeded)
                     {
                         throw new Exception(
-                            $"Erro durante a criação da role {Roles.Admin}.");
+                            $"Erro durante a criação da role {role}.");
                     }
                 }
+            }
+        }
 
-                CreateUser(
+        private void CreateSuperUserIfNotExists()
+        {
+            CreateUser(
                     new ApplicationUser()
                     {
                         Name = "André Serafim Pandolfi",
                         UserName = "aspandolfi",
                         Email = "aspandolfi@gmail.com",
                         EmailConfirmed = true
-                    }, "and1991");
-            }
+                    }, "and1991",
+                    Roles.SuperUser);
+        }
+
+        public void Initialize()
+        {
+            CreateIdentityIfNotExists();
+            CreateRolesIfNotExists();
+            CreateSuperUserIfNotExists();
         }
 
         private void CreateUser(

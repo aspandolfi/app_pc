@@ -24,7 +24,7 @@ export class AuthenticationService extends MessageService {
   }
 
   get isValidToken() {
-    return this.authentication.expiration < new Date().setHours(23, 59);
+    return this.authentication.expiration > new Date().setHours(23, 59);
   }
 
   logOut() {

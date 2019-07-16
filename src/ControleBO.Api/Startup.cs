@@ -80,8 +80,8 @@ namespace ControleBO.Api
 
             // Criação das estruturas e inserção 
             // de dados iniciais
-            //new SpcContextInitializer(spcContext)
-            //    .Initialize();
+            new SpcContextInitializer(spcContext)
+                .Initialize();
 
             // Criação de estruturas, usuários e permissões
             // na base do ASP.NET Identity Core (caso ainda não

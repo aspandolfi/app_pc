@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { ApiConfiguration } from '../api-configuration';
 
 declare var fs: any;
 declare var electron: any;
@@ -12,6 +13,7 @@ export class FileService {
   constructor() {
     this.fs = fs;
     this.electron = electron;
+    this.getConfig();
   }
 
   getConfig() {
@@ -22,8 +24,17 @@ export class FileService {
 
     if (this.fs != undefined) {
       console.log('fileservice: ', this.fs);
+
+      fs.watchFile('config.json', (curr, prev) => {
+        let configFile = this.fs.readFileSync('config.json');
+        let json = JSON.parse(configFile);
+        ApiConfiguration.ApiUrl = json.apiUrl;
+        //alert('mudou');
+      });
+
       let configFile = this.fs.readFileSync('config.json');
-      let json = JSON.parse(configFile);;
+      let json = JSON.parse(configFile);
+      ApiConfiguration.ApiUrl = json.apiUrl;
       return json;
     }
 

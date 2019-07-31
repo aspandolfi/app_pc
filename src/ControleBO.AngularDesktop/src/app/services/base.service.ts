@@ -4,8 +4,8 @@ import { Observable, throwError } from 'rxjs';
 import { Result } from '../models/result';
 import { FileService } from './file.service';
 import { retry, catchError } from 'rxjs/operators';
-import { Authentication } from '../models/login';
 import { AuthenticationService } from './authentication.service';
+import { ApiConfiguration } from '../api-configuration';
 
 export interface ApiUrl {
   apiUrl: string;
@@ -16,7 +16,9 @@ export interface ApiUrl {
 })
 export class BaseService {
 
-  public apiUrl: string;
+  get apiUrl(): string {
+    return ApiConfiguration.ApiUrl;
+  }
 
   constructor(private http: HttpClient,
     @Inject('BASE_URL') private localUrl: string,
@@ -35,7 +37,8 @@ export class BaseService {
   }
 
   private getBaseUrl() {
-    this.apiUrl = this.fileService.getConfig().apiUrl;
+    //ApiConfiguration.ApiUrl = this.fileService.getConfig().apiUrl
+    //this.apiUrl = ;
     //this.apiUrl = "";
   }
 

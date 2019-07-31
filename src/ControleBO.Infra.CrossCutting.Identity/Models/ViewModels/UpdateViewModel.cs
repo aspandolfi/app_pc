@@ -39,6 +39,9 @@ namespace ControleBO.Infra.CrossCutting.Identity.Models.ViewModels
         [JsonProperty(PropertyName = "confirmarSenha")]
         public string ConfirmPassword { get; set; }
 
+        [JsonProperty(PropertyName = "regra")]
+        public string Role { get; set; }
+
         public void Clean()
         {
             CurrentPassword = null;

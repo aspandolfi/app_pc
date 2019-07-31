@@ -1,17 +1,68 @@
-const { app, BrowserWindow, dialog } = require('electron');
+const { app, BrowserWindow, dialog, Menu, MenuItem } = require('electron');
 const { autoUpdater } = require("electron-updater");
+const prompt = require('electron-prompt');
+const fs = require('fs');
 
 let updater;
 autoUpdater.autoDownload = false;
 let win;
+
+var menu = new Menu();
+var menuItem = new MenuItem({ label: 'Arquivo', submenu: [{ label: 'Configurar API', click: onConfigurarApi }] });
+menu.append(menuItem);
+
+Menu.setApplicationMenu(menu);
+
+function watchConfigFile() {
+  fs.watchFile('config.json', (curr, prev) => {
+    console.log('mudou');
+  });
+}
+
+function onConfigurarApi() {
+  let fileExists = fs.existsSync('config.json');
+  let currentUrl = '';
+  if (fileExists) {
+    let file = fs.readFileSync('config.json');
+    currentUrl = JSON.parse(file).apiUrl;
+  }
+
+  prompt({
+    title: 'Configurar a API do sistema',
+    label: 'URL:',
+    value: currentUrl,
+    resizable: false,
+    height: 150,
+    customStylesheet: '',
+    inputAttrs: {
+      type: 'url',
+      placeholder: 'http://example.org'
+    }
+  })
+    .then((r) => {
+      if (r === null) {
+        console.log('user cancelled');
+      } else {
+
+        currentUrl = r;
+        var json = { apiUrl: currentUrl };
+        fs.writeFileSync('config.json', JSON.stringify(json));
+
+        console.log('result', r);
+      }
+    })
+    .catch(console.error);
+}
+
 function createWindow() {
   // Create the browser window.
-  win = new BrowserWindow({ width: 1024, height: 768, maximizable: false, resizable: false, icon: './src/favicon.ico' });
+  win = new BrowserWindow({ width: 1024, height: 768, maximizable: false, resizable: false, autoHideMenuBar: true });
   // and load the index.html of the app. 
   win.loadFile('./dist/ControleBO-AngularDesktop/index.html');
 
-  win.setMenuBarVisibility(false);
-  win.setMenu(null);
+  //win.setMenuBarVisibility(false);
+  //win.setMenu(null);
+  //win.setMenu(menu);
   // Open the DevTools.
   //win.webContents.openDevTools();
   // Emitted when the window is closed.

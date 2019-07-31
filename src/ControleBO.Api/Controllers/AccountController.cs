@@ -51,14 +51,16 @@ namespace ControleBO.Api.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            var usuarios = _userManager.Users.Where(x => x.Email != "aspandolfi@gmail.com").ToList();
+            var usuarios = _userManager.Users
+                .Where(x => x.Email != "aspandolfi@gmail.com").ToList();
 
-            var usuariosVm = usuarios.Select(u => new ApplicationUserViewModel
+            var usuariosVm = usuarios.Select(user => new ApplicationUserViewModel
             {
-                Id = u.Id,
-                Email = u.Email,
-                Nome = u.Name
-            });
+                Id = user.Id,
+                Email = user.Email,
+                Nome = user.Name,
+                Regra = _userManager.GetRolesAsync(user).Result.FirstOrDefault()
+            }).ToList();
 
             return Response(usuariosVm);
         }
@@ -221,6 +223,18 @@ namespace ControleBO.Api.Controllers
                 {
                     AddIdentityErrors(result);
                     return Response(model, "Falha ao atualizar o usuário.");
+                }
+            }
+
+            var roles = await _userManager.GetRolesAsync(user);
+
+            if (!roles.Contains(model.Role))
+            {
+                await _userManager.RemoveFromRolesAsync(user, roles);
+
+                if (Roles.Contains(model.Role))
+                {
+                    await _userManager.AddToRoleAsync(user, model.Role);
                 }
             }
 

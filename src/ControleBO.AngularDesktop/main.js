@@ -7,11 +7,20 @@ let updater;
 autoUpdater.autoDownload = false;
 let win;
 
-var menu = new Menu();
-var menuItem = new MenuItem({ label: 'Arquivo', submenu: [{ label: 'Configurar API', click: onConfigurarApi }] });
-menu.append(menuItem);
+configureMenu();
 
-Menu.setApplicationMenu(menu);
+function configureMenu() {
+  var menu = new Menu();
+  var menuItems = [
+    new MenuItem({ label: 'Arquivo', submenu: [{ label: 'Configurar API', click: onConfigurarApi }] }),
+    new MenuItem({ label: 'Ajuda', submenu: [{ label: 'Sobre', click: onSobre }] })
+  ];
+  for (var menuItem of menuItems) {
+    menu.append(menuItem);
+  }
+
+  Menu.setApplicationMenu(menu);
+}
 
 function watchConfigFile() {
   fs.watchFile('config.json', (curr, prev) => {
@@ -54,6 +63,18 @@ function onConfigurarApi() {
     .catch(console.error);
 }
 
+function onSobre() {
+  dialog.showMessageBox({
+    type: 'info',
+    title: 'Sobre o Sistema',
+    message: `
+              O sistema foi desenvolvido em parceria com a Polícia Civil - ES
+              Autor: André Serafim Pandolfi
+              E-mail: aspandolfi@gmail.com
+              Versão: ${app.getVersion()}`
+  });
+}
+
 function createWindow() {
   // Create the browser window.
   win = new BrowserWindow({ width: 1024, height: 768, maximizable: false, resizable: false, autoHideMenuBar: true });
@@ -73,6 +94,16 @@ function createWindow() {
 
 autoUpdater.on('error', (error) => {
   dialog.showErrorBox('Erro: ', error == null ? "Desconhecido" : (error.stack || error).toString())
+});
+
+autoUpdater.on('download-progress', (progress, bytesPerSecond, percent, total, transferred) => {
+  var progressBar = dialog.showMessageBox({
+    type: 'info',
+    title: 'Atualização em andamento',
+    message: `Progresso ${percent} %`
+  }, (message) => {
+      
+  });
 });
 
 autoUpdater.on('update-available', () => {
@@ -105,6 +136,10 @@ autoUpdater.on('update-downloaded', () => {
 // initialization and is ready to create browser windows.   
 // Some APIs can only be used after this event occurs.   
 app.on('ready', createWindow);
+
+app.on('ready', function () {
+  autoUpdater.checkForUpdates();
+});
 
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {

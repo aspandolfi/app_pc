@@ -1,6 +1,6 @@
 {
   "name": "controle-procedimentos-pc",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "main": "main.js",
   "author": "André Serafim Pandolfi",
   "person": {
@@ -13,7 +13,7 @@
   "build": {
     "appId": "com.andrepandolfi.controleprocedimentos.cpc",
     "productName": "Controle de Procedimentos Criminais",
-    "buildVersion": "1.0.0",
+    "buildVersion": "1.0.2",
     "copyright": "Copyright © 2019 André Serafim Pandolfi ",
     "directories": {
       "output": "dist/package"
@@ -29,15 +29,6 @@
       "config.json"
     ],
     "win": {
-      "target": [
-        {
-          "target": "nsis",
-          "arch": [
-            "ia32"
-          ]
-        }
-      ],
-      "certificateFile": "cert.pfx",
       "icon": "src/assets/icons/icon.ico"
     },
     "publish": {

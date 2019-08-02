@@ -42,8 +42,8 @@ export class FileService {
       console.log('local electron: ', this.electron);
       let path = this.electron.getAppPath();
       console.log(path);
-
+      return;
     }
-    return { apiUrl: '' };
+    ApiConfiguration.ApiUrl = '/controle-bo/';
   }
 }

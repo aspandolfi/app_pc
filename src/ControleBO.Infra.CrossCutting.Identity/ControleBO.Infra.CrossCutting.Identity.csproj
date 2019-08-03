@@ -17,6 +17,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ControleBO.Domain\ControleBO.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="Microsoft.AspNetCore.Authorization">
       <HintPath>..\..\..\..\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.aspnetcore.authorization\2.1.1\lib\netstandard2.0\Microsoft.AspNetCore.Authorization.dll</HintPath>
     </Reference>

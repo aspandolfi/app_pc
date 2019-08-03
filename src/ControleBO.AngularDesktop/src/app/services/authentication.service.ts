@@ -11,15 +11,15 @@ export class AuthenticationService extends MessageService {
   private _authentication: Authentication = new Authentication();
 
   get authentication() {
-    if (!this._authentication.token) {
-      let item = localStorage.getItem('access_token');
-      if (item) {
-        this._authentication = new Authentication(JSON.parse(item));
-      }
-      else {
-        this._authentication = new Authentication();
-      }
+
+    let item = localStorage.getItem('access_token');
+    if (item) {
+      this._authentication = new Authentication(JSON.parse(item));
     }
+    else {
+      this._authentication = new Authentication();
+    }
+
     return this._authentication;
   }
 

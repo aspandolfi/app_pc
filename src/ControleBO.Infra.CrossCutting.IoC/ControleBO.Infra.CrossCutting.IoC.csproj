@@ -13,6 +13,7 @@
   <ItemGroup>
     <ProjectReference Include="..\ControleBO.Application\ControleBO.Application.csproj" />
     <ProjectReference Include="..\ControleBO.Infra.CrossCutting.Bus\ControleBO.Infra.CrossCutting.Bus.csproj" />
+    <ProjectReference Include="..\ControleBO.Infra.CrossCutting.Identity\ControleBO.Infra.CrossCutting.Identity.csproj" />
     <ProjectReference Include="..\ControleBO.Infra.Data\ControleBO.Infra.Data.csproj" />
   </ItemGroup>
 

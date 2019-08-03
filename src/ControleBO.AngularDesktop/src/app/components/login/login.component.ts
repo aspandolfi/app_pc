@@ -4,7 +4,6 @@ import * as $ from 'jquery';
 import { ToastrService } from 'ngx-toastr';
 import { Login } from '../../models/login';
 import { AuthService } from '../../services/auth.service';
-import { MessageService } from '../../services/message.service';
 import { Message } from '../../models/message';
 import { Result } from '../../models/result';
 import { AuthenticationService } from '../../services/authentication.service';
@@ -55,6 +54,7 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.login).subscribe(res => {
       if (res.success) {
         localStorage.setItem('access_token', JSON.stringify(res.data));
+        this.getUserByEmail(this.login.email);
         this.authentication.send(new Message(res));
         $('body').removeClass('bg-dark');
         $('#wrapper').css('display', '');
@@ -69,4 +69,11 @@ export class LoginComponent implements OnInit {
     }, () => this.submitted = false);
   }
 
+  private getUserByEmail(email: string) {
+    this.authService.getByEmail(email).subscribe(res => {
+      if (res.data) {
+        this.authService.refreshUserByTime(res.data);
+      }
+    });
+  }
 }

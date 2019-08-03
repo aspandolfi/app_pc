@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 using ControleBO.Api.Configurations;
 using ControleBO.Domain.Core.Bus;
 using ControleBO.Domain.Core.Notifications;
+using ControleBO.Domain.Interfaces;
 using ControleBO.Infra.CrossCutting.Identity.Configuration;
 using ControleBO.Infra.CrossCutting.Identity.Models;
 using ControleBO.Infra.CrossCutting.Identity.Models.ViewModels;
@@ -30,12 +32,14 @@ namespace ControleBO.Api.Controllers
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly SigningConfigurations _signingConfigurations;
         private readonly TokenConfigurations _tokenConfigurations;
+        private readonly IAspNetUser _aspNetUser;
 
         public AccountController(UserManager<ApplicationUser> userManager,
                                  SignInManager<ApplicationUser> signInManager,
                                  RoleManager<IdentityRole> roleManager,
                                  SigningConfigurations signingConfigurations,
                                  TokenConfigurations tokenConfigurations,
+                                 IAspNetUser aspNetUser,
                                  INotificationHandler<DomainNotification> notifications,
                                  IMediatorHandler mediator)
             : base(notifications, mediator)
@@ -43,6 +47,7 @@ namespace ControleBO.Api.Controllers
             _userManager = userManager;
             _signInManager = signInManager;
             _roleManager = roleManager;
+            _aspNetUser = aspNetUser;
             _signingConfigurations = signingConfigurations;
             _tokenConfigurations = tokenConfigurations;
         }
@@ -67,9 +72,75 @@ namespace ControleBO.Api.Controllers
 
         // GET: api/Account/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public async Task<IActionResult> Get(string id)
         {
-            return "value";
+            if (string.IsNullOrEmpty(id))
+            {
+                return Response(null, "Id inválido.");
+            }
+
+            var user = await _userManager.FindByIdAsync(id);
+
+            if (user == null)
+            {
+                return Response(null, "Usuário não encontrado.");
+            }
+
+            var roles = await _userManager.GetRolesAsync(user);
+
+            return Response(new ApplicationUserViewModel
+            {
+                Nome = user.Name,
+                Regra = roles.FirstOrDefault()
+            });
+        }
+
+        // GET: api/Account/Current
+        [HttpGet("current")]
+        public async Task<IActionResult> GetCurrent()
+        {
+            var currentUser = _aspNetUser;
+
+            var user = await _userManager.FindByEmailAsync(currentUser.Name);
+
+            if (user == null)
+            {
+                return Response(null, "Usuário não encontrado.");
+            }
+
+            var roles = await _userManager.GetRolesAsync(user);
+
+            return Response(new ApplicationUserViewModel
+            {
+                Nome = user.Name,
+                Regra = roles.FirstOrDefault()
+            });
+        }
+
+        // GET: api/Account?email=email@email.com
+        [HttpGet("getbyemail/{email}")]
+        public async Task<IActionResult> GetByEmail([EmailAddress]string email)
+        {
+            if (!ModelState.IsValid)
+            {
+                NotifyModelStateErrors();
+                return Response(null, "E-mail inválido.");
+            }
+
+            var user = await _userManager.FindByEmailAsync(email);
+
+            if (user == null)
+            {
+                return Response(null, "E-mail não encontrado.");
+            }
+
+            var roles = await _userManager.GetRolesAsync(user);
+
+            return Response(new ApplicationUserViewModel
+            {
+                Nome = user.Name,
+                Regra = roles.FirstOrDefault()
+            });
         }
 
         // POST: api/Account

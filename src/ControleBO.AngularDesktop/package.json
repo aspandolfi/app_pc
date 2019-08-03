@@ -41,7 +41,8 @@
     "ng": "ng",
     "start": "ng serve",
     "start-angular": "ng serve",
-    "build": "ng build --prod",
+    "start-debug": "ng serve --proxy-config=proxy.config.js",
+    "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

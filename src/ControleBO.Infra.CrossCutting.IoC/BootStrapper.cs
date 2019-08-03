@@ -7,6 +7,7 @@ using ControleBO.Domain.Core.Notifications;
 using ControleBO.Domain.Interfaces;
 using ControleBO.Domain.Interfaces.Repositories;
 using ControleBO.Infra.CrossCutting.Bus;
+using ControleBO.Infra.CrossCutting.Identity.Models;
 using ControleBO.Infra.Data.Context;
 using ControleBO.Infra.Data.Repositories;
 using ControleBO.Infra.Data.UoW;
@@ -19,6 +20,9 @@ namespace ControleBO.Infra.CrossCutting.IoC
     {
         public static void RegisterServices(IServiceCollection services)
         {
+            // AspNetUser
+            services.AddScoped<IAspNetUser, AspNetUser>();
+
             // Infra - Data
             services.AddEntityFrameworkNpgsql()
                 .AddDbContext<SpcContext>();

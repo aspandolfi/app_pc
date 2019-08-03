@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ApiConfiguration } from '../api-configuration';
+import { environment } from '../../environments/environment';
 
 declare var fs: any;
 declare var electron: any;
@@ -44,6 +45,6 @@ export class FileService {
       console.log(path);
       return;
     }
-    ApiConfiguration.ApiUrl = '/controle-bo/';
+    ApiConfiguration.ApiUrl = environment.apiUrl;
   }
 }

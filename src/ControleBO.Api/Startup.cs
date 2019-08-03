@@ -33,6 +33,8 @@ namespace ControleBO.Api
                 options.SuppressModelStateInvalidFilter = true;
             });
 
+            services.AddHttpContextAccessor();
+
             services.AddEntityFrameworkNpgsql()
                 .AddDbContext<ApplicationDbContext>();
 

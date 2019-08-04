@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
-using System.Security.Principal;
 using System.Threading.Tasks;
 using ControleBO.Api.Configurations;
 using ControleBO.Domain.Core.Bus;
@@ -37,9 +35,9 @@ namespace ControleBO.Api.Controllers
         public AccountController(UserManager<ApplicationUser> userManager,
                                  SignInManager<ApplicationUser> signInManager,
                                  RoleManager<IdentityRole> roleManager,
+                                 IAspNetUser aspNetUser,
                                  SigningConfigurations signingConfigurations,
                                  TokenConfigurations tokenConfigurations,
-                                 IAspNetUser aspNetUser,
                                  INotificationHandler<DomainNotification> notifications,
                                  IMediatorHandler mediator)
             : base(notifications, mediator)
@@ -99,9 +97,9 @@ namespace ControleBO.Api.Controllers
         [HttpGet("current")]
         public async Task<IActionResult> GetCurrent()
         {
-            var currentUser = _aspNetUser;
+            var userId = _aspNetUser.Id;
 
-            var user = await _userManager.FindByEmailAsync(currentUser.Name);
+            var user = await _userManager.FindByIdAsync(userId);
 
             if (user == null)
             {

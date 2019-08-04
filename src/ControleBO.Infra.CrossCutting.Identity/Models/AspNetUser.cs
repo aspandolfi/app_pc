@@ -1,6 +1,7 @@
 ﻿using ControleBO.Domain.Interfaces;
 using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 
 namespace ControleBO.Infra.CrossCutting.Identity.Models
@@ -13,6 +14,8 @@ namespace ControleBO.Infra.CrossCutting.Identity.Models
         {
             _httpContext = httpContext;
         }
+
+        public string Id => _httpContext.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
 
         public string Name => _httpContext.HttpContext.User.Identity.Name;
 

@@ -20,7 +20,8 @@ namespace ControleBO.Infra.CrossCutting.Identity.Models
                    new GenericIdentity(user.Email, "Login"),
                    new[] {
                         new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString("N")),
-                        new Claim(JwtRegisteredClaimNames.UniqueName, user.Email)
+                        new Claim(JwtRegisteredClaimNames.UniqueName, user.Email),
+                        //new Claim(JwtRegisteredClaimNames.Sub, user.Id)
                    });
 
             return identity;

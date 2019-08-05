@@ -1,13 +1,18 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { AuthService } from './auth.service';
-import { Subscription } from 'rxjs';
+import { Usuario } from '../models/usuario';
+import { Login } from '../models/login';
+import { Router } from '@angular/router';
+import { AuthenticationService } from './authentication.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserManagerService implements OnDestroy {
 
-  private subscription: Subscription;
+  /* ms  * s  * min = 5 min */
+  private readonly timeToRefresh: number = 1000 * 60;
+  private intervalId: any;
 
   private _name: string;
   private _role: string;
@@ -42,12 +47,13 @@ export class UserManagerService implements OnDestroy {
     'SuperUser'
   ];
 
-  constructor(private authService: AuthService) {
-    this.onReceiveMessage();
+  constructor(private authService: AuthService,
+    private authentication: AuthenticationService,
+    private router: Router) {
   }
 
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    clearInterval(this.intervalId);
   }
 
   isAdmin() {
@@ -70,16 +76,57 @@ export class UserManagerService implements OnDestroy {
     return this.isAdmin() || this.isUser();
   }
 
-  private onReceiveMessage() {
-    this.authService.messageListener$.subscribe(message => {
-      if (message) {
-        this._name = message.data.nome;
-        this._email = message.data.email;
-        this._role = message.data.regra;
+  refreshUserByTime(user?: Usuario, refreshNow?: boolean) {
 
-        sessionStorage.setItem('__username', this._name);
-        sessionStorage.setItem('__userrole', this._role);
+    // O método é chamado no loginComponent e no AppComponent (caso reload na página)
+    if (this.authentication.isValidToken && !this.intervalId) {
+      if (user) {
+        this.setUser(user);
       }
-    });
+
+      if (refreshNow) {
+        this.authService.getCurrent().subscribe(res => {
+          if (res) {
+            this.setUser(res.data);
+          }
+        });
+      }
+
+      this.intervalId = setInterval(() => {
+        this.authService.getCurrent().subscribe(res => {
+          if (res) {
+            this.setUser(res.data);
+          }
+        })
+      }, this.timeToRefresh);
+    }
+  }
+
+  logOut() {
+    this.authService.logOut();
+    this.ngOnDestroy();
+    this.navigateToHome();
+  }
+
+  login(login: Login) {
+    return this.authService.login(login);
+  }
+
+  private navigateToHome() {
+    if (this.router.url.includes('procedimentos')) {
+      window.location.reload()
+    }
+    else {
+      this.router.navigate(['home']);
+    }
+  }
+
+  private setUser(user: Usuario) {
+    this._name = user.nome;
+    this._email = user.email;
+    this._role = user.regra;
+
+    sessionStorage.setItem('__username', this._name);
+    sessionStorage.setItem('__userrole', this._role);
   }
 }

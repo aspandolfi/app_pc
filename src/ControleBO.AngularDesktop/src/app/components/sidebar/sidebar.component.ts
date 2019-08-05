@@ -13,14 +13,13 @@ export class SidebarComponent implements OnInit {
     return this.userManager.name;
   }
 
-  constructor(private authentication: AuthenticationService,
-    private userManager: UserManagerService) { }
+  constructor(private userManager: UserManagerService) { }
 
   ngOnInit() {
   }
 
   doLogOut() {
-    this.authentication.logOut();
+    this.userManager.logOut();
   }
 
 }

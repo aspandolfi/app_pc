@@ -1,12 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Authentication } from '../models/login';
-import { Router } from '@angular/router';
-import { MessageService } from './message.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthenticationService extends MessageService {
+export class AuthenticationService {
 
   private _authentication: Authentication = new Authentication();
 
@@ -27,24 +25,6 @@ export class AuthenticationService extends MessageService {
     return this.authentication.expiration > new Date().setHours(23, 59);
   }
 
-  logOut() {
-    if (this._authentication.token) {
-      localStorage.removeItem('access_token');
-      this._authentication = new Authentication();
-      this.navigateToHome();
-    }
-  }
-
-  private navigateToHome() {
-    if (this.router.url.includes('procedimentos')) {
-      window.location.reload()
-    }
-    else {
-      this.router.navigate(['home']);
-    }
-  }
-
-  constructor(private router: Router) {
-    super();
+  constructor() {
   }
 }

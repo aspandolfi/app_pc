@@ -3,10 +3,9 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 import * as $ from 'jquery';
 import { ToastrService } from 'ngx-toastr';
 import { Login } from '../../models/login';
-import { AuthService } from '../../services/auth.service';
-import { Message } from '../../models/message';
 import { Result } from '../../models/result';
-import { AuthenticationService } from '../../services/authentication.service';
+import { Router } from '@angular/router';
+import { UserManagerService } from '../../services/user-manager.service';
 
 @Component({
   selector: 'app-login',
@@ -21,8 +20,8 @@ export class LoginComponent implements OnInit {
   submitted: boolean = false;
 
   constructor(public modalRef: BsModalRef,
-    private authService: AuthService,
-    private authentication: AuthenticationService,
+    private userManager: UserManagerService,
+    private router: Router,
     private toastr: ToastrService) { }
 
   ngOnInit() {
@@ -51,14 +50,18 @@ export class LoginComponent implements OnInit {
 
     this.submitted = true;
 
-    this.authService.login(this.login).subscribe(res => {
+    this.userManager.login(this.login).subscribe(res => {
       if (res.success) {
         localStorage.setItem('access_token', JSON.stringify(res.data));
-        this.getUserByEmail(this.login.email);
-        this.authentication.send(new Message(res));
+
+        this.userManager.refreshUserByTime(null, true);
+
         $('body').removeClass('bg-dark');
         $('#wrapper').css('display', '');
         $('app-sidebar').show();
+
+        this.modalRef.hide();
+        this.router.navigate(['home']);
       }
     }, (err: Result<any>) => {
       this.message = err.message;
@@ -67,13 +70,5 @@ export class LoginComponent implements OnInit {
       }
       this.submitted = false;
     }, () => this.submitted = false);
-  }
-
-  private getUserByEmail(email: string) {
-    this.authService.getByEmail(email).subscribe(res => {
-      if (res.data) {
-        this.authService.refreshUserByTime(res.data);
-      }
-    });
   }
 }

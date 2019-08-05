@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from './services/auth.service';
+import { UserManagerService } from './services/user-manager.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +9,7 @@ import { AuthService } from './services/auth.service';
 export class AppComponent {
   title = 'Controle de Procedimentos Criminais';
 
-  constructor(private authService: AuthService) {
-    this.authService.refreshUserByTime(null, true);
+  constructor(private userManager: UserManagerService) {
+    this.userManager.refreshUserByTime(null, true);
   }
 }

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router, CanActivateChild, CanLoad, Route, UrlSegment } from '@angular/router';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { Subscription } from 'rxjs';
@@ -8,17 +8,17 @@ import { AuthenticationService } from '../services/authentication.service';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuardService implements CanActivate, CanActivateChild, CanLoad {
+export class AuthGuardService implements CanActivate, CanActivateChild, CanLoad, OnDestroy {
 
   private modalRef: BsModalRef;
-  private subscription: Subscription;
+  //private subscription: Subscription;
 
   private state: RouterStateSnapshot;
 
   constructor(private router: Router,
     private modalService: BsModalService,
     private authentication: AuthenticationService) {
-    this.onReceiveMessage();
+    //this.onReceiveMessage();
   }
 
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
@@ -38,17 +38,21 @@ export class AuthGuardService implements CanActivate, CanActivateChild, CanLoad 
     return this.authentication.isValidToken;
   }
 
+  ngOnDestroy(): void {
+    //this.subscription.unsubscribe();
+  }
+
   private openModal() {
     this.modalRef = this.modalService.show(LoginComponent, { class: 'modal-dialog-centered', ignoreBackdropClick: true, backdrop: true });
   }
 
-  private onReceiveMessage() {
-    this.subscription = this.authentication.messageListener$.subscribe(
-      message => {
-        if (message.data.authenticated) {
-          this.modalRef.hide();
-          this.router.navigate([this.state.url]);
-        }
-      });
-  }
+  //private onReceiveMessage() {
+  //  this.subscription = this.authentication.messageListener$.subscribe(
+  //    message => {
+  //      if (message.data.authenticated) {
+  //        this.modalRef.hide();
+  //        this.router.navigate([this.state.url]);
+  //      }
+  //    });
+  //}
 }

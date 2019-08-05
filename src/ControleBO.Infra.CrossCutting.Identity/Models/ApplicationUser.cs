@@ -21,7 +21,7 @@ namespace ControleBO.Infra.CrossCutting.Identity.Models
                    new[] {
                         new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString("N")),
                         new Claim(JwtRegisteredClaimNames.UniqueName, user.Email),
-                        //new Claim(JwtRegisteredClaimNames.Sub, user.Id)
+                        new Claim(ClaimTypes.NameIdentifier, user.Id)
                    });
 
             return identity;

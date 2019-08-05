@@ -1,21 +1,21 @@
 <div class="card">
   <div class="card-header clearfix">
     Lista de Assuntos
-    <button type="button" class="btn btn-sm btn-secondary float-right" data-toggle="modal" data-target="#cadastro-assunto" (click)="openModal(null);">Novo</button>
+    <button type="button" *ngIf="canEdit" class="btn btn-sm btn-secondary float-right" data-toggle="modal" data-target="#cadastro-assunto" (click)="openModal(null);">Novo</button>
   </div>
   <div class="card-body">
     <div class="table-responsive-sm">
       <table class="table" id="dataTable" style="width:100%" cellspacing="0">
         <thead>
           <tr>
-            <th></th>
+            <th>#</th>
             <th>Descrição</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let assunto of returnedAssuntos">
             <td data-id="{{assunto.id}}">
-              <div class="form-inline align-items-center">
+              <div *ngIf="canEdit" class="form-inline align-items-center">
                 <div class="form-group ml-1">
                   <a title="Editar" class="text-secondary" (click)="openModal(assunto);">
                     <i class="fas fa-edit"></i>

@@ -9,6 +9,7 @@ import { ConfirmarExclusaoComponent } from '../confirmar-exclusao/confirmar-excl
 import { CadastroMunicipioComponent } from '../cadastro-municipio/cadastro-municipio.component';
 import { MunicipioService } from '../../services/municipio.service';
 import { PageChangedEvent } from 'ngx-bootstrap/pagination/public_api';
+import { UserManagerService } from '../../services/user-manager.service';
 
 @Component({
   selector: 'app-municipio',
@@ -32,10 +33,15 @@ export class MunicipioComponent implements OnInit, OnDestroy, AfterViewInit {
   pageSize = 10;
   currentPage = 1;
 
+  get canEdit() {
+    return this.userManager.canEdit();
+  }
+
   constructor(private modalService: BsModalService,
     private messageService: MessageService,
     private toastr: ToastrService,
-    private municipioService: MunicipioService) {
+    private municipioService: MunicipioService,
+    private userManager: UserManagerService) {
     this.onReceiveMessage();
   }
 

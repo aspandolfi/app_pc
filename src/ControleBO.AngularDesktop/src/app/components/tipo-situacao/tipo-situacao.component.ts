@@ -11,6 +11,7 @@ import { ConfirmarExclusaoComponent } from '../confirmar-exclusao/confirmar-excl
 import { CadastroTipoSituacaoComponent } from '../cadastro-tipo-situacao/cadastro-tipo-situacao.component';
 import { Situacao } from '../../models/situacao';
 import { SituacaoService } from '../../services/situacao.service';
+import { UserManagerService } from '../../services/user-manager.service';
 
 @Component({
   selector: 'app-tipo-situacao',
@@ -35,11 +36,16 @@ export class TipoSituacaoComponent implements OnInit, OnDestroy {
   pageSize = 10;
   currentPage = 1;
 
+  get canEdit() {
+    return this.userManager.canEdit();
+  }
+
   constructor(private modalService: BsModalService,
     private toastr: ToastrService,
     private messageService: MessageService,
     private tipoSituacaoService: TipoSiutacaoService,
-    private situacaoService: SituacaoService) {
+    private situacaoService: SituacaoService,
+    private userManager: UserManagerService) {
     this.onReceiveMessage();
   }
 

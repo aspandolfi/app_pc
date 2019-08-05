@@ -48,7 +48,7 @@
 </div>
 <div class="modal-footer">
   <button type="button" class="btn btn-default" data-dismiss="modal" [disabled]="submitted" (click)="modalRef.hide();">Fechar</button>
-  <button type="button" class="btn btn-secondary" [disabled]="!indiciadoForm.form.valid || submitted" (click)="save();">
+  <button *ngIf="canEdit" type="button" class="btn btn-secondary" [disabled]="!indiciadoForm.form.valid || submitted" (click)="save();">
     <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" [hidden]="!submitted"></span>
     Salvar
   </button>

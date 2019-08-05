@@ -21,6 +21,7 @@ import { UnidadePolicialService } from 'src/app/services/unidade-policial.servic
 import { UnidadePolicial } from 'src/app/models/unidade-policial';
 import { Result } from 'src/app/models/result';
 import { MovimentacaoService } from '../../services/movimentacao.service';
+import { UserManagerService } from '../../services/user-manager.service';
 
 @Component({
   selector: 'app-cadastro-procedimento-controle',
@@ -71,6 +72,10 @@ export class CadastroProcedimentoControleComponent implements OnInit, AfterViewI
   isNoResultArtigo: boolean = false;
   isNoResultDelegacia: boolean = false;
 
+  get canEdit() {
+    return this.userManager.canEdit();
+  }
+
   constructor(private tipoProcedimentoService: TipoProcedimentoService,
     private varaCriminalService: VaraCriminalService,
     private municipioService: MunicipioService,
@@ -84,7 +89,8 @@ export class CadastroProcedimentoControleComponent implements OnInit, AfterViewI
     private tabsMessageService: TabsMessageService,
     private route: ActivatedRoute,
     private router: Router,
-    private cdr: ChangeDetectorRef) {
+    private cdr: ChangeDetectorRef,
+    private userManager: UserManagerService) {
     this.changeLocale();
   }
 

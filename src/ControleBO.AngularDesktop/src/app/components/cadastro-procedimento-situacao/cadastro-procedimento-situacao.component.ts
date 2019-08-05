@@ -15,6 +15,7 @@ import { MessageService } from 'src/app/services/message.service';
 import { CadastroMovimentacaoComponent } from '../cadastro-movimentacao/cadastro-movimentacao.component';
 import { IMessage, Action } from 'src/app/models/message';
 import { Result } from '../../models/result';
+import { UserManagerService } from '../../services/user-manager.service';
 
 @Component({
   selector: 'app-cadastro-procedimento-situacao',
@@ -55,6 +56,10 @@ export class CadastroProcedimentoSituacaoComponent implements OnInit, OnDestroy 
   private modalRef: BsModalRef;
   private subscription: Subscription;
 
+  get canEdit() {
+    return this.userManager.canEdit();
+  }
+
   constructor(private route: ActivatedRoute,
     private toastr: ToastrService,
     private situacaoService: SituacaoService,
@@ -62,7 +67,8 @@ export class CadastroProcedimentoSituacaoComponent implements OnInit, OnDestroy 
     private situacaoProcedimentoService: SituacaoProcedimentoService,
     private modalService: BsModalService,
     private messageService: MessageService,
-    private cdr: ChangeDetectorRef) {
+    private cdr: ChangeDetectorRef,
+    private userManager: UserManagerService) {
     this.onReceiveMessage();
   }
 

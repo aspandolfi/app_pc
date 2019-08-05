@@ -9,6 +9,7 @@ import { ToastrService } from 'ngx-toastr';
 import { TypeaheadMatch } from 'ngx-bootstrap/typeahead/public_api';
 import { Result } from 'src/app/models/result';
 import { MessageService } from 'src/app/services/message.service';
+import { UserManagerService } from '../../services/user-manager.service';
 
 @Component({
   selector: 'app-cadastro-indiciado',
@@ -27,12 +28,16 @@ export class CadastroIndiciadoComponent implements OnInit {
   naturalidade: Municipio;
   naturalidadeSelected: string;
 
+  get canEdit() {
+    return this.userManager.canEdit();
+  }
 
   constructor(public modalRef: BsModalRef,
     private indiciadoService: IndiciadoService,
     private messageService: MessageService,
     private municipioService: MunicipioService,
-    private toastr: ToastrService) { }
+    private toastr: ToastrService,
+    private userManager: UserManagerService) { }
 
   ngOnInit() {
     this.getMunicipios();

@@ -1,14 +1,14 @@
 <div class="card mb-3">
   <div class="card-header clearfix">
     Vítimas
-    <input type="button" class="btn btn-sm btn-secondary float-right" value="Novo" data-name="btnVitima" (click)="openModal($event, null);">
+    <input *ngIf="canEdit" type="button" class="btn btn-sm btn-secondary float-right" value="Novo" data-name="btnVitima" (click)="openModal($event, null);">
   </div>
   <div class="card-body">
     <div class="table-responsive-sm">
       <table class="table table-striped" id="vitimas" cellspacing="0">
         <thead>
           <tr>
-            <th></th>
+            <th>#</th>
             <th>Nome da Vítima</th>
             <th>Nome do Pai</th>
             <th>Nome da Mãe</th>
@@ -31,7 +31,7 @@
                     <i data-name="btnVitima" class="fas fa-edit"></i>
                   </a>
                 </div>
-                <div class="form-group ml-1">
+                <div *ngIf="canEdit" class="form-group ml-1">
                   <a title="Excluir" data-name="btnVitima" class="text-secondary" (click)="openModalExcluir($event, vitima);">
                     <i data-name="btnVitima" class="far fa-times-circle"></i>
                   </a>
@@ -79,14 +79,14 @@
 <div class="card mb-3">
   <div class="card-header clearfix">
     Indiciados
-    <input type="button" class="btn btn-sm btn-secondary float-right" value="Novo" name="btnIndiciado" (click)="openModal($event, null);">
+    <input *ngIf="canEdit" type="button" class="btn btn-sm btn-secondary float-right" value="Novo" name="btnIndiciado" (click)="openModal($event, null);">
   </div>
   <div class="card-body">
     <div class="table-responsive-sm">
       <table class="table table-striped" id="indiciados" cellspacing="0">
         <thead>
           <tr>
-            <th></th>
+            <th>#</th>
             <th>Nome do Indiciado</th>
             <th>Apelido</th>
             <th>Nome do Pai</th>
@@ -110,7 +110,7 @@
                     <i class="fas fa-edit"></i>
                   </a>
                 </div>
-                <div class="form-group ml-1">
+                <div *ngIf="canEdit" class="form-group ml-1">
                   <a title="Excluir" class="text-secondary" (click)="openModalExcluir($event, indiciado);">
                     <i class="far fa-times-circle"></i>
                   </a>

@@ -1,14 +1,14 @@
 <div class="card">
   <div class="card-header clearfix">
     Usuários
-    <button type="button" class="btn btn-sm btn-secondary float-right" data-toggle="modal" (click)="openModal(null);">Novo</button>
+    <button *ngIf="canEdit" type="button" class="btn btn-sm btn-secondary float-right" data-toggle="modal" (click)="openModal(null);">Novo</button>
   </div>
   <div class="card-body">
     <div class="table-responsive">
       <table class="table" id="dataTable" style="width:100%" cellspacing="0">
         <thead>
           <tr>
-            <th></th>
+            <th>#</th>
             <th>Nome</th>
             <th>E-mail</th>
             <th>Regra</th>
@@ -17,7 +17,7 @@
         <tbody>
           <tr *ngFor="let usuario of usuarios">
             <td data-id="{{usuario.id}}">
-              <div class="form-inline align-items-center">
+              <div *ngIf="canEdit" class="form-inline align-items-center">
                 <div class="form-group ml-1">
                   <a title="Editar" class="text-secondary" (click)="openModal(usuario);">
                     <i class="fas fa-edit"></i>

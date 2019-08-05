@@ -9,6 +9,7 @@ import { MunicipioService } from 'src/app/services/municipio.service';
 import { TypeaheadMatch } from 'ngx-bootstrap/typeahead/public_api';
 import { MessageService } from 'src/app/services/message.service';
 import { Result } from 'src/app/models/result';
+import { UserManagerService } from '../../services/user-manager.service';
 
 @Component({
   selector: 'app-cadastro-vitima',
@@ -27,11 +28,16 @@ export class CadastroVitimaComponent implements OnInit {
   naturalidade: Municipio;
   naturalidadeSelected: string;
 
+  get canEdit() {
+    return this.userManager.canEdit();
+  }
+
   constructor(public modalRef: BsModalRef,
     private vitimaService: VitimaService,
     private messageService: MessageService,
     private municipioService: MunicipioService,
-    private toastr: ToastrService) {
+    private toastr: ToastrService,
+    private userManager: UserManagerService) {
   }
 
   ngOnInit() {

@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { ProcedimentoList } from 'src/app/models/procedimento';
 import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 import { BsDatepickerConfig, BsLocaleService } from 'ngx-bootstrap/datepicker';
+import { UserManagerService } from '../../services/user-manager.service';
 
 @Component({
   selector: 'app-procedimento',
@@ -27,9 +28,14 @@ export class ProcedimentoComponent implements OnInit {
   pageSize = 10;
   currentPage = 1;
 
+  get canEdit() {
+    return this.userManager.canEdit();
+  }
+
   constructor(private procedimentoService: ProcedimentoService,
     private toastr: ToastrService,
-    private localeService: BsLocaleService) {
+    private localeService: BsLocaleService,
+    private userManager: UserManagerService) {
     this.localeService.use('pt-br');
   }
 

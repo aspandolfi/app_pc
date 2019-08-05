@@ -1,6 +1,6 @@
 <div class="card mb-3">
   <div class="card-header clearfix">
-    <button type="button" class="btn btn-sm btn-secondary float-right" [disabled]="!formObjetos.form.valid || submitted" value="Salvar" (click)="salvar();">
+    <button *ngIf="canEdit" type="button" class="btn btn-sm btn-secondary float-right" [disabled]="!formObjetos.form.valid || submitted" value="Salvar" (click)="salvar();">
       <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" [hidden]="!submitted"></span>
       Salvar
     </button>

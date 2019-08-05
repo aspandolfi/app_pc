@@ -6,6 +6,7 @@ import { MessageService } from '../../services/message.service';
 import { ToastrService } from 'ngx-toastr';
 import { Message, Action } from '../../models/message';
 import { Result } from '../../models/result';
+import { UserManagerService } from '../../services/user-manager.service';
 
 @Component({
   selector: 'app-cadastro-tipo-situacao',
@@ -18,10 +19,15 @@ export class CadastroTipoSituacaoComponent implements OnInit {
 
   submitted = false;
 
+  get canEdit() {
+    return this.userManager.canEdit();
+  }
+
   constructor(public modalRef: BsModalRef,
     private tipoSituacaoService: TipoSiutacaoService,
     private messageService: MessageService,
-    private toastr: ToastrService) { }
+    private toastr: ToastrService,
+    private userManager: UserManagerService) { }
 
   ngOnInit() {
   }

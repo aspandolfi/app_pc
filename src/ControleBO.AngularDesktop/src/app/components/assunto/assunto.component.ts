@@ -9,6 +9,7 @@ import { IMessage, Action } from '../../models/message';
 import { ConfirmarExclusaoComponent } from '../confirmar-exclusao/confirmar-exclusao.component';
 import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 import { CadastroAssuntoComponent } from '../cadastro-assunto/cadastro-assunto.component';
+import { UserManagerService } from '../../services/user-manager.service';
 
 @Component({
   selector: 'app-assunto',
@@ -28,10 +29,15 @@ export class AssuntoComponent implements OnInit, OnDestroy {
   pageSize = 10;
   currentPage = 1;
 
+  get canEdit() {
+    return this.userManager.canEdit();
+  }
+
   constructor(private modalService: BsModalService,
     private messageService: MessageService,
     private toastr: ToastrService,
-    private assuntoService: AssuntoService) {
+    private assuntoService: AssuntoService,
+    private userManager: UserManagerService) {
     this.onReceiveMessage();
   }
 

@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ObjetoApreendidoService } from '../../services/objeto-apreendido.service';
 import { Result } from '../../models/result';
+import { UserManagerService } from '../../services/user-manager.service';
 
 @Component({
   selector: 'app-cadastro-procedimento-objetos-apreendidos',
@@ -18,9 +19,14 @@ export class CadastroProcedimentoObjetosApreendidosComponent implements OnInit {
 
   objeto: ObjetoApreendido = { id: 0, descricao: '', procedimentoId: 0 };
 
+  get canEdit() {
+    return this.userManager.canEdit();
+  }
+
   constructor(private route: ActivatedRoute,
     private toastr: ToastrService,
-    private objetoApreendidoService: ObjetoApreendidoService) { }
+    private objetoApreendidoService: ObjetoApreendidoService,
+    private userManager: UserManagerService) { }
 
   ngOnInit() {
 

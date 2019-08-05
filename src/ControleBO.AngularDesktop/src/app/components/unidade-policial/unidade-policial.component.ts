@@ -9,6 +9,7 @@ import { IMessage, Action } from '../../models/message';
 import { ConfirmarExclusaoComponent } from '../confirmar-exclusao/confirmar-exclusao.component';
 import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 import { CadastroUnidadePolicialComponent } from '../cadastro-unidade-policial/cadastro-unidade-policial.component';
+import { UserManagerService } from '../../services/user-manager.service';
 
 @Component({
   selector: 'app-unidade-policial',
@@ -28,10 +29,15 @@ export class UnidadePolicialComponent implements OnInit {
   pageSize = 10;
   currentPage = 1;
 
+  get canEdit() {
+    return this.userManager.canEdit();
+  }
+
   constructor(private modalService: BsModalService,
     private toastr: ToastrService,
     private messageService: MessageService,
-    private unidadePolicialService: UnidadePolicialService) {
+    private unidadePolicialService: UnidadePolicialService,
+    private userManager: UserManagerService) {
     this.onReceiveMessage();
   }
 

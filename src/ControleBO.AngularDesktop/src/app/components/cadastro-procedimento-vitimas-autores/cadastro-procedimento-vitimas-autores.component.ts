@@ -13,6 +13,7 @@ import { CadastroIndiciadoComponent } from '../cadastro-indiciado/cadastro-indic
 import { ConfirmarExclusaoComponent } from '../confirmar-exclusao/confirmar-exclusao.component';
 import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 import { MessageService } from 'src/app/services/message.service';
+import { UserManagerService } from '../../services/user-manager.service';
 
 @Component({
   selector: 'app-cadastro-procedimento-vitimas-autores',
@@ -38,13 +39,17 @@ export class CadastroProcedimentoVitimasAutoresComponent implements OnInit, OnDe
 
   private modalRef: BsModalRef;
 
+  get canEdit() {
+    return this.userManager.canEdit();
+  }
+
   constructor(private vitimaService: VitimaService,
     private indiciadoService: IndiciadoService,
     private toastr: ToastrService,
     private messageService: MessageService,
     private modalService: BsModalService,
     private route: ActivatedRoute,
-    private router: Router) {
+    private userManager: UserManagerService) {
     this.onReceiveMessage();
   }
 

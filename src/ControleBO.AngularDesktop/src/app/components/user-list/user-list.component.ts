@@ -8,6 +8,7 @@ import { ConfirmarExclusaoComponent } from '../confirmar-exclusao/confirmar-excl
 import { Usuario } from '../../models/usuario';
 import { UserRegisterComponent } from '../user-register/user-register.component';
 import { AuthService } from '../../services/auth.service';
+import { UserManagerService } from '../../services/user-manager.service';
 
 @Component({
   selector: 'app-user-list',
@@ -21,10 +22,15 @@ export class UserListComponent implements OnInit, OnDestroy {
 
   usuarios: Usuario[] = [];
 
+  get canEdit() {
+    return this.userManager.isAdmin();
+  }
+
   constructor(private modalService: BsModalService,
     private toastr: ToastrService,
     private messageService: MessageService,
-    private authService: AuthService) {
+    private authService: AuthService,
+    private userManager: UserManagerService) {
     this.onReceiveMessage();
   }
 

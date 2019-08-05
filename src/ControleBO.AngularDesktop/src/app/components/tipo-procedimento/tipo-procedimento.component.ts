@@ -9,6 +9,7 @@ import { ConfirmarExclusaoComponent } from '../confirmar-exclusao/confirmar-excl
 import { IMessage, Action } from 'src/app/models/message';
 import { TipoProcedimentoService } from '../../services/tipo-procedimento.service';
 import { PageChangedEvent } from 'ngx-bootstrap/pagination/public_api';
+import { UserManagerService } from '../../services/user-manager.service';
 
 @Component({
   selector: 'app-tipo-procedimento',
@@ -28,10 +29,15 @@ export class TipoProcedimentoComponent implements OnInit, OnDestroy {
   pageSize = 10;
   currentPage = 1;
 
+  get canEdit() {
+    return this.userManager.canEdit();
+  }
+
   constructor(private modalService: BsModalService,
     private toastr: ToastrService,
     private messageService: MessageService,
-    private tipoProcedimentoService: TipoProcedimentoService) {
+    private tipoProcedimentoService: TipoProcedimentoService,
+    private userManager: UserManagerService) {
     this.onReceiveMessage();
   }
 

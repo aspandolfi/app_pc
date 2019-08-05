@@ -1,7 +1,7 @@
 <div class="card mb-3">
   <div class="card-header clearfix">
     Situação
-    <input type="button" class="btn btn-sm btn-secondary float-right" value="Salvar" (click)="salvar();">
+    <input *ngIf="canEdit" type="button" class="btn btn-sm btn-secondary float-right" value="Salvar" (click)="salvar();">
   </div>
   <div class="card-body">
     <div class="form-row">
@@ -85,7 +85,7 @@
 <div class="card mb-3">
   <div class="card-header clearfix">
     Movimentações
-    <input type="button" class="btn btn-sm btn-secondary float-right" value="Novo" (click)="openModalMovimentacao(null);">
+    <input *ngIf="canEdit" type="button" class="btn btn-sm btn-secondary float-right" value="Novo" (click)="openModalMovimentacao(null);">
   </div>
   <div class="card-body">
     <div class="text-left" *ngIf="isLoadingMovimentacoes">
@@ -95,7 +95,7 @@
     </div>
     <app-ultima-movimentacao [ultimasMovimentacoes]="movimentacoes"
                              [titulo]="''"
-                             [enableActions]="true">
+                             [enableActions]="canEdit">
     </app-ultima-movimentacao>
   </div>
 </div>

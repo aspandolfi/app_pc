@@ -9,6 +9,7 @@ import { CadastroArtigoComponent } from '../cadastro-artigo/cadastro-artigo.comp
 import { ConfirmarExclusaoComponent } from '../confirmar-exclusao/confirmar-exclusao.component';
 import { ArtigoService } from '../../services/artigo.service';
 import { PageChangedEvent } from 'ngx-bootstrap/pagination';
+import { UserManagerService } from '../../services/user-manager.service';
 
 @Component({
   selector: 'app-artigo',
@@ -28,10 +29,15 @@ export class ArtigoComponent implements OnInit, OnDestroy {
   pageSize = 10;
   currentPage = 1;
 
+  get canEdit() {
+    return this.userManager.canEdit();
+  }
+
   constructor(private modalService: BsModalService,
     private messageService: MessageService,
     private toastr: ToastrService,
-    private artigoService: ArtigoService) {
+    private artigoService: ArtigoService,
+    private userManager: UserManagerService) {
     this.onReceiveMessage();
   }
 

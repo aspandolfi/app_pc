@@ -64,10 +64,10 @@
         </div>
       </div>
       <hr>
-      <div class="form-group">
+      <div *ngIf="canEdit" class="form-group">
         <label for="regra">Regra</label>
       </div>
-      <div class="form-group d-flex justify-content-between">
+      <div *ngIf="canEdit" class="form-group d-flex justify-content-between">
         <div class="custom-control custom-radio custom-control-inline"
              tooltip="O usuário tem controle geral do sistema."
              placement="top">

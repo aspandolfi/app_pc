@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
@@ -52,12 +53,33 @@ namespace ControleBO.Api.Controllers
 
         // GET: api/Account
         [HttpGet]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
-            var usuarios = _userManager.Users
+            List<ApplicationUser> usuarios;
+            List<ApplicationUserViewModel> usuariosVm;
+
+            var currentUser = _aspNetUser;
+
+            if (currentUser.IsInRole(Roles.SuperUser) || currentUser.IsInRole(Roles.Admin))
+            {
+                usuarios = _userManager.Users
                 .Where(x => x.Email != "aspandolfi@gmail.com").ToList();
 
-            var usuariosVm = usuarios.Select(user => new ApplicationUserViewModel
+                usuariosVm = usuarios.Select(user => new ApplicationUserViewModel
+                {
+                    Id = user.Id,
+                    Email = user.Email,
+                    Nome = user.Name,
+                    Regra = _userManager.GetRolesAsync(user).Result.FirstOrDefault()
+                }).ToList();
+
+                return Response(usuariosVm);
+            }
+
+            usuarios = _userManager.Users
+               .Where(x => x.Email != "aspandolfi@gmail.com" && x.Id == currentUser.Id).ToList();
+
+            usuariosVm = usuarios.Select(user => new ApplicationUserViewModel
             {
                 Id = user.Id,
                 Email = user.Email,

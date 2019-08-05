@@ -54,6 +54,7 @@ export class UserManagerService implements OnDestroy {
 
   ngOnDestroy(): void {
     clearInterval(this.intervalId);
+    this.dispose();
   }
 
   isAdmin() {
@@ -128,5 +129,14 @@ export class UserManagerService implements OnDestroy {
 
     sessionStorage.setItem('__username', this._name);
     sessionStorage.setItem('__userrole', this._role);
+  }
+
+  private dispose() {
+    this._name = null;
+    this._email = null;
+    this._role = null;
+    this.intervalId = null;
+    sessionStorage.removeItem('__username');
+    sessionStorage.removeItem('__userrole');
   }
 }

@@ -6,6 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 import { RegisterUsuario } from '../../models/usuario';
 import { Result } from '../../models/result';
 import { Message, Action } from '../../models/message';
+import { UserManagerService } from '../../services/user-manager.service';
 
 @Component({
   selector: 'app-user-register',
@@ -19,10 +20,15 @@ export class UserRegisterComponent implements OnInit, AfterViewInit {
 
   usuario: RegisterUsuario = new RegisterUsuario();
 
+  get canEdit() {
+    return this.userManager.isAdmin();
+  }
+
   constructor(public modalRef: BsModalRef,
     private authService: AuthService,
     private messageService: MessageService,
-    private toastr: ToastrService) { }
+    private toastr: ToastrService,
+    private userManager: UserManagerService) { }
 
   ngOnInit() {
   }

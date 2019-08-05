@@ -53,7 +53,7 @@ namespace ControleBO.Api.Controllers
 
         // GET: api/Account
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public IActionResult Get()
         {
             List<ApplicationUser> usuarios;
             List<ApplicationUserViewModel> usuariosVm;
@@ -125,7 +125,8 @@ namespace ControleBO.Api.Controllers
 
             if (user == null)
             {
-                return Response(null, "Usuário não encontrado.");
+                NotifyError("Current", "Usuário não encontrado.");
+                return Response();
             }
 
             var roles = await _userManager.GetRolesAsync(user);
@@ -137,7 +138,7 @@ namespace ControleBO.Api.Controllers
             });
         }
 
-        // GET: api/Account?email=email@email.com
+        // GET: api/Account/getbyemail/email@email.com
         [HttpGet("getbyemail/{email}")]
         public async Task<IActionResult> GetByEmail([EmailAddress]string email)
         {
@@ -151,7 +152,8 @@ namespace ControleBO.Api.Controllers
 
             if (user == null)
             {
-                return Response(null, "E-mail não encontrado.");
+                NotifyError("GetByEmail", "E-mail não encontrado.");
+                return Response();
             }
 
             var roles = await _userManager.GetRolesAsync(user);
@@ -161,6 +163,48 @@ namespace ControleBO.Api.Controllers
                 Nome = user.Name,
                 Regra = roles.FirstOrDefault()
             });
+        }
+
+        // POST: api/Account/Refresh
+        [HttpPost("refresh")]
+        public async Task<IActionResult> Refresh()
+        {
+            var userId = _aspNetUser.Id;
+
+            var user = await _userManager.FindByIdAsync(userId);
+
+            if (user == null)
+            {
+                NotifyError("refresh", "Usuário não encontrado.");
+                return Response();
+            }
+
+            var roles = await _userManager.GetRolesAsync(user);
+            var claims = await _userManager.GetClaimsAsync(user);
+
+            ClaimsIdentity identity = user.GenerateClaimsIdentity(ClaimsIdentity.DefaultRoleClaimType, roles);
+
+            identity.AddClaims(claims);
+
+            DateTime dataCriacao = DateTime.Now;
+            DateTime dataExpiracao = dataCriacao + TimeSpan.FromSeconds(_tokenConfigurations.Seconds);
+
+            var handler = new JwtSecurityTokenHandler();
+            var securityToken = handler.CreateToken(new SecurityTokenDescriptor
+            {
+                Issuer = _tokenConfigurations.Issuer,
+                Audience = _tokenConfigurations.Audience,
+                SigningCredentials = _signingConfigurations.SigningCredentials,
+                Subject = identity,
+                NotBefore = dataCriacao,
+                Expires = dataExpiracao
+            });
+            var token = handler.WriteToken(securityToken);
+
+            return Response(new AuthenticationResultViewModel(true,
+                                                              dataCriacao,
+                                                              dataExpiracao,
+                                                              token));
         }
 
         // POST: api/Account
@@ -272,17 +316,20 @@ namespace ControleBO.Api.Controllers
             {
                 if (string.IsNullOrEmpty(model.ConfirmPassword))
                 {
-                    return Response(model, "Por favor preencha a senha e a confirmação de senha.");
+                    NotifyError("UpdateUser", "Por favor preencha a senha e a confirmação de senha.");
+                    return Response(model);
                 }
 
                 if (string.Compare(model.Password, model.ConfirmPassword) != 0)
                 {
-                    return Response(model, "A senha e a confirmação de senha não conferem.");
+                    NotifyError("UpdateUser", "A senha e a confirmação de senha não conferem.");
+                    return Response(model);
                 }
 
                 if (string.IsNullOrEmpty(model.CurrentPassword))
                 {
-                    return Response(model, "Por favor preencha a senha atual.");
+                    NotifyError("UpdateUser", "Por favor preencha a senha atual.");
+                    return Response(model);
                 }
 
                 atualizarSenha = true;
@@ -292,7 +339,8 @@ namespace ControleBO.Api.Controllers
 
             if (user == null)
             {
-                return Response(model, "O usuário não foi encontrado.");
+                NotifyError("UpdateUser", "O usuário não foi encontrado.");
+                return Response(model);
             }
 
             user.Name = model.Name.Trim();
@@ -336,26 +384,29 @@ namespace ControleBO.Api.Controllers
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = Roles.SuperUserAdmin)]
         public async Task<IActionResult> Delete(string id)
         {
             if (string.IsNullOrEmpty(id))
             {
-                return Response(id, "Por favor, verifique se o usuário existe.");
+                NotifyError("DeleteUser", "Por favor, verifique se o usuário existe.");
+                return Response(id);
             }
 
             var user = await _userManager.FindByIdAsync(id);
 
             if (user == null)
             {
-                return Response(id, "Por favor, verifique se o usuário existe.");
+                NotifyError("DeleteUser", "Por favor, verifique se o usuário existe.");
+                return Response(id);
             }
 
             var result = await _userManager.DeleteAsync(user);
 
             if (!result.Succeeded)
             {
-                return Response(id, "Desculpe, falha ao remover o usuário.");
+                NotifyError("DeleteUser", "Desculpe, falha ao remover o usuário.");
+                return Response(id);
             }
 
             return Response(id, "O usuário foi removido com sucesso.");

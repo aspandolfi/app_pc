@@ -12,6 +12,10 @@ namespace ControleBO.Infra.CrossCutting.Identity.Models
 
         public const string Viewer = "Viewer";
 
+        public const string SuperUserAdmin = SuperUser + "," + Admin;
+
+        public const string SuperUserAdminUser = SuperUserAdmin + "," + User;
+
         public static bool Contains(string role)
         {
             return GetAll.Contains(role);

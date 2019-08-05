@@ -55,6 +55,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('access_token', JSON.stringify(res.data));
 
         this.userManager.refreshUserByTime(null, true);
+        this.userManager.refreshUserTokenByTime();
 
         $('body').removeClass('bg-dark');
         $('#wrapper').css('display', '');

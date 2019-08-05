@@ -17,6 +17,10 @@ export class AuthService {
     return this.baseService.post(`${this.uri}/login`, model);
   }
 
+  refresh() {
+    return this.baseService.post<Login>(`${this.uri}/refresh`, null);
+  }
+
   logOut() {
     localStorage.removeItem('access_token');
   }

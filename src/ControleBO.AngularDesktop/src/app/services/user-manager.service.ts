@@ -12,7 +12,10 @@ export class UserManagerService implements OnDestroy {
 
   /* ms  * s  * min = 5 min */
   private readonly timeToRefresh: number = 1000 * 60;
+  private readonly timeToRefreshToken: number = 1000 * 60 * 60;
+
   private intervalId: any;
+  private intervalTokenId: any;
 
   private _name: string;
   private _role: string;
@@ -54,6 +57,7 @@ export class UserManagerService implements OnDestroy {
 
   ngOnDestroy(): void {
     clearInterval(this.intervalId);
+    clearInterval(this.intervalTokenId);
     this.dispose();
   }
 
@@ -100,6 +104,29 @@ export class UserManagerService implements OnDestroy {
           }
         })
       }, this.timeToRefresh);
+    }
+  }
+
+  refreshUserTokenByTime(refreshNow?: boolean) {
+
+    // O método é chamado no loginComponent e no AppComponent (caso reload na página)
+    if (this.authentication.isValidToken && !this.intervalTokenId) {
+
+      if (refreshNow) {
+        this.authService.refresh().subscribe(res => {
+          if (res.data) {
+            localStorage.setItem('access_token', JSON.stringify(res.data));
+          }
+        });
+      }
+
+      this.intervalTokenId = setInterval(() => {
+        this.authService.getCurrent().subscribe(res => {
+          if (res.data) {
+            localStorage.setItem('access_token', JSON.stringify(res.data));
+          }
+        })
+      }, this.timeToRefreshToken);
     }
   }
 

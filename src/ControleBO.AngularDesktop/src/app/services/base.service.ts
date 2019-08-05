@@ -76,12 +76,28 @@ export class BaseService {
     }
     // return an observable with a user-facing error message
 
-    if (error.status == 500) {
+    // Erro de domínio
+    if (error.status === 400) {
       return throwError(
-        error);
+        error.error);
     }
-    return throwError(
-      error.error);
 
+    if (error.status === 403) {
+      return throwError(
+        { message: 'Você não tem autorização para executar essa operação.' });
+    }
+
+    if (error.status === 404) {
+      return throwError(
+        { message: 'Falha ao se comunicar com o servidor. Por favor contate o administrador do sistema.' });
+    }
+
+    if (error.status === 500) {
+      return throwError(
+        { message: 'Erro interno do servidor. Por favor contate o administrador do sistema.' });
+    }
+
+    return throwError(
+      error);
   };
 }

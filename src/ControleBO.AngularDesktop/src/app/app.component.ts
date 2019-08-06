@@ -11,5 +11,6 @@ export class AppComponent {
 
   constructor(private userManager: UserManagerService) {
     this.userManager.refreshUserByTime(null, true);
+    this.userManager.refreshUserTokenByTime(true);
   }
 }

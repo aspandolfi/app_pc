@@ -14,7 +14,7 @@ import { UserManagerService } from '../../services/user-manager.service';
 })
 export class LoginComponent implements OnInit {
 
-  login: Login = { email: '', password: '', rememberMe: false };
+  login: Login = { email: localStorage.getItem('___rememberme'), password: '', rememberMe: false };
   message: string = '';
 
   submitted: boolean = false;
@@ -46,6 +46,10 @@ export class LoginComponent implements OnInit {
     if (!this.login.password) {
       this.message = 'A senha é obrigatória.';
       return;
+    }
+
+    if (this.login.rememberMe) {
+      localStorage.setItem('___rememberme', this.login.email);
     }
 
     this.submitted = true;

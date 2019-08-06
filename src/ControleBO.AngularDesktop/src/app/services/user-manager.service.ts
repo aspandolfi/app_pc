@@ -121,7 +121,7 @@ export class UserManagerService implements OnDestroy {
       }
 
       this.intervalTokenId = setInterval(() => {
-        this.authService.getCurrent().subscribe(res => {
+        this.authService.refresh().subscribe(res => {
           if (res.data) {
             localStorage.setItem('access_token', JSON.stringify(res.data));
           }
@@ -163,6 +163,7 @@ export class UserManagerService implements OnDestroy {
     this._email = null;
     this._role = null;
     this.intervalId = null;
+    this.intervalTokenId = null;
     sessionStorage.removeItem('__username');
     sessionStorage.removeItem('__userrole');
   }

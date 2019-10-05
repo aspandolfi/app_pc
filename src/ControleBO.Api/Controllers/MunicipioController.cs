@@ -26,7 +26,6 @@ namespace ControleBO.Api.Controllers
 
         // GET: api/Municipio
         [HttpGet]
-        [ResponseCache(Duration = 72000, Location = ResponseCacheLocation.Any)]
         public IActionResult Get()
         {
             return Response(_municipioAppService.GetAll());

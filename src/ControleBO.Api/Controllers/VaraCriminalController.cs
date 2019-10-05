@@ -26,7 +26,6 @@ namespace ControleBO.Api.Controllers
 
         // GET: api/VaraCriminal
         [HttpGet]
-        [ResponseCache(Duration = 3600, Location = ResponseCacheLocation.Any)]
         public IActionResult Get()
         {
             return Response(_varaCriminalAppService.GetAll());

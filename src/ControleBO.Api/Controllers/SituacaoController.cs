@@ -25,7 +25,6 @@ namespace ControleBO.Api.Controllers
 
         // GET: api/Situacao
         [HttpGet]
-        [ResponseCache(Location = ResponseCacheLocation.Any, Duration = 3600)]
         public IActionResult Get()
         {
             return Response(_situacaoAppService.GetAll());

@@ -25,7 +25,6 @@ namespace ControleBO.Api.Controllers
 
         // GET: api/UnidadePolicial
         [HttpGet]
-        [ResponseCache(Duration = 3600, Location = ResponseCacheLocation.Any)]
         public IActionResult Get()
         {
             return Response(_unidadePolicialAppService.GetAll());

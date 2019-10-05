@@ -26,7 +26,6 @@ namespace ControleBO.Api.Controllers
 
         // GET: api/Artigo
         [HttpGet]
-        [ResponseCache(Duration = 3600, Location = ResponseCacheLocation.Any)]
         public IActionResult Get()
         {
             return Response(_artigoAppService.GetAll());

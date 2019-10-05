@@ -13,17 +13,17 @@ namespace ControleBO.Infra.Data.MapConfig
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.Nome)
-                .HasColumnType("varchar")
+                .HasColumnType("varchar(200)")
                 .HasMaxLength(200)
                 .IsRequired();
 
             builder.Property(x => x.CEP)
-                .HasColumnType("varchar")
-                .HasMaxLength(8)
+                .HasColumnType("varchar(9)")
+                .HasMaxLength(9)
                 .IsRequired();
 
             builder.Property(x => x.UF)
-                .HasColumnType("varchar")
+                .HasColumnType("varchar(2)")
                 .HasMaxLength(2)
                 .IsRequired();
         }

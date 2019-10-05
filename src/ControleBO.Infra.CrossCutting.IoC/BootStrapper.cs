@@ -24,10 +24,9 @@ namespace ControleBO.Infra.CrossCutting.IoC
             services.AddScoped<IAspNetUser, AspNetUser>();
 
             // Infra - Data
-            services.AddEntityFrameworkNpgsql()
+            services.AddEntityFrameworkSqlServer()
                 .AddDbContext<SpcContext>();
 
-            //services.AddScoped<SpcContext>();
             //services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped<IAssuntoRepository, AssuntoRepository>();
             services.AddScoped<IArtigoRepository, ArtigoRepository>();

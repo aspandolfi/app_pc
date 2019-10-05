@@ -22,7 +22,8 @@ namespace ControleBO.Infra.CrossCutting.Identity.Context
                 .Build();
 
             // define the database to use
-            optionsBuilder.UseNpgsql(config.GetConnectionString("DefaultConnection"));
+            //optionsBuilder.UseNpgsql(config.GetConnectionString("DefaultConnection"));
+            optionsBuilder.UseSqlServer(config.GetConnectionString("DefaultConnection"));
         }
     }
 }

@@ -13,30 +13,27 @@ namespace ControleBO.Infra.Data.MapConfig
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.BoletimUnificado)
-                .HasColumnType("varchar")
+                .HasColumnType("varchar(30)")
                 .HasMaxLength(30)
                 .IsRequired();
 
             builder.Property(x => x.BoletimOcorrencia)
-                .HasColumnType("varchar")
+                .HasColumnType("varchar(30)")
                 .HasMaxLength(30)
                 .IsRequired();
 
             builder.Property(x => x.NumeroProcessual)
-                .HasColumnType("varchar")
+                .HasColumnType("varchar(30)")
                 .HasMaxLength(30)
                 .IsRequired();
 
             builder.Property(x => x.Gampes)
-                .HasColumnType("varchar")
+                .HasColumnType("varchar(30)")
                 .HasMaxLength(30)
                 .IsRequired();
 
-            builder.Property(x => x.Anexos)
-                .HasColumnType("varchar");
-
             builder.Property(x => x.LocalFato)
-                .HasColumnType("varchar")
+                .HasColumnType("varchar(30)")
                 .HasMaxLength(30)
                 .IsRequired();
 
@@ -44,11 +41,11 @@ namespace ControleBO.Infra.Data.MapConfig
                 .IsRequired();
 
             builder.Property(x => x.TipoCriminal)
-                .HasColumnType("varchar")
+                .HasColumnType("varchar(100)")
                 .HasMaxLength(100);
 
             builder.Property(x => x.AndamentoProcessual)
-                .HasColumnType("varchar")
+                .HasColumnType("varchar(100)")
                 .HasMaxLength(100);
 
             builder.HasOne(x => x.TipoProcedimento)

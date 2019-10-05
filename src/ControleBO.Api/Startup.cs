@@ -35,7 +35,7 @@ namespace ControleBO.Api
 
             services.AddHttpContextAccessor();
 
-            services.AddEntityFrameworkNpgsql()
+            services.AddEntityFrameworkSqlServer()
                 .AddDbContext<ApplicationDbContext>();
 
             services.AddIdentity();
@@ -78,7 +78,7 @@ namespace ControleBO.Api
 
             app.UseResponseCompression();
 
-            //app.UseHttpsRedirection();
+            app.UseHttpsRedirection();
 
             // Criação das estruturas e inserção 
             // de dados iniciais

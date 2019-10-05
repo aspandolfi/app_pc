@@ -13,12 +13,12 @@ namespace ControleBO.Infra.Data.MapConfig
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.Descricao)
-                .HasColumnType("varchar")
+                .HasColumnType("varchar(100)")
                 .HasMaxLength(100)
                 .IsRequired();
 
             builder.Property(x => x.Sigla)
-                .HasColumnType("varchar")
+                .HasColumnType("varchar(10)")
                 .HasMaxLength(10);
         }
     }

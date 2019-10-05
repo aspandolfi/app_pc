@@ -13,13 +13,7 @@ namespace ControleBO.Infra.Data.MapConfig
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.Descricao)
-                .HasColumnType("varchar")
-                .HasMaxLength(250)
                 .IsRequired();
-
-            builder.Property(x => x.Local)
-                .HasColumnType("varchar")
-                .HasMaxLength(250);
 
             builder.HasOne(x => x.Procedimento)
                 .WithMany(y => y.ObjetosApreendidos)

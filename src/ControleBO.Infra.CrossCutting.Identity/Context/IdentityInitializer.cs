@@ -23,11 +23,14 @@ namespace ControleBO.Infra.CrossCutting.Identity.Context
 
         private bool IsIdentityCreated()
         {
-            var sqlRaw = @"SELECT EXISTS (
+            var sqlRaw = @"IF EXISTS (
                                        SELECT 1
                                        FROM information_schema.tables
-                                     WHERE table_name = 'AspNetUsers'
-                                       ); ";
+                                       WHERE table_name = 'AspNetUsers'
+                                       )
+                        BEGIN
+                            SELECT 1
+                        END; ";
             var query = _context.Database.ExecuteSqlCommand(new RawSqlString(sqlRaw));
 
             return query > 0;

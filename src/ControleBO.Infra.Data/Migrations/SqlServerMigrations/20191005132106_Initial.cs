@@ -1,8 +1,8 @@
 ﻿using System;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
-using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
-namespace ControleBO.Infra.Data.Migrations
+namespace ControleBO.Infra.Data.Migrations.SqlServerMigrations
 {
     public partial class Initial : Migration
     {
@@ -13,12 +13,12 @@ namespace ControleBO.Infra.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     CriadoEm = table.Column<DateTime>(nullable: false),
                     ModificadoEm = table.Column<DateTime>(nullable: false),
                     RemovidoEm = table.Column<DateTime>(nullable: true),
                     Versao = table.Column<int>(nullable: false),
-                    Descricao = table.Column<string>(type: "varchar", maxLength: 100, nullable: false)
+                    Descricao = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -30,12 +30,12 @@ namespace ControleBO.Infra.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     CriadoEm = table.Column<DateTime>(nullable: false),
                     ModificadoEm = table.Column<DateTime>(nullable: false),
                     RemovidoEm = table.Column<DateTime>(nullable: true),
                     Versao = table.Column<int>(nullable: false),
-                    Descricao = table.Column<string>(type: "varchar", maxLength: 100, nullable: false)
+                    Descricao = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -47,14 +47,14 @@ namespace ControleBO.Infra.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     CriadoEm = table.Column<DateTime>(nullable: false),
                     ModificadoEm = table.Column<DateTime>(nullable: false),
                     RemovidoEm = table.Column<DateTime>(nullable: true),
                     Versao = table.Column<int>(nullable: false),
-                    Nome = table.Column<string>(type: "varchar", maxLength: 200, nullable: false),
-                    UF = table.Column<string>(type: "varchar", maxLength: 2, nullable: false),
-                    CEP = table.Column<string>(type: "varchar", maxLength: 8, nullable: false)
+                    Nome = table.Column<string>(type: "varchar(200)", maxLength: 200, nullable: false),
+                    UF = table.Column<string>(type: "varchar(2)", maxLength: 2, nullable: false),
+                    CEP = table.Column<string>(type: "varchar(9)", maxLength: 9, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -66,12 +66,12 @@ namespace ControleBO.Infra.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     CriadoEm = table.Column<DateTime>(nullable: false),
                     ModificadoEm = table.Column<DateTime>(nullable: false),
                     RemovidoEm = table.Column<DateTime>(nullable: true),
                     Versao = table.Column<int>(nullable: false),
-                    Descricao = table.Column<string>(type: "varchar", maxLength: 100, nullable: false)
+                    Descricao = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -83,13 +83,13 @@ namespace ControleBO.Infra.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     CriadoEm = table.Column<DateTime>(nullable: false),
                     ModificadoEm = table.Column<DateTime>(nullable: false),
                     RemovidoEm = table.Column<DateTime>(nullable: true),
                     Versao = table.Column<int>(nullable: false),
-                    Sigla = table.Column<string>(type: "varchar", maxLength: 10, nullable: true),
-                    Descricao = table.Column<string>(type: "varchar", maxLength: 100, nullable: false)
+                    Sigla = table.Column<string>(type: "varchar(10)", maxLength: 10, nullable: true),
+                    Descricao = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -101,15 +101,15 @@ namespace ControleBO.Infra.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     CriadoEm = table.Column<DateTime>(nullable: false),
                     ModificadoEm = table.Column<DateTime>(nullable: false),
                     RemovidoEm = table.Column<DateTime>(nullable: true),
                     Versao = table.Column<int>(nullable: false),
-                    Codigo = table.Column<string>(type: "varchar", maxLength: 50, nullable: false),
-                    Sigla = table.Column<string>(type: "varchar", maxLength: 20, nullable: false),
-                    Descricao = table.Column<string>(type: "varchar", maxLength: 100, nullable: false),
-                    CodigoCargoQO = table.Column<string>(type: "varchar", maxLength: 50, nullable: true)
+                    Codigo = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false),
+                    Sigla = table.Column<string>(type: "varchar(20)", maxLength: 20, nullable: false),
+                    Descricao = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false),
+                    CodigoCargoQO = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -121,12 +121,12 @@ namespace ControleBO.Infra.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     CriadoEm = table.Column<DateTime>(nullable: false),
                     ModificadoEm = table.Column<DateTime>(nullable: false),
                     RemovidoEm = table.Column<DateTime>(nullable: true),
                     Versao = table.Column<int>(nullable: false),
-                    Descricao = table.Column<string>(type: "varchar", maxLength: 100, nullable: false)
+                    Descricao = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -138,12 +138,12 @@ namespace ControleBO.Infra.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     CriadoEm = table.Column<DateTime>(nullable: false),
                     ModificadoEm = table.Column<DateTime>(nullable: false),
                     RemovidoEm = table.Column<DateTime>(nullable: true),
                     Versao = table.Column<int>(nullable: false),
-                    Descricao = table.Column<string>(type: "varchar", maxLength: 100, nullable: false),
+                    Descricao = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false),
                     SituacaoId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -162,21 +162,21 @@ namespace ControleBO.Infra.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     CriadoEm = table.Column<DateTime>(nullable: false),
                     ModificadoEm = table.Column<DateTime>(nullable: false),
                     RemovidoEm = table.Column<DateTime>(nullable: true),
                     Versao = table.Column<int>(nullable: false),
-                    BoletimUnificado = table.Column<string>(type: "varchar", maxLength: 30, nullable: false),
-                    BoletimOcorrencia = table.Column<string>(type: "varchar", maxLength: 30, nullable: false),
-                    NumeroProcessual = table.Column<string>(type: "varchar", maxLength: 30, nullable: false),
-                    Gampes = table.Column<string>(type: "varchar", maxLength: 30, nullable: false),
-                    Anexos = table.Column<string>(type: "varchar", maxLength: 250, nullable: true),
-                    LocalFato = table.Column<string>(type: "varchar", maxLength: 30, nullable: false),
+                    BoletimUnificado = table.Column<string>(type: "varchar(30)", maxLength: 30, nullable: false),
+                    BoletimOcorrencia = table.Column<string>(type: "varchar(30)", maxLength: 30, nullable: false),
+                    NumeroProcessual = table.Column<string>(type: "varchar(30)", maxLength: 30, nullable: false),
+                    Gampes = table.Column<string>(type: "varchar(30)", maxLength: 30, nullable: false),
+                    Anexos = table.Column<string>(type: "varchar(250)", maxLength: 250, nullable: true),
+                    LocalFato = table.Column<string>(type: "varchar(30)", maxLength: 30, nullable: false),
                     DataFato = table.Column<DateTime>(nullable: false),
                     DataInstauracao = table.Column<DateTime>(nullable: true),
-                    TipoCriminal = table.Column<string>(type: "varchar", maxLength: 100, nullable: true),
-                    AndamentoProcessual = table.Column<string>(type: "varchar", maxLength: 100, nullable: true),
+                    TipoCriminal = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: true),
+                    AndamentoProcessual = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: true),
                     TipoProcedimentoId = table.Column<int>(nullable: false),
                     VaraCriminalId = table.Column<int>(nullable: false),
                     ComarcaId = table.Column<int>(nullable: false),
@@ -237,13 +237,13 @@ namespace ControleBO.Infra.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     CriadoEm = table.Column<DateTime>(nullable: false),
                     ModificadoEm = table.Column<DateTime>(nullable: false),
                     RemovidoEm = table.Column<DateTime>(nullable: true),
                     Versao = table.Column<int>(nullable: false),
                     DataRelatorio = table.Column<DateTime>(nullable: true),
-                    Observacao = table.Column<string>(type: "varchar", maxLength: 250, nullable: true),
+                    Observacao = table.Column<string>(type: "varchar(250)", maxLength: 250, nullable: true),
                     ProcedimentoId = table.Column<int>(nullable: false),
                     SituacaoId = table.Column<int>(nullable: false),
                     SituacaoTipoId = table.Column<int>(nullable: true)
@@ -276,20 +276,20 @@ namespace ControleBO.Infra.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     CriadoEm = table.Column<DateTime>(nullable: false),
                     ModificadoEm = table.Column<DateTime>(nullable: false),
                     RemovidoEm = table.Column<DateTime>(nullable: true),
                     Versao = table.Column<int>(nullable: false),
-                    Nome = table.Column<string>(type: "varchar", maxLength: 250, nullable: true),
-                    NomePai = table.Column<string>(type: "varchar", maxLength: 250, nullable: true),
-                    NomeMae = table.Column<string>(type: "varchar", maxLength: 250, nullable: true),
+                    Nome = table.Column<string>(type: "varchar(250)", maxLength: 250, nullable: true),
+                    NomePai = table.Column<string>(type: "varchar(250)", maxLength: 250, nullable: true),
+                    NomeMae = table.Column<string>(type: "varchar(250)", maxLength: 250, nullable: true),
                     DataNascimento = table.Column<DateTime>(nullable: true),
                     Idade = table.Column<int>(nullable: true),
                     MenorIdade = table.Column<bool>(nullable: false),
-                    Telefone = table.Column<string>(type: "varchar", maxLength: 250, nullable: true),
+                    Telefone = table.Column<string>(type: "varchar(250)", maxLength: 250, nullable: true),
                     NaturalidadeId = table.Column<int>(nullable: true),
-                    Apelido = table.Column<string>(type: "varchar", maxLength: 100, nullable: true),
+                    Apelido = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: true),
                     ProcedimentoId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -314,12 +314,12 @@ namespace ControleBO.Infra.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     CriadoEm = table.Column<DateTime>(nullable: false),
                     ModificadoEm = table.Column<DateTime>(nullable: false),
                     RemovidoEm = table.Column<DateTime>(nullable: true),
                     Versao = table.Column<int>(nullable: false),
-                    Destino = table.Column<string>(type: "varchar", maxLength: 100, nullable: false),
+                    Destino = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false),
                     Data = table.Column<DateTime>(nullable: false),
                     RetornouEm = table.Column<DateTime>(nullable: true),
                     ProcedimentoId = table.Column<int>(nullable: false)
@@ -340,13 +340,13 @@ namespace ControleBO.Infra.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     CriadoEm = table.Column<DateTime>(nullable: false),
                     ModificadoEm = table.Column<DateTime>(nullable: false),
                     RemovidoEm = table.Column<DateTime>(nullable: true),
                     Versao = table.Column<int>(nullable: false),
-                    Descricao = table.Column<string>(type: "varchar", maxLength: 250, nullable: false),
-                    Local = table.Column<string>(type: "varchar", maxLength: 250, nullable: true),
+                    Descricao = table.Column<string>(type: "varchar(250)", maxLength: 250, nullable: false),
+                    Local = table.Column<string>(type: "varchar(250)", maxLength: 250, nullable: true),
                     ProcedimentoId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -365,20 +365,20 @@ namespace ControleBO.Infra.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     CriadoEm = table.Column<DateTime>(nullable: false),
                     ModificadoEm = table.Column<DateTime>(nullable: false),
                     RemovidoEm = table.Column<DateTime>(nullable: true),
                     Versao = table.Column<int>(nullable: false),
-                    Nome = table.Column<string>(type: "varchar", maxLength: 250, nullable: true),
-                    NomePai = table.Column<string>(type: "varchar", maxLength: 250, nullable: true),
-                    NomeMae = table.Column<string>(type: "varchar", maxLength: 250, nullable: true),
+                    Nome = table.Column<string>(type: "varchar(250)", maxLength: 250, nullable: true),
+                    NomePai = table.Column<string>(type: "varchar(250)", maxLength: 250, nullable: true),
+                    NomeMae = table.Column<string>(type: "varchar(250)", maxLength: 250, nullable: true),
                     DataNascimento = table.Column<DateTime>(nullable: true),
                     Idade = table.Column<int>(nullable: true),
                     MenorIdade = table.Column<bool>(nullable: false),
-                    Telefone = table.Column<string>(type: "varchar", maxLength: 250, nullable: true),
+                    Telefone = table.Column<string>(type: "varchar(250)", maxLength: 250, nullable: true),
                     NaturalidadeId = table.Column<int>(nullable: true),
-                    Email = table.Column<string>(type: "varchar", maxLength: 100, nullable: true),
+                    Email = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: true),
                     ProcedimentoId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>

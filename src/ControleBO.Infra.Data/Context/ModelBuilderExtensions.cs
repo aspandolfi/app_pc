@@ -90,9 +90,9 @@ namespace ControleBO.Infra.Data.Context
         {
             if (!context.Situacoes.Any())
             {
-                var situacao1 = new Situacao(1, "Procedimento se encontra em andamento na Delegacia");
-                var situacao2 = new Situacao(2, "Procedimento se encontra na justiça");
-                var situacao3 = new Situacao(3, "Procedimento relatado");
+                var situacao1 = new Situacao("Procedimento se encontra em andamento na Delegacia");
+                var situacao2 = new Situacao("Procedimento se encontra na justiça");
+                var situacao3 = new Situacao("Procedimento relatado");
 
                 context.Situacoes.AddRange(
                     situacao1,
@@ -272,8 +272,15 @@ namespace ControleBO.Infra.Data.Context
 
             foreach (var property in properties)
             {
-                property.Npgsql().ColumnType = type;
-                property.SetMaxLength(maxLength);
+                if (type == "varchar")
+                {
+                    property.SqlServer().ColumnType = $"{type}({maxLength})";
+                    property.SetMaxLength(maxLength);
+                }
+                else
+                {
+                    property.SqlServer().ColumnType = type;
+                }
             }
         }
     }

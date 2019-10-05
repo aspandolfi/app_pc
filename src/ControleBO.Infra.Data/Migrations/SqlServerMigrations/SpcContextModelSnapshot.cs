@@ -3,10 +3,10 @@ using System;
 using ControleBO.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
-namespace ControleBO.Infra.Data.Migrations
+namespace ControleBO.Infra.Data.Migrations.SqlServerMigrations
 {
     [DbContext(typeof(SpcContext))]
     partial class SpcContextModelSnapshot : ModelSnapshot
@@ -15,20 +15,21 @@ namespace ControleBO.Infra.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn)
-                .HasAnnotation("ProductVersion", "2.1.11-servicing-32099")
-                .HasAnnotation("Relational:MaxIdentifierLength", 63);
+                .HasAnnotation("ProductVersion", "2.2.6-servicing-10079")
+                .HasAnnotation("Relational:MaxIdentifierLength", 128)
+                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("ControleBO.Domain.Models.Artigo", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("CriadoEm");
 
                     b.Property<string>("Descricao")
                         .IsRequired()
-                        .HasColumnType("varchar")
+                        .HasColumnType("varchar(100)")
                         .HasMaxLength(100);
 
                     b.Property<DateTime>("ModificadoEm");
@@ -45,13 +46,14 @@ namespace ControleBO.Infra.Data.Migrations
             modelBuilder.Entity("ControleBO.Domain.Models.Assunto", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("CriadoEm");
 
                     b.Property<string>("Descricao")
                         .IsRequired()
-                        .HasColumnType("varchar")
+                        .HasColumnType("varchar(100)")
                         .HasMaxLength(100);
 
                     b.Property<DateTime>("ModificadoEm");
@@ -68,10 +70,11 @@ namespace ControleBO.Infra.Data.Migrations
             modelBuilder.Entity("ControleBO.Domain.Models.Indiciado", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Apelido")
-                        .HasColumnType("varchar")
+                        .HasColumnType("varchar(100)")
                         .HasMaxLength(100);
 
                     b.Property<DateTime>("CriadoEm");
@@ -87,15 +90,15 @@ namespace ControleBO.Infra.Data.Migrations
                     b.Property<int?>("NaturalidadeId");
 
                     b.Property<string>("Nome")
-                        .HasColumnType("varchar")
+                        .HasColumnType("varchar(250)")
                         .HasMaxLength(250);
 
                     b.Property<string>("NomeMae")
-                        .HasColumnType("varchar")
+                        .HasColumnType("varchar(250)")
                         .HasMaxLength(250);
 
                     b.Property<string>("NomePai")
-                        .HasColumnType("varchar")
+                        .HasColumnType("varchar(250)")
                         .HasMaxLength(250);
 
                     b.Property<int>("ProcedimentoId");
@@ -103,7 +106,7 @@ namespace ControleBO.Infra.Data.Migrations
                     b.Property<DateTime?>("RemovidoEm");
 
                     b.Property<string>("Telefone")
-                        .HasColumnType("varchar")
+                        .HasColumnType("varchar(250)")
                         .HasMaxLength(250);
 
                     b.Property<int>("Versao");
@@ -120,7 +123,8 @@ namespace ControleBO.Infra.Data.Migrations
             modelBuilder.Entity("ControleBO.Domain.Models.Movimentacao", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("CriadoEm");
 
@@ -128,7 +132,7 @@ namespace ControleBO.Infra.Data.Migrations
 
                     b.Property<string>("Destino")
                         .IsRequired()
-                        .HasColumnType("varchar")
+                        .HasColumnType("varchar(100)")
                         .HasMaxLength(100);
 
                     b.Property<DateTime>("ModificadoEm");
@@ -151,12 +155,13 @@ namespace ControleBO.Infra.Data.Migrations
             modelBuilder.Entity("ControleBO.Domain.Models.Municipio", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("CEP")
                         .IsRequired()
-                        .HasColumnType("varchar")
-                        .HasMaxLength(8);
+                        .HasColumnType("varchar(9)")
+                        .HasMaxLength(9);
 
                     b.Property<DateTime>("CriadoEm");
 
@@ -164,14 +169,14 @@ namespace ControleBO.Infra.Data.Migrations
 
                     b.Property<string>("Nome")
                         .IsRequired()
-                        .HasColumnType("varchar")
+                        .HasColumnType("varchar(200)")
                         .HasMaxLength(200);
 
                     b.Property<DateTime?>("RemovidoEm");
 
                     b.Property<string>("UF")
                         .IsRequired()
-                        .HasColumnType("varchar")
+                        .HasColumnType("varchar(2)")
                         .HasMaxLength(2);
 
                     b.Property<int>("Versao");
@@ -184,17 +189,18 @@ namespace ControleBO.Infra.Data.Migrations
             modelBuilder.Entity("ControleBO.Domain.Models.ObjetoApreendido", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("CriadoEm");
 
                     b.Property<string>("Descricao")
                         .IsRequired()
-                        .HasColumnType("varchar")
+                        .HasColumnType("varchar(250)")
                         .HasMaxLength(250);
 
                     b.Property<string>("Local")
-                        .HasColumnType("varchar")
+                        .HasColumnType("varchar(250)")
                         .HasMaxLength(250);
 
                     b.Property<DateTime>("ModificadoEm");
@@ -215,14 +221,15 @@ namespace ControleBO.Infra.Data.Migrations
             modelBuilder.Entity("ControleBO.Domain.Models.Procedimento", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("AndamentoProcessual")
-                        .HasColumnType("varchar")
+                        .HasColumnType("varchar(100)")
                         .HasMaxLength(100);
 
                     b.Property<string>("Anexos")
-                        .HasColumnType("varchar")
+                        .HasColumnType("varchar(250)")
                         .HasMaxLength(250);
 
                     b.Property<int>("ArtigoId");
@@ -231,12 +238,12 @@ namespace ControleBO.Infra.Data.Migrations
 
                     b.Property<string>("BoletimOcorrencia")
                         .IsRequired()
-                        .HasColumnType("varchar")
+                        .HasColumnType("varchar(30)")
                         .HasMaxLength(30);
 
                     b.Property<string>("BoletimUnificado")
                         .IsRequired()
-                        .HasColumnType("varchar")
+                        .HasColumnType("varchar(30)")
                         .HasMaxLength(30);
 
                     b.Property<int>("ComarcaId");
@@ -251,19 +258,19 @@ namespace ControleBO.Infra.Data.Migrations
 
                     b.Property<string>("Gampes")
                         .IsRequired()
-                        .HasColumnType("varchar")
+                        .HasColumnType("varchar(30)")
                         .HasMaxLength(30);
 
                     b.Property<string>("LocalFato")
                         .IsRequired()
-                        .HasColumnType("varchar")
+                        .HasColumnType("varchar(30)")
                         .HasMaxLength(30);
 
                     b.Property<DateTime>("ModificadoEm");
 
                     b.Property<string>("NumeroProcessual")
                         .IsRequired()
-                        .HasColumnType("varchar")
+                        .HasColumnType("varchar(30)")
                         .HasMaxLength(30);
 
                     b.Property<DateTime?>("RemovidoEm");
@@ -271,7 +278,7 @@ namespace ControleBO.Infra.Data.Migrations
                     b.Property<int>("SituacaoAtualId");
 
                     b.Property<string>("TipoCriminal")
-                        .HasColumnType("varchar")
+                        .HasColumnType("varchar(100)")
                         .HasMaxLength(100);
 
                     b.Property<int>("TipoProcedimentoId");
@@ -302,13 +309,14 @@ namespace ControleBO.Infra.Data.Migrations
             modelBuilder.Entity("ControleBO.Domain.Models.ProcedimentoTipo", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("CriadoEm");
 
                     b.Property<string>("Descricao")
                         .IsRequired()
-                        .HasColumnType("varchar")
+                        .HasColumnType("varchar(100)")
                         .HasMaxLength(100);
 
                     b.Property<DateTime>("ModificadoEm");
@@ -316,7 +324,7 @@ namespace ControleBO.Infra.Data.Migrations
                     b.Property<DateTime?>("RemovidoEm");
 
                     b.Property<string>("Sigla")
-                        .HasColumnType("varchar")
+                        .HasColumnType("varchar(10)")
                         .HasMaxLength(10);
 
                     b.Property<int>("Versao");
@@ -329,13 +337,14 @@ namespace ControleBO.Infra.Data.Migrations
             modelBuilder.Entity("ControleBO.Domain.Models.Situacao", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("CriadoEm");
 
                     b.Property<string>("Descricao")
                         .IsRequired()
-                        .HasColumnType("varchar")
+                        .HasColumnType("varchar(100)")
                         .HasMaxLength(100);
 
                     b.Property<DateTime>("ModificadoEm");
@@ -352,7 +361,8 @@ namespace ControleBO.Infra.Data.Migrations
             modelBuilder.Entity("ControleBO.Domain.Models.SituacaoProcedimento", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("CriadoEm");
 
@@ -361,7 +371,7 @@ namespace ControleBO.Infra.Data.Migrations
                     b.Property<DateTime>("ModificadoEm");
 
                     b.Property<string>("Observacao")
-                        .HasColumnType("varchar")
+                        .HasColumnType("varchar(250)")
                         .HasMaxLength(250);
 
                     b.Property<int>("ProcedimentoId");
@@ -388,13 +398,14 @@ namespace ControleBO.Infra.Data.Migrations
             modelBuilder.Entity("ControleBO.Domain.Models.SituacaoTipo", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("CriadoEm");
 
                     b.Property<string>("Descricao")
                         .IsRequired()
-                        .HasColumnType("varchar")
+                        .HasColumnType("varchar(100)")
                         .HasMaxLength(100);
 
                     b.Property<DateTime>("ModificadoEm");
@@ -415,22 +426,23 @@ namespace ControleBO.Infra.Data.Migrations
             modelBuilder.Entity("ControleBO.Domain.Models.UnidadePolicial", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Codigo")
                         .IsRequired()
-                        .HasColumnType("varchar")
+                        .HasColumnType("varchar(50)")
                         .HasMaxLength(50);
 
                     b.Property<string>("CodigoCargoQO")
-                        .HasColumnType("varchar")
+                        .HasColumnType("varchar(50)")
                         .HasMaxLength(50);
 
                     b.Property<DateTime>("CriadoEm");
 
                     b.Property<string>("Descricao")
                         .IsRequired()
-                        .HasColumnType("varchar")
+                        .HasColumnType("varchar(100)")
                         .HasMaxLength(100);
 
                     b.Property<DateTime>("ModificadoEm");
@@ -439,7 +451,7 @@ namespace ControleBO.Infra.Data.Migrations
 
                     b.Property<string>("Sigla")
                         .IsRequired()
-                        .HasColumnType("varchar")
+                        .HasColumnType("varchar(20)")
                         .HasMaxLength(20);
 
                     b.Property<int>("Versao");
@@ -452,13 +464,14 @@ namespace ControleBO.Infra.Data.Migrations
             modelBuilder.Entity("ControleBO.Domain.Models.VaraCriminal", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("CriadoEm");
 
                     b.Property<string>("Descricao")
                         .IsRequired()
-                        .HasColumnType("varchar")
+                        .HasColumnType("varchar(100)")
                         .HasMaxLength(100);
 
                     b.Property<DateTime>("ModificadoEm");
@@ -475,14 +488,15 @@ namespace ControleBO.Infra.Data.Migrations
             modelBuilder.Entity("ControleBO.Domain.Models.Vitima", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("CriadoEm");
 
                     b.Property<DateTime?>("DataNascimento");
 
                     b.Property<string>("Email")
-                        .HasColumnType("varchar")
+                        .HasColumnType("varchar(100)")
                         .HasMaxLength(100);
 
                     b.Property<int?>("Idade");
@@ -494,15 +508,15 @@ namespace ControleBO.Infra.Data.Migrations
                     b.Property<int?>("NaturalidadeId");
 
                     b.Property<string>("Nome")
-                        .HasColumnType("varchar")
+                        .HasColumnType("varchar(250)")
                         .HasMaxLength(250);
 
                     b.Property<string>("NomeMae")
-                        .HasColumnType("varchar")
+                        .HasColumnType("varchar(250)")
                         .HasMaxLength(250);
 
                     b.Property<string>("NomePai")
-                        .HasColumnType("varchar")
+                        .HasColumnType("varchar(250)")
                         .HasMaxLength(250);
 
                     b.Property<int>("ProcedimentoId");
@@ -510,7 +524,7 @@ namespace ControleBO.Infra.Data.Migrations
                     b.Property<DateTime?>("RemovidoEm");
 
                     b.Property<string>("Telefone")
-                        .HasColumnType("varchar")
+                        .HasColumnType("varchar(250)")
                         .HasMaxLength(250);
 
                     b.Property<int>("Versao");

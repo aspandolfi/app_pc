@@ -49,7 +49,9 @@ namespace ControleBO.Api.Controllers
                 return Response(assuntoVm, "Falha ao salvar o Assunto.");
             }
 
-            return Response(id, "O Assunto foi salvo com sucesso!");
+            assuntoVm = _assuntoAppService.GetById(id);
+
+            return Response(assuntoVm, "O Assunto foi salvo com sucesso!");
         }
 
         // PUT: api/Assunto/5
@@ -63,7 +65,7 @@ namespace ControleBO.Api.Controllers
                 return Response(assuntoVm, "Falha ao salvar o Assunto.");
             }
 
-            return Response(id, "O Assunto foi atualizado com sucesso!");
+            return Response(assuntoVm, "O Assunto foi atualizado com sucesso!");
         }
 
         // DELETE: api/ApiWithActions/5

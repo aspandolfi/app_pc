@@ -55,7 +55,9 @@ namespace ControleBO.Api.Controllers
                 return Response(situacaoProcedimentoVm, "Falha ao salvar a situação.");
             }
 
-            return Response(id, "A situação foi salva com sucesso!");
+            situacaoProcedimentoVm = _situacaoProcedimentoAppService.GetById(id);
+
+            return Response(situacaoProcedimentoVm, "A situação foi salva com sucesso!");
         }
 
         // PUT: api/situacao-procedimento/5
@@ -69,7 +71,7 @@ namespace ControleBO.Api.Controllers
                 return Response(situacaoProcedimentoVm, "Falha ao salvar a situação.");
             }
 
-            return Response(id, "A situação foi atualizado com sucesso!");
+            return Response(situacaoProcedimentoVm, "A situação foi atualizado com sucesso!");
         }
 
         // DELETE: api/situacao-procedimento/5

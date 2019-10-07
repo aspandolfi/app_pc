@@ -58,7 +58,9 @@ namespace ControleBO.Api.Controllers
 
             var id = await _procedimentoTipoAppService.Register(vm);
 
-            return Response(id, "Tipo de Procedimento cadastrado com sucesso!");
+            vm = _procedimentoTipoAppService.GetById(id);
+
+            return Response(vm, "Tipo de Procedimento cadastrado com sucesso!");
         }
 
         // PUT: api/tipo-procedimento/5
@@ -81,6 +83,11 @@ namespace ControleBO.Api.Controllers
         public IActionResult Delete(int id)
         {
             _procedimentoTipoAppService.Remove(id);
+
+            if (!IsValidOperation())
+            {
+                return Response(id, "Falha ao remover o Tipo de Procedimento.");
+            }
 
             return Response(null, "Tipo de Procedimento removido com sucesso!");
         }

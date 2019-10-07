@@ -56,7 +56,9 @@ namespace ControleBO.Api.Controllers
                 return Response(municipioVm, "Falha ao salvar o município.");
             }
 
-            return Response(id, "O município foi salvo com sucesso!");
+            municipioVm = _municipioAppService.GetById(id);
+
+            return Response(municipioVm, "O município foi salvo com sucesso!");
         }
 
         // PUT: api/Municipio/5
@@ -70,7 +72,7 @@ namespace ControleBO.Api.Controllers
                 return Response(municipioVm, "Falha ao salvar o município.");
             }
 
-            return Response(id, "O município foi atualizado com sucesso!");
+            return Response(municipioVm, "O município foi atualizado com sucesso!");
         }
 
         // DELETE: api/ApiWithActions/5

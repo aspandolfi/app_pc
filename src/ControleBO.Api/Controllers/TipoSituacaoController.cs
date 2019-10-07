@@ -1,11 +1,11 @@
-﻿using System.Threading.Tasks;
-using ControleBO.Application.Interfaces;
+﻿using ControleBO.Application.Interfaces;
 using ControleBO.Application.ViewModels;
 using ControleBO.Domain.Core.Bus;
 using ControleBO.Domain.Core.Notifications;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace ControleBO.Api.Controllers
 {
@@ -50,7 +50,9 @@ namespace ControleBO.Api.Controllers
                 return Response(situacaoTipoVm, "Falha ao salvar o tipo.");
             }
 
-            return Response(await taskRegister, "O Tipo foi salvo com sucesso!");
+            situacaoTipoVm = _situacaoTipoAppService.GetById(await taskRegister);
+
+            return Response(situacaoTipoVm, "O Tipo foi salvo com sucesso!");
         }
 
         // PUT: api/situacao-tipo/5

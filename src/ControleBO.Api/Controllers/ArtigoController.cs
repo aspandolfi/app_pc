@@ -42,14 +42,18 @@ namespace ControleBO.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] ArtigoViewModel artigoVm)
         {
-            int id = await _artigoAppService.Register(artigoVm);
+            var registerTask = _artigoAppService.Register(artigoVm);
 
             if (!IsValidOperation())
             {
                 return Response(artigoVm, "Falha ao salvar o artigo.");
             }
 
-            return Response(id, "O Artigo foi salvo com sucesso!");
+            var id = await registerTask;
+
+            artigoVm = _artigoAppService.GetById(id);
+
+            return Response(artigoVm, "O Artigo foi salvo com sucesso!");
         }
 
         // PUT: api/Artigo/5
@@ -63,7 +67,7 @@ namespace ControleBO.Api.Controllers
                 return Response(artigoVm, "Falha ao salvar o artigo.");
             }
 
-            return Response(id, "O Artigo foi atualizado com sucesso!");
+            return Response(artigoVm, "O Artigo foi atualizado com sucesso!");
         }
 
         // DELETE: api/ApiWithActions/5

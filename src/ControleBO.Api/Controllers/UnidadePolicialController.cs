@@ -48,7 +48,9 @@ namespace ControleBO.Api.Controllers
                 return Response(unidadePolicialVm, "Falha ao salvar a unidade policial.");
             }
 
-            return Response(id, "A Unidade Policial foi salva com sucesso!");
+            unidadePolicialVm = _unidadePolicialAppService.GetById(id);
+
+            return Response(unidadePolicialVm, "A Unidade Policial foi salva com sucesso!");
         }
 
         // PUT: api/UnidadePolicial/5
@@ -62,7 +64,7 @@ namespace ControleBO.Api.Controllers
                 return Response(unidadePolicialVm, "Falha ao salvar a unidade policial.");
             }
 
-            return Response(id, "A Unidade Policial foi atualizada com sucesso!");
+            return Response(unidadePolicialVm, "A Unidade Policial foi atualizada com sucesso!");
         }
 
         // DELETE: api/ApiWithActions/5

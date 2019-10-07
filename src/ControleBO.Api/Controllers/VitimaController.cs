@@ -72,7 +72,7 @@ namespace ControleBO.Api.Controllers
                 return Response(vitimaVm, "Falha ao salvar a vítima.");
             }
 
-            return Response(id, "A Vítima foi atualizada com sucesso!");
+            return Response(vitimaVm, "A Vítima foi atualizada com sucesso!");
         }
 
         // DELETE: api/ApiWithActions/5

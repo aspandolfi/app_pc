@@ -49,7 +49,9 @@ namespace ControleBO.Api.Controllers
                 return Response(varaCriminalVm, "Falha ao salvar a vara criminal.");
             }
 
-            return Response(id, "A Vara Criminal foi salvo com sucesso!");
+            varaCriminalVm = _varaCriminalAppService.GetById(id);
+
+            return Response(varaCriminalVm, "A Vara Criminal foi salvo com sucesso!");
         }
 
         // PUT: api/VaraCriminal/5
@@ -63,7 +65,7 @@ namespace ControleBO.Api.Controllers
                 return Response(varaCriminalVm, "Falha ao atualizar a vara criminal.");
             }
 
-            return Response(id, "A Vara Criminal foi atualizada com sucesso!");
+            return Response(varaCriminalVm, "A Vara Criminal foi atualizada com sucesso!");
         }
 
         // DELETE: api/ApiWithActions/5

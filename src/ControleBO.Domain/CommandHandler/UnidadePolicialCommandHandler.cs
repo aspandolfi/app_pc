@@ -16,13 +16,16 @@ namespace ControleBO.Domain.CommandHandler
         IRequestHandler<RemoveUnidadePolicialCommand, int>
     {
         private readonly IUnidadePolicialRepository _unidadePolicialRepository;
+        private readonly IProcedimentoRepository _procedimentoRepository;
 
         public UnidadePolicialCommandHandler(IUnidadePolicialRepository unidadePolicialRepository,
+                                             IProcedimentoRepository procedimentoRepository,
                                              IUnitOfWork uow,
                                              IMediatorHandler bus,
                                              INotificationHandler<DomainNotification> notifications) : base(uow, bus, notifications)
         {
             _unidadePolicialRepository = unidadePolicialRepository;
+            _procedimentoRepository = procedimentoRepository;
         }
 
         public Task<int> Handle(RegisterNewUnidadePolicialCommand request, CancellationToken cancellationToken)
@@ -83,6 +86,12 @@ namespace ControleBO.Domain.CommandHandler
             if (!request.IsValid())
             {
                 NotifyValidationErrors(request);
+                return Task.FromResult(0);
+            }
+
+            if (_procedimentoRepository.Any(x => x.DelegaciaOrigemId == request.Id))
+            {
+                Bus.RaiseEvent(new DomainNotification(request.MessageType, "Existem procedimentos associados a esta Unidade Policial."));
                 return Task.FromResult(0);
             }
 

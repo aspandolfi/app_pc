@@ -16,13 +16,16 @@ namespace ControleBO.Domain.CommandHandler
         IRequestHandler<RemoveArtigoCommand, int>
     {
         private readonly IArtigoRepository _artigoRepository;
+        private readonly IProcedimentoRepository _procedimentoRepository;
 
         public ArtigoCommandHandler(IArtigoRepository artigoRepository,
+                                    IProcedimentoRepository procedimentoRepository,
                                     IUnitOfWork uow,
                                     IMediatorHandler bus,
                                     INotificationHandler<DomainNotification> notifications) : base(uow, bus, notifications)
         {
             _artigoRepository = artigoRepository;
+            _procedimentoRepository = procedimentoRepository;
         }
 
         public Task<int> Handle(RegisterNewArtigoCommand request, CancellationToken cancellationToken)
@@ -83,6 +86,12 @@ namespace ControleBO.Domain.CommandHandler
             if (!request.IsValid())
             {
                 NotifyValidationErrors(request);
+                return Task.FromResult(0);
+            }
+
+            if (_procedimentoRepository.Any(x => x.ArtigoId == request.Id))
+            {
+                Bus.RaiseEvent(new DomainNotification(request.MessageType, "Existem procedimentos associados a este Artigo."));
                 return Task.FromResult(0);
             }
 

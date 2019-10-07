@@ -16,13 +16,16 @@ namespace ControleBO.Domain.CommandHandler
         IRequestHandler<RemoveProcedimentoTipoCommand, int>
     {
         private readonly IProcedimentoTipoRepository _procedimentoTipoRepository;
+        private readonly IProcedimentoRepository _procedimentoRepository;
 
         public ProcedimentoTipoCommandHandler(IProcedimentoTipoRepository procedimentoTipoRepository,
+                                              IProcedimentoRepository procedimentoRepository,
                                               IUnitOfWork uow,
                                               IMediatorHandler bus,
                                               INotificationHandler<DomainNotification> notifications) : base(uow, bus, notifications)
         {
             _procedimentoTipoRepository = procedimentoTipoRepository;
+            _procedimentoRepository = procedimentoRepository;
         }
 
         public Task<int> Handle(RegisterNewProcedimentoTipoCommand request, CancellationToken cancellationToken)
@@ -35,7 +38,7 @@ namespace ControleBO.Domain.CommandHandler
 
             var procedimentoTipo = new ProcedimentoTipo(request.Sigla, request.Descricao);
 
-            if (_procedimentoTipoRepository.Exists(procedimentoTipo.Sigla))
+            if (_procedimentoTipoRepository.Exists(procedimentoTipo.Sigla, request.Descricao))
             {
                 Bus.RaiseEvent(new DomainNotification(request.MessageType, "A sigla já está sendo usada."));
                 return Task.FromResult(0);
@@ -86,6 +89,12 @@ namespace ControleBO.Domain.CommandHandler
             if (!request.IsValid())
             {
                 NotifyValidationErrors(request);
+                return Task.FromResult(0);
+            }
+
+            if (_procedimentoRepository.Any(x => x.TipoProcedimentoId == request.Id))
+            {
+                Bus.RaiseEvent(new DomainNotification(request.MessageType, "Existem procedimentos associados a este Tipo de Procedimento."));
                 return Task.FromResult(0);
             }
 

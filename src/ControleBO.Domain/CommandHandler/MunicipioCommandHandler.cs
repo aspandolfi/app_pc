@@ -5,7 +5,6 @@ using ControleBO.Domain.Interfaces;
 using ControleBO.Domain.Interfaces.Repositories;
 using ControleBO.Domain.Models;
 using MediatR;
-using System;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -17,13 +16,16 @@ namespace ControleBO.Domain.CommandHandler
         IRequestHandler<RemoveMunicipioCommand, int>
     {
         private readonly IMunicipioRepository _municipioRepository;
+        private readonly IProcedimentoRepository _procedimentoRepository;
 
         public MunicipioCommandHandler(IMunicipioRepository municipioRepository,
+                                       IProcedimentoRepository procedimentoRepository,
                                        IUnitOfWork uow,
                                        IMediatorHandler bus,
                                        INotificationHandler<DomainNotification> notifications) : base(uow, bus, notifications)
         {
             _municipioRepository = municipioRepository;
+            _procedimentoRepository = procedimentoRepository;
         }
 
         public Task<int> Handle(RegisterNewMunicipioCommand request, CancellationToken cancellationToken)
@@ -95,6 +97,12 @@ namespace ControleBO.Domain.CommandHandler
             if (!request.IsValid())
             {
                 NotifyValidationErrors(request);
+                return Task.FromResult(0);
+            }
+
+            if (_procedimentoRepository.Any(x => x.ComarcaId == request.Id))
+            {
+                Bus.RaiseEvent(new DomainNotification(request.MessageType, "Existem procedimentos associados a este Município."));
                 return Task.FromResult(0);
             }
 

@@ -171,6 +171,12 @@ namespace ControleBO.Domain.CommandHandler
                 return Task.FromResult(0);
             }
 
+            if (_situacaoProcedimentoRepository.Any(x => x.SituacaoId == situacaoProcedimento.SituacaoId || x.SituacaoTipoId == request.SituacaoTipoId))
+            {
+                Bus.RaiseEvent(new DomainNotification(request.MessageType, "Existem procedimentos associados a este Tipo de Situação."));
+                return Task.FromResult(0);
+            }
+
             _situacaoProcedimentoRepository.Remove(situacaoProcedimento.Id);
 
             if (Commit())

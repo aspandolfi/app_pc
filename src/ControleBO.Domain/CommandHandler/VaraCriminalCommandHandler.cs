@@ -16,13 +16,16 @@ namespace ControleBO.Domain.CommandHandler
         IRequestHandler<RemoveVaraCriminalCommand, int>
     {
         private readonly IVaraCriminalRepository _varaCriminalRepository;
+        private readonly IProcedimentoRepository _procedimentoRepository;
 
         public VaraCriminalCommandHandler(IVaraCriminalRepository varaCriminalRepository,
+                                          IProcedimentoRepository procedimentoRepository,
                                           IUnitOfWork uow,
                                           IMediatorHandler bus,
                                           INotificationHandler<DomainNotification> notifications) : base(uow, bus, notifications)
         {
             _varaCriminalRepository = varaCriminalRepository;
+            _procedimentoRepository = procedimentoRepository;
         }
 
         public Task<int> Handle(RegisterNewVaraCriminalCommand request, CancellationToken cancellationToken)
@@ -84,6 +87,12 @@ namespace ControleBO.Domain.CommandHandler
             if (!request.IsValid())
             {
                 NotifyValidationErrors(request);
+                return Task.FromResult(0);
+            }
+
+            if (_procedimentoRepository.Any(x => x.VaraCriminalId == request.Id))
+            {
+                Bus.RaiseEvent(new DomainNotification(request.MessageType, "Existem procedimentos associados a esta Vara Criminal."));
                 return Task.FromResult(0);
             }
 

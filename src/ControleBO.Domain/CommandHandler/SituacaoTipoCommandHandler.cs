@@ -5,7 +5,6 @@ using ControleBO.Domain.Interfaces;
 using ControleBO.Domain.Interfaces.Repositories;
 using ControleBO.Domain.Models;
 using MediatR;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -125,7 +124,7 @@ namespace ControleBO.Domain.CommandHandler
                 return Task.FromResult(0);
             }
 
-            if (_situacaoProcedimentoRepository.GetAll().Any(x => x.SituacaoTipoId == existingTipoSituacao.Id))
+            if (_situacaoProcedimentoRepository.Any(x => x.SituacaoTipoId == existingTipoSituacao.Id))
             {
                 Bus.RaiseEvent(new DomainNotification(request.MessageType, "Existem procedimentos associados a este tipo. Por favor verifique-os antes de remover este tipo."));
                 return Task.FromResult(0);

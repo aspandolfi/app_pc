@@ -98,11 +98,13 @@ export class VaraCriminalComponent implements OnInit {
 
   private addToTable(vara: VaraCriminal) {
     this.varas.push(vara);
+    this.pageChanged({ itemsPerPage: this.pageSize, page: this.pageSize });
   }
 
   private removeFromTable(vara: VaraCriminal) {
-    let index = this.varas.indexOf(vara);
+    let index = this.varas.findIndex(x => x.id == vara.id);
     this.varas.splice(index, 1);
+    this.pageChanged({ itemsPerPage: this.pageSize, page: this.pageSize });
   }
 
   private updateTable(vara: VaraCriminal) {

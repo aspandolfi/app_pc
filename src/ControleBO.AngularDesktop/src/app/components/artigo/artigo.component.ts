@@ -78,6 +78,9 @@ export class ArtigoComponent implements OnInit, OnDestroy {
           this.postReceiveMessage(message);
         }
         else {
+          if (message.errors) {
+            message.errors.forEach(m => this.toastr.error(m));
+          }
           this.toastr.error(message.text);
         }
         this.modalRef.hide();
@@ -98,11 +101,13 @@ export class ArtigoComponent implements OnInit, OnDestroy {
 
   private addToTable(artigo: Artigo) {
     this.artigos.push(artigo);
+    this.pageChanged({ itemsPerPage: this.pageSize, page: this.currentPage });
   }
 
   private removeFromTable(artigo: Artigo) {
-    let index = this.artigos.indexOf(artigo);
+    let index = this.artigos.findIndex(x => x.id == artigo.id);
     this.artigos.splice(index, 1);
+    this.pageChanged({ itemsPerPage: this.pageSize, page: this.currentPage });
   }
 
   private updateTable(artigo: Artigo) {

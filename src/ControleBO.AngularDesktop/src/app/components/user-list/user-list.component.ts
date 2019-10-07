@@ -55,6 +55,9 @@ export class UserListComponent implements OnInit, OnDestroy {
           this.postReceiveMessage(message);
         }
         else {
+          if (message.errors) {
+            message.errors.forEach(m => this.toastr.error(m));
+          }
           this.toastr.error(message.text);
         }
         this.modalRef.hide();

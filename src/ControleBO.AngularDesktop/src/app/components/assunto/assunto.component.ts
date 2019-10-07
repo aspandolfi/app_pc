@@ -78,6 +78,9 @@ export class AssuntoComponent implements OnInit, OnDestroy {
           this.postReceiveMessage(message);
         }
         else {
+          if (message.errors) {
+            message.errors.forEach(m => this.toastr.error(m));
+          }
           this.toastr.error(message.text);
         }
         this.modalRef.hide();
@@ -98,11 +101,13 @@ export class AssuntoComponent implements OnInit, OnDestroy {
 
   private addToTable(assunto: Assunto) {
     this.assuntos.push(assunto);
+    this.pageChanged({ itemsPerPage: this.pageSize, page: this.pageSize });
   }
 
   private removeFromTable(assunto: Assunto) {
-    let index = this.assuntos.indexOf(assunto);
+    let index = this.assuntos.findIndex(x => x.id == assunto.id);
     this.assuntos.splice(index, 1);
+    this.pageChanged({ itemsPerPage: this.pageSize, page: this.pageSize });
   }
 
   private updateTable(assunto: Assunto) {

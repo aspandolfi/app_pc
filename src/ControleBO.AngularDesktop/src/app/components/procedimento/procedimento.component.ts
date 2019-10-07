@@ -1,10 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { ProcedimentoService } from 'src/app/services/procedimento.service';
 import { ToastrService } from 'ngx-toastr';
-import { ProcedimentoList } from 'src/app/models/procedimento';
+import { ProcedimentoList, Procedimento } from 'src/app/models/procedimento';
 import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 import { BsDatepickerConfig, BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { UserManagerService } from '../../services/user-manager.service';
+import { ConfirmarExclusaoComponent } from '../confirmar-exclusao/confirmar-exclusao.component';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { Subscription } from 'rxjs';
+import { MessageService } from 'src/app/services/message.service';
+import { IMessage, Action } from 'src/app/models/message';
 
 @Component({
   selector: 'app-procedimento',
@@ -14,6 +19,9 @@ import { UserManagerService } from '../../services/user-manager.service';
 export class ProcedimentoComponent implements OnInit {
 
   bsConfig: Partial<BsDatepickerConfig> = { containerClass: 'theme-default' };
+
+  private modalRef: BsModalRef;
+  private subscription: Subscription;
 
   searchDe: Date;
   searchAte: Date;
@@ -33,10 +41,13 @@ export class ProcedimentoComponent implements OnInit {
   }
 
   constructor(private procedimentoService: ProcedimentoService,
+    private modalService: BsModalService,
+    private messageService: MessageService,
     private toastr: ToastrService,
     private localeService: BsLocaleService,
     private userManager: UserManagerService) {
     this.localeService.use('pt-br');
+    this.onReceiveMessage();
   }
 
   ngOnInit() {
@@ -78,6 +89,40 @@ export class ProcedimentoComponent implements OnInit {
       }
     }
     return items;
+  }
+
+  openModalExcluir(procedimento: Procedimento) {
+    const initialState = {
+      model: procedimento,
+      uri: 'api/procedimento/'
+    };
+    this.modalRef = this.modalService.show(ConfirmarExclusaoComponent, { initialState, class: 'modal-dialog-centered', ignoreBackdropClick: true, backdrop: true });
+  }
+
+  private onReceiveMessage() {
+    this.subscription = this.messageService.messageListener$.subscribe(
+      message => {
+        if (!message.isError) {
+          this.toastr.success(message.text);
+          this.postReceiveMessage(message);
+        }
+        else {
+          this.toastr.error(message.text);
+        }
+        this.modalRef.hide();
+      });
+  }
+
+  private postReceiveMessage(message: IMessage) {
+    if (message.action == Action.Removed) {
+      this.removeFromTable(message.data);
+    }
+  }
+
+  private removeFromTable(procedimento: Procedimento) {
+    let index = this.procedimentos.findIndex(x => x.id == procedimento.id);
+    this.procedimentos.splice(index, 1);
+    this.pageChanged({ itemsPerPage: this.pageSize, page: this.pageSize });
   }
 
   pageChanged(event: PageChangedEvent) {

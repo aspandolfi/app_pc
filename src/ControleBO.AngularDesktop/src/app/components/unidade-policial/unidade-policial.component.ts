@@ -74,6 +74,9 @@ export class UnidadePolicialComponent implements OnInit {
           this.postReceiveMessage(message);
         }
         else {
+          if (message.errors) {
+            message.errors.forEach(m => this.toastr.error(m));
+          }
           this.toastr.error(message.text);
         }
         this.modalRef.hide();
@@ -98,11 +101,13 @@ export class UnidadePolicialComponent implements OnInit {
 
   private addToTable(unidadePolicial: UnidadePolicial) {
     this.unidadesPoliciais.push(unidadePolicial);
+    this.pageChanged({ itemsPerPage: this.pageSize, page: this.pageSize });
   }
 
   private removeFromTable(unidadePolicial: UnidadePolicial) {
-    let index = this.unidadesPoliciais.indexOf(unidadePolicial);
+    let index = this.unidadesPoliciais.findIndex(x => x.id == unidadePolicial.id);
     this.unidadesPoliciais.splice(index, 1);
+    this.pageChanged({ itemsPerPage: this.pageSize, page: this.pageSize });
   }
 
   private updateTable(unidadePolicial: UnidadePolicial) {

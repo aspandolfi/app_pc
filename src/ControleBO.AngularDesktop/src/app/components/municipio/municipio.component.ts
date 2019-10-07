@@ -82,6 +82,9 @@ export class MunicipioComponent implements OnInit, OnDestroy, AfterViewInit {
           this.postReceiveMessage(message);
         }
         else {
+          if (message.errors) {
+            message.errors.forEach(m => this.toastr.error(m));
+          }
           this.toastr.error(message.text);
         }
         this.modalRef.hide();
@@ -102,6 +105,7 @@ export class MunicipioComponent implements OnInit, OnDestroy, AfterViewInit {
 
   private addToTable(municipio: Municipio) {
     this.municipios.push(municipio);
+    this.pageChanged({ itemsPerPage: this.pageSize, page: this.pageSize });
   }
 
   private updateTable(municipio: Municipio) {
@@ -110,8 +114,9 @@ export class MunicipioComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   private removeFromTable(municipio: Municipio) {
-    let index = this.municipios.indexOf(municipio);
+    let index = this.municipios.findIndex(x => x.id == municipio.id);
     this.municipios.splice(index, 1);
+    this.pageChanged({ itemsPerPage: this.pageSize, page: this.pageSize });
   }
 
   openModal(municipio: Municipio) {

@@ -81,7 +81,9 @@ export class CadastroIndiciadoComponent implements OnInit {
           this.messageService.send(new Message(res, Action.Updated));
           this.modalRef.hide();
         }, (error: Result<any>) => {
-          error.errors.forEach(m => this.toastr.warning(m));
+          if (error.errors) {
+            error.errors.forEach(m => this.toastr.error(m));
+          }
           this.toastr.error(error.message);
         }, () => {
           this.submitted = false;

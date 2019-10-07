@@ -19,6 +19,8 @@ namespace ControleBO.Domain.Interfaces.Repositories
 
         bool Exists(params object[] paramsToSearch);
 
+        bool Any(Expression<Func<TModel, bool>> predicate);
+
         TModel Get(Expression<Func<TModel, bool>> filter);
 
         TModel GetAsNoTracking(Expression<Func<TModel, bool>> filter);

@@ -253,5 +253,10 @@ namespace ControleBO.Infra.Data.Repositories
 
             return query;
         }
+
+        public bool Any(Expression<Func<TModel, bool>> predicate)
+        {
+            return DbSet.Any(predicate);
+        }
     }
 }

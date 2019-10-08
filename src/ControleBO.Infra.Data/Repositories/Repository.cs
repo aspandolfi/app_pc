@@ -258,5 +258,12 @@ namespace ControleBO.Infra.Data.Repositories
         {
             return DbSet.Any(predicate);
         }
+
+        public void Remove(Expression<Func<TModel, bool>> expression)
+        {
+            var objs = DbSet.Where(expression);
+
+            DbSet.RemoveRange(objs);
+        }
     }
 }

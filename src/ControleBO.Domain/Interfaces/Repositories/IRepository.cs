@@ -15,6 +15,7 @@ namespace ControleBO.Domain.Interfaces.Repositories
         void UpdateRange(IEnumerable<TModel> objs);
         void Remove(int id);
         void RemoveRange(IEnumerable<TModel> objs);
+        void Remove(Expression<Func<TModel, bool>> expression);
         int SaveChanges();
 
         bool Exists(params object[] paramsToSearch);

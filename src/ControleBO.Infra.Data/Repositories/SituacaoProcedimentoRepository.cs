@@ -31,7 +31,9 @@ namespace ControleBO.Infra.Data.Repositories
 
         public SituacaoProcedimento GetCurrentByProcedimentoId(int procedimentoId)
         {
-            return DbSet.LastOrDefault(x => x.ProcedimentoId == procedimentoId);
+            return DbSet.Where(x => x.ProcedimentoId == procedimentoId)
+                        .OrderByDescending(x => x.CriadoEm)
+                        .FirstOrDefault();
         }
     }
 }

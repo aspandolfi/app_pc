@@ -73,7 +73,7 @@ namespace ControleBO.Application.Mappers
             CreateMap<ArtigoViewModel, UpdateArtigoCommand>()
                 .ConstructUsing(a => new UpdateArtigoCommand(a.Id, a.Descricao));
 
-            CreateMap<VaraCriminalCommand, RegisterNewVaraCriminalCommand>()
+            CreateMap<VaraCriminalViewModel, RegisterNewVaraCriminalCommand>()
                 .ConstructUsing(a => new RegisterNewVaraCriminalCommand(a.Descricao));
             CreateMap<VaraCriminalViewModel, UpdateVaraCriminalCommand>()
                 .ConstructUsing(a => new UpdateVaraCriminalCommand(a.Id, a.Descricao));

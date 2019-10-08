@@ -10,7 +10,7 @@
   </thead>
   <tbody>
     <tr *ngFor="let movimentacao of ultimasMovimentacoes">
-      <td data-id="{{movimentacao.id}}" *ngIf="enableActions">
+      <td data-id="{{movimentacao.id}}">
         <div *ngIf="enableActions" class="form-inline align-items-center">
           <div class="form-group ml-1">
             <a title="Editar" class="text-secondary" (click)="openModalCadastro(movimentacao)">

@@ -146,10 +146,18 @@ export class CadastroProcedimentoSituacaoComponent implements OnInit, OnDestroy 
 
   onSituacaoChange(event) {
     this.situacao = event;
+    this.selectedTipoSituacaoId = 0;
+    this.tipoSituacao = null;
   }
 
   onTipoSituacaoChange(event) {
     this.tipoSituacao = event;
+  }
+
+  onIndiciamentoChange(event) {
+    this.dataRelatorio = null;
+    this.selectedTipoSituacaoId = 0;
+    this.tipoSituacao = null;
   }
 
   salvar() {
@@ -169,12 +177,18 @@ export class CadastroProcedimentoSituacaoComponent implements OnInit, OnDestroy 
     this.situacaoProcedimento.situacaoId = this.situacao.id;
 
     if (this.situacao.id != 1 && !this.tipoSituacao) {
-      this.toastr.warning('Por favor selecione uma motivo válido.');
+      this.toastr.warning('Por favor selecione um motivo válido.');
       return;
     }
 
     if (this.situacao.id == 3) {
       this.situacaoProcedimento.DataRelatorio = this.dataRelatorio;
+
+      if (!this.situacaoProcedimento.DataRelatorio) {
+        this.toastr.warning('Por favor selecione uma data de relatório válida.');
+        this.dataRelatorio = null;
+        return;
+      }
 
       if (this.tipoSituacao.id != this.situacaoProcedimento.situacaoTipoId) {
         this.situacaoProcedimento.id = 0;
@@ -265,7 +279,7 @@ export class CadastroProcedimentoSituacaoComponent implements OnInit, OnDestroy 
   }
 
   private removeFromTable(movimentacao: Movimentacao) {
-    let index = this.movimentacoes.indexOf(movimentacao);
+    let index = this.movimentacoes.findIndex(x => x.id == movimentacao.id);
     this.movimentacoes.splice(index, 1);
   }
 }

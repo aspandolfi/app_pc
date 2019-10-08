@@ -47,11 +47,12 @@
 
     <div class="form-row" *ngIf="situacao.id == 3">
       <div class="form-group col-md-6">
-        <label for="indiciamento" class="control-label">Indiciamento ?</label>
+        <label for="indiciamento" class="control-label">Indiciamento?</label>
         <ng-select [items]="indiciamentos"
                    bindLabel="descricao"
                    bindValue="id"
                    [searchable]="false"
+                   (change)="onIndiciamentoChange($event)"
                    [clearable]="false"
                    id="indiciamento"
                    [(ngModel)]="selectedIndiciamentoId">

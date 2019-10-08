@@ -334,37 +334,37 @@ export class CadastroProcedimentoControleComponent implements OnInit, AfterViewI
       return;
     }
 
-    if (!this.comarca) {
-      this.toastr.error('Comarca inválida. Por favor selecione um item válido.');
-      return;
-    }
+    //if (!this.comarca) {
+    //  this.toastr.error('Comarca inválida. Por favor selecione um item válido.');
+    //  return;
+    //}
 
-    if (!this.varaCriminal) {
-      this.toastr.error('Vara Criminal inválida. Por favor selecione um item válido.');
-      return;
-    }
+    //if (!this.varaCriminal) {
+    //  this.toastr.error('Vara Criminal inválida. Por favor selecione um item válido.');
+    //  return;
+    //}
 
-    if (!this.assunto) {
-      this.toastr.error('Assunto inválido. Por favor selecione um item válido.');
-      return;
-    }
+    //if (!this.assunto) {
+    //  this.toastr.error('Assunto inválido. Por favor selecione um item válido.');
+    //  return;
+    //}
 
-    if (!this.artigo) {
-      this.toastr.error('Artigo inválido. Por favor selecione um item válido.');
-      return;
-    }
+    //if (!this.artigo) {
+    //  this.toastr.error('Artigo inválido. Por favor selecione um item válido.');
+    //  return;
+    //}
 
-    if (!this.delegacia) {
-      this.toastr.error('Delegacia de Origem inválida. Por favor selecione um item válido.');
-      return;
-    }
+    //if (!this.delegacia) {
+    //  this.toastr.error('Delegacia de Origem inválida. Por favor selecione um item válido.');
+    //  return;
+    //}
 
-    this.procedimento.varaCriminalId = this.varaCriminal.id;
     this.procedimento.tipoProcedimentoId = this.tipoProcedimento.id;
-    this.procedimento.comarcaId = this.comarca.id;
-    this.procedimento.assuntoId = this.assunto.id;
-    this.procedimento.artigoId = this.artigo.id;
-    this.procedimento.delegaciaId = this.delegacia.id;
+    this.procedimento.varaCriminalId = this.varaCriminal ? this.varaCriminal.id : undefined;
+    this.procedimento.comarcaId = this.comarca ? this.comarca.id : undefined;
+    this.procedimento.assuntoId = this.assunto ? this.assunto.id : undefined;
+    this.procedimento.artigoId = this.artigo ? this.artigo.id : undefined;
+    this.procedimento.delegaciaId = this.delegacia ? this.delegacia.id : undefined;
 
     this.isLoading = true;
 
@@ -373,9 +373,11 @@ export class CadastroProcedimentoControleComponent implements OnInit, AfterViewI
         if (res.success) {
           this.toastr.success(res.message);
         }
-      }, (res) => {
+      }, (res: Result<any>) => {
         this.toastr.error(res.message);
-        res.error.errors.forEach(m => this.toastr.error(m));
+        if (res.errors) {
+          res.errors.forEach(m => this.toastr.error(m));
+        }
       }).add(() => {
         this.isLoading = false;
       });
@@ -386,9 +388,11 @@ export class CadastroProcedimentoControleComponent implements OnInit, AfterViewI
           this.toastr.success(res.message);
           this.tabsMessageService.send(new Message(res, Action.Created));
         }
-      }, (error: Result<any>) => {
-        this.toastr.error(error.message);
-        error.errors.forEach(m => this.toastr.error(m));
+      }, (res: Result<any>) => {
+        this.toastr.error(res.message);
+        if (res.errors) {
+          res.errors.forEach(m => this.toastr.error(m));
+        }
       }).add(() => {
         this.isLoading = false;
       });

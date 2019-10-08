@@ -28,10 +28,10 @@ namespace ControleBO.Application.ViewModels
         public string LocalFato { get; set; }
 
         [JsonProperty(PropertyName = "dataInsercao")]
-        public DateTime CriadoEm { get; set; }
+        public DateTime CriadoEm { get; set; } = DateTime.Now;
 
         [JsonProperty(PropertyName = "dataFato")]
-        public DateTime DataFato { get; set; }
+        public DateTime? DataFato { get; set; }
 
         [JsonProperty(PropertyName = "dataInstauracao")]
         public DateTime? DataInstauracao { get; set; }
@@ -46,19 +46,19 @@ namespace ControleBO.Application.ViewModels
         public int TipoProcedimentoId { get; set; }
 
         [JsonProperty(PropertyName = "varaCriminalId")]
-        public int VaraCriminalId { get; set; }
+        public int? VaraCriminalId { get; set; }
 
         [JsonProperty(PropertyName = "comarcaId")]
-        public int ComarcaId { get; set; }
+        public int? ComarcaId { get; set; }
 
         [JsonProperty(PropertyName = "assuntoId")]
-        public int AssuntoId { get; set; }
+        public int? AssuntoId { get; set; }
 
         [JsonProperty(PropertyName = "artigoId")]
-        public int ArtigoId { get; set; }
+        public int? ArtigoId { get; set; }
 
         [JsonProperty(PropertyName = "delegaciaId")]
-        public int DelegaciaOrigemId { get; set; }
+        public int? DelegaciaOrigemId { get; set; }
 
         [JsonProperty(PropertyName = "vitimas")]
         public IEnumerable<VitimaViewModel> Vitimas { get; set; }

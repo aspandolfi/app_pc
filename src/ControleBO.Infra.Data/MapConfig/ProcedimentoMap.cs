@@ -14,13 +14,11 @@ namespace ControleBO.Infra.Data.MapConfig
 
             builder.Property(x => x.BoletimUnificado)
                 .HasColumnType("varchar(30)")
-                .HasMaxLength(30)
-                .IsRequired();
+                .HasMaxLength(30);
 
             builder.Property(x => x.BoletimOcorrencia)
                 .HasColumnType("varchar(30)")
-                .HasMaxLength(30)
-                .IsRequired();
+                .HasMaxLength(30);
 
             builder.Property(x => x.NumeroProcessual)
                 .HasColumnType("varchar(30)")
@@ -29,16 +27,13 @@ namespace ControleBO.Infra.Data.MapConfig
 
             builder.Property(x => x.Gampes)
                 .HasColumnType("varchar(30)")
-                .HasMaxLength(30)
-                .IsRequired();
+                .HasMaxLength(30);
 
             builder.Property(x => x.LocalFato)
                 .HasColumnType("varchar(30)")
-                .HasMaxLength(30)
-                .IsRequired();
+                .HasMaxLength(30);
 
-            builder.Property(x => x.DataFato)
-                .IsRequired();
+            builder.Property(x => x.DataFato);
 
             builder.Property(x => x.TipoCriminal)
                 .HasColumnType("varchar(100)")
@@ -56,27 +51,27 @@ namespace ControleBO.Infra.Data.MapConfig
             builder.HasOne(x => x.VaraCriminal)
                 .WithMany()
                 .HasForeignKey(x => x.VaraCriminalId)
-                .IsRequired();
+                .IsRequired(false);
 
             builder.HasOne(x => x.Comarca)
                 .WithMany()
                 .HasForeignKey(x => x.ComarcaId)
-                .IsRequired();
+                .IsRequired(false);
 
             builder.HasOne(x => x.Assunto)
                 .WithMany()
                 .HasForeignKey(x => x.AssuntoId)
-                .IsRequired();
+                .IsRequired(false);
 
             builder.HasOne(x => x.Artigo)
                 .WithMany()
                 .HasForeignKey(x => x.ArtigoId)
-                .IsRequired();
+                .IsRequired(false);
 
             builder.HasOne(x => x.DelegaciaOrigem)
                 .WithMany()
                 .HasForeignKey(x => x.DelegaciaOrigemId)
-                .IsRequired();
+                .IsRequired(false);
 
             builder.HasOne(x => x.SituacaoAtual)
                 .WithMany()

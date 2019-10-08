@@ -14,7 +14,7 @@ namespace ControleBO.Domain.Queries
 
         public string UnidadePolicial { get; set; }
 
-        public DateTime DataFato { get; set; }
+        public DateTime? DataFato { get; set; }
 
         public DateTime? Instauracao { get; set; }
 

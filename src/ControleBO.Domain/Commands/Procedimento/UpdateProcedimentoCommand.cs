@@ -12,16 +12,16 @@ namespace ControleBO.Domain.Commands
                                          string gampes,
                                          string anexos,
                                          string localFato,
-                                         DateTime dataFato,
+                                         DateTime? dataFato,
                                          DateTime? dataInstauracao,
                                          string tipoCriminal,
                                          string andamentoProcessual,
                                          int tipoProcedimentoId,
-                                         int varaCriminalId,
-                                         int comarcaId,
-                                         int assuntoId,
-                                         int artigoId,
-                                         int delegaciaOrigemId)
+                                         int? varaCriminalId,
+                                         int? comarcaId,
+                                         int? assuntoId,
+                                         int? artigoId,
+                                         int? delegaciaOrigemId)
         {
             Id = id;
             BoletimUnificado = boletimUnificado;

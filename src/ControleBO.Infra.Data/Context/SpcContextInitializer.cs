@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace ControleBO.Infra.Data.Context
 {
@@ -15,7 +14,12 @@ namespace ControleBO.Infra.Data.Context
 
         public void Initialize()
         {
-            if (_context.Database.EnsureCreated())
+            if (_context.Database.GetPendingMigrations().Count() > 0)
+            {
+                _context.Database.Migrate();
+            }
+
+            if (_context.Municipios.Count() == 0)
             {
                 _context.Seed();
             }

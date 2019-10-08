@@ -97,7 +97,7 @@ namespace ControleBO.Application.Services
                 x.Artigo,
                 x.Indiciados,
                 x.UnidadePolicial,
-                x.DataFato.ToString("dd/MM/yyyy"),
+                x.DataFato?.ToString("dd/MM/yyyy"),
                 x.Instauracao?.ToString("dd/MM/yyyy"),
                 x.Situacao
             }));

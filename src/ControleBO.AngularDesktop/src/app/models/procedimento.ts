@@ -2,7 +2,7 @@ import { Movimentacao } from './movimentacao';
 
 export class Procedimento {
 
-  private dataInsercao: Date;
+  private dataInsercao: Date = new Date();
   private dataFato: Date;
   private dataInstauracao: Date;
 

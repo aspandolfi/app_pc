@@ -24,6 +24,10 @@ namespace ControleBO.Domain.CommandHandler
         private readonly IUnidadePolicialRepository _unidadePolicialRepository;
         private readonly ISituacaoProcedimentoRepository _situacaoProcedimentoRepository;
         private readonly ISituacaoRepository _situacaoRepository;
+        private readonly IVitimaRepository _vitimaRepository;
+        private readonly IIndiciadoRepository _indiciadoRepository;
+        private readonly IMovimentacaoRepository _movimentacaoRepository;
+        private readonly IObjetoApreendidoRepository _objetoApreendidoRepository;
 
         public ProcedimentoCommandHandler(IProcedimentoRepository procedimentoRepository,
                                           IProcedimentoTipoRepository procedimentoTipoRepository,
@@ -34,6 +38,10 @@ namespace ControleBO.Domain.CommandHandler
                                           IUnidadePolicialRepository unidadePolicialRepository,
                                           ISituacaoProcedimentoRepository situacaoProcedimentoRepository,
                                           ISituacaoRepository situacaoRepository,
+                                          IVitimaRepository vitimaRepository,
+                                          IIndiciadoRepository indiciadoRepository,
+                                          IMovimentacaoRepository movimentacaoRepository,
+                                          IObjetoApreendidoRepository objetoApreendidoRepository,
                                           IUnitOfWork uow,
                                           IMediatorHandler bus,
                                           INotificationHandler<DomainNotification> notifications) : base(uow, bus, notifications)
@@ -47,6 +55,10 @@ namespace ControleBO.Domain.CommandHandler
             _unidadePolicialRepository = unidadePolicialRepository;
             _situacaoProcedimentoRepository = situacaoProcedimentoRepository;
             _situacaoRepository = situacaoRepository;
+            _vitimaRepository = vitimaRepository;
+            _indiciadoRepository = indiciadoRepository;
+            _movimentacaoRepository = movimentacaoRepository;
+            _objetoApreendidoRepository = objetoApreendidoRepository;
         }
 
         public Task<int> Handle(RegisterNewProcedimentoCommand request, CancellationToken cancellationToken)
@@ -71,44 +83,69 @@ namespace ControleBO.Domain.CommandHandler
                 return Task.FromResult(0);
             }
 
-            var artigo = _artigoRepository.GetById(request.ArtigoId);
+            Artigo artigo = null;
 
-            if (artigo == null)
+            if (request.ArtigoId.HasValue)
             {
-                Bus.RaiseEvent(new DomainNotification(request.MessageType, "O Artigo não foi encontrado."));
-                return Task.FromResult(0);
+                artigo = _artigoRepository.GetById(request.ArtigoId.Value);
+
+                if (artigo == null)
+                {
+                    Bus.RaiseEvent(new DomainNotification(request.MessageType, "O Artigo não foi encontrado."));
+                    return Task.FromResult(0);
+                }
             }
 
-            var assunto = _assuntoRepository.GetById(request.AssuntoId);
+            Assunto assunto = null;
 
-            if (assunto == null)
+            if (request.AssuntoId.HasValue)
             {
-                Bus.RaiseEvent(new DomainNotification(request.MessageType, "O Assunto não foi encontrado."));
-                return Task.FromResult(0);
+                assunto = _assuntoRepository.GetById(request.AssuntoId.Value);
+
+                if (assunto == null)
+                {
+                    Bus.RaiseEvent(new DomainNotification(request.MessageType, "O Assunto não foi encontrado."));
+                    return Task.FromResult(0);
+                }
             }
 
-            var municipio = _municipioRepository.GetById(request.ComarcaId);
+            Municipio municipio = null;
 
-            if (municipio == null)
+            if (request.ComarcaId.HasValue)
             {
-                Bus.RaiseEvent(new DomainNotification(request.MessageType, "A Comarca não foi encontrada."));
-                return Task.FromResult(0);
+                municipio = _municipioRepository.GetById(request.ComarcaId.Value);
+
+                if (municipio == null)
+                {
+                    Bus.RaiseEvent(new DomainNotification(request.MessageType, "A Comarca não foi encontrada."));
+                    return Task.FromResult(0);
+                }
             }
 
-            var varaCriminal = _varaCriminalRepository.GetById(request.VaraCriminalId);
+            VaraCriminal varaCriminal = null;
 
-            if (varaCriminal == null)
+            if (request.VaraCriminalId.HasValue)
             {
-                Bus.RaiseEvent(new DomainNotification(request.MessageType, "A Vara Criminal não foi encontrada."));
-                return Task.FromResult(0);
+                varaCriminal = _varaCriminalRepository.GetById(request.VaraCriminalId.Value);
+
+                if (varaCriminal == null)
+                {
+                    Bus.RaiseEvent(new DomainNotification(request.MessageType, "A Vara Criminal não foi encontrada."));
+                    return Task.FromResult(0);
+                }
             }
 
-            var unidadePolicial = _unidadePolicialRepository.GetById(request.DelegaciaOrigemId);
+            UnidadePolicial unidadePolicial = null;
 
-            if (unidadePolicial == null)
+            if (request.DelegaciaOrigemId.HasValue)
             {
-                Bus.RaiseEvent(new DomainNotification(request.MessageType, "A Delegacia de Origem não foi encontrada."));
-                return Task.FromResult(0);
+                unidadePolicial = _unidadePolicialRepository.GetById(request.DelegaciaOrigemId.Value);
+
+                if (unidadePolicial == null)
+                {
+                    Bus.RaiseEvent(new DomainNotification(request.MessageType, "A Delegacia de Origem não foi encontrada."));
+                    return Task.FromResult(0);
+                }
             }
 
             var situacao = _situacaoRepository.GetById(1);
@@ -147,44 +184,69 @@ namespace ControleBO.Domain.CommandHandler
                 return Task.FromResult(0);
             }
 
-            var artigo = _artigoRepository.GetById(request.ArtigoId);
+            Artigo artigo = null;
 
-            if (artigo == null)
+            if (request.ArtigoId.HasValue)
             {
-                Bus.RaiseEvent(new DomainNotification(request.MessageType, "O Artigo não foi encontrado."));
-                return Task.FromResult(0);
+                artigo = _artigoRepository.GetById(request.ArtigoId.Value);
+
+                if (artigo == null)
+                {
+                    Bus.RaiseEvent(new DomainNotification(request.MessageType, "O Artigo não foi encontrado."));
+                    return Task.FromResult(0);
+                }
             }
 
-            var assunto = _assuntoRepository.GetById(request.AssuntoId);
+            Assunto assunto = null;
 
-            if (assunto == null)
+            if (request.AssuntoId.HasValue)
             {
-                Bus.RaiseEvent(new DomainNotification(request.MessageType, "O Assunto não foi encontrado."));
-                return Task.FromResult(0);
+                assunto = _assuntoRepository.GetById(request.AssuntoId.Value);
+
+                if (assunto == null)
+                {
+                    Bus.RaiseEvent(new DomainNotification(request.MessageType, "O Assunto não foi encontrado."));
+                    return Task.FromResult(0);
+                }
             }
 
-            var municipio = _municipioRepository.GetById(request.ComarcaId);
+            Municipio municipio = null;
 
-            if (municipio == null)
+            if (request.ComarcaId.HasValue)
             {
-                Bus.RaiseEvent(new DomainNotification(request.MessageType, "A Comarca não foi encontrada."));
-                return Task.FromResult(0);
+                municipio = _municipioRepository.GetById(request.ComarcaId.Value);
+
+                if (municipio == null)
+                {
+                    Bus.RaiseEvent(new DomainNotification(request.MessageType, "A Comarca não foi encontrada."));
+                    return Task.FromResult(0);
+                }
             }
 
-            var varaCriminal = _varaCriminalRepository.GetById(request.VaraCriminalId);
+            VaraCriminal varaCriminal = null;
 
-            if (varaCriminal == null)
+            if (request.VaraCriminalId.HasValue)
             {
-                Bus.RaiseEvent(new DomainNotification(request.MessageType, "A Vara Criminal não foi encontrada."));
-                return Task.FromResult(0);
+                varaCriminal = _varaCriminalRepository.GetById(request.VaraCriminalId.Value);
+
+                if (varaCriminal == null)
+                {
+                    Bus.RaiseEvent(new DomainNotification(request.MessageType, "A Vara Criminal não foi encontrada."));
+                    return Task.FromResult(0);
+                }
             }
 
-            var unidadePolicial = _unidadePolicialRepository.GetById(request.DelegaciaOrigemId);
+            UnidadePolicial unidadePolicial = null;
 
-            if (unidadePolicial == null)
+            if (request.DelegaciaOrigemId.HasValue)
             {
-                Bus.RaiseEvent(new DomainNotification(request.MessageType, "A Delegacia de Origem não foi encontrada."));
-                return Task.FromResult(0);
+                unidadePolicial = _unidadePolicialRepository.GetById(request.DelegaciaOrigemId.Value);
+
+                if (unidadePolicial == null)
+                {
+                    Bus.RaiseEvent(new DomainNotification(request.MessageType, "A Delegacia de Origem não foi encontrada."));
+                    return Task.FromResult(0);
+                }
             }
 
             var existringProcedimento = _procedimentoRepository.GetAsNoTracking(x => x.BoletimUnificado.Contains(request.BoletimUnificado)
@@ -220,6 +282,20 @@ namespace ControleBO.Domain.CommandHandler
                 NotifyValidationErrors(request);
                 return Task.FromResult(0);
             }
+
+            var procedimento = _procedimentoRepository.GetById(request.Id);
+
+            if (procedimento == null)
+            {
+                Bus.RaiseEvent(new DomainNotification(request.MessageType, "O procedimento não foi encontrado."));
+                return Task.FromResult(0);
+            }
+
+            _vitimaRepository.Remove(x => x.ProcedimentoId == request.Id);
+            _indiciadoRepository.Remove(x => x.ProcedimentoId == request.Id);
+            _movimentacaoRepository.Remove(x => x.ProcedimentoId == request.Id);
+            _objetoApreendidoRepository.Remove(x => x.ProcedimentoId == request.Id);
+            _situacaoProcedimentoRepository.Remove(x => x.ProcedimentoId == request.Id);
 
             _procedimentoRepository.Remove(request.Id);
 

@@ -13,7 +13,7 @@ namespace ControleBO.Domain.Models
                             string gampes,
                             string anexos,
                             string localFato,
-                            DateTime dataFato,
+                            DateTime? dataFato,
                             DateTime? dataInstauracao,
                             string tipoCriminal,
                             string andamentoProcessual,
@@ -56,7 +56,7 @@ namespace ControleBO.Domain.Models
                             string gampes,
                             string anexos,
                             string localFato,
-                            DateTime dataFato,
+                            DateTime? dataFato,
                             DateTime? dataInstauracao,
                             string tipoCriminal,
                             string andamentoProcessual,
@@ -102,7 +102,7 @@ namespace ControleBO.Domain.Models
 
         public string LocalFato { get; set; }
 
-        public DateTime DataFato { get; set; }
+        public DateTime? DataFato { get; set; }
 
         public DateTime? DataInstauracao { get; set; }
 
@@ -114,23 +114,23 @@ namespace ControleBO.Domain.Models
 
         public virtual ProcedimentoTipo TipoProcedimento { get; set; }
 
-        public int VaraCriminalId { get; set; }
+        public int? VaraCriminalId { get; set; }
 
         public virtual VaraCriminal VaraCriminal { get; set; }
 
-        public int ComarcaId { get; set; }
+        public int? ComarcaId { get; set; }
 
         public virtual Municipio Comarca { get; set; }
 
-        public int AssuntoId { get; set; }
+        public int? AssuntoId { get; set; }
 
         public virtual Assunto Assunto { get; set; }
 
-        public int ArtigoId { get; set; }
+        public int? ArtigoId { get; set; }
 
         public virtual Artigo Artigo { get; set; }
 
-        public int DelegaciaOrigemId { get; set; }
+        public int? DelegaciaOrigemId { get; set; }
 
         public virtual UnidadePolicial DelegaciaOrigem { get; set; }
 

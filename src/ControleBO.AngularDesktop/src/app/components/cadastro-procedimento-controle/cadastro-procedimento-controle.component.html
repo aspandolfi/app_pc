@@ -18,11 +18,11 @@
         </div>
         <div class="form-group col-md-4">
           <label for="boletimUnificado">Boletim Unificado</label>
-          <input type="text" class="form-control form-control-sm ng-invalid" [(ngModel)]="procedimento.boletimUnificado" name="boletimUnificado" placeholder="00000/2018" required mask="0*/0000">
+          <input type="text" class="form-control form-control-sm ng-invalid" [(ngModel)]="procedimento.boletimUnificado" name="boletimUnificado" placeholder="00000/2018" mask="0*/0000">
         </div>
         <div class="form-group col-md-4">
           <label for="boletimOcorrencia">Boletim de Ocorrência</label>
-          <input type="text" class="form-control form-control-sm ng-invalid" [(ngModel)]="procedimento.boletimOcorrencia" name="boletimOcorrencia" placeholder="00000/2018" required mask="0*/0000">
+          <input type="text" class="form-control form-control-sm ng-invalid" [(ngModel)]="procedimento.boletimOcorrencia" name="boletimOcorrencia" placeholder="00000/2018" mask="0*/0000">
         </div>
       </div>
       <div class="form-row">
@@ -72,8 +72,7 @@
                  (typeaheadOnSelect)="onSelectDelegacia($event)"
                  class="form-control form-control-sm"
                  [class.ng-invalid]="isNoResultDelegacia"
-                 (typeaheadNoResults)="delegaciaNoResults($event)"
-                 required>
+                 (typeaheadNoResults)="delegaciaNoResults($event)">
         </div>
       </div>
       <div class="form-row">
@@ -93,8 +92,7 @@
                  (typeaheadOnSelect)="onSelectVaraCriminal($event)"
                  class="form-control form-control-sm"
                  [class.ng-invalid]="isNoResultVaraCriminal"
-                 (typeaheadNoResults)="varaCriminalNoResults($event)"
-                 required>
+                 (typeaheadNoResults)="varaCriminalNoResults($event)">
         </div>
         <div class="form-group col-md-6">
           <label for="comarca">Comarca</label>
@@ -112,8 +110,7 @@
                  (typeaheadOnSelect)="onSelectComarca($event)"
                  class="form-control form-control-sm"
                  [class.ng-invalid]="isNoResultComarca"
-                 (typeaheadNoResults)="comarcaNoResults($event)"
-                 required>
+                 (typeaheadNoResults)="comarcaNoResults($event)">
         </div>
       </div>
       <div class="form-row">
@@ -133,8 +130,7 @@
                  (typeaheadOnSelect)="onSelectArtigo($event)"
                  class="form-control form-control-sm"
                  [class.ng-invalid]="isNoResultArtigo"
-                 (typeaheadNoResults)="artigoNoResults($event)"
-                 required>
+                 (typeaheadNoResults)="artigoNoResults($event)">
         </div>
         <div class="form-group col-md-6">
           <label for="comarca">Assunto</label>
@@ -152,8 +148,7 @@
                  (typeaheadOnSelect)="onSelectAssunto($event)"
                  class="form-control form-control-sm"
                  [class.ng-invalid]="isNoResultAssunto"
-                 (typeaheadNoResults)="assuntoNoResults($event)"
-                 required>
+                 (typeaheadNoResults)="assuntoNoResults($event)">
         </div>
       </div>
       <div class="form-row">
@@ -163,7 +158,7 @@
         </div>
         <div class="form-group col-md-4">
           <label for="DataFato">Data do Fato</label>
-          <input type="text" bsDatepicker [bsConfig]="bsConfig" [bsValue]="procedimento.DataFato" class="form-control form-control-sm" [(ngModel)]="procedimento.DataFato" name="DataFato" required>
+          <input type="text" bsDatepicker [bsConfig]="bsConfig" [bsValue]="procedimento.DataFato" class="form-control form-control-sm" [(ngModel)]="procedimento.DataFato" name="DataFato">
         </div>
         <div class="form-group col-xs-12 col-12 col-md-4">
           <label for="DataInstauracao">Data de Instauração</label>
@@ -178,7 +173,7 @@
       </div>
       <div class="form-group">
         <label for="localFato">Local do Fato</label>
-        <input type="text" class="form-control form-control-sm" [(ngModel)]="procedimento.localFato" name="localFato" required>
+        <input type="text" class="form-control form-control-sm" [(ngModel)]="procedimento.localFato" name="localFato">
       </div>
       <div class="form-group">
         <label for="tipoCriminal">Tipo Criminal</label>
@@ -190,7 +185,7 @@
       </div>
       <div class="form-group">
         <label for="andamentoProcessual">Andamento Processual</label>
-        <input type="text" class="form-control form-control-sm" [(ngModel)]="procedimento.andamentoProcessual" name="andamentoProcessual" />
+        <input type="text" class="form-control form-control-sm" [(ngModel)]="procedimento.andamentoProcessual" name="andamentoProcessual" readonly />
       </div>
       <div class="form-group">
         <app-ultima-movimentacao [ultimasMovimentacoes]="procedimento.ultimasMovimentacoes"

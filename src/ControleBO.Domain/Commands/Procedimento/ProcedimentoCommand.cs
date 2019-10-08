@@ -107,7 +107,7 @@ namespace ControleBO.Domain.Commands
             }
         }
 
-        public DateTime DataFato { get; protected set; }
+        public DateTime? DataFato { get; protected set; }
 
         public DateTime? DataInstauracao { get; protected set; }
 
@@ -143,15 +143,15 @@ namespace ControleBO.Domain.Commands
 
         public int TipoProcedimentoId { get; protected set; }
 
-        public int VaraCriminalId { get; protected set; }
+        public int? VaraCriminalId { get; protected set; }
 
-        public int ComarcaId { get; protected set; }
+        public int? ComarcaId { get; protected set; }
 
-        public int AssuntoId { get; protected set; }
+        public int? AssuntoId { get; protected set; }
 
-        public int ArtigoId { get; protected set; }
+        public int? ArtigoId { get; protected set; }
 
-        public int DelegaciaOrigemId { get; protected set; }
+        public int? DelegaciaOrigemId { get; protected set; }
 
         public IEnumerable<VitimaCommand> Vitimas { get; protected set; }
 

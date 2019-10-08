@@ -14,14 +14,20 @@ namespace ControleBO.Domain.Validations
 
         protected void ValidateBoletimUnificado()
         {
-            RuleFor(x => x.BoletimUnificado)
-                .NotEmpty().WithMessage("Por favor tenha certeza que você inseriou o campo Boletim Unificado.");
+            When(x => !string.IsNullOrEmpty(x.BoletimUnificado), () =>
+             {
+                 RuleFor(x => x.BoletimUnificado)
+                 .NotEmpty().WithMessage("Por favor tenha certeza que você inseriou o campo Boletim Unificado.");
+             });
         }
 
         protected void ValidateBoletimOcorrencia()
         {
-            RuleFor(x => x.BoletimOcorrencia)
-                .NotEmpty().WithMessage("Por favor tenha certeza que você inseriou o campo Boletim de Ocorrência.");
+            When(x => !string.IsNullOrEmpty(x.BoletimOcorrencia), () =>
+             {
+                 RuleFor(x => x.BoletimOcorrencia)
+                 .NotEmpty().WithMessage("Por favor tenha certeza que você inseriou o campo Boletim de Ocorrência.");
+             });
         }
 
         protected void ValidateNumeroProcessual()
@@ -32,8 +38,11 @@ namespace ControleBO.Domain.Validations
 
         protected void ValidateGampes()
         {
-            RuleFor(x => x.Gampes)
-                .NotEmpty().WithMessage("Por favor tenha certeza que você inseriou o campo GAMPES.");
+            When(x => !string.IsNullOrEmpty(x.Gampes), () =>
+             {
+                 RuleFor(x => x.Gampes)
+                 .NotEmpty().WithMessage("Por favor tenha certeza que você inseriou o campo GAMPES.");
+             });
         }
 
         protected void ValidateTipoProcedimento()
@@ -44,32 +53,47 @@ namespace ControleBO.Domain.Validations
 
         protected void ValidateVaraCriminal()
         {
-            RuleFor(x => x.VaraCriminalId)
+            When(x => x.VaraCriminalId > 0, () =>
+            {
+                RuleFor(x => x.VaraCriminalId)
                 .GreaterThan(0).WithMessage("Por favor tenha certeza que a Vara Criminal é válida.");
+            });
         }
 
         protected void ValidateComarca()
         {
-            RuleFor(x => x.ComarcaId)
-                .GreaterThan(0).WithMessage("Por favor tenha certeza que a Comarca é válida.");
+            When(x => x.ComarcaId > 0, () =>
+             {
+                 RuleFor(x => x.ComarcaId)
+                 .GreaterThan(0).WithMessage("Por favor tenha certeza que a Comarca é válida.");
+             });
         }
 
         protected void ValidateAssunto()
         {
-            RuleFor(x => x.AssuntoId)
-                .GreaterThan(0).WithMessage("Por favor tenha certeza que o Assunto é válido.");
+            When(x => x.AssuntoId > 0, () =>
+             {
+                 RuleFor(x => x.AssuntoId)
+                 .GreaterThan(0).WithMessage("Por favor tenha certeza que o Assunto é válido.");
+             });
         }
 
         protected void ValidateArtigo()
         {
-            RuleFor(x => x.ArtigoId)
-                .GreaterThan(0).WithMessage("Por favor tenha certeza que o Artigo é válido.");
+            When(x => x.ArtigoId > 0, () =>
+             {
+                 RuleFor(x => x.ArtigoId)
+                 .GreaterThan(0).WithMessage("Por favor tenha certeza que o Artigo é válido.");
+             });
         }
 
         protected void ValidateDelegaciaOrigem()
         {
-            RuleFor(x => x.DelegaciaOrigemId)
+            When(x => x.DelegaciaOrigemId > 0, () =>
+              {
+                  RuleFor(x => x.DelegaciaOrigemId)
                 .GreaterThan(0).WithMessage("Por favor tenha certeza que a Delegacia de Origem é válida.");
+              });
         }
 
         protected void ValidateAnexos()
@@ -92,8 +116,11 @@ namespace ControleBO.Domain.Validations
 
         protected void ValidateDataFato()
         {
-            RuleFor(x => x.DataFato)
+            When(x => x.DataFato.HasValue, () =>
+            {
+                RuleFor(x => x.DataFato)
                 .LessThanOrEqualTo(DateTime.Today).WithMessage("A Data do Fato deve ser menor que a data atual.");
+            });
         }
 
         protected void ValidateTipoCriminal()

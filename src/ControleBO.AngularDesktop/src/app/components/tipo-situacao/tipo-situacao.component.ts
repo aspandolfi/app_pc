@@ -26,7 +26,7 @@ export class TipoSituacaoComponent implements OnInit, OnDestroy {
   ultimaAtualizacao: string;
 
   situacoes: Situacao[] = [];
-  selectedSituacaoId: number;
+  selectedSituacaoId: number = 1;
 
   tipos: TipoSituacao[] = [];
   returnedTipos: TipoSituacao[] = [];
@@ -104,13 +104,13 @@ export class TipoSituacaoComponent implements OnInit, OnDestroy {
 
   private addToTable(tipoSituacao: TipoSituacao) {
     this.tipos.push(tipoSituacao);
-    this.pageChanged({ itemsPerPage: this.pageSize, page: this.pageSize });
+    this.pageChanged({ itemsPerPage: this.pageSize, page: this.currentPage });
   }
 
   private removeFromTable(tipoSituacao: TipoSituacao) {
     let index = this.tipos.findIndex(x => x.id == tipoSituacao.id);
     this.tipos.splice(index, 1);
-    this.pageChanged({ itemsPerPage: this.pageSize, page: this.pageSize });
+    this.pageChanged({ itemsPerPage: this.pageSize, page: this.currentPage });
   }
 
   private updateTable(tipoSituacao: TipoSituacao) {

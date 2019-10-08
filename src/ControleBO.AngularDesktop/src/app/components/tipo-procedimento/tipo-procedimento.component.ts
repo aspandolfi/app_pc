@@ -79,7 +79,6 @@ export class TipoProcedimentoComponent implements OnInit, OnDestroy {
           }
           this.toastr.error(message.text);
         }
-        this.modalRef.hide();
       });
   }
 
@@ -101,13 +100,13 @@ export class TipoProcedimentoComponent implements OnInit, OnDestroy {
 
   private addToTable(tipoProcedimento: TipoProcedimento) {
     this.tipos.push(tipoProcedimento);
-    this.pageChanged({ itemsPerPage: this.pageSize, page: this.pageSize });
+    this.pageChanged({ itemsPerPage: this.pageSize, page: this.currentPage });
   }
 
   private removeFromTable(tipoProcedimento: TipoProcedimento) {
     let index = this.tipos.findIndex(x => x.id == tipoProcedimento.id);
     this.tipos.splice(index, 1);
-    this.pageChanged({ itemsPerPage: this.pageSize, page: this.pageSize });
+    this.pageChanged({ itemsPerPage: this.pageSize, page: this.currentPage });
   }
 
   private updateTable(tipoProcedimento: TipoProcedimento) {

@@ -101,13 +101,13 @@ export class AssuntoComponent implements OnInit, OnDestroy {
 
   private addToTable(assunto: Assunto) {
     this.assuntos.push(assunto);
-    this.pageChanged({ itemsPerPage: this.pageSize, page: this.pageSize });
+    this.pageChanged({ itemsPerPage: this.pageSize, page: this.currentPage });
   }
 
   private removeFromTable(assunto: Assunto) {
     let index = this.assuntos.findIndex(x => x.id == assunto.id);
     this.assuntos.splice(index, 1);
-    this.pageChanged({ itemsPerPage: this.pageSize, page: this.pageSize });
+    this.pageChanged({ itemsPerPage: this.pageSize, page: this.currentPage });
   }
 
   private updateTable(assunto: Assunto) {

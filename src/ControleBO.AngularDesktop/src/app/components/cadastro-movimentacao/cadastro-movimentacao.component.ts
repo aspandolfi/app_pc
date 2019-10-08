@@ -37,7 +37,6 @@ export class CadastroMovimentacaoComponent implements OnInit {
           this.messageService.send(new Message(error));
         }, () => {
           this.submitted = false;
-          this.modalRef.hide();
         });
     }
     else {
@@ -48,7 +47,6 @@ export class CadastroMovimentacaoComponent implements OnInit {
           this.messageService.send(new Message(error));
         }, () => {
           this.submitted = false;
-          this.modalRef.hide();
         });
     }
   }

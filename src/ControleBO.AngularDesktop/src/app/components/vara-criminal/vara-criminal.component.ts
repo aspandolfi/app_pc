@@ -98,13 +98,13 @@ export class VaraCriminalComponent implements OnInit {
 
   private addToTable(vara: VaraCriminal) {
     this.varas.push(vara);
-    this.pageChanged({ itemsPerPage: this.pageSize, page: this.pageSize });
+    this.pageChanged({ itemsPerPage: this.pageSize, page: this.currentPage });
   }
 
   private removeFromTable(vara: VaraCriminal) {
     let index = this.varas.findIndex(x => x.id == vara.id);
     this.varas.splice(index, 1);
-    this.pageChanged({ itemsPerPage: this.pageSize, page: this.pageSize });
+    this.pageChanged({ itemsPerPage: this.pageSize, page: this.currentPage });
   }
 
   private updateTable(vara: VaraCriminal) {
@@ -122,7 +122,7 @@ export class VaraCriminalComponent implements OnInit {
   openModalExcluir(vara: VaraCriminal) {
     const initialState = {
       model: vara,
-      uri: 'api/vara-criminal/'
+      uri: 'api/varacriminal/'
     };
     this.modalRef = this.modalService.show(ConfirmarExclusaoComponent, { initialState, class: 'modal-dialog-centered', ignoreBackdropClick: true, backdrop: true });
   }

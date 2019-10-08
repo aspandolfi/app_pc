@@ -101,13 +101,13 @@ export class UnidadePolicialComponent implements OnInit {
 
   private addToTable(unidadePolicial: UnidadePolicial) {
     this.unidadesPoliciais.push(unidadePolicial);
-    this.pageChanged({ itemsPerPage: this.pageSize, page: this.pageSize });
+    this.pageChanged({ itemsPerPage: this.pageSize, page: this.currentPage });
   }
 
   private removeFromTable(unidadePolicial: UnidadePolicial) {
     let index = this.unidadesPoliciais.findIndex(x => x.id == unidadePolicial.id);
     this.unidadesPoliciais.splice(index, 1);
-    this.pageChanged({ itemsPerPage: this.pageSize, page: this.pageSize });
+    this.pageChanged({ itemsPerPage: this.pageSize, page: this.currentPage });
   }
 
   private updateTable(unidadePolicial: UnidadePolicial) {

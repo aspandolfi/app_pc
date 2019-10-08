@@ -105,7 +105,7 @@ export class MunicipioComponent implements OnInit, OnDestroy, AfterViewInit {
 
   private addToTable(municipio: Municipio) {
     this.municipios.push(municipio);
-    this.pageChanged({ itemsPerPage: this.pageSize, page: this.pageSize });
+    this.pageChanged({ itemsPerPage: this.pageSize, page: this.currentPage });
   }
 
   private updateTable(municipio: Municipio) {
@@ -116,7 +116,7 @@ export class MunicipioComponent implements OnInit, OnDestroy, AfterViewInit {
   private removeFromTable(municipio: Municipio) {
     let index = this.municipios.findIndex(x => x.id == municipio.id);
     this.municipios.splice(index, 1);
-    this.pageChanged({ itemsPerPage: this.pageSize, page: this.pageSize });
+    this.pageChanged({ itemsPerPage: this.pageSize, page: this.currentPage });
   }
 
   openModal(municipio: Municipio) {

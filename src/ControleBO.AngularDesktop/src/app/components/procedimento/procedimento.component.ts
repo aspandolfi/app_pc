@@ -93,6 +93,7 @@ export class ProcedimentoComponent implements OnInit {
 
   openModalExcluir(procedimento: Procedimento) {
     const initialState = {
+      propertyToDescribe: 'id',
       model: procedimento,
       uri: 'api/procedimento/'
     };

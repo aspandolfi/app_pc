@@ -18,7 +18,7 @@
         <tbody>
           <tr *ngFor="let unidadePolicial of returnedUnidadesPoliciais">
             <td data-id="{{unidadePolicial.id}}">
-              <div class="form-inline align-items-center">
+              <div class="form-inline align-items-center" *ngIf="canEdit">
                 <div class="form-group ml-1">
                   <a title="Editar" class="text-secondary" (click)="openModal(unidadePolicial);">
                     <i class="fas fa-edit"></i>

@@ -2,6 +2,7 @@
 using ControleBO.Application.ViewModels;
 using ControleBO.Domain.Core.Bus;
 using ControleBO.Domain.Core.Notifications;
+using ControleBO.Infra.CrossCutting.Identity.Models;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -40,6 +41,7 @@ namespace ControleBO.Api.Controllers
 
         // POST: api/VaraCriminal
         [HttpPost]
+        [Authorize(Roles = Roles.SuperUserAdmin)]
         public async Task<IActionResult> Post([FromBody] VaraCriminalViewModel varaCriminalVm)
         {
             int id = await _varaCriminalAppService.Register(varaCriminalVm);
@@ -56,6 +58,7 @@ namespace ControleBO.Api.Controllers
 
         // PUT: api/VaraCriminal/5
         [HttpPut("{id}")]
+        [Authorize(Roles = Roles.SuperUserAdmin)]
         public IActionResult Put(int id, [FromBody] VaraCriminalViewModel varaCriminalVm)
         {
             _varaCriminalAppService.Update(varaCriminalVm);
@@ -70,6 +73,7 @@ namespace ControleBO.Api.Controllers
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
+        [Authorize(Roles = Roles.SuperUserAdmin)]
         public IActionResult Delete(int id)
         {
             _varaCriminalAppService.Remove(id);

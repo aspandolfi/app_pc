@@ -31,6 +31,12 @@ namespace ControleBO.Api.Controllers
             return Response(_vitimaAppService.GetAll());
         }
 
+        [HttpGet("searchByName")]
+        public IActionResult GetByText([FromQuery]string s)
+        {
+            return Response(_vitimaAppService.GetVitimasByText(s));
+        }
+
         // GET: api/Vitima/Procedimento/1
         [HttpGet("procedimento/{procedimentoId}")]
         public IActionResult GetByProcedimentoId(int procedimentoId)

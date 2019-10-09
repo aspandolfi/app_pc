@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Subscription } from 'rxjs';
 import { VaraCriminal } from '../../models/vara-criminal';
@@ -16,7 +16,7 @@ import { UserManagerService } from '../../services/user-manager.service';
   templateUrl: './vara-criminal.component.html',
   styleUrls: ['./vara-criminal.component.scss']
 })
-export class VaraCriminalComponent implements OnInit {
+export class VaraCriminalComponent implements OnInit, OnDestroy {
 
   private modalRef: BsModalRef;
   private subscription: Subscription;
@@ -30,7 +30,7 @@ export class VaraCriminalComponent implements OnInit {
   currentPage = 1;
 
   get canEdit() {
-    return this.userManager.canEdit();
+    return this.userManager.isAdmin();
   }
 
   constructor(private modalService: BsModalService,

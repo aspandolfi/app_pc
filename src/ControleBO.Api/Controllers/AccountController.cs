@@ -263,6 +263,7 @@ namespace ControleBO.Api.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = Roles.SuperUserAdmin)]
         public async Task<IActionResult> Create([FromBody] RegisterViewModel model)
         {
             if (!ModelState.IsValid)

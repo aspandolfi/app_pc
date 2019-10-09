@@ -2,6 +2,7 @@
 using ControleBO.Application.ViewModels;
 using ControleBO.Domain.Core.Bus;
 using ControleBO.Domain.Core.Notifications;
+using ControleBO.Infra.CrossCutting.Identity.Models;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -47,6 +48,7 @@ namespace ControleBO.Api.Controllers
 
         // POST: api/Municipio
         [HttpPost]
+        [Authorize(Roles = Roles.SuperUserAdmin)]
         public async Task<IActionResult> Post([FromBody] MunicipioViewModel municipioVm)
         {
             int id = await _municipioAppService.Register(municipioVm);
@@ -63,6 +65,7 @@ namespace ControleBO.Api.Controllers
 
         // PUT: api/Municipio/5
         [HttpPut("{id}")]
+        [Authorize(Roles = Roles.SuperUserAdmin)]
         public IActionResult Put(int id, [FromBody] MunicipioViewModel municipioVm)
         {
             _municipioAppService.Update(municipioVm);
@@ -77,6 +80,7 @@ namespace ControleBO.Api.Controllers
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
+        [Authorize(Roles = Roles.SuperUserAdmin)]
         public IActionResult Delete(int id)
         {
             _municipioAppService.Remove(id);

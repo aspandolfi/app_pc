@@ -30,7 +30,7 @@ export class TipoProcedimentoComponent implements OnInit, OnDestroy {
   currentPage = 1;
 
   get canEdit() {
-    return this.userManager.canEdit();
+    return this.userManager.isAdmin();
   }
 
   constructor(private modalService: BsModalService,

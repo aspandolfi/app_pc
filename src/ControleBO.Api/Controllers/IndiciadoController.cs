@@ -32,6 +32,12 @@ namespace ControleBO.Api.Controllers
             return Response(_indiciadoAppService.GetAll());
         }
 
+        [HttpGet("searchByName")]
+        public IActionResult GetByText([FromQuery]string s)
+        {
+            return Response(_indiciadoAppService.GetIndiciadosByText(s));
+        }
+
         // GET: api/Indiciado/5
         [HttpGet("{id}")]
         public IActionResult Get(int id)

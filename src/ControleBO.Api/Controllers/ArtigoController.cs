@@ -2,6 +2,7 @@
 using ControleBO.Application.ViewModels;
 using ControleBO.Domain.Core.Bus;
 using ControleBO.Domain.Core.Notifications;
+using ControleBO.Infra.CrossCutting.Identity.Models;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -40,6 +41,7 @@ namespace ControleBO.Api.Controllers
 
         // POST: api/Artigo
         [HttpPost]
+        [Authorize(Roles = Roles.SuperUserAdmin)]
         public async Task<IActionResult> Post([FromBody] ArtigoViewModel artigoVm)
         {
             var registerTask = _artigoAppService.Register(artigoVm);
@@ -58,6 +60,7 @@ namespace ControleBO.Api.Controllers
 
         // PUT: api/Artigo/5
         [HttpPut("{id}")]
+        [Authorize(Roles = Roles.SuperUserAdmin)]
         public IActionResult Put(int id, [FromBody] ArtigoViewModel artigoVm)
         {
             _artigoAppService.Update(artigoVm);
@@ -72,6 +75,7 @@ namespace ControleBO.Api.Controllers
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
+        [Authorize(Roles = Roles.SuperUserAdmin)]
         public IActionResult Delete(int id)
         {
             _artigoAppService.Remove(id);

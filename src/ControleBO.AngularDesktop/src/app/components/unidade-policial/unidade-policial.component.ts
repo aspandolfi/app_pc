@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Subscription } from 'rxjs';
 import { UnidadePolicial } from '../../models/unidade-policial';
@@ -16,7 +16,7 @@ import { UserManagerService } from '../../services/user-manager.service';
   templateUrl: './unidade-policial.component.html',
   styleUrls: ['./unidade-policial.component.scss']
 })
-export class UnidadePolicialComponent implements OnInit {
+export class UnidadePolicialComponent implements OnInit, OnDestroy {
 
   private modalRef: BsModalRef;
   private subscription: Subscription;
@@ -30,7 +30,7 @@ export class UnidadePolicialComponent implements OnInit {
   currentPage = 1;
 
   get canEdit() {
-    return this.userManager.canEdit();
+    return this.userManager.isAdmin();
   }
 
   constructor(private modalService: BsModalService,

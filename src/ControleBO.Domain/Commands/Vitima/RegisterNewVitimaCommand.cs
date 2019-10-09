@@ -5,7 +5,7 @@ namespace ControleBO.Domain.Commands
 {
     public class RegisterNewVitimaCommand : VitimaCommand
     {
-        public RegisterNewVitimaCommand(string email, int procedimentoId, string nome, string nomePai, string nomeMae, DateTime? dataNascimento, int? idade, string telefone, int municipioId)
+        public RegisterNewVitimaCommand(string email, int procedimentoId, string nome, string nomePai, string nomeMae, DateTime? dataNascimento, int? idade, string telefone, int? municipioId)
         {
             Email = email;
             ProcedimentoId = procedimentoId;

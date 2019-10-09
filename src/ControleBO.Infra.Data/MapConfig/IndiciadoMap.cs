@@ -20,6 +20,11 @@ namespace ControleBO.Infra.Data.MapConfig
                 .WithMany(y => y.Autores)
                 .HasForeignKey(x => x.ProcedimentoId)
                 .IsRequired();
+
+            builder.HasOne(x => x.Naturalidade)
+                .WithMany()
+                .HasForeignKey(x => x.NaturalidadeId)
+                .IsRequired(false);
         }
     }
 }

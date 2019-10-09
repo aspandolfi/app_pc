@@ -28,5 +28,8 @@ namespace ControleBO.Application.ViewModels
 
         [JsonProperty(PropertyName = "andamentoProcessual")]
         public string AndamentoProcessual { get; set; }
+
+        [JsonProperty(PropertyName = "vitimas")]
+        public string Vitimas { get; set; }
     }
 }

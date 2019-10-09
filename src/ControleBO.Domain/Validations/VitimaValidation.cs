@@ -20,8 +20,11 @@ namespace ControleBO.Domain.Validations
 
         protected void ValidateMunicipio()
         {
-            RuleFor(x => x.MunicipioId)
+            When(x => x.MunicipioId.HasValue, () =>
+             {
+                 RuleFor(x => x.MunicipioId)
                 .GreaterThan(0).WithMessage("Por favor verifique se o município existe no sistema.");
+             });
         }
 
         protected void ValidateNome()

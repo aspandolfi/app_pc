@@ -6,6 +6,6 @@ namespace ControleBO.Application.Interfaces
     public interface IIndiciadoAppService : IAppServiceBase<IndiciadoViewModel>
     {
         IEnumerable<IndiciadoViewModel> GetAllByProcedimentoId(int procedimento);
-        IEnumerable<IndiciadoViewModel> GetIndiciadosByText(string text);
+        IEnumerable<string> GetIndiciadosByText(string text);
     }
 }

@@ -38,6 +38,13 @@ namespace ControleBO.Application.Services
                 x=> x.AndamentoProcessual
             };
 
+        public override ProcedimentoViewModel GetById(int id)
+        {
+            var result = Repository.GetAsNoTracking(x => x.Id == id, x => x.SituacaoAtual);
+
+            return Mapper.Map<ProcedimentoViewModel>(result);
+        }
+
         public DataTableViewModel GetAllAsDatatable()
         {
             var result = Repository.GetAllAsNoTracking(x => x.RemovidoEm == null, x => x.CriadoEm);
@@ -148,8 +155,9 @@ namespace ControleBO.Application.Services
                 TipoProcedimento = x.TipoProcedimento.Sigla,
                 x.CriadoEm,
                 Comarca = x.Comarca.Nome,
-                x.AndamentoProcessual
-            }, null, x => x.CriadoEm);
+                x.SituacaoAtual,
+                Vitimas = x.Vitimas.Select(v => v.Nome)
+            }, q => q.OrderByDescending(x => x.CriadoEm));
 
             return result.Select(p => new ProcedimentoListViewModel
             {
@@ -160,7 +168,8 @@ namespace ControleBO.Application.Services
                 TipoProcedimento = p.TipoProcedimento,
                 DataInsercao = p.CriadoEm,
                 Comarca = p.Comarca,
-                AndamentoProcessual = p.AndamentoProcessual
+                AndamentoProcessual = p.SituacaoAtual.Descricao,
+                Vitimas = string.Join(";", p.Vitimas)
             });
         }
     }

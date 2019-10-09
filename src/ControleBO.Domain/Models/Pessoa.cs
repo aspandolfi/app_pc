@@ -66,6 +66,8 @@ namespace ControleBO.Domain.Models
 
         public string Telefone { get; set; }
 
+        public int? NaturalidadeId { get; set; }
+
         public virtual Municipio Naturalidade { get; set; }
 
         public override bool Equals(object obj)
@@ -82,7 +84,7 @@ namespace ControleBO.Domain.Models
 
             var pessoa = obj as Pessoa;
 
-            return string.Compare(pessoa.Nome, Nome, true) == 0;
+            return string.Compare(pessoa.Nome, Nome, true) == 0 && pessoa.Id == Id;
         }
 
         public override int GetHashCode()

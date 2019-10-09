@@ -178,9 +178,13 @@ namespace ControleBO.Infra.Data.Repositories
             return DbSet.SingleOrDefault(filter);
         }
 
-        public TModel GetAsNoTracking(Expression<Func<TModel, bool>> filter)
+        public TModel GetAsNoTracking(Expression<Func<TModel, bool>> filter, params Expression<Func<TModel, object>>[] includes)
         {
-            return DbSet.AsNoTracking().SingleOrDefault(filter);
+            IQueryable<TModel> query = DbSet;
+
+            query = query.IncludeMultiple(includes);
+
+            return query.AsNoTracking().SingleOrDefault(filter);
         }
 
         public virtual IEnumerable<TModel> GetAllAsNoTracking(Expression<Func<TModel, bool>> filter,
@@ -245,13 +249,11 @@ namespace ControleBO.Infra.Data.Repositories
             return query.AsNoTracking().Select(selector);
         }
 
-        public IEnumerable<TModel> GetAllAsNoTracking(params Expression<Func<TModel, object>>[] includes)
+        public IEnumerable<TModel> GetAllAsNoTracking()
         {
             IQueryable<TModel> query = DbSet;
 
-            query = query.IncludeMultiple(includes);
-
-            return query;
+            return query.AsNoTracking();
         }
 
         public bool Any(Expression<Func<TModel, bool>> predicate)
@@ -264,6 +266,18 @@ namespace ControleBO.Infra.Data.Repositories
             var objs = DbSet.Where(expression);
 
             DbSet.RemoveRange(objs);
+        }
+
+        public IEnumerable<TResult> GetAllAsNoTracking<TResult>(Expression<Func<TModel, TResult>> selector, Func<IQueryable<TModel>, IOrderedQueryable<TModel>> orderBy)
+        {
+            IQueryable<TModel> query = DbSet;
+
+            if (orderBy != null)
+            {
+                query = orderBy(query);
+            }
+
+            return query.AsNoTracking().Select(selector);
         }
     }
 }

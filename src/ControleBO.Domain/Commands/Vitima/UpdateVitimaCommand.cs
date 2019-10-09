@@ -5,7 +5,7 @@ namespace ControleBO.Domain.Commands
 {
     public class UpdateVitimaCommand : VitimaCommand
     {
-        public UpdateVitimaCommand(int id, string email, int procedimentoId, string nome, string nomePai, string nomeMae, DateTime? dataNascimento, int? idade, string telefone, int municipioId)
+        public UpdateVitimaCommand(int id, string email, int procedimentoId, string nome, string nomePai, string nomeMae, DateTime? dataNascimento, int? idade, string telefone, int? municipioId)
         {
             Id = id;
             Email = email;

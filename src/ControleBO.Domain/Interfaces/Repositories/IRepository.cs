@@ -24,7 +24,7 @@ namespace ControleBO.Domain.Interfaces.Repositories
 
         TModel Get(Expression<Func<TModel, bool>> filter);
 
-        TModel GetAsNoTracking(Expression<Func<TModel, bool>> filter);
+        TModel GetAsNoTracking(Expression<Func<TModel, bool>> filter, params Expression<Func<TModel, object>>[] includes);
 
         IEnumerable<TModel> GetPaged(Expression<Func<TModel, object>> orderBy, int page, int pageSize);
 
@@ -37,7 +37,7 @@ namespace ControleBO.Domain.Interfaces.Repositories
                                   Expression<Func<TModel, object>> orderBy,
                                   params Expression<Func<TModel, object>>[] includes);
 
-        IEnumerable<TModel> GetAllAsNoTracking(params Expression<Func<TModel, object>>[] includes);
+        IEnumerable<TModel> GetAllAsNoTracking();
 
         IEnumerable<TModel> GetAllAsNoTracking(IEnumerable<Expression<Func<TModel, bool>>> filters,
                                                params Expression<Func<TModel, object>>[] includes);
@@ -50,6 +50,9 @@ namespace ControleBO.Domain.Interfaces.Repositories
                                                          Expression<Func<TModel, bool>> filter,
                                                          Expression<Func<TModel, object>> orderBy,
                                                          params Expression<Func<TModel, object>>[] includes);
+
+        IEnumerable<TResult> GetAllAsNoTracking<TResult>(Expression<Func<TModel, TResult>> selector,
+                                                         Func<IQueryable<TModel>, IOrderedQueryable<TModel>> orderBy);
 
         int Count();
 

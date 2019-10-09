@@ -31,11 +31,11 @@ namespace ControleBO.Application.Services
             return Mapper.Map<IEnumerable<IndiciadoViewModel>>(result);
         }
 
-        public IEnumerable<IndiciadoViewModel> GetIndiciadosByText(string text)
+        public IEnumerable<string> GetIndiciadosByText(string text)
         {
-            var result = _indiciadoRepository.GetIndiciadosByText(text);
+            var result = _indiciadoRepository.GetAllAsNoTracking<string>(x => x.Nome, x => x.Nome.Contains(text), null);
 
-            return Mapper.Map<IEnumerable<IndiciadoViewModel>>(result);
+            return result;
         }
     }
 }

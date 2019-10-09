@@ -27,6 +27,6 @@ namespace ControleBO.Application.ViewModels
         public string Telefone { get; set; }
 
         [JsonProperty(PropertyName = "naturalidadeId")]
-        public int MunicipioId { get; set; }
+        public int? MunicipioId { get; set; }
     }
 }

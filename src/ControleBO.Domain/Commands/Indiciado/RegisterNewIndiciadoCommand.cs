@@ -5,7 +5,7 @@ namespace ControleBO.Domain.Commands
 {
     public class RegisterNewIndiciadoCommand : IndiciadoCommand
     {
-        public RegisterNewIndiciadoCommand(string apelido, int procedimentoId, string nome, string nomePai, string nomeMae, DateTime? dataNascimento, int? idade, string telefone, int municipioId)
+        public RegisterNewIndiciadoCommand(string apelido, int procedimentoId, string nome, string nomePai, string nomeMae, DateTime? dataNascimento, int? idade, string telefone, int? municipioId)
         {
             Apelido = apelido;
             ProcedimentoId = procedimentoId;

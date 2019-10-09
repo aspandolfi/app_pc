@@ -48,12 +48,17 @@ namespace ControleBO.Domain.CommandHandler
                 return Task.FromResult(0);
             }
 
-            var municipio = _municipioRepository.GetById(request.MunicipioId);
+            Municipio municipio = null;
 
-            if (request.MunicipioId > 0 && municipio == null)
+            if (request.MunicipioId.HasValue)
             {
-                Bus.RaiseEvent(new DomainNotification(request.MessageType, "O Município não foi encontrado."));
-                return Task.FromResult(0);
+                municipio = _municipioRepository.GetById(request.MunicipioId.Value);
+
+                if (request.MunicipioId > 0 && municipio == null)
+                {
+                    Bus.RaiseEvent(new DomainNotification(request.MessageType, "O Município não foi encontrado."));
+                    return Task.FromResult(0);
+                }
             }
 
             if (_indiciadoRepository.Exists(request.Nome, request.ProcedimentoId))
@@ -90,18 +95,23 @@ namespace ControleBO.Domain.CommandHandler
                 return Task.FromResult(0);
             }
 
-            var municipio = _municipioRepository.GetById(request.MunicipioId);
+            Municipio municipio = null;
 
-            if (request.MunicipioId > 0 && municipio == null)
+            if (request.MunicipioId.HasValue)
             {
-                Bus.RaiseEvent(new DomainNotification(request.MessageType, "O Município não foi encontrado."));
-                return Task.FromResult(0);
+                municipio = _municipioRepository.GetById(request.MunicipioId.Value);
+
+                if (request.MunicipioId > 0 && municipio == null)
+                {
+                    Bus.RaiseEvent(new DomainNotification(request.MessageType, "O Município não foi encontrado."));
+                    return Task.FromResult(0);
+                }
             }
 
             var indiciado = new Indiciado(request.Id, request.Apelido, procedimento, request.Nome, request.NomePai, request.NomeMae, request.DataNascimento, request.Idade, request.Telefone, municipio);
-            var existingIndiciado = _indiciadoRepository.Get(x => x.Nome.Contains(request.Nome) && x.ProcedimentoId == request.ProcedimentoId);
+            var existingIndiciado = _indiciadoRepository.GetAsNoTracking(x => x.Nome.Contains(request.Nome) && x.ProcedimentoId == request.ProcedimentoId);
 
-            if (indiciado.Equals(existingIndiciado))
+            if (!indiciado.Equals(existingIndiciado))
             {
                 Bus.RaiseEvent(new DomainNotification(request.MessageType, "O Indiciado já está sendo usado."));
                 return Task.FromResult(0);

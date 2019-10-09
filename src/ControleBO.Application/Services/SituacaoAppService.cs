@@ -30,7 +30,7 @@ namespace ControleBO.Application.Services
 
         public override IEnumerable<SituacaoViewModel> GetAll()
         {
-            var query = Repository.GetAllAsNoTracking(x => x.Tipos).ToList();
+            var query = Repository.GetAllAsNoTracking(filter: null, includes: x => x.Tipos, orderBy: null).ToList();
 
             return Mapper.Map<IEnumerable<SituacaoViewModel>>(query);
         }

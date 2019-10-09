@@ -76,6 +76,6 @@ namespace ControleBO.Domain.Commands
             }
         }
 
-        public int MunicipioId { get; protected set; }
+        public int? MunicipioId { get; protected set; }
     }
 }

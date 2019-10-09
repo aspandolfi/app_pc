@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ProcedimentoService } from 'src/app/services/procedimento.service';
 import { ToastrService } from 'ngx-toastr';
 import { ProcedimentoList, Procedimento } from 'src/app/models/procedimento';
@@ -16,7 +16,7 @@ import { IMessage, Action } from 'src/app/models/message';
   templateUrl: './procedimento.component.html',
   styleUrls: ['./procedimento.component.scss']
 })
-export class ProcedimentoComponent implements OnInit {
+export class ProcedimentoComponent implements OnInit, OnDestroy {
 
   bsConfig: Partial<BsDatepickerConfig> = { containerClass: 'theme-default' };
 
@@ -40,6 +40,10 @@ export class ProcedimentoComponent implements OnInit {
     return this.userManager.canEdit();
   }
 
+  get isAdmin() {
+    return this.userManager.isAdmin();
+  }
+
   constructor(private procedimentoService: ProcedimentoService,
     private modalService: BsModalService,
     private messageService: MessageService,
@@ -55,6 +59,10 @@ export class ProcedimentoComponent implements OnInit {
     this.getUltimaAtualizacao();
   }
 
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
+
   private getProcedimentos() {
     this.isLoading = true;
 
@@ -63,10 +71,8 @@ export class ProcedimentoComponent implements OnInit {
         this.procedimentos = this.setProcedimentos(res.data);
         this.returnedProcedimentos = this.procedimentos.slice(0, this.pageSize);
       },
-        () => this.toastr.error("Falha ao carregar os procedimentos."),
-        () => {
-          this.isLoading = false;
-        });
+        () => this.toastr.error("Falha ao carregar os procedimentos."))
+      .add(() => this.isLoading = false);
   }
 
   private getUltimaAtualizacao() {
@@ -76,8 +82,8 @@ export class ProcedimentoComponent implements OnInit {
       .subscribe(res => {
         this.ultimaAtualizacao = res.data;
       },
-        () => this.toastr.error("Falha ao carregar a última atualização."),
-        () => this.isLoadingUltimaAtualizacao = false);
+        () => this.toastr.error("Falha ao carregar a última atualização."))
+      .add(() => this.isLoadingUltimaAtualizacao = false);
   }
 
   private setProcedimentos(values: ProcedimentoList[]) {
@@ -93,7 +99,7 @@ export class ProcedimentoComponent implements OnInit {
 
   openModalExcluir(procedimento: Procedimento) {
     const initialState = {
-      propertyToDescribe: 'id',
+      propertyToDescribe: 'numeroProcessual',
       model: procedimento,
       uri: 'api/procedimento/'
     };
@@ -123,7 +129,7 @@ export class ProcedimentoComponent implements OnInit {
   private removeFromTable(procedimento: Procedimento) {
     let index = this.procedimentos.findIndex(x => x.id == procedimento.id);
     this.procedimentos.splice(index, 1);
-    this.pageChanged({ itemsPerPage: this.pageSize, page: this.pageSize });
+    this.pageChanged({ itemsPerPage: this.pageSize, page: this.currentPage });
   }
 
   pageChanged(event: PageChangedEvent) {

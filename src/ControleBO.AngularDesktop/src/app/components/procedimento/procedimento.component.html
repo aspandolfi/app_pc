@@ -10,7 +10,11 @@
       <div class="form-row">
         <div class="form-group col-md-5">
           Busca:
-          <input class="form-control form-control-sm" type="text" [(ngModel)]="searchFilter" name="searchFilter" />
+          <input class="form-control form-control-sm"
+                 type="text"
+                 [(ngModel)]="searchFilter"
+                 name="searchFilter"
+                 placeholder="número de cadastro, boletim unificado, boletim de ocorrência... vítimas"/>
         </div>
         <div class="form-group col-md-3">
           De:
@@ -58,15 +62,15 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let procedimento of returnedProcedimentos | grdFilter: {id:searchFilter, numeroCadstro:searchFilter, boletimUnificado:searchFilter, boletimOcorrencia:searchFilter, numeroProcessual:searchFilter, tipoProcedimento:searchFilter, dataInsercao:searchFilter, comarca:searchFilter, andamentoProcessual:searchFilter}; let i=index;">
+          <tr *ngFor="let procedimento of returnedProcedimentos | grdFilter: {id:searchFilter, numeroCadstro:searchFilter, boletimUnificado:searchFilter, boletimOcorrencia:searchFilter, numeroProcessual:searchFilter, tipoProcedimento:searchFilter, dataInsercao:searchFilter, comarca:searchFilter, andamentoProcessual:searchFilter, vitimas:searchFilter}; let i=index;">
             <td data-id="{{procedimento.id}}">
               <div class="form-inline align-items-center">
-                <div class="form-group ml-1">
+                <div *ngIf="canEdit" class="form-group ml-1">
                   <a title="Editar" class="text-secondary" [routerLink]="['/cadastro-procedimento', procedimento.id]">
                     <i class="fas fa-edit"></i>
                   </a>
                 </div>
-                <div *ngIf="canEdit" class="form-group ml-1">
+                <div *ngIf="isAdmin" class="form-group ml-1">
                   <a title="Excluir" class="text-secondary" (click)="openModalExcluir(procedimento);">
                     <i class="far fa-times-circle"></i>
                   </a>

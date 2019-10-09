@@ -13,6 +13,10 @@ export class SidebarComponent implements OnInit {
     return this.userManager.name;
   }
 
+  get canEdit() {
+    return this.userManager.isAdmin();
+  }
+
   constructor(private userManager: UserManagerService) { }
 
   ngOnInit() {

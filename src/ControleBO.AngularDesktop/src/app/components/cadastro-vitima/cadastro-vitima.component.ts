@@ -10,6 +10,8 @@ import { TypeaheadMatch } from 'ngx-bootstrap/typeahead/public_api';
 import { MessageService } from 'src/app/services/message.service';
 import { Result } from 'src/app/models/result';
 import { UserManagerService } from '../../services/user-manager.service';
+import { Observable } from 'rxjs';
+import { mergeMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-cadastro-vitima',
@@ -28,6 +30,11 @@ export class CadastroVitimaComponent implements OnInit {
   naturalidade: Municipio;
   naturalidadeSelected: string;
 
+  vitimasDataSource: Observable<any>;
+  vitimaSelected: string;
+
+  typeaheadLoadingVitimas: boolean;
+
   get canEdit() {
     return this.userManager.canEdit();
   }
@@ -38,19 +45,34 @@ export class CadastroVitimaComponent implements OnInit {
     private municipioService: MunicipioService,
     private toastr: ToastrService,
     private userManager: UserManagerService) {
+    this.initVitimasDataSource();
   }
 
   ngOnInit() {
     this.getMunicipios();
+
+    if (this.model.id) {
+      this.vitimaSelected = this.model.nome;
+    }
+  }
+
+  initVitimasDataSource() {
+    this.vitimasDataSource = Observable.create((observer: any) => {
+      observer.next(this.vitimaSelected);
+    })
+      .pipe(
+        mergeMap((token: string) => this.vitimaService.getByText(token))
+      );
   }
 
   save() {
 
-    if (!this.naturalidade) {
-      this.toastr.error('Município inválido. Por favor selecione um item válido.');
-      return;
-    }
-    this.model.naturalidadeId = this.naturalidade.id;
+    //if (!this.naturalidade) {
+    //  this.toastr.error('Município inválido. Por favor selecione um item válido.');
+    //  return;
+    //}
+    this.model.naturalidadeId = this.naturalidade ? this.naturalidade.id : undefined;
+    this.model.nome = this.model.nome ? this.model.nome : this.vitimaSelected;
 
     this.submitted = true;
 
@@ -59,9 +81,12 @@ export class CadastroVitimaComponent implements OnInit {
         .subscribe(res => {
           this.messageService.send(new Message(res, Action.Updated));
           this.modalRef.hide();
-        }, (error: Result<any>) => {
-          error.errors.forEach(m => this.toastr.warning(m));
-          this.toastr.error(error.message);
+        }, (res: Result<any>) => {
+          if (res.errors) {
+            res.errors.forEach(m => this.toastr.warning(m));
+          }
+          this.toastr.error(res.message);
+          this.submitted = false;
         }, () => {
           this.submitted = false;
         });
@@ -71,9 +96,12 @@ export class CadastroVitimaComponent implements OnInit {
         .subscribe(res => {
           this.messageService.send(new Message(res, Action.Created));
           this.modalRef.hide();
-        }, (error: Result<any>) => {
-          error.errors.forEach(m => this.toastr.warning(m));
-          this.toastr.error(error.message);
+        }, (res: Result<any>) => {
+          if (res.errors) {
+            res.errors.forEach(m => this.toastr.warning(m));
+          }
+          this.toastr.error(res.message);
+          this.submitted = false;
         }, () => {
           this.submitted = false;
         });
@@ -107,6 +135,14 @@ export class CadastroVitimaComponent implements OnInit {
 
   naturalidadeNoResults(event: boolean): void {
     this.isNoResultNaturalidade = event;
+  }
+
+  changeTypeaheadLoadingVitimas(e: boolean) {
+    this.typeaheadLoadingVitimas = e;
+  }
+
+  typeaheadOnSelectVitima(e: TypeaheadMatch) {
+    this.model.nome = e.value;
   }
 
 }

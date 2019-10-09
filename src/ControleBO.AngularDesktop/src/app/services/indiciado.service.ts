@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Indiciado } from '../models/indiciado';
 import { IServiceBase } from './service-base';
 import { BaseService } from './base.service';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -32,5 +34,11 @@ export class IndiciadoService implements IServiceBase<Indiciado> {
   }
   getAllFiltered(procedimentoId: number) {
     return this.baseService.get<Indiciado[]>(`${this.uri}/procedimento/${procedimentoId}`);
+  }
+  getByText(text: string): Observable<string[]> {
+    return this.baseService.get(`${this.uri}/searchByName?s=${text}`)
+      .pipe(
+        map((res) => res.data as string[])
+      );
   }
 }

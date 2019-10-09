@@ -8,7 +8,22 @@
   <form #vitimaForm="ngForm">
     <div class="form-group">
       <label for="nome" class="control-label">Nome:</label>
-      <input type="text" [(ngModel)]="model.nome" class="form-control form-control-sm ng-invalid" id="nome" name="nome" required>
+      <input type="text"
+             [(ngModel)]="vitimaSelected"
+             [typeaheadAsync]="true"
+             [typeahead]="vitimasDataSource"
+             (typeaheadLoading)="changeTypeaheadLoadingVitimas($event)"
+             (typeaheadOnSelect)="typeaheadOnSelectVitima($event)"
+             typeaheadWaitMs="2000"
+             [typeaheadScrollable]="true"
+             [typeaheadOptionsLimit]="3"
+             class="form-control form-control-sm ng-invalid"
+             id="nome"
+             name="nome"
+             required>
+      <small class="form-text text-muted" *ngIf="typeaheadLoadingVitimas">
+        Buscando...
+      </small>
     </div>
     <div class="form-group">
       <label for="nomePai" class="control-label">Nome do Pai:</label>

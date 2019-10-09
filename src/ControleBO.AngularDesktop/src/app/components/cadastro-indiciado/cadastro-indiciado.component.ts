@@ -10,6 +10,8 @@ import { TypeaheadMatch } from 'ngx-bootstrap/typeahead/public_api';
 import { Result } from 'src/app/models/result';
 import { MessageService } from 'src/app/services/message.service';
 import { UserManagerService } from '../../services/user-manager.service';
+import { Observable } from 'rxjs';
+import { mergeMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-cadastro-indiciado',
@@ -28,6 +30,11 @@ export class CadastroIndiciadoComponent implements OnInit {
   naturalidade: Municipio;
   naturalidadeSelected: string;
 
+  indiciadosDataSource: Observable<any>;
+  indiciadoSelected: string;
+
+  typeaheadLoadingIndiciados: boolean;
+
   get canEdit() {
     return this.userManager.canEdit();
   }
@@ -37,10 +44,25 @@ export class CadastroIndiciadoComponent implements OnInit {
     private messageService: MessageService,
     private municipioService: MunicipioService,
     private toastr: ToastrService,
-    private userManager: UserManagerService) { }
+    private userManager: UserManagerService) {
+    this.initIndiciadosDataSource();
+  }
 
   ngOnInit() {
     this.getMunicipios();
+
+    if (this.model.id) {
+      this.indiciadoSelected = this.model.nome;
+    }
+  }
+
+  initIndiciadosDataSource() {
+    this.indiciadosDataSource = Observable.create((observer: any) => {
+      observer.next(this.indiciadoSelected);
+    })
+      .pipe(
+        mergeMap((token: string) => this.indiciadoService.getByText(token))
+      );
   }
 
   private getMunicipios() {
@@ -73,6 +95,10 @@ export class CadastroIndiciadoComponent implements OnInit {
   }
 
   save() {
+
+    this.model.naturalidadeId = this.naturalidade ? this.naturalidade.id : undefined;
+    this.model.nome = this.model.nome ? this.model.nome : this.indiciadoSelected;
+
     this.submitted = true;
 
     if (this.model.id) {
@@ -85,6 +111,7 @@ export class CadastroIndiciadoComponent implements OnInit {
             error.errors.forEach(m => this.toastr.error(m));
           }
           this.toastr.error(error.message);
+          this.submitted = false;
         }, () => {
           this.submitted = false;
         });
@@ -97,10 +124,19 @@ export class CadastroIndiciadoComponent implements OnInit {
         }, (error: Result<any>) => {
           error.errors.forEach(m => this.toastr.warning(m));
           this.toastr.error(error.message);
+          this.submitted = false;
         }, () => {
           this.submitted = false;
         });
     }
+  }
+
+  changeTypeaheadLoadingIndiciados(e: boolean) {
+    this.typeaheadLoadingIndiciados = e;
+  }
+
+  typeaheadOnSelectIndiciado(e: TypeaheadMatch) {
+    this.model.nome = e.value;
   }
 
 }

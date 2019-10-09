@@ -1,16 +1,7 @@
-export class Vitima {
-  id: number;
-  nome: string;
-  nomePai: string;
-  nomeMae: string;
-  naturalidadeId: number;
-  dataNascimento: Date;
-  email: string;
-  telefone: string;
-  idade: number;
-  procedimentoId: number;
+import { Pessoa } from './pessoa';
 
+export class Vitima extends Pessoa {
   constructor(procedimentoId: number) {
-    this.procedimentoId = procedimentoId;
+    super(procedimentoId);
   }
 }

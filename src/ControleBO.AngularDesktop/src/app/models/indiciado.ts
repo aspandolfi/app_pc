@@ -1,6 +1,6 @@
-import { Vitima } from './vitima';
+import { Pessoa } from './pessoa';
 
-export class Indiciado extends Vitima {
+export class Indiciado extends Pessoa {
 
   apelido: string;
 

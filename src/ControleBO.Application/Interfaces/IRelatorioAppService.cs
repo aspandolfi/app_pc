@@ -5,9 +5,9 @@ namespace ControleBO.Application.Interfaces
 {
     public interface IRelatorioAppService : IDisposable
     {
-        DataTableViewModel GetEstatisticaAssunto();
+        DataTableViewModel GetEstatisticaAssunto(DateTime? de, DateTime? ate);
 
-        DataTableViewModel GetRelacaoProcedimentos(int situacaoId);
+        DataTableViewModel GetRelacaoProcedimentos(int? situacaoId, DateTime? de, DateTime? ate);
 
         DataTableViewModel GetRelacaoIndiciados();
 

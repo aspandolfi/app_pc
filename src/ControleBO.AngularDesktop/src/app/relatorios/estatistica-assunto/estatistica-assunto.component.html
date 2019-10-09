@@ -3,6 +3,28 @@
     Estatística por Assunto
   </div>
   <div class="card-body">
+    <div class="form-row">
+      <div class="form-group col-md-3">
+        <label for="searchDe" class="control-label">De:</label>
+        <input bsDatepicker
+               [bsConfig]="bsConfig"
+               type="text"
+               class="form-control"
+               [(ngModel)]="searchDe"
+               name="searchDe"
+               (bsValueChange)="onSearchDeChange($event)">
+      </div>
+      <div class="form-group col-md-3">
+        <label for="searchAte" class="control-label">Até:</label>
+        <input bsDatepicker
+               [bsConfig]="bsConfig"
+               type="text"
+               class="form-control"
+               [(ngModel)]="searchAte"
+               name="searchAte"
+               (bsValueChange)="onSearchAteChange($event)">
+      </div>
+    </div>
     <table id="estatistica-assunto" class="table table-striped table-bordered" style="width:100%"></table>
   </div>
 </div>

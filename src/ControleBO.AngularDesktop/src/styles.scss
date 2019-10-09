@@ -45,3 +45,8 @@ table a:hover {
 
 pagination a {
 }
+
+.ng-select.custom .ng-select-container {
+  height: calc(1.5em + 0.75rem + 2px) !important;
+  min-height: calc(1.5em + 0.75rem + 2px) !important;
+}

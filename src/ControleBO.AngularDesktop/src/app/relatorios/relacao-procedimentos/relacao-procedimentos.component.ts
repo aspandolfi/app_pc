@@ -15,6 +15,7 @@ import 'datatables.net-buttons/js/buttons.print';
 import 'datatables.net-buttons/js/buttons.html5';
 import 'datatables.net-bs4';
 import 'datatables.net-buttons-bs4';
+import { BsDatepickerConfig, BsLocaleService } from 'ngx-bootstrap/datepicker';
 
 @Component({
   selector: 'app-relacao-procedimentos',
@@ -23,15 +24,23 @@ import 'datatables.net-buttons-bs4';
 })
 export class RelacaoProcedimentosComponent implements OnInit {
 
+  bsConfig: Partial<BsDatepickerConfig> = { containerClass: 'theme-default' };
+
   situacoes: Situacao[] = [];
-  selectedSituacaoId: number;
+  selectedSituacaoId: number = null;
 
   private dt: DataTables.DataTables;
+
+  searchDe: Date = null;
+  searchAte: Date = null;
 
   constructor(private relatorioService: RelatorioService,
     private situacaoService: SituacaoService,
     private toastr: ToastrService,
-    private chRef: ChangeDetectorRef) { }
+    private localeService: BsLocaleService,
+    private chRef: ChangeDetectorRef) {
+    this.localeService.use('pt-br');
+  }
 
   ngOnInit() {
     this.getSituacoes();
@@ -45,9 +54,9 @@ export class RelacaoProcedimentosComponent implements OnInit {
     }, () => this.toastr.error('Falha ao buscar as situações.'));
   }
 
-  private getRelacaoProcedimentos(situacaoId: number) {
+  private getRelacaoProcedimentos(situacaoId?: number, de?: Date, ate?: Date) {
 
-    this.relatorioService.getRelacaoProcedimentos(situacaoId).subscribe(res => {
+    this.relatorioService.getRelacaoProcedimentos(situacaoId, de, ate).subscribe(res => {
       if (res.data) {
 
         this.chRef.detectChanges();
@@ -103,7 +112,16 @@ export class RelacaoProcedimentosComponent implements OnInit {
 
   onSituacaoChange(event) {
     this.selectedSituacaoId = event.id;
-    this.getRelacaoProcedimentos(this.selectedSituacaoId);
+    this.getRelacaoProcedimentos(this.selectedSituacaoId, this.searchDe, this.searchAte);
   }
 
+  onSearchDeChange(value: Date): void {
+    this.searchDe = value;
+    this.getRelacaoProcedimentos(this.selectedSituacaoId, this.searchDe, this.searchAte);
+  }
+
+  onSearchAteChange(value: Date): void {
+    this.searchAte = value;
+    this.getRelacaoProcedimentos(this.selectedSituacaoId, this.searchDe, this.searchAte);
+  }
 }

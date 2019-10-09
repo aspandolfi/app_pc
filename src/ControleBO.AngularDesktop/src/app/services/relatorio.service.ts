@@ -11,11 +11,19 @@ export class RelatorioService {
 
   constructor(private baseService: BaseService) { }
 
-  getEstatisticaPorAssunto() {
-    return this.baseService.get<Datatablejs>(`${this.uri}/estatistica-assunto`);
+  getEstatisticaPorAssunto(de?: Date, ate?: Date) {
+
+    let from = de ? de.toJSON() : null;
+    let to = ate ? ate.toJSON() : null;
+
+    return this.baseService.get<Datatablejs>(`${this.uri}/estatistica-assunto?de=${from}&ate=${to}`);
   }
-  getRelacaoProcedimentos(situacaoId: number) {
-    return this.baseService.get<Datatablejs>(`${this.uri}/relacao-procedimentos?situacaoId=${situacaoId}`);
+  getRelacaoProcedimentos(situacaoId?: number, de?: Date, ate?: Date) {
+
+    let from = de ? de.toJSON() : null;
+    let to = ate ? ate.toJSON() : null;
+
+    return this.baseService.get<Datatablejs>(`${this.uri}/relacao-procedimentos?situacaoId=${situacaoId}&de=${from}&ate=${to}`);
   }
   getRelacaoIndiciados() {
     return this.baseService.get<Datatablejs>(`${this.uri}/relacao-indiciados`);

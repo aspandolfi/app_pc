@@ -30,9 +30,9 @@ namespace ControleBO.Application.Services
             GC.SuppressFinalize(this);
         }
 
-        public DataTableViewModel GetEstatisticaAssunto()
+        public DataTableViewModel GetEstatisticaAssunto(DateTime? de, DateTime? ate)
         {
-            var result = _relatorioRepository.GetEstatisticaAssunto();
+            var result = _relatorioRepository.GetEstatisticaAssunto(de, ate);
 
             var dt = new DataTableObject();
 
@@ -75,9 +75,9 @@ namespace ControleBO.Application.Services
             return Mapper.Map<DataTableViewModel>(dt);
         }
 
-        public DataTableViewModel GetRelacaoProcedimentos(int situacaoId)
+        public DataTableViewModel GetRelacaoProcedimentos(int? situacaoId, DateTime? de, DateTime? ate)
         {
-            var result = _relatorioRepository.GetRelacaoProcedimentos(situacaoId);
+            var result = _relatorioRepository.GetRelacaoProcedimentos(situacaoId, de, ate);
 
             var dt = new DataTableObject();
 

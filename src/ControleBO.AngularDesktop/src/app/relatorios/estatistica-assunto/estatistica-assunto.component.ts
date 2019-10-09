@@ -13,6 +13,7 @@ import 'datatables.net-buttons-bs4';
 import { RelatorioService } from '../../services/relatorio.service';
 import { ToastrService } from 'ngx-toastr';
 import { Result } from '../../models/result';
+import { BsDatepickerConfig, BsLocaleService } from 'ngx-bootstrap/datepicker';
 
 @Component({
   selector: 'app-estatistica-assunto',
@@ -21,17 +22,27 @@ import { Result } from '../../models/result';
 })
 export class EstatisticaAssuntoComponent implements OnInit {
 
+  bsConfig: Partial<BsDatepickerConfig> = { containerClass: 'theme-default' };
+
+  searchDe: Date = null;
+  searchAte: Date = null;
+
+  private dt: DataTables.DataTables;
+
   constructor(private relatorioService: RelatorioService,
     private toastr: ToastrService,
-    private chRef: ChangeDetectorRef) { }
+    private localeService: BsLocaleService,
+    private chRef: ChangeDetectorRef) {
+    this.localeService.use('pt-br');
+  }
 
   ngOnInit() {
     this.getEstatisticaPorAssunto();
   }
 
-  private getEstatisticaPorAssunto() {
+  private getEstatisticaPorAssunto(de?: Date, ate?: Date) {
 
-    this.relatorioService.getEstatisticaPorAssunto().subscribe(res => {
+    this.relatorioService.getEstatisticaPorAssunto(de, ate).subscribe(res => {
       if (res.data) {
 
         this.chRef.detectChanges();
@@ -68,11 +79,29 @@ export class EstatisticaAssuntoComponent implements OnInit {
           }
         };
 
-        $('#estatistica-assunto').DataTable(dtOptions);
+        if (this.dt) {
+          this.dt = new $.fn.dataTable.Api('#estatistica-assunto');
+          this.dt.settings().clear();
+          this.dt.settings().rows.add(res.data.dataSet);
+          this.dt.draw();
+        }
+        else {
+          this.dt = $('#estatistica-assunto').DataTable(dtOptions);
+        }
       }
     }, (error: Result<any>) => {
       this.toastr.error(error.message);
     });
+  }
+
+  onSearchDeChange(value: Date): void {
+    this.searchDe = value;
+    this.getEstatisticaPorAssunto(this.searchDe, this.searchAte);
+  }
+
+  onSearchAteChange(value: Date): void {
+    this.searchAte = value;
+    this.getEstatisticaPorAssunto(this.searchDe, this.searchAte);
   }
 
 }

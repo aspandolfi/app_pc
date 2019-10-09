@@ -4,6 +4,7 @@ using ControleBO.Domain.Core.Notifications;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace ControleBO.Api.Controllers
 {
@@ -25,16 +26,16 @@ namespace ControleBO.Api.Controllers
 
         // GET: api/relatorio/estatistica-assunto
         [HttpGet("estatistica-assunto")]
-        public IActionResult GetEstatisticaAssunto()
+        public IActionResult GetEstatisticaAssunto([FromQuery]DateTime? de, [FromQuery]DateTime? ate)
         {
-            return Response(_relatorioAppService.GetEstatisticaAssunto());
+            return Response(_relatorioAppService.GetEstatisticaAssunto(de, ate));
         }
 
         // GET: api/relatorio/relacao-procedimentos?situacaoId?={situacaoId}
         [HttpGet("relacao-procedimentos")]
-        public IActionResult GetRelacaoProcedimentos([FromQuery]int situacaoId)
+        public IActionResult GetRelacaoProcedimentos([FromQuery]int? situacaoId, [FromQuery]DateTime? de, [FromQuery]DateTime? ate)
         {
-            return Response(_relatorioAppService.GetRelacaoProcedimentos(situacaoId));
+            return Response(_relatorioAppService.GetRelacaoProcedimentos(situacaoId, de, ate));
         }
 
         // GET: api/relatorio/relacao-indiciados

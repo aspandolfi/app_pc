@@ -82,6 +82,7 @@ export class ProcedimentoList {
   tipoProcedimento: string;
   comarca: string;
   andamentoProcessual: string;
+  vitimas: string;
 
   constructor(obj?: any) {
     Object.assign(this, obj);

@@ -92,6 +92,11 @@ export class BaseService {
         { message: 'Falha ao se comunicar com o servidor. Por favor contate o administrador do sistema.' });
     }
 
+    if (error.status === 502) {
+      return throwError(
+        { message: `Erro interno do servidor: ${error.message}` });
+    }
+
     if (error.status === 500) {
       return throwError(
         { message: 'Erro interno do servidor. Por favor contate o administrador do sistema.' });

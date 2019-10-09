@@ -65,14 +65,17 @@ export class RelacaoProcedimentosComponent implements OnInit {
           ],
           buttons: [
             {
-              extend: 'pdf',
+              extend: 'pdfHtml5',
+              download: 'open',
               extension: '.pdf',
               text: 'Exportar para PDF',
               title: 'Controle de Procedimentos Criminais - Relação de Procedimentos',
-              filename: 'Relacao de Procedimentos.pdf',
+              filename: 'Relacao de Procedimentos',
               pageSize: 'A4',
+              orientation: 'landscape',
               customize: function (doc) {
                 doc.content[1].table.widths = Array(doc.content[1].table.body[0].length + 1).join('*').split('');
+                doc.defaultStyle.alignment = 'center';
               }
             }
           ],

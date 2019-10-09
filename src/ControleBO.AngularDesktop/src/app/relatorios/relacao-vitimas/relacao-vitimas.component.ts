@@ -49,14 +49,16 @@ export class RelacaoVitimasComponent implements OnInit {
           ],
           buttons: [
             {
-              extend: 'pdf',
+              extend: 'pdfHtml5',
+              download: 'open',
               extension: '.pdf',
               text: 'Exportar para PDF',
               title: 'Controle de Procedimentos Criminais - Relação de Vítimas',
-              filename: 'Relacao de Vitimas.pdf',
+              filename: 'Relacao de Vitimas',
               pageSize: 'A4',
               customize: function (doc) {
                 doc.content[1].table.widths = Array(doc.content[1].table.body[0].length + 1).join('*').split('');
+                doc.defaultStyle.alignment = 'center';
               }
             }
           ],

@@ -49,14 +49,16 @@ export class RelacaoIndiciadosComponent implements OnInit {
           ],
           buttons: [
             {
-              extend: 'pdf',
+              extend: 'pdfHtml5',
+              download: 'open',
               extension: '.pdf',
               text: 'Exportar para PDF',
               title: 'Controle de Procedimentos Criminais - Relação de Indiciados',
-              filename: 'Relacao de Indiciados.pdf',
+              filename: 'Relacao de Indiciados',
               pageSize: 'A4',
               customize: function (doc) {
                 doc.content[1].table.widths = Array(doc.content[1].table.body[0].length + 1).join('*').split('');
+                doc.defaultStyle.alignment = 'center';
               }
             }
           ],

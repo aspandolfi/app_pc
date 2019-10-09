@@ -49,14 +49,16 @@ export class EstatisticaAssuntoComponent implements OnInit {
           ],
           buttons: [
             {
-              extend: 'pdf',
+              extend: 'pdfHtml5',
               extension: '.pdf',
+              download: 'open',
               text: 'Exportar para PDF',
               title: 'Controle de Procedimentos Criminais - Estatística por Assunto',
-              filename: 'Estatistica por assunto.pdf',
+              filename: 'Estatistica por assunto',
               pageSize: 'A4',
               customize: function (doc) {
                 doc.content[1].table.widths = Array(doc.content[1].table.body[0].length + 1).join('*').split('');
+                doc.defaultStyle.alignment = 'center';
               }
             }
           ],

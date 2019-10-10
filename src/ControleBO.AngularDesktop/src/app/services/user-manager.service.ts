@@ -4,6 +4,8 @@ import { Usuario } from '../models/usuario';
 import { Login } from '../models/login';
 import { Router } from '@angular/router';
 import { AuthenticationService } from './authentication.service';
+import { ToastrService } from 'ngx-toastr';
+import { Result } from '../models/result';
 
 @Injectable({
   providedIn: 'root'
@@ -52,7 +54,8 @@ export class UserManagerService implements OnDestroy {
 
   constructor(private authService: AuthService,
     private authentication: AuthenticationService,
-    private router: Router) {
+    private router: Router,
+    private toastr: ToastrService) {
   }
 
   ngOnDestroy(): void {
@@ -117,6 +120,18 @@ export class UserManagerService implements OnDestroy {
           if (res.data) {
             localStorage.setItem('access_token', JSON.stringify(res.data));
           }
+        }, (res: Result<any>) => {
+          if (res.message) {
+            this.toastr.error(res.message);
+          }
+          if (res.errors) {
+            res.errors.forEach(m => this.toastr.error(m));
+          }
+
+          setTimeout(() => {
+            this.logOut();
+          }, 3000);
+
         });
       }
 
@@ -125,15 +140,30 @@ export class UserManagerService implements OnDestroy {
           if (res.data) {
             localStorage.setItem('access_token', JSON.stringify(res.data));
           }
+        }, (res: Result<any>) => {
+          if (res.message) {
+            this.toastr.error(res.message);
+          }
+          if (res.errors) {
+            res.errors.forEach(m => this.toastr.error(m));
+          }
+
+          setTimeout(() => {
+            this.logOut();
+          }, 3000);
+
         })
       }, this.timeToRefreshToken);
     }
   }
 
   logOut() {
-    this.authService.logOut();
-    this.ngOnDestroy();
-    this.navigateToHome();
+    this.authService.logOut().subscribe(() => null, error => this.toastr.error(error))
+      .add(() => {
+        localStorage.removeItem('access_token');
+        this.ngOnDestroy();
+        this.navigateToHome();
+      });
   }
 
   login(login: Login) {

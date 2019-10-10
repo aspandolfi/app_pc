@@ -4,6 +4,8 @@ namespace ControleBO.Infra.CrossCutting.Identity.Models
 {
     public class Roles
     {
+        public const string SuperUserEmail = "aspandolfi@gmail.com";
+
         public const string SuperUser = "SuperUser";
 
         public const string Admin = "Admin";

@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using ControleBO.Api.Configurations;
-using ControleBO.Domain.Core.Bus;
+﻿using ControleBO.Domain.Core.Bus;
 using ControleBO.Domain.Core.Notifications;
 using ControleBO.Domain.Interfaces;
 using ControleBO.Infra.CrossCutting.Identity.Configuration;
@@ -16,7 +8,10 @@ using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Tokens;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace ControleBO.Api.Controllers
 {
@@ -26,29 +21,29 @@ namespace ControleBO.Api.Controllers
     [ApiController]
     public class AccountController : ApiController
     {
-        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly ApplicationUserManager _applicationUserManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly SigningConfigurations _signingConfigurations;
         private readonly TokenConfigurations _tokenConfigurations;
         private readonly IAspNetUser _aspNetUser;
 
-        public AccountController(UserManager<ApplicationUser> userManager,
-                                 SignInManager<ApplicationUser> signInManager,
+        public AccountController(SignInManager<ApplicationUser> signInManager,
                                  RoleManager<IdentityRole> roleManager,
                                  IAspNetUser aspNetUser,
                                  SigningConfigurations signingConfigurations,
                                  TokenConfigurations tokenConfigurations,
+                                 ApplicationUserManager applicationUserManager,
                                  INotificationHandler<DomainNotification> notifications,
                                  IMediatorHandler mediator)
             : base(notifications, mediator)
         {
-            _userManager = userManager;
             _signInManager = signInManager;
             _roleManager = roleManager;
             _aspNetUser = aspNetUser;
             _signingConfigurations = signingConfigurations;
             _tokenConfigurations = tokenConfigurations;
+            _applicationUserManager = applicationUserManager;
         }
 
         // GET: api/Account
@@ -62,29 +57,29 @@ namespace ControleBO.Api.Controllers
 
             if (currentUser.IsInRole(Roles.SuperUser) || currentUser.IsInRole(Roles.Admin))
             {
-                usuarios = _userManager.Users
-                .Where(x => x.Email != "aspandolfi@gmail.com").ToList();
+                usuarios = _applicationUserManager.Users
+                .Where(x => x.Email != Roles.SuperUserEmail).ToList();
 
                 usuariosVm = usuarios.Select(user => new ApplicationUserViewModel
                 {
                     Id = user.Id,
                     Email = user.Email,
                     Nome = user.Name,
-                    Regra = _userManager.GetRolesAsync(user).Result.FirstOrDefault()
+                    Regra = _applicationUserManager.GetRolesAsync(user).Result.FirstOrDefault()
                 }).ToList();
 
                 return Response(usuariosVm);
             }
 
-            usuarios = _userManager.Users
-               .Where(x => x.Email != "aspandolfi@gmail.com" && x.Id == currentUser.Id).ToList();
+            usuarios = _applicationUserManager.Users
+               .Where(x => x.Email != Roles.SuperUserEmail && x.Id == currentUser.Id).ToList();
 
             usuariosVm = usuarios.Select(user => new ApplicationUserViewModel
             {
                 Id = user.Id,
                 Email = user.Email,
                 Nome = user.Name,
-                Regra = _userManager.GetRolesAsync(user).Result.FirstOrDefault()
+                Regra = _applicationUserManager.GetRolesAsync(user).Result.FirstOrDefault()
             }).ToList();
 
             return Response(usuariosVm);
@@ -99,14 +94,14 @@ namespace ControleBO.Api.Controllers
                 return Response(null, "Id inválido.");
             }
 
-            var user = await _userManager.FindByIdAsync(id);
+            var user = await _applicationUserManager.FindByIdAsync(id);
 
             if (user == null)
             {
                 return Response(null, "Usuário não encontrado.");
             }
 
-            var roles = await _userManager.GetRolesAsync(user);
+            var roles = await _applicationUserManager.GetRolesAsync(user);
 
             return Response(new ApplicationUserViewModel
             {
@@ -121,7 +116,7 @@ namespace ControleBO.Api.Controllers
         {
             var userId = _aspNetUser.Id;
 
-            var user = await _userManager.FindByIdAsync(userId);
+            var user = await _applicationUserManager.FindByIdAsync(userId);
 
             if (user == null)
             {
@@ -129,7 +124,7 @@ namespace ControleBO.Api.Controllers
                 return Response();
             }
 
-            var roles = await _userManager.GetRolesAsync(user);
+            var roles = await _applicationUserManager.GetRolesAsync(user);
 
             return Response(new ApplicationUserViewModel
             {
@@ -148,7 +143,7 @@ namespace ControleBO.Api.Controllers
                 return Response(null, "E-mail inválido.");
             }
 
-            var user = await _userManager.FindByEmailAsync(email);
+            var user = await _applicationUserManager.FindByEmailAsync(email);
 
             if (user == null)
             {
@@ -156,7 +151,7 @@ namespace ControleBO.Api.Controllers
                 return Response();
             }
 
-            var roles = await _userManager.GetRolesAsync(user);
+            var roles = await _applicationUserManager.GetRolesAsync(user);
 
             return Response(new ApplicationUserViewModel
             {
@@ -171,7 +166,7 @@ namespace ControleBO.Api.Controllers
         {
             var userId = _aspNetUser.Id;
 
-            var user = await _userManager.FindByIdAsync(userId);
+            var user = await _applicationUserManager.FindByIdAsync(userId);
 
             if (user == null)
             {
@@ -179,32 +174,40 @@ namespace ControleBO.Api.Controllers
                 return Response();
             }
 
-            var roles = await _userManager.GetRolesAsync(user);
-            var claims = await _userManager.GetClaimsAsync(user);
+            var result = await _applicationUserManager.RefreshToken(user, await GetBearerToken());
 
-            ClaimsIdentity identity = user.GenerateClaimsIdentity(ClaimsIdentity.DefaultRoleClaimType, roles);
-
-            identity.AddClaims(claims);
-
-            DateTime dataCriacao = DateTime.Now;
-            DateTime dataExpiracao = dataCriacao + TimeSpan.FromSeconds(_tokenConfigurations.Seconds);
-
-            var handler = new JwtSecurityTokenHandler();
-            var securityToken = handler.CreateToken(new SecurityTokenDescriptor
+            if (!result.Succeeded)
             {
-                Issuer = _tokenConfigurations.Issuer,
-                Audience = _tokenConfigurations.Audience,
-                SigningCredentials = _signingConfigurations.SigningCredentials,
-                Subject = identity,
-                NotBefore = dataCriacao,
-                Expires = dataExpiracao
-            });
-            var token = handler.WriteToken(securityToken);
+                AddIdentityErrors(result);
+                return Response();
+            }
 
-            return Response(new AuthenticationResultViewModel(true,
-                                                              dataCriacao,
-                                                              dataExpiracao,
-                                                              token));
+            return Response(result.Authentication);
+        }
+
+        // POST: api/Account/Logout
+        [HttpPost("logout")]
+        public async Task<IActionResult> LogOut()
+        {
+            var userId = _aspNetUser.Id;
+
+            var user = await _applicationUserManager.FindByIdAsync(userId);
+
+            if (user == null)
+            {
+                NotifyError("refresh", "Usuário não encontrado.");
+                return Response();
+            }
+
+            var result = await _applicationUserManager.RemoveToken(user);
+
+            if (!result.Succeeded)
+            {
+                AddIdentityErrors(result);
+                return Response();
+            }
+
+            return Response();
         }
 
         // POST: api/Account
@@ -218,7 +221,7 @@ namespace ControleBO.Api.Controllers
                 return Response(userVm);
             }
 
-            var user = await _userManager.FindByEmailAsync(userVm.Email);
+            var user = await _applicationUserManager.FindByEmailAsync(userVm.Email);
 
             if (user == null)
             {
@@ -226,7 +229,7 @@ namespace ControleBO.Api.Controllers
                 return Response(userVm, "Usuário inválido.");
             }
 
-            var result = await _signInManager.CheckPasswordSignInAsync(user, userVm.Password, false);
+            var result = await _applicationUserManager.Login(user, userVm.Password);
 
             if (!result.Succeeded)
             {
@@ -234,32 +237,7 @@ namespace ControleBO.Api.Controllers
                 return Response(userVm, "Usuário ou senha inválido.");
             }
 
-            var roles = await _userManager.GetRolesAsync(user);
-            var claims = await _userManager.GetClaimsAsync(user);
-
-            ClaimsIdentity identity = user.GenerateClaimsIdentity(ClaimsIdentity.DefaultRoleClaimType, roles);
-
-            identity.AddClaims(claims);
-
-            DateTime dataCriacao = DateTime.Now;
-            DateTime dataExpiracao = dataCriacao + TimeSpan.FromSeconds(_tokenConfigurations.Seconds);
-
-            var handler = new JwtSecurityTokenHandler();
-            var securityToken = handler.CreateToken(new SecurityTokenDescriptor
-            {
-                Issuer = _tokenConfigurations.Issuer,
-                Audience = _tokenConfigurations.Audience,
-                SigningCredentials = _signingConfigurations.SigningCredentials,
-                Subject = identity,
-                NotBefore = dataCriacao,
-                Expires = dataExpiracao
-            });
-            var token = handler.WriteToken(securityToken);
-
-            return Response(new AuthenticationResultViewModel(true,
-                                                              dataCriacao,
-                                                              dataExpiracao,
-                                                              token));
+            return Response(result.Authentication);
         }
 
         [HttpPost]
@@ -274,18 +252,18 @@ namespace ControleBO.Api.Controllers
 
             var user = new ApplicationUser { Name = model.Name, UserName = model.Email, Email = model.Email };
 
-            var result = await _userManager.CreateAsync(user, model.Password);
+            var result = await _applicationUserManager.CreateAsync(user, model.Password);
 
             if (result.Succeeded)
             {
                 // User claim for write customers data
-                //await _userManager.AddClaimAsync(user, new Claim("Users", "Admin"));
+                //await _applicationUserManager.AddClaimAsync(user, new Claim("Users", "Admin"));
 
                 if (!string.IsNullOrEmpty(model.Role))
                 {
                     if (Roles.Contains(model.Role))
                     {
-                        await _userManager.AddToRoleAsync(user, model.Role);
+                        await _applicationUserManager.AddToRoleAsync(user, model.Role);
                     }
                 }
 
@@ -336,7 +314,7 @@ namespace ControleBO.Api.Controllers
                 atualizarSenha = true;
             }
 
-            var user = await _userManager.FindByIdAsync(model.Id);
+            var user = await _applicationUserManager.FindByIdAsync(model.Id);
 
             if (user == null)
             {
@@ -347,7 +325,7 @@ namespace ControleBO.Api.Controllers
             user.Name = model.Name.Trim();
             user.Email = model.Email.Trim();
 
-            var result = await _userManager.UpdateAsync(user);
+            var result = await _applicationUserManager.UpdateAsync(user);
 
             if (!result.Succeeded)
             {
@@ -357,7 +335,7 @@ namespace ControleBO.Api.Controllers
 
             if (atualizarSenha)
             {
-                result = await _userManager.ChangePasswordAsync(user, model.CurrentPassword, model.Password);
+                result = await _applicationUserManager.ChangePasswordAsync(user, model.CurrentPassword, model.Password);
 
                 if (!result.Succeeded)
                 {
@@ -366,15 +344,15 @@ namespace ControleBO.Api.Controllers
                 }
             }
 
-            var roles = await _userManager.GetRolesAsync(user);
+            var roles = await _applicationUserManager.GetRolesAsync(user);
 
             if (!roles.Contains(model.Role))
             {
-                await _userManager.RemoveFromRolesAsync(user, roles);
+                await _applicationUserManager.RemoveFromRolesAsync(user, roles);
 
                 if (Roles.Contains(model.Role))
                 {
-                    await _userManager.AddToRoleAsync(user, model.Role);
+                    await _applicationUserManager.AddToRoleAsync(user, model.Role);
                 }
             }
 
@@ -394,7 +372,7 @@ namespace ControleBO.Api.Controllers
                 return Response(id);
             }
 
-            var user = await _userManager.FindByIdAsync(id);
+            var user = await _applicationUserManager.FindByIdAsync(id);
 
             if (user == null)
             {
@@ -402,7 +380,7 @@ namespace ControleBO.Api.Controllers
                 return Response(id);
             }
 
-            var result = await _userManager.DeleteAsync(user);
+            var result = await _applicationUserManager.DeleteAsync(user);
 
             if (!result.Succeeded)
             {

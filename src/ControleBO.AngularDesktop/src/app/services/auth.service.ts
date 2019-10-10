@@ -22,7 +22,7 @@ export class AuthService {
   }
 
   logOut() {
-    localStorage.removeItem('access_token');
+    return this.baseService.post(`${this.uri}/logout`, null);
   }
 
   create(model: RegisterUsuario) {

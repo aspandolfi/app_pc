@@ -1,10 +1,13 @@
 ﻿using ControleBO.Domain.Core.Bus;
 using ControleBO.Domain.Core.Notifications;
+using ControleBO.Infra.CrossCutting.Identity.Configuration;
 using MediatR;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace ControleBO.Api.Controllers
 {
@@ -68,6 +71,19 @@ namespace ControleBO.Api.Controllers
             {
                 NotifyError(result.ToString(), error.Description);
             }
+        }
+
+        protected void AddIdentityErrors(LoginResult result)
+        {
+            foreach (var error in result.Errors)
+            {
+                NotifyError(result.ToString(), error.Description);
+            }
+        }
+
+        protected Task<string> GetBearerToken()
+        {
+            return HttpContext.GetTokenAsync("access_token");
         }
     }
 }

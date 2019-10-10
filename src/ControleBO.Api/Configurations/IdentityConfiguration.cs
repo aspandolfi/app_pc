@@ -1,4 +1,5 @@
-﻿using ControleBO.Infra.CrossCutting.Identity.Context;
+﻿using ControleBO.Infra.CrossCutting.Identity.Configuration;
+using ControleBO.Infra.CrossCutting.Identity.Context;
 using ControleBO.Infra.CrossCutting.Identity.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,6 +17,8 @@ namespace ControleBO.Api.Configurations
                 config.Password.RequireDigit = false;
             }).AddEntityFrameworkStores<ApplicationDbContext>()
               .AddDefaultTokenProviders();
+
+            services.AddScoped<ApplicationUserManager>();
         }
     }
 }

@@ -1,8 +1,7 @@
 ﻿using Microsoft.IdentityModel.Tokens;
-using System.Security.Cryptography;
 using System.Text;
 
-namespace ControleBO.Api.Configurations
+namespace ControleBO.Infra.CrossCutting.Identity.Configuration
 {
     public class SigningConfigurations
     {

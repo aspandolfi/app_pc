@@ -1,13 +1,11 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace ControleBO.Infra.CrossCutting.Identity.Models.ViewModels
+namespace ControleBO.Infra.CrossCutting.Identity.Models
 {
-    public class AuthenticationResultViewModel
+    public class AuthenticationResult
     {
-        public AuthenticationResultViewModel(bool authenticated,
+        public AuthenticationResult(bool authenticated,
                                              DateTime created,
                                              DateTime expiration,
                                              string token,

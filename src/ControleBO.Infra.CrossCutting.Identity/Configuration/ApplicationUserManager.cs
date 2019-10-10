@@ -86,7 +86,7 @@ namespace ControleBO.Infra.CrossCutting.Identity.Configuration
                 return new LoginResult(new List<IdentityError> { new IdentityError { Code = "Not found", Description = "Autenticação inválida." } }, succeeded: false);
             }
 
-            var result = await RemoveAuthenticationTokenAsync(user, TokenOptions.DefaultProvider, TokenConfigurations.RefreshToken);
+            var result = await RemoveToken(user);
 
             if (!result.Succeeded)
             {
@@ -100,7 +100,7 @@ namespace ControleBO.Infra.CrossCutting.Identity.Configuration
 
         public Task<IdentityResult> RemoveToken(ApplicationUser user)
         {
-            return RemoveAuthenticationTokenAsync(user, TokenOptions.DefaultProvider, TokenConfigurations.RefreshToken);
+            return RemoveAuthenticationTokenAsync(user, JwtConstants.TokenType, TokenConfigurations.RefreshToken);
         }
 
         public async Task<bool> IsValidToken(ApplicationUser user, string token)

@@ -249,8 +249,7 @@ namespace ControleBO.Domain.CommandHandler
                 }
             }
 
-            var existringProcedimento = _procedimentoRepository.GetAsNoTracking(x => x.BoletimUnificado.Contains(request.BoletimUnificado)
-                                                                                  && x.NumeroProcessual.Contains(request.NumeroProcessual)
+            var existringProcedimento = _procedimentoRepository.GetAsNoTracking(x => x.NumeroProcessual.Contains(request.NumeroProcessual)
                                                                                   && x.Id == request.Id);
 
             var situacaoAtual = _situacaoRepository.GetById(existringProcedimento.SituacaoAtualId);
@@ -261,7 +260,7 @@ namespace ControleBO.Domain.CommandHandler
 
             if (!procedimento.Equals(existringProcedimento))
             {
-                Bus.RaiseEvent(new DomainNotification(request.MessageType, "O Boletim Unificado já está sendo usado."));
+                Bus.RaiseEvent(new DomainNotification(request.MessageType, "O número processual já está sendo usado."));
                 return Task.FromResult(0);
             }
 

@@ -65,7 +65,7 @@ namespace ControleBO.Infra.Data.Repositories
             return query;
         }
 
-        public TModel GetById(int id)
+        public virtual TModel GetById(int id)
         {
             return DbSet.Find(id);
         }
@@ -178,7 +178,7 @@ namespace ControleBO.Infra.Data.Repositories
             return DbSet.SingleOrDefault(filter);
         }
 
-        public TModel GetAsNoTracking(Expression<Func<TModel, bool>> filter, params Expression<Func<TModel, object>>[] includes)
+        public virtual TModel GetAsNoTracking(Expression<Func<TModel, bool>> filter, params Expression<Func<TModel, object>>[] includes)
         {
             IQueryable<TModel> query = DbSet;
 

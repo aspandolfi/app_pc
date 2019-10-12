@@ -5,7 +5,7 @@ namespace ControleBO.Domain.Commands
 {
     public class UpdateVitimaCommand : VitimaCommand
     {
-        public UpdateVitimaCommand(int id, string email, int procedimentoId, string nome, string nomePai, string nomeMae, DateTime? dataNascimento, int? idade, string telefone, int? municipioId)
+        public UpdateVitimaCommand(int id, string email, int procedimentoId, string nome, string nomePai, string nomeMae, DateTime? dataNascimento, string telefone, int? municipioId)
         {
             Id = id;
             Email = email;
@@ -14,7 +14,6 @@ namespace ControleBO.Domain.Commands
             NomePai = nomePai;
             NomeMae = nomeMae;
             DataNascimento = dataNascimento;
-            Idade = idade;
             Telefone = telefone;
             MunicipioId = municipioId;
         }

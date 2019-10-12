@@ -27,7 +27,7 @@ namespace ControleBO.Application.Services
 
         public IEnumerable<VitimaViewModel> GetAllByProcedimentoId(int procedimentoId)
         {
-            var result = Repository.GetAllAsNoTracking(filter: x => x.ProcedimentoId == procedimentoId, orderBy: x => x.Nome);
+            var result = Repository.GetAllAsNoTracking(filter: x => x.ProcedimentoId == procedimentoId, orderBy: x => x.Nome, includes: x => x.Naturalidade).ToList();
 
             //var vitimas = VitimasCached();
 

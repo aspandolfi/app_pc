@@ -78,6 +78,8 @@ namespace ControleBO.Api.Controllers
                 return Response(vitimaVm, "Falha ao salvar a vítima.");
             }
 
+            vitimaVm = _vitimaAppService.GetById(vitimaVm.Id);
+
             return Response(vitimaVm, "A Vítima foi atualizada com sucesso!");
         }
 

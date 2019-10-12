@@ -79,6 +79,8 @@ namespace ControleBO.Api.Controllers
                 return Response(indiciadoVm, "Falha ao salvar o indiciado.");
             }
 
+            indiciadoVm = _indiciadoAppService.GetById(indiciadoVm.Id);
+
             return Response(indiciadoVm, "O Indiciado foi atualizado com sucesso!");
         }
 

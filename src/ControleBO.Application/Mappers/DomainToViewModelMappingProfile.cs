@@ -15,8 +15,10 @@ namespace ControleBO.Application.Mappers
             CreateMap<Municipio, MunicipioViewModel>();
             CreateMap<DataTableObject, DataTableViewModel>();
             CreateMap<DataTableHeaderTitle, DataTableHeaderTitleViewModel>();
-            CreateMap<Vitima, VitimaViewModel>();
-            CreateMap<Indiciado, IndiciadoViewModel>();
+            CreateMap<Vitima, VitimaViewModel>()
+                .ForMember(dest => dest.Naturalidade, opt => opt.MapFrom(src => src.Naturalidade.Nome));
+            CreateMap<Indiciado, IndiciadoViewModel>()
+                .ForMember(dest => dest.Naturalidade, opt => opt.MapFrom(src => src.Naturalidade.Nome));
             CreateMap<Situacao, SituacaoViewModel>();
             CreateMap<SituacaoTipo, SituacaoTipoViewModel>();
             CreateMap<SituacaoProcedimento, SituacaoProcedimentoViewModel>();

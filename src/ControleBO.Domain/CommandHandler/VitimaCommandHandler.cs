@@ -67,7 +67,7 @@ namespace ControleBO.Domain.CommandHandler
                 return Task.FromResult(0);
             }
 
-            var vitima = new Vitima(request.Email, procedimento, request.Nome, request.NomePai, request.NomeMae, request.DataNascimento, request.Idade, request.Telefone, municipio);
+            var vitima = new Vitima(request.Email, procedimento, request.Nome, request.NomePai, request.NomeMae, request.DataNascimento, request.Telefone, municipio);
 
             _vitimaRepository.Add(vitima);
 
@@ -108,10 +108,12 @@ namespace ControleBO.Domain.CommandHandler
                 }
             }
 
-            var vitima = new Vitima(request.Id, request.Email, procedimento, request.Nome, request.NomePai, request.NomeMae, request.DataNascimento, request.Idade, request.Telefone, municipio);
-            var existingVitima = _vitimaRepository.GetAsNoTracking(x => x.Nome.Contains(request.Nome) && x.ProcedimentoId == request.ProcedimentoId);
+            var vitima = new Vitima(request.Id, request.Email, procedimento, request.Nome, request.NomePai, request.NomeMae, request.DataNascimento, request.Telefone, municipio);
+            var existingVitima = _vitimaRepository.GetAsNoTracking(x => x.Nome.Contains(request.Nome)
+                                                                   && x.ProcedimentoId == request.ProcedimentoId
+                                                                   && x.Id != request.Id);
 
-            if (!vitima.Equals(existingVitima))
+            if (existingVitima != null)
             {
                 Bus.RaiseEvent(new DomainNotification(request.MessageType, "A Vítima já está sendo usada."));
                 return Task.FromResult(0);

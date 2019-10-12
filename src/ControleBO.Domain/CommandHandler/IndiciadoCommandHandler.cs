@@ -67,7 +67,7 @@ namespace ControleBO.Domain.CommandHandler
                 return Task.FromResult(0);
             }
 
-            var indiciado = new Indiciado(request.Apelido, procedimento, request.Nome, request.NomePai, request.NomeMae, request.DataNascimento, request.Idade, request.Telefone, municipio);
+            var indiciado = new Indiciado(request.Apelido, procedimento, request.Nome, request.NomePai, request.NomeMae, request.DataNascimento, request.Telefone, municipio);
 
             _indiciadoRepository.Add(indiciado);
 
@@ -108,10 +108,12 @@ namespace ControleBO.Domain.CommandHandler
                 }
             }
 
-            var indiciado = new Indiciado(request.Id, request.Apelido, procedimento, request.Nome, request.NomePai, request.NomeMae, request.DataNascimento, request.Idade, request.Telefone, municipio);
-            var existingIndiciado = _indiciadoRepository.GetAsNoTracking(x => x.Nome.Contains(request.Nome) && x.ProcedimentoId == request.ProcedimentoId);
+            var indiciado = new Indiciado(request.Id, request.Apelido, procedimento, request.Nome, request.NomePai, request.NomeMae, request.DataNascimento, request.Telefone, municipio);
+            var existingIndiciado = _indiciadoRepository.GetAsNoTracking(x => x.Nome.Contains(request.Nome)
+                                                                         && x.ProcedimentoId == request.ProcedimentoId
+                                                                         && x.Id != request.Id);
 
-            if (!indiciado.Equals(existingIndiciado))
+            if (existingIndiciado != null)
             {
                 Bus.RaiseEvent(new DomainNotification(request.MessageType, "O Indiciado já está sendo usado."));
                 return Task.FromResult(0);

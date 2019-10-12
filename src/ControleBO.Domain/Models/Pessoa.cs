@@ -5,19 +5,22 @@ namespace ControleBO.Domain.Models
 {
     public abstract class Pessoa : Entity
     {
-        public Pessoa(string nome, string nomePai, string nomeMae, DateTime? dataNascimento, int? idade, string telefone, Municipio naturalidade)
+        private DateTime? _dataNascimento;
+        private bool _menorIdade;
+        private int? _idade;
+
+        public Pessoa(string nome, string nomePai, string nomeMae, DateTime? dataNascimento, string telefone, Municipio naturalidade)
         {
             Nome = nome;
             NomePai = nomePai;
             NomeMae = nomeMae;
             DataNascimento = dataNascimento;
-            Idade = idade;
             Telefone = telefone;
             Naturalidade = naturalidade;
         }
 
-        public Pessoa(int id, string nome, string nomePai, string nomeMae, DateTime? dataNascimento, int? idade, string telefone, Municipio naturalidade)
-            : this(nome, nomePai, nomeMae, dataNascimento, idade, telefone, naturalidade)
+        public Pessoa(int id, string nome, string nomePai, string nomeMae, DateTime? dataNascimento, string telefone, Municipio naturalidade)
+            : this(nome, nomePai, nomeMae, dataNascimento, telefone, naturalidade)
         {
             Id = id;
         }
@@ -30,37 +33,45 @@ namespace ControleBO.Domain.Models
 
         public string NomeMae { get; set; }
 
-        public DateTime? DataNascimento { get; set; }
+        public DateTime? DataNascimento
+        {
+            get
+            {
+                return _dataNascimento;
+            }
+            set
+            {
+                _dataNascimento = value;
 
-        public int? Idade { get; set; }
+                if (_dataNascimento.HasValue)
+                {
+                    _idade = (int?)((DateTime.Now - _dataNascimento.Value).TotalDays / 365);
+                    _menorIdade = _idade < 18;
+                }
+            }
+        }
+
+        public int? Idade
+        {
+            get
+            {
+                return _idade;
+            }
+            private set
+            {
+                _idade = value;
+            }
+        }
 
         public bool MenorIdade
         {
             get
             {
-                if (DataNascimento.HasValue)
-                {
-                    return (DateTime.Now - DataNascimento).Value.TotalDays < (18 * 365);
-                }
-
-                if (Idade.HasValue)
-                {
-                    return Idade < 18;
-                }
-
-                return false;
+                return _menorIdade;
             }
-            set
+            private set
             {
-                if (DataNascimento.HasValue)
-                {
-                    MenorIdade = (DateTime.Now - DataNascimento).Value.TotalDays < (18 * 365);
-                }
-
-                if (Idade.HasValue)
-                {
-                    MenorIdade = Idade < 18;
-                }
+                _menorIdade = value;
             }
         }
 

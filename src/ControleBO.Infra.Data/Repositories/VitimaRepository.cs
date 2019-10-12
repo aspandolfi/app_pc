@@ -13,6 +13,11 @@ namespace ControleBO.Infra.Data.Repositories
         {
         }
 
+        public override Vitima GetById(int id)
+        {
+            return GetAsNoTracking(x => x.Id == id, x => x.Naturalidade);
+        }
+
         public override bool Exists(params object[] paramsToSearch)
         {
             //bool exists = DbSet.Any(x => stringToSearch.Contains(x.Nome));

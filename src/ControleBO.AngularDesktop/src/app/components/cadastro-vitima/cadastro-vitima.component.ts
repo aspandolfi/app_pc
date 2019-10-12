@@ -12,6 +12,7 @@ import { Result } from 'src/app/models/result';
 import { UserManagerService } from '../../services/user-manager.service';
 import { Observable } from 'rxjs';
 import { mergeMap } from 'rxjs/operators';
+import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 
 @Component({
   selector: 'app-cadastro-vitima',
@@ -19,6 +20,8 @@ import { mergeMap } from 'rxjs/operators';
   styleUrls: ['./cadastro-vitima.component.scss']
 })
 export class CadastroVitimaComponent implements OnInit {
+
+  bsConfig: Partial<BsDatepickerConfig> = { containerClass: 'theme-default' };
 
   model: Vitima;
 
@@ -72,7 +75,8 @@ export class CadastroVitimaComponent implements OnInit {
     //  return;
     //}
     this.model.naturalidadeId = this.naturalidade ? this.naturalidade.id : undefined;
-    this.model.nome = this.model.nome ? this.model.nome : this.vitimaSelected;
+    this.model.nome = this.vitimaSelected;
+    //this.model.dataNascimento = this.model.dataNascimento ? new Date(this.model.dataNascimento) : undefined;
 
     this.submitted = true;
 

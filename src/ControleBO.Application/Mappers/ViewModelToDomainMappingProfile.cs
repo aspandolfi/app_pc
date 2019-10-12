@@ -15,17 +15,17 @@ namespace ControleBO.Application.Mappers
 
             CreateMap<VitimaViewModel, RegisterNewVitimaCommand>()
                 .ConstructUsing(v => new RegisterNewVitimaCommand(v.Email, v.ProcedimentoId,
-                                     v.Nome, v.NomePai, v.NomeMae, v.DataNascimento, v.Idade, v.Telefone, v.MunicipioId));
+                                     v.Nome, v.NomePai, v.NomeMae, v.DataNascimento, v.Telefone, v.NaturalidadeId));
             CreateMap<VitimaViewModel, UpdateVitimaCommand>()
                 .ConstructUsing(v => new UpdateVitimaCommand(v.Id, v.Email, v.ProcedimentoId,
-                                     v.Nome, v.NomePai, v.NomeMae, v.DataNascimento, v.Idade, v.Telefone, v.MunicipioId));
+                                     v.Nome, v.NomePai, v.NomeMae, v.DataNascimento, v.Telefone, v.NaturalidadeId));
 
             CreateMap<IndiciadoViewModel, RegisterNewIndiciadoCommand>()
                 .ConstructUsing(v => new RegisterNewIndiciadoCommand(v.Apelido, v.ProcedimentoId,
-                         v.Nome, v.NomePai, v.NomeMae, v.DataNascimento, v.Idade, v.Telefone, v.MunicipioId));
+                         v.Nome, v.NomePai, v.NomeMae, v.DataNascimento, v.Telefone, v.NaturalidadeId));
             CreateMap<IndiciadoViewModel, UpdateIndiciadoCommand>()
                 .ConstructUsing(v => new UpdateIndiciadoCommand(v.Id, v.Apelido, v.ProcedimentoId,
-                                     v.Nome, v.NomePai, v.NomeMae, v.DataNascimento, v.Idade, v.Telefone, v.MunicipioId));
+                                     v.Nome, v.NomePai, v.NomeMae, v.DataNascimento, v.Telefone, v.NaturalidadeId));
 
             CreateMap<ProcedimentoViewModel, RegisterNewProcedimentoCommand>().
                 ConstructUsing(p => new RegisterNewProcedimentoCommand(p.BoletimUnificado,

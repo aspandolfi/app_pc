@@ -13,6 +13,11 @@ namespace ControleBO.Infra.Data.Repositories
         {
         }
 
+        public override Indiciado GetById(int id)
+        {
+            return GetAsNoTracking(x => x.Id == id, x => x.Naturalidade);
+        }
+
         public override bool Exists(params object[] paramsToSearch)
         {
             string nome = paramsToSearch[0] as string;

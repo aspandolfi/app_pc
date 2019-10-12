@@ -26,7 +26,7 @@ namespace ControleBO.Application.Services
 
         public IEnumerable<IndiciadoViewModel> GetAllByProcedimentoId(int procedimentoId)
         {
-            var result = Repository.GetAllAsNoTracking(x => x.ProcedimentoId == procedimentoId, x => x.Nome);
+            var result = Repository.GetAllAsNoTracking(x => x.ProcedimentoId == procedimentoId, x => x.Nome, x => x.Naturalidade);
 
             return Mapper.Map<IEnumerable<IndiciadoViewModel>>(result);
         }

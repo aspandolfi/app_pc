@@ -2,10 +2,12 @@ import { Pessoa } from './pessoa';
 
 export class Indiciado extends Pessoa {
 
-  apelido: string;
+  apelido: string = '';
 
-  constructor(procedimentoId: number) {
-    super(procedimentoId);
-    this.apelido = '';
+  constructor(procedimentoId: number, obj?: any) {
+    super(procedimentoId, obj);
+    if (obj) {
+      this.apelido = obj.apelido;
+    }
   }
 }

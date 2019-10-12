@@ -12,6 +12,7 @@ import { MessageService } from 'src/app/services/message.service';
 import { UserManagerService } from '../../services/user-manager.service';
 import { Observable } from 'rxjs';
 import { mergeMap } from 'rxjs/operators';
+import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 
 @Component({
   selector: 'app-cadastro-indiciado',
@@ -19,6 +20,8 @@ import { mergeMap } from 'rxjs/operators';
   styleUrls: ['./cadastro-indiciado.component.scss']
 })
 export class CadastroIndiciadoComponent implements OnInit {
+
+  bsConfig: Partial<BsDatepickerConfig> = { containerClass: 'theme-default' };
 
   model: Indiciado;
 
@@ -97,7 +100,7 @@ export class CadastroIndiciadoComponent implements OnInit {
   save() {
 
     this.model.naturalidadeId = this.naturalidade ? this.naturalidade.id : undefined;
-    this.model.nome = this.model.nome ? this.model.nome : this.indiciadoSelected;
+    this.model.nome = this.indiciadoSelected;
 
     this.submitted = true;
 

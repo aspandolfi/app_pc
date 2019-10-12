@@ -71,8 +71,8 @@ export class CadastroProcedimentoVitimasAutoresComponent implements OnInit, OnDe
       this.vitimas = res.data;
       this.returnedVitimas = this.vitimas.slice(0, this.pageSize);
     },
-      () => this.toastr.error('Falha ao buscar as Vítimas.'),
-      () => this.isLoadingVitimas = false);
+      () => this.toastr.error('Falha ao buscar as Vítimas.'))
+      .add(() => this.isLoadingVitimas = false);
   }
 
   private getIndiciados(procedimentoId) {
@@ -81,8 +81,8 @@ export class CadastroProcedimentoVitimasAutoresComponent implements OnInit, OnDe
       this.indiciados = res.data;
       this.returnedIndiciados = this.indiciados.slice(0, this.pageSize);
     },
-      () => this.toastr.error('Falha ao buscar os Indiciados.'),
-      () => this.isLoadingIndiciados = false);
+      () => this.toastr.error('Falha ao buscar os Indiciados.'))
+      .add(() => this.isLoadingIndiciados = false);
   }
 
   private onReceiveMessage() {
@@ -103,6 +103,9 @@ export class CadastroProcedimentoVitimasAutoresComponent implements OnInit, OnDe
     if (message.action == Action.Created) {
       this.addToTable(message.data);
     }
+    else if (message.action == Action.Updated) {
+      this.updateToTable(message.data);
+    }
     else if (message.action == Action.Removed) {
       this.removeFromTable(message.data);
     }
@@ -121,15 +124,30 @@ export class CadastroProcedimentoVitimasAutoresComponent implements OnInit, OnDe
     }
   }
 
-  private removeFromTable(model: any) {
+  private updateToTable(model: any) {
     if (!Object.getOwnPropertyDescriptor(model, 'apelido')) {
-      let index = this.vitimas.indexOf(model);
-      this.vitimas.splice(index, 1);
+      let index = this.vitimas.findIndex(x => x.id == model.id);
+      this.vitimas[index] = model;
       this.currentPageVitimas = this.getCurrentPage(this.currentPageVitimas, this.vitimas.length);
       this.pageVitimasChanged({ page: this.currentPageVitimas, itemsPerPage: this.pageSize });
     }
     else {
-      let index = this.indiciados.indexOf(model);
+      let index = this.indiciados.findIndex(x => x.id == model.id);
+      this.indiciados[index] = model;
+      this.currentPageIndiciados = this.getCurrentPage(this.currentPageIndiciados, this.indiciados.length);
+      this.pageIndiciadosChanged({ page: this.currentPageIndiciados, itemsPerPage: this.pageSize });
+    }
+  }
+
+  private removeFromTable(model: any) {
+    if (!Object.getOwnPropertyDescriptor(model, 'apelido')) { // Vítimas
+      let index = this.vitimas.findIndex(x => x.id == model.id);
+      this.vitimas.splice(index, 1);
+      this.currentPageVitimas = this.getCurrentPage(this.currentPageVitimas, this.vitimas.length);
+      this.pageVitimasChanged({ page: this.currentPageVitimas, itemsPerPage: this.pageSize });
+    }
+    else { // Indiciados
+      let index = this.indiciados.findIndex(x => x.id == model.id);
       this.indiciados.splice(index, 1);
       this.currentPageIndiciados = this.getCurrentPage(this.currentPageIndiciados, this.indiciados.length);
       this.pageIndiciadosChanged({ page: this.currentPageIndiciados, itemsPerPage: this.pageSize });
@@ -147,11 +165,11 @@ export class CadastroProcedimentoVitimasAutoresComponent implements OnInit, OnDe
     }
 
     if (event.target.dataset.name == 'btnVitima') {
-      config.initialState.model = model == undefined ? new Vitima(this.procedimentoId) : model;
+      config.initialState.model = new Vitima(this.procedimentoId, model);
       this.modalRef = this.modalService.show(CadastroVitimaComponent, config);
     }
     else {
-      config.initialState.model = model == undefined ? new Indiciado(this.procedimentoId) : model;
+      config.initialState.model = new Indiciado(this.procedimentoId, model);
       this.modalRef = this.modalService.show(CadastroIndiciadoComponent, config);
     }
   }

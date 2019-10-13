@@ -25,6 +25,9 @@ namespace ControleBO.Infra.Data.MapConfig
                 .WithMany()
                 .HasForeignKey(x => x.NaturalidadeId)
                 .IsRequired(false);
+
+            builder.HasIndex(x => x.Nome)
+                .IsUnique(false);
         }
     }
 }

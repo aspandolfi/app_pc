@@ -2,6 +2,7 @@
 using ControleBO.Infra.Data.MapConfig;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
 using System;
 using System.IO;
 using System.Linq;
@@ -10,11 +11,12 @@ namespace ControleBO.Infra.Data.Context
 {
     public class SpcContext : DbContext
     {
-        public SpcContext(DbContextOptions options)
+        private readonly IHostingEnvironment _env;
+
+        public SpcContext(DbContextOptions options, IHostingEnvironment env)
             : base(options)
         {
-            //Database.EnsureCreated();
-            //this.Seed();
+            _env = env;
         }
 
         public DbSet<Artigo> Artigos { get; set; }
@@ -94,14 +96,15 @@ namespace ControleBO.Infra.Data.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            string path = _env.IsDevelopment() ? "appsettings.Development.json" : "appsettings.json";
+
             // get the configuration from the app settings
             var config = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile(path: "appsettings.json", optional: false, reloadOnChange: true)
+                .AddJsonFile(path: path, optional: false, reloadOnChange: true)
                 .Build();
 
             // define the database to use
-            //optionsBuilder.UseNpgsql(config.GetConnectionString("DefaultConnection"));
             optionsBuilder.UseSqlServer(config.GetConnectionString("DefaultConnection"));
         }
     }

@@ -61,17 +61,16 @@ namespace ControleBO.Infra.Data.Repositories
 
             query = query.Where(p => p.Assunto != null);
 
-            var result = query.GroupBy(p => p.Assunto.Descricao)
-                //.DefaultIfEmpty()
-                .AsNoTracking()
-                .Select(a => new EstatisticaAssuntoQuery
-                {
-                    Assunto = a.Key,
-                    EmAndamento = a.Count(p => p.SituacaoAtualId == 1),
-                    NaJustica = a.Count(p => p.SituacaoAtualId == 2),
-                    Relatado = a.Count(p => p.SituacaoAtualId == 3)
-                })
-                .ToList();
+            var result = query.GroupBy(p => new { Assunto = p.Assunto.Descricao })
+                              .AsNoTracking()
+                              .Select(a => new EstatisticaAssuntoQuery
+                              {
+                                  Assunto = a.Key.Assunto,
+                                  EmAndamento = a.Select(x => x.SituacaoAtualId).Where(x => x == 1).Count(),
+                                  NaJustica = a.Select(x => x.SituacaoAtualId).Where(x => x == 2).Count(),
+                                  Relatado = a.Select(x => x.SituacaoAtualId).Where(x => x == 3).Count()
+                              })
+                              .ToList();
 
             return result;
         }
@@ -86,11 +85,30 @@ namespace ControleBO.Infra.Data.Repositories
                     NumeroProcedimento = x.ProcedimentoId,
                     Artigo = x.Procedimento.Artigo.Descricao,
                     TipoProcedimento = x.Procedimento.TipoProcedimento.Descricao,
-                    SituacaoAtual = x.Procedimento.SituacaoAtual.Descricao
+                    SituacaoAtual = x.Procedimento.SituacaoAtual.Descricao,
+                    SituacaoAtualId = x.Procedimento.SituacaoAtualId
                 })
                 .ToList();
 
             return query;
+        }
+
+        public IEnumerable<RelacaoProcedimentoSituacaoQuery> GetRelacaoProcedimentoPorSituacao()
+        {
+            IQueryable<Procedimento> query = DbContext.Procedimentos;
+
+            var result = query.OrderBy(p => p.CriadoEm)
+                              .Include(x => x.SituacaoAtual)
+                              .GroupBy(p => new { Situacao = p.SituacaoAtual.Descricao })
+                              .AsNoTracking()
+                              .Select(p => new RelacaoProcedimentoSituacaoQuery
+                              {
+                                  Count = p.Count(),
+                                  Situacao = p.Key.Situacao
+                              });
+
+            return result;
+
         }
 
         public IEnumerable<RelacaoProcedimentoQuery> GetRelacaoProcedimentos(int? situacaoId, DateTime? de, DateTime? ate)
@@ -160,7 +178,8 @@ namespace ControleBO.Infra.Data.Repositories
                     NumeroProcedimento = x.ProcedimentoId,
                     Artigo = x.Procedimento.Artigo.Descricao,
                     TipoProcedimento = x.Procedimento.TipoProcedimento.Descricao,
-                    SituacaoAtual = x.Procedimento.SituacaoAtual.Descricao
+                    SituacaoAtual = x.Procedimento.SituacaoAtual.Descricao,
+                    SituacaoAtualId = x.Procedimento.SituacaoAtualId
                 })
                 .ToList();
 

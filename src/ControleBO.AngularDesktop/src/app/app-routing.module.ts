@@ -19,6 +19,7 @@ import { RelacaoProcedimentosComponent } from './relatorios/relacao-procedimento
 import { RelacaoIndiciadosComponent } from './relatorios/relacao-indiciados/relacao-indiciados.component';
 import { RelacaoVitimasComponent } from './relatorios/relacao-vitimas/relacao-vitimas.component';
 import { TipoSituacaoComponent } from './components/tipo-situacao/tipo-situacao.component';
+import { VisaoGeralComponent } from './relatorios/visao-geral/visao-geral.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'procedimentos', pathMatch: 'full', canActivate: [AuthGuardService] },
@@ -49,6 +50,7 @@ const routes: Routes = [
   { path: 'relacao-procedimentos', component: RelacaoProcedimentosComponent, canActivate: [AuthGuardService] },
   { path: 'relacao-indiciados', component: RelacaoIndiciadosComponent, canActivate: [AuthGuardService] },
   { path: 'relacao-vitimas', component: RelacaoVitimasComponent, canActivate: [AuthGuardService] },
+  { path: 'visao-geral', component: VisaoGeralComponent, canActivate: [AuthGuardService] },
   {
     path: 'account',
     children: [

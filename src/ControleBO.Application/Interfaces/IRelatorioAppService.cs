@@ -13,5 +13,12 @@ namespace ControleBO.Application.Interfaces
 
         DataTableViewModel GetRelacaoVitimas();
 
+        ChartViewModel GetEstatisticaAssuntoChart();
+
+        ChartViewModel GetRelacaoProcedimentoChart();
+
+        ChartViewModel GetRelacaoIndiciadosChart();
+
+        ChartViewModel GetRelacaoVitimasChart();
     }
 }

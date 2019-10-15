@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BaseService } from './base.service';
 import { Datatablejs } from '../models/datatablejs';
+import { Chart } from '../models/chart';
 
 @Injectable({
   providedIn: 'root'
@@ -30,5 +31,17 @@ export class RelatorioService {
   }
   getRelacaoVitimas() {
     return this.baseService.get<Datatablejs>(`${this.uri}/relacao-vitimas`);
+  }
+  getEstatisticaAssuntoChart() {
+    return this.baseService.get<Chart>(`${this.uri}/estatistica-assunto-chart`);
+  }
+  getRelacaoProcedimentoChart() {
+    return this.baseService.get<Chart>(`${this.uri}/relacao-procedimento-chart`);
+  }
+  getRelacaoIndiciadosChart() {
+    return this.baseService.get<Chart>(`${this.uri}/relacao-indiciados-chart`);
+  }
+  getRelacaoVitimasChart() {
+    return this.baseService.get<Chart>(`${this.uri}/relacao-vitimas-chart`);
   }
 }

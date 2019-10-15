@@ -51,5 +51,33 @@ namespace ControleBO.Api.Controllers
         {
             return Response(_relatorioAppService.GetRelacaoVitimas());
         }
+
+        // GET: api/relatorio/estatistica-assunto-chart
+        [HttpGet("estatistica-assunto-chart")]
+        public IActionResult GetEstatisticaAssuntoChart()
+        {
+            return Response(_relatorioAppService.GetEstatisticaAssuntoChart());
+        }
+
+        // GET: api/relatorio/relacao-procedimento-chart
+        [HttpGet("relacao-procedimento-chart")]
+        public IActionResult GetRelacaoProcedimentoChart()
+        {
+            return Response(_relatorioAppService.GetRelacaoProcedimentoChart());
+        }
+
+        // GET: api/relatorio/relacao-indiciados-chart
+        [HttpGet("relacao-indiciados-chart")]
+        public IActionResult GetRelacaoIndiciadosChart()
+        {
+            return Response(_relatorioAppService.GetRelacaoIndiciadosChart());
+        }
+
+        // GET: api/relatorio/relacao-vitimas-chart
+        [HttpGet("relacao-vitimas-chart")]
+        public IActionResult GetRelacaoVitimasChart()
+        {
+            return Response(_relatorioAppService.GetRelacaoVitimasChart());
+        }
     }
 }

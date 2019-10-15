@@ -11,5 +11,7 @@
         public string TipoProcedimento { get; set; }
 
         public string SituacaoAtual { get; set; }
+
+        public int SituacaoAtualId { get; set; }
     }
 }

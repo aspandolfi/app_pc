@@ -5,6 +5,7 @@ using ControleBO.Domain.Core.Bus;
 using ControleBO.Domain.DataObjects;
 using ControleBO.Domain.Interfaces.Repositories;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 
@@ -51,6 +52,45 @@ namespace ControleBO.Application.Services
             return Mapper.Map<DataTableViewModel>(dt);
         }
 
+        public ChartViewModel GetEstatisticaAssuntoChart()
+        {
+            var result = _relatorioRepository.GetEstatisticaAssunto().OrderBy(x => x.Assunto);
+
+            var seriesEmAndamento = result.Select(x => x.EmAndamento);
+            var seriesNaJustica = result.Select(x => x.NaJustica);
+            var seriesRelatado = result.Select(x => x.Relatado);
+
+            var charVm = new ChartViewModel
+            {
+                YAxisTitle = "Número de Procedimentos"
+            };
+
+            var series = new List<ChartViewModel.ChartSerieViewModel>
+            {
+                new ChartViewModel.ChartSerieViewModel
+                {
+                    Name = "Em andamento",
+                    Data = seriesEmAndamento.Cast<dynamic>()
+                },
+                new ChartViewModel.ChartSerieViewModel
+                {
+                    Name = "Na justiça",
+                    Data = seriesNaJustica.Cast<dynamic>()
+                },
+                new ChartViewModel.ChartSerieViewModel
+                {
+                    Name = "Relatado",
+                    Data = seriesRelatado.Cast<dynamic>()
+                }
+            };
+
+            charVm.Title = "Estatística por Assunto";
+            charVm.XAxisCategories = result.Select(x => x.Assunto);
+            charVm.Series = series;
+
+            return charVm;
+        }
+
         public DataTableViewModel GetRelacaoIndiciados()
         {
             var result = _relatorioRepository.GetRelacaoIndiciados();
@@ -73,6 +113,78 @@ namespace ControleBO.Application.Services
             }));
 
             return Mapper.Map<DataTableViewModel>(dt);
+        }
+
+        public ChartViewModel GetRelacaoIndiciadosChart()
+        {
+            var result = _relatorioRepository.GetRelacaoIndiciados();
+
+            var grouped = result.GroupBy(x => x.TipoProcedimento);
+
+            var categories = grouped.Select(x => x.Key);
+
+            var seriesEmAndamento = grouped.Select(x => x.Count(y => y.SituacaoAtualId == 1));
+            var seriesNaJustica = grouped.Select(x => x.Count(y => y.SituacaoAtualId == 2));
+            var seriesRelatado = grouped.Select(x => x.Count(y => y.SituacaoAtualId == 3));
+
+            var charVm = new ChartViewModel
+            {
+                YAxisTitle = "Número de Indiciados"
+            };
+
+            var series = new List<ChartViewModel.ChartSerieViewModel>
+            {
+                new ChartViewModel.ChartSerieViewModel
+                {
+                    Name = "Em andamento",
+                    Data = seriesEmAndamento.Cast<dynamic>()
+                },
+                new ChartViewModel.ChartSerieViewModel
+                {
+                    Name = "Na justiça",
+                    Data = seriesNaJustica.Cast<dynamic>()
+                },
+                new ChartViewModel.ChartSerieViewModel
+                {
+                    Name = "Relatado",
+                    Data = seriesRelatado.Cast<dynamic>()
+                }
+            };
+
+            charVm.Title = "Relação de Indiciados";
+            charVm.XAxisCategories = categories;
+            charVm.Series = series;
+
+            return charVm;
+        }
+
+        public ChartViewModel GetRelacaoProcedimentoChart()
+        {
+            var result = _relatorioRepository.GetRelacaoProcedimentoPorSituacao();
+
+            var dataPie = result.Select(x => new ChartViewModel.ChartSerieViewModel.ChartPieData
+            {
+                Name = x.Situacao,
+                Y = x.Count
+            });
+
+            var series = new List<ChartViewModel.ChartSerieViewModel>
+            {
+                new ChartViewModel.ChartSerieViewModel
+                {
+                    Name = "Situação",
+                    ColorByPoint = true,
+                    Data = dataPie
+                }
+            };
+
+            var chartVm = new ChartViewModel
+            {
+                Title = "Procedimentos por Situação",
+                Series = series
+            };
+
+            return chartVm;
         }
 
         public DataTableViewModel GetRelacaoProcedimentos(int? situacaoId, DateTime? de, DateTime? ate)
@@ -127,6 +239,49 @@ namespace ControleBO.Application.Services
             }));
 
             return Mapper.Map<DataTableViewModel>(dt);
+        }
+
+        public ChartViewModel GetRelacaoVitimasChart()
+        {
+            var result = _relatorioRepository.GetRelacaoVitimas();
+
+            var grouped = result.GroupBy(x => x.TipoProcedimento);
+
+            var categories = grouped.Select(x => x.Key);
+
+            var seriesEmAndamento = grouped.Select(x => x.Count(y => y.SituacaoAtualId == 1));
+            var seriesNaJustica = grouped.Select(x => x.Count(y => y.SituacaoAtualId == 2));
+            var seriesRelatado = grouped.Select(x => x.Count(y => y.SituacaoAtualId == 3));
+
+            var charVm = new ChartViewModel
+            {
+                YAxisTitle = "Número de Vítimas"
+            };
+
+            var series = new List<ChartViewModel.ChartSerieViewModel>
+            {
+                new ChartViewModel.ChartSerieViewModel
+                {
+                    Name = "Em andamento",
+                    Data = seriesEmAndamento.Cast<dynamic>()
+                },
+                new ChartViewModel.ChartSerieViewModel
+                {
+                    Name = "Na justiça",
+                    Data = seriesNaJustica.Cast<dynamic>()
+                },
+                new ChartViewModel.ChartSerieViewModel
+                {
+                    Name = "Relatado",
+                    Data = seriesRelatado.Cast<dynamic>()
+                }
+            };
+
+            charVm.Title = "Relação de Vítimas";
+            charVm.XAxisCategories = categories;
+            charVm.Series = series;
+
+            return charVm;
         }
     }
 }

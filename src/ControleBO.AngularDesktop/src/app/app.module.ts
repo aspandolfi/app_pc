@@ -59,6 +59,7 @@ import { RelacaoIndiciadosComponent } from './relatorios/relacao-indiciados/rela
 import { RelacaoVitimasComponent } from './relatorios/relacao-vitimas/relacao-vitimas.component';
 import { TipoSituacaoComponent } from './components/tipo-situacao/tipo-situacao.component';
 import { CadastroTipoSituacaoComponent } from './components/cadastro-tipo-situacao/cadastro-tipo-situacao.component';
+import { VisaoGeralComponent } from './relatorios/visao-geral/visao-geral.component';
 
 defineLocale('pt-br', ptBrLocale);
 
@@ -100,7 +101,8 @@ defineLocale('pt-br', ptBrLocale);
     RelacaoIndiciadosComponent,
     RelacaoVitimasComponent,
     TipoSituacaoComponent,
-    CadastroTipoSituacaoComponent
+    CadastroTipoSituacaoComponent,
+    VisaoGeralComponent
   ],
   imports: [
     HttpClientModule,

@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card mb-3 shadow-sm">
+      <div class="card-header clearfix">
+        Estatística por Assunto
+      </div>
+      <div class="card-body">
+        <div id="myChart" style="width:100%"></div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card mb-3 shadow-sm">
+      <div class="card-header clearfix">
+        Relação de Procedimentos
+      </div>
+      <div class="card-body">
+        <div id="myChart1" style="width:100%"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card mb-3 shadow-sm">
+      <div class="card-header clearfix">
+        Relação de Indiciados
+      </div>
+      <div class="card-body">
+        <div id="myChart2" style="width:100%"></div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card mb-3 shadow-sm">
+      <div class="card-header clearfix">
+        Relação de Vítimas
+      </div>
+      <div class="card-body">
+        <div id="myChart3" style="width:100%"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<ngx-loading-bar [color]="'#6c757d'"
+                 [includeSpinner]="false"
+                 [height]="'3px'">
+</ngx-loading-bar>

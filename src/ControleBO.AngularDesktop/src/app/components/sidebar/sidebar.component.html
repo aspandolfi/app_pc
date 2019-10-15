@@ -1,11 +1,11 @@
-<nav class="navbar navbar-expand-md navbar-light fixed-top">
+<nav class="navbar navbar-expand-md navbar-light fixed-top shadow-sm">
   <ul class="navbar-nav mr-auto">
     <li class="nav-item dropdown no-arrow" dropdown>
       <!--<a class="nav-link" [routerLink]="['/home']">VISÃO GERAL<span class="sr-only">(current)</span></a>-->
       <a dropdownToggle class="nav-link dropdown-toggle" id="menuDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <i class="fas fa-bars"></i>
       </a>
-      <div *dropdownMenu class="dropdown-menu" aria-labelledby="menuDropdown">
+      <div *dropdownMenu class="dropdown-menu shadow-sm" aria-labelledby="menuDropdown">
         <a class="dropdown-item" [routerLink]="['/visao-geral']">
           Visão Geral
           <span class="sr-only">(current)</span>
@@ -53,7 +53,7 @@
       <a dropdownToggle class="nav-link dropdown-toggle" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <i class="fas fa-user-circle fa-fw"></i>
       </a>
-      <div *dropdownMenu class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+      <div *dropdownMenu class="dropdown-menu dropdown-menu-right shadow-sm" aria-labelledby="userDropdown">
         <!--<a class="dropdown-item">Configurações</a>-->
         <a *ngIf="canEdit" class="dropdown-item" [routerLink]="['/account/users']">Usuários</a>
         <div class="dropdown-divider"></div>
@@ -62,3 +62,9 @@
     </li>
   </ul>
 </nav>
+
+<!--<nav class="navbar navbar-expand-md navbar-light fixed-bottom shadow-sm">
+  <label>
+    Copyright 2019. Todos os direitos reservados para André Serafim Pandolfi.
+  </label>
+</nav>-->

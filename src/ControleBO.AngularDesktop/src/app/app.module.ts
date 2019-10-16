@@ -145,7 +145,8 @@ defineLocale('pt-br', ptBrLocale);
     FileService,
     ProcedimentoService,
     MunicipioService,
-    AuthGuardService
+    AuthGuardService,
+    GrdFilterPipe
   ],
   bootstrap: [AppComponent]
 })

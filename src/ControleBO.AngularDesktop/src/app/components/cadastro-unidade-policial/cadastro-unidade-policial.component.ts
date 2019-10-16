@@ -39,9 +39,7 @@ export class CadastroUnidadePolicialComponent implements OnInit {
             error.errors.forEach(m => this.toastr.warning(m));
           }
           this.toastr.error(error.message);
-        }, () => {
-          this.submitted = false;
-        });
+        }).add(() => this.submitted = false);
     }
     else {
       this.unidadePolicialService.create(this.unidadePolicial)
@@ -53,9 +51,7 @@ export class CadastroUnidadePolicialComponent implements OnInit {
             error.errors.forEach(m => this.toastr.warning(m));
           }
           this.toastr.error(error.message);
-        }, () => {
-          this.submitted = false;
-        });
+        }).add(() => this.submitted = false);
     }
   }
 

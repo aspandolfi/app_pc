@@ -1,6 +1,6 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { Subscription } from 'rxjs';
+import { Subscription, fromEvent, Observable } from 'rxjs';
 import { UnidadePolicial } from '../../models/unidade-policial';
 import { ToastrService } from 'ngx-toastr';
 import { MessageService } from '../../services/message.service';
@@ -10,6 +10,8 @@ import { ConfirmarExclusaoComponent } from '../confirmar-exclusao/confirmar-excl
 import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 import { CadastroUnidadePolicialComponent } from '../cadastro-unidade-policial/cadastro-unidade-policial.component';
 import { UserManagerService } from '../../services/user-manager.service';
+import { debounceTime } from 'rxjs/operators';
+import { GrdFilterPipe } from 'src/app/pipes/grd-filter.pipe';
 
 @Component({
   selector: 'app-unidade-policial',
@@ -23,11 +25,17 @@ export class UnidadePolicialComponent implements OnInit, OnDestroy {
   isLoadingUltimaAtualizacao: boolean = false;
   ultimaAtualizacao: string;
 
+  searchFilter: string = '';
+
   unidadesPoliciais: UnidadePolicial[] = [];
   returnedUnidadesPoliciais: UnidadePolicial[] = [];
+  auxUnidadesPoliciais: UnidadePolicial[] = [];
 
   pageSize = 10;
   currentPage = 1;
+
+  source: Observable<any>;
+  @ViewChild('searchFilterEl') searchEl: ElementRef;
 
   get canEdit() {
     return this.userManager.isAdmin();
@@ -37,13 +45,25 @@ export class UnidadePolicialComponent implements OnInit, OnDestroy {
     private toastr: ToastrService,
     private messageService: MessageService,
     private unidadePolicialService: UnidadePolicialService,
-    private userManager: UserManagerService) {
+    private userManager: UserManagerService,
+    private grdFilter: GrdFilterPipe) {
     this.onReceiveMessage();
   }
 
   ngOnInit() {
     this.getUnidadesPoliciais();
     this.getUltimaAtualizacao();
+
+    this.addSearchFilterEvent();
+  }
+
+  private addSearchFilterEvent() {
+    this.source = fromEvent(this.searchEl.nativeElement, 'keyup');
+    this.source.pipe(debounceTime(100)).subscribe(s => {
+      let filter = { id: this.searchFilter, codigo: this.searchFilter, sigla: this.searchFilter, descricao: this.searchFilter };
+      this.auxUnidadesPoliciais = this.grdFilter.transform(this.unidadesPoliciais, filter, false);
+      this.returnedUnidadesPoliciais = this.auxUnidadesPoliciais.slice(0, this.pageSize);
+    });
   }
 
   private getUnidadesPoliciais() {
@@ -51,6 +71,7 @@ export class UnidadePolicialComponent implements OnInit, OnDestroy {
       if (res.data) {
         this.unidadesPoliciais = res.data;
         this.returnedUnidadesPoliciais = this.unidadesPoliciais.slice(0, this.pageSize);
+        this.auxUnidadesPoliciais = this.unidadesPoliciais;
       }
     }, () => this.toastr.error('Falha ao buscar as unidades policiais'));
   }
@@ -134,7 +155,7 @@ export class UnidadePolicialComponent implements OnInit, OnDestroy {
     this.currentPage = event.page;
     const startItem = (event.page - 1) * event.itemsPerPage;
     const endItem = event.page * event.itemsPerPage;
-    this.returnedUnidadesPoliciais = this.unidadesPoliciais.slice(startItem, endItem);
+    this.returnedUnidadesPoliciais = this.auxUnidadesPoliciais.slice(startItem, endItem);
   }
 
 }

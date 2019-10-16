@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ElementRef, ViewChild } from '@angular/core';
 import { ProcedimentoService } from 'src/app/services/procedimento.service';
 import { ToastrService } from 'ngx-toastr';
 import { ProcedimentoList, Procedimento } from 'src/app/models/procedimento';
@@ -7,9 +7,11 @@ import { BsDatepickerConfig, BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { UserManagerService } from '../../services/user-manager.service';
 import { ConfirmarExclusaoComponent } from '../confirmar-exclusao/confirmar-exclusao.component';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { Subscription } from 'rxjs';
+import { Subscription, Observable, fromEvent } from 'rxjs';
 import { MessageService } from 'src/app/services/message.service';
 import { IMessage, Action } from 'src/app/models/message';
+import { debounceTime } from 'rxjs/operators';
+import { GrdFilterPipe } from 'src/app/pipes/grd-filter.pipe';
 
 @Component({
   selector: 'app-procedimento',
@@ -30,11 +32,15 @@ export class ProcedimentoComponent implements OnInit, OnDestroy {
   ultimaAtualizacao: string;
   returnedProcedimentos: ProcedimentoList[] = [];
   procedimentos: ProcedimentoList[] = [];
+  auxProcedimentos: ProcedimentoList[] = [];
   isLoading: boolean;
   isLoadingUltimaAtualizacao: boolean;
 
   pageSize = 10;
   currentPage = 1;
+
+  source: Observable<any>;
+  @ViewChild('searchFilterEl') searchEl: ElementRef;
 
   get canEdit() {
     return this.userManager.canEdit();
@@ -49,7 +55,8 @@ export class ProcedimentoComponent implements OnInit, OnDestroy {
     private messageService: MessageService,
     private toastr: ToastrService,
     private localeService: BsLocaleService,
-    private userManager: UserManagerService) {
+    private userManager: UserManagerService,
+    private grdFilter: GrdFilterPipe) {
     this.localeService.use('pt-br');
     this.onReceiveMessage();
   }
@@ -57,10 +64,21 @@ export class ProcedimentoComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.getProcedimentos();
     this.getUltimaAtualizacao();
+
+    this.addSearchFilterEvent();
   }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
+  }
+
+  private addSearchFilterEvent() {
+    this.source = fromEvent(this.searchEl.nativeElement, 'keyup');
+    this.source.pipe(debounceTime(100)).subscribe(s => {
+      let filter = { id: this.searchFilter, numeroCadstro: this.searchFilter, boletimUnificado: this.searchFilter, boletimOcorrencia: this.searchFilter, numeroProcessual: this.searchFilter, tipoProcedimento: this.searchFilter, dataInsercao: this.searchFilter, comarca: this.searchFilter, andamentoProcessual: this.searchFilter, vitimas: this.searchFilter };
+      this.auxProcedimentos = this.grdFilter.transform(this.procedimentos, filter, false);
+      this.returnedProcedimentos = this.auxProcedimentos.slice(0, this.pageSize);
+    });
   }
 
   private getProcedimentos() {
@@ -70,6 +88,7 @@ export class ProcedimentoComponent implements OnInit, OnDestroy {
       .subscribe(res => {
         this.procedimentos = this.setProcedimentos(res.data);
         this.returnedProcedimentos = this.procedimentos.slice(0, this.pageSize);
+        this.auxProcedimentos = this.procedimentos;
       },
         () => this.toastr.error("Falha ao carregar os procedimentos."))
       .add(() => this.isLoading = false);
@@ -136,7 +155,7 @@ export class ProcedimentoComponent implements OnInit, OnDestroy {
     this.currentPage = event.page;
     const startItem = (event.page - 1) * event.itemsPerPage;
     const endItem = event.page * event.itemsPerPage;
-    this.returnedProcedimentos = this.procedimentos.slice(startItem, endItem);
+    this.returnedProcedimentos = this.auxProcedimentos.slice(startItem, endItem);
   }
 
   onSearchDeChange(value: Date): void {
@@ -151,16 +170,16 @@ export class ProcedimentoComponent implements OnInit, OnDestroy {
 
   searchByDate(de?: Date, ate?: Date) {
     if (de && ate) {
-      this.returnedProcedimentos = this.procedimentos.filter(x => x.dataInsercao >= de && x.dataInsercao <= ate);
+      this.returnedProcedimentos = this.auxProcedimentos.filter(x => x.dataInsercao >= de && x.dataInsercao <= ate);
     }
     else if (de && !ate) {
-      this.returnedProcedimentos = this.procedimentos.filter(x => x.dataInsercao >= de);
+      this.returnedProcedimentos = this.auxProcedimentos.filter(x => x.dataInsercao >= de);
     }
     else if (!de && ate) {
-      this.returnedProcedimentos = this.procedimentos.filter(x => x.dataInsercao <= ate);
+      this.returnedProcedimentos = this.auxProcedimentos.filter(x => x.dataInsercao <= ate);
     }
     else {
-      this.returnedProcedimentos = this.procedimentos.slice(0, this.pageSize);
+      this.returnedProcedimentos = this.auxProcedimentos.slice(0, this.pageSize);
     }
   }
 
@@ -168,6 +187,6 @@ export class ProcedimentoComponent implements OnInit, OnDestroy {
     this.searchFilter = '';
     this.searchDe = null;
     this.searchAte = null;
-    this.returnedProcedimentos = this.procedimentos.slice(0, this.pageSize);
+    this.returnedProcedimentos = this.auxProcedimentos.slice(0, this.pageSize);
   }
 }

@@ -95,12 +95,11 @@ export class CadastroProcedimentoSituacaoComponent implements OnInit, OnDestroy 
 
       }
     },
-      () => this.toastr.error('Falha ao buscar a Situação Atual.'),
-      () => {
-        this.isLoadingSituacaoProcedimento = false;
-        this.cdr.detectChanges();
-      }
+      () => this.toastr.error('Falha ao buscar a Situação Atual.')
     ).add(() => {
+      this.isLoadingSituacaoProcedimento = false;
+      //this.cdr.detectChanges();
+
       this.getSituacoes();
     });
   }
@@ -148,6 +147,7 @@ export class CadastroProcedimentoSituacaoComponent implements OnInit, OnDestroy 
     this.situacao = event;
     this.selectedTipoSituacaoId = 0;
     this.tipoSituacao = null;
+    this.dataRelatorio = null;
   }
 
   onTipoSituacaoChange(event) {
@@ -176,6 +176,12 @@ export class CadastroProcedimentoSituacaoComponent implements OnInit, OnDestroy 
 
     this.situacaoProcedimento.situacaoId = this.situacao.id;
 
+    if (this.situacao.id == 3 && this.selectedIndiciamentoId == 1 && !this.dataRelatorio) {
+      this.toastr.warning('Por favor selecione uma data de relatório válida.');
+      this.dataRelatorio = null;
+      return;
+    }
+
     if (this.situacao.id != 1 && !this.tipoSituacao) {
       this.toastr.warning('Por favor selecione um motivo válido.');
       return;
@@ -184,7 +190,7 @@ export class CadastroProcedimentoSituacaoComponent implements OnInit, OnDestroy 
     if (this.situacao.id == 3) {
       this.situacaoProcedimento.DataRelatorio = this.dataRelatorio;
 
-      if (!this.situacaoProcedimento.DataRelatorio) {
+      if (!this.dataRelatorio) {
         this.toastr.warning('Por favor selecione uma data de relatório válida.');
         this.dataRelatorio = null;
         return;

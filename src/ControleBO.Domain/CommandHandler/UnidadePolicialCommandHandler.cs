@@ -63,9 +63,9 @@ namespace ControleBO.Domain.CommandHandler
             }
 
             var unidadePolicial = new UnidadePolicial(request.Id, request.Codigo, request.Sigla, request.Descricao, request.CodigoCargoQO);
-            var existingUnidadePolicial = _unidadePolicialRepository.GetAsNoTracking(x => unidadePolicial.Descricao.Contains(x.Descricao));
+            var existingUnidadePolicial = _unidadePolicialRepository.GetAsNoTracking(x => unidadePolicial.Descricao.Contains(x.Descricao) && x.Id != request.Id);
 
-            if (!existingUnidadePolicial.Equals(unidadePolicial))
+            if (existingUnidadePolicial != null)
             {
                 Bus.RaiseEvent(new DomainNotification(request.MessageType, "A Unidade Policial já está sendo usada."));
                 return Task.FromResult(0);

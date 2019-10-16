@@ -102,6 +102,11 @@ namespace ControleBO.Application.Mappers
                 .ConstructUsing(m => new RegisterNewSituacaoTipoCommand(m.Descricao, m.SituacaoId));
             CreateMap<SituacaoTipoViewModel, UpdateSituacaoTipoCommand>()
                 .ConstructUsing(m => new UpdateSituacaoTipoCommand(m.Id, m.Descricao, m.SituacaoId));
+
+            CreateMap<UnidadePolicialViewModel, RegisterNewUnidadePolicialCommand>()
+                .ConstructUsing(u => new RegisterNewUnidadePolicialCommand(u.Codigo, u.Sigla, u.Descricao, u.CodigoCargoQO));
+            CreateMap<UnidadePolicialViewModel, UpdateUnidadePolicialCommand>()
+                .ConstructUsing(u => new UpdateUnidadePolicialCommand(u.Id, u.Codigo, u.Sigla, u.Descricao, u.CodigoCargoQO));
         }
     }
 }

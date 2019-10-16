@@ -106,6 +106,10 @@ namespace ControleBO.Infra.CrossCutting.IoC
             services.AddScoped<IRequestHandler<UpdateSituacaoTipoCommand, int>, SituacaoTipoCommandHandler>();
             services.AddScoped<IRequestHandler<RemoveSituacaoTipoCommand, int>, SituacaoTipoCommandHandler>();
 
+            services.AddScoped<IRequestHandler<RegisterNewUnidadePolicialCommand, int>, UnidadePolicialCommandHandler>();
+            services.AddScoped<IRequestHandler<UpdateUnidadePolicialCommand, int>, UnidadePolicialCommandHandler>();
+            services.AddScoped<IRequestHandler<RemoveUnidadePolicialCommand, int>, UnidadePolicialCommandHandler>();
+
             // Application
             services.AddScoped<IProcedimentoAppService, ProcedimentoAppService>();
             services.AddScoped<IProcedimentoTipoAppService, ProcedimentoTipoAppService>();

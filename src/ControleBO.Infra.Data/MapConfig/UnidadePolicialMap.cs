@@ -15,7 +15,7 @@ namespace ControleBO.Infra.Data.MapConfig
             builder.Property(x => x.Codigo)
                 .HasColumnType("varchar(50)")
                 .HasMaxLength(50)
-                .IsRequired();
+                .IsRequired(false);
 
             builder.Property(x => x.Sigla)
                 .HasColumnType("varchar(20)")

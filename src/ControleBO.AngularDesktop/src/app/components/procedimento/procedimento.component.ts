@@ -189,7 +189,7 @@ export class ProcedimentoComponent implements OnInit, OnDestroy {
     this.searchFilter = '';
     this.searchDe = null;
     this.searchAte = null;
-    this.returnedProcedimentos = this.auxProcedimentos.slice(0, this.pageSize);
+    this.returnedProcedimentos = this.procedimentos.slice(0, this.pageSize);
   }
 
   onClickRow(event: MouseEvent, procedimentoId: number) {

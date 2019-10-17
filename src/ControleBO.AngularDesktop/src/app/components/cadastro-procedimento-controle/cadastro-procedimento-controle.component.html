@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card mb-3 shadow-sm">
   <div class="card-header clearfix">
     <button *ngIf="canEdit" type="button" class="btn btn-sm btn-secondary float-right" [disabled]="!controleForm.form.valid || isLoading" (click)="salvar();">
       <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" [hidden]="!isLoading"></span>
@@ -28,7 +28,7 @@
       <div class="form-row">
         <div class="form-group col-md-4">
           <label for="numeroProcessual">Número Processual</label>
-          <input type="text" class="form-control form-control-sm ng-invalid" [(ngModel)]="procedimento.numeroProcessual" name="numeroProcessual" placeholder="00000" required mask="0*">
+          <input type="text" class="form-control form-control-sm ng-invalid" [(ngModel)]="procedimento.numeroProcessual" name="numeroProcessual" placeholder="00000" mask="0*">
         </div>
         <div class="form-group col-md-4">
           <label for="gampes">GAMPES</label>
@@ -50,8 +50,7 @@
                  (typeaheadOnSelect)="onSelectTipoProcedimento($event)"
                  class="form-control form-control-sm"
                  [class.ng-invalid]="isNoResultProcedimentoTipo"
-                 (typeaheadNoResults)="tipoProcedimentoNoResults($event)"
-                 required>
+                 (typeaheadNoResults)="tipoProcedimentoNoResults($event)">
         </div>
       </div>
       <div class="form-row">
@@ -183,19 +182,38 @@
         <label for="anexos">Anexos</label>
         <textarea class="form-control form-control-sm" [(ngModel)]="procedimento.anexos" name="anexos"></textarea>
       </div>
-      <div class="form-group">
+      <!--<div class="form-group">
         <label for="andamentoProcessual">Andamento Processual</label>
         <input type="text" class="form-control form-control-sm" [(ngModel)]="procedimento.andamentoProcessual" name="andamentoProcessual" readonly />
-      </div>
-      <div class="form-group">
+      </div>-->
+      <!--<div class="form-group">
         <app-ultima-movimentacao [ultimasMovimentacoes]="procedimento.ultimasMovimentacoes"
                                  [enableActions]="false"
                                  [titulo]="'Última movimentação'">
         </app-ultima-movimentacao>
-      </div>
+      </div>-->
     </form>
   </div>
 </div>
+
+<div class="card shadow-sm">
+  <div class="card-header clearfix">
+    Movimentações
+    <input *ngIf="canEdit && procedimentoId" type="button" class="btn btn-sm btn-secondary float-right" value="Novo" (click)="openModalMovimentacao(null);">
+  </div>
+  <div class="card-body ultima-movimentacao">
+    <div class="text-left" *ngIf="isLoadingMovimentacoes">
+      <div class="spinner-border spinner-border-sm" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+    <app-ultima-movimentacao [ultimasMovimentacoes]="movimentacoes"
+                             [titulo]="''"
+                             [enableActions]="canEdit">
+    </app-ultima-movimentacao>
+  </div>
+</div>
+
 <ngx-loading-bar [color]="'#6c757d'"
                  [includeSpinner]="false"
                  [height]="'3px'">

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BaseService } from './base.service';
 import { Login } from '../models/login';
 import { RegisterUsuario, Usuario } from '../models/usuario';
+import { Result } from '../models/result';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,9 @@ export class AuthService {
   }
 
   refresh() {
-    return this.baseService.post<Login>(`${this.uri}/refresh`, null);
+    let headers = this.baseService.getHttpHeaders().set('ignoreLoadingBar', '');
+    return this.baseService.http.post<Result<Login>>(`${this.baseService.apiUrl}/${this.uri}/refresh`, null, { headers: headers });
+    //return this.baseService.post<Login>(`${this.uri}/refresh`, null);
   }
 
   logOut() {
@@ -42,7 +45,8 @@ export class AuthService {
   }
 
   getCurrent() {
-    return this.baseService.get<Usuario>(`${this.uri}/current`);
+    let headers = this.baseService.getHttpHeaders().set('ignoreLoadingBar', '');
+    return this.baseService.http.get<Result<Usuario>>(`${this.baseService.apiUrl}/${this.uri}/current`, { headers: headers });
   }
 
   getAll() {

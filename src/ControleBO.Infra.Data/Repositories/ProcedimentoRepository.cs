@@ -1,8 +1,10 @@
 ﻿using ControleBO.Domain.Interfaces.Repositories;
 using ControleBO.Domain.Models;
+using ControleBO.Domain.Queries;
 using ControleBO.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace ControleBO.Infra.Data.Repositories
@@ -17,6 +19,11 @@ namespace ControleBO.Infra.Data.Repositories
         {
             string str = paramsToSearch[0] as string;
             return DbSet.Any(x => EF.Functions.Like(str, x.BoletimUnificado));
+        }
+
+        public IEnumerable<ProcedimentoListQuery> GetProcedimementoLists()
+        {
+            return DbContext.ProcedimentoLists.OrderByDescending(x => x.DataInsercao).ToList();
         }
 
         public override DateTime? LastUpdate()

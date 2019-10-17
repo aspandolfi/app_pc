@@ -268,9 +268,13 @@ namespace ControleBO.Infra.Data.Repositories
             DbSet.RemoveRange(objs);
         }
 
-        public IEnumerable<TResult> GetAllAsNoTracking<TResult>(Expression<Func<TModel, TResult>> selector, Func<IQueryable<TModel>, IOrderedQueryable<TModel>> orderBy)
+        public IEnumerable<TResult> GetAllAsNoTracking<TResult>(Expression<Func<TModel, TResult>> selector,
+                                                                Func<IQueryable<TModel>, IOrderedQueryable<TModel>> orderBy,
+                                                                params Expression<Func<TModel, object>>[] includes)
         {
             IQueryable<TModel> query = DbSet;
+
+            query = query.IncludeMultiple(includes);
 
             if (orderBy != null)
             {
@@ -278,6 +282,25 @@ namespace ControleBO.Infra.Data.Repositories
             }
 
             return query.AsNoTracking().Select(selector);
+        }
+
+        public IEnumerable<TModel> GetAllAsNoTracking(Expression<Func<TModel, bool>> filter, Func<IQueryable<TModel>, IOrderedQueryable<TModel>> orderBy, params Expression<Func<TModel, object>>[] includes)
+        {
+            IQueryable<TModel> query = DbSet;
+
+            query = query.IncludeMultiple(includes);
+
+            if (filter != null)
+            {
+                query = query.Where(filter);
+            }
+
+            if (orderBy != null)
+            {
+                query = orderBy(query);
+            }
+
+            return query.AsNoTracking();
         }
     }
 }

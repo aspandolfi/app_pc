@@ -23,7 +23,7 @@ namespace ControleBO.Infra.Data.MapConfig
             builder.Property(x => x.NumeroProcessual)
                 .HasColumnType("varchar(30)")
                 .HasMaxLength(30)
-                .IsRequired();
+                .IsRequired(false);
 
             builder.Property(x => x.Gampes)
                 .HasColumnType("varchar(30)")
@@ -46,7 +46,7 @@ namespace ControleBO.Infra.Data.MapConfig
             builder.HasOne(x => x.TipoProcedimento)
                 .WithMany()
                 .HasForeignKey(x => x.TipoProcedimentoId)
-                .IsRequired();
+                .IsRequired(false);
 
             builder.HasOne(x => x.VaraCriminal)
                 .WithMany()

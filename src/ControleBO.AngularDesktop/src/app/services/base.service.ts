@@ -20,7 +20,7 @@ export class BaseService {
     return ApiConfiguration.ApiUrl;
   }
 
-  constructor(private http: HttpClient,
+  constructor(public http: HttpClient,
     @Inject('BASE_URL') private localUrl: string,
     private fileService: FileService,
     private authentication: AuthenticationService) {

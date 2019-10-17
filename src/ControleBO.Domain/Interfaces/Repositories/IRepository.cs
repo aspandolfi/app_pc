@@ -52,7 +52,12 @@ namespace ControleBO.Domain.Interfaces.Repositories
                                                          params Expression<Func<TModel, object>>[] includes);
 
         IEnumerable<TResult> GetAllAsNoTracking<TResult>(Expression<Func<TModel, TResult>> selector,
-                                                         Func<IQueryable<TModel>, IOrderedQueryable<TModel>> orderBy);
+                                                         Func<IQueryable<TModel>, IOrderedQueryable<TModel>> orderBy,
+                                                         params Expression<Func<TModel, object>>[] includes);
+
+        IEnumerable<TModel> GetAllAsNoTracking(Expression<Func<TModel, bool>> filter,
+                                               Func<IQueryable<TModel>, IOrderedQueryable<TModel>> orderBy,
+                                               params Expression<Func<TModel, object>>[] includes);
 
         int Count();
 

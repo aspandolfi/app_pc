@@ -141,7 +141,7 @@ namespace ControleBO.Domain.Commands
             }
         }
 
-        public int TipoProcedimentoId { get; protected set; }
+        public int? TipoProcedimentoId { get; protected set; }
 
         public int? VaraCriminalId { get; protected set; }
 

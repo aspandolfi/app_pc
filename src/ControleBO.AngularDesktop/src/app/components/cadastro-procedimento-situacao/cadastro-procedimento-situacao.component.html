@@ -1,4 +1,4 @@
-<div class="card mb-3">
+<div class="card mb-3 shadow-sm">
   <div class="card-header clearfix">
     Situação
     <input *ngIf="canEdit" type="button" class="btn btn-sm btn-secondary float-right" value="Salvar" (click)="salvar();">
@@ -83,23 +83,6 @@
   </div>
 </div>
 
-<div class="card mb-3">
-  <div class="card-header clearfix">
-    Movimentações
-    <input *ngIf="canEdit" type="button" class="btn btn-sm btn-secondary float-right" value="Novo" (click)="openModalMovimentacao(null);">
-  </div>
-  <div class="card-body">
-    <div class="text-left" *ngIf="isLoadingMovimentacoes">
-      <div class="spinner-border spinner-border-sm" role="status">
-        <span class="sr-only">Loading...</span>
-      </div>
-    </div>
-    <app-ultima-movimentacao [ultimasMovimentacoes]="movimentacoes"
-                             [titulo]="''"
-                             [enableActions]="canEdit">
-    </app-ultima-movimentacao>
-  </div>
-</div>
 <ngx-loading-bar [color]="'#6c757d'"
                  [includeSpinner]="false"
                  [height]="'3px'">

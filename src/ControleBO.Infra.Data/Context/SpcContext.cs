@@ -1,4 +1,5 @@
 ﻿using ControleBO.Domain.Models;
+using ControleBO.Domain.Queries;
 using ControleBO.Infra.Data.MapConfig;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -9,7 +10,7 @@ using System.Linq;
 
 namespace ControleBO.Infra.Data.Context
 {
-    public class SpcContext : DbContext
+    public partial class SpcContext : DbContext
     {
         private readonly IHostingEnvironment _env;
 
@@ -54,6 +55,9 @@ namespace ControleBO.Infra.Data.Context
             modelBuilder.ApplyConfiguration(new VaraCriminalMap());
             modelBuilder.ApplyConfiguration(new ProcedimentoTipoMap());
             modelBuilder.ApplyConfiguration(new VitimaMap());
+
+            modelBuilder.Query<ProcedimentoListQuery>()
+                .ToView("ProcedimentosListView");
 
             base.OnModelCreating(modelBuilder);
         }

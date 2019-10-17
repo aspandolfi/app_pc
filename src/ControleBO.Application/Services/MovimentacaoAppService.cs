@@ -6,6 +6,7 @@ using ControleBO.Domain.Core.Bus;
 using ControleBO.Domain.Interfaces.Repositories;
 using ControleBO.Domain.Models;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ControleBO.Application.Services
 {
@@ -28,7 +29,7 @@ namespace ControleBO.Application.Services
 
         public IEnumerable<MovimentacaoViewModel> GetByProcedimentoId(int procedimentoId)
         {
-            var result = Repository.GetAllAsNoTracking(x => x.ProcedimentoId == procedimentoId, x => x.Data);
+            var result = Repository.GetAllAsNoTracking(x => x.ProcedimentoId == procedimentoId, x => x.OrderByDescending(z => z.Data), null);
 
             return Mapper.Map<IEnumerable<MovimentacaoViewModel>>(result);
         }

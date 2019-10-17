@@ -35,9 +35,8 @@ export class CadastroMovimentacaoComponent implements OnInit {
           this.messageService.send(new Message(res, Action.Updated));
         }, error => {
           this.messageService.send(new Message(error));
-        }, () => {
-          this.submitted = false;
-        });
+        }, () => this.modalRef.hide())
+        .add(() => this.submitted = false);
     }
     else {
       this.movimentacaoService.create(this.model)
@@ -45,9 +44,8 @@ export class CadastroMovimentacaoComponent implements OnInit {
           this.messageService.send(new Message(res, Action.Created));
         }, error => {
           this.messageService.send(new Message(error));
-        }, () => {
-          this.submitted = false;
-        });
+        }, () => this.modalRef.hide())
+        .add(() => this.submitted = false);
     }
   }
 

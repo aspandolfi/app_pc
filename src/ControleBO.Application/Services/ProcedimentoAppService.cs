@@ -19,9 +19,12 @@ namespace ControleBO.Application.Services
                                                          UpdateProcedimentoCommand,
                                                          RemoveProcedimentoCommand>, IProcedimentoAppService
     {
+        private readonly IProcedimentoRepository _procedimentoRepository;
+
         public ProcedimentoAppService(IMapper mapper, IProcedimentoRepository repository, IMediatorHandler bus)
             : base(mapper, repository, bus)
         {
+            _procedimentoRepository = repository;
         }
 
         static readonly List<Expression<Func<Procedimento, object>>> DatatableColumns =
@@ -146,31 +149,7 @@ namespace ControleBO.Application.Services
 
         public IEnumerable<ProcedimentoListViewModel> GetAllAsListViewModel()
         {
-            var result = Repository.GetAllAsNoTracking(x => new
-            {
-                x.Id,
-                x.BoletimUnificado,
-                x.BoletimOcorrencia,
-                x.NumeroProcessual,
-                TipoProcedimento = x.TipoProcedimento.Sigla,
-                x.CriadoEm,
-                Comarca = x.Comarca.Nome,
-                x.SituacaoAtual,
-                Vitimas = x.Vitimas.Select(v => v.Nome)
-            }, q => q.OrderByDescending(x => x.CriadoEm));
-
-            return result.Select(p => new ProcedimentoListViewModel
-            {
-                Id = p.Id,
-                BoletimUnificado = p.BoletimUnificado,
-                BoletimOcorrencia = p.BoletimOcorrencia,
-                NumeroProcessual = p.NumeroProcessual,
-                TipoProcedimento = p.TipoProcedimento,
-                DataInsercao = p.CriadoEm,
-                Comarca = p.Comarca,
-                AndamentoProcessual = p.SituacaoAtual.Descricao,
-                Vitimas = string.Join(";", p.Vitimas)
-            });
+            return Mapper.Map<IEnumerable<ProcedimentoListViewModel>>(_procedimentoRepository.GetProcedimementoLists());
         }
     }
 }

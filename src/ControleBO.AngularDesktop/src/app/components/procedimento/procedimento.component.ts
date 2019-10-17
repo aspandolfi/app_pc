@@ -12,6 +12,7 @@ import { MessageService } from 'src/app/services/message.service';
 import { IMessage, Action } from 'src/app/models/message';
 import { debounceTime } from 'rxjs/operators';
 import { GrdFilterPipe } from 'src/app/pipes/grd-filter.pipe';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-procedimento',
@@ -56,7 +57,8 @@ export class ProcedimentoComponent implements OnInit, OnDestroy {
     private toastr: ToastrService,
     private localeService: BsLocaleService,
     private userManager: UserManagerService,
-    private grdFilter: GrdFilterPipe) {
+    private grdFilter: GrdFilterPipe,
+    private router: Router) {
     this.localeService.use('pt-br');
     this.onReceiveMessage();
   }
@@ -118,7 +120,7 @@ export class ProcedimentoComponent implements OnInit, OnDestroy {
 
   openModalExcluir(procedimento: Procedimento) {
     const initialState = {
-      propertyToDescribe: 'numeroProcessual',
+      propertyToDescribe: 'id',
       model: procedimento,
       uri: 'api/procedimento/'
     };
@@ -188,5 +190,11 @@ export class ProcedimentoComponent implements OnInit, OnDestroy {
     this.searchDe = null;
     this.searchAte = null;
     this.returnedProcedimentos = this.auxProcedimentos.slice(0, this.pageSize);
+  }
+
+  onClickRow(event: MouseEvent, procedimentoId: number) {
+    if (event.srcElement.nodeName === 'TD') {
+      this.router.navigate(['/cadastro-procedimento', procedimentoId]);
+    }
   }
 }

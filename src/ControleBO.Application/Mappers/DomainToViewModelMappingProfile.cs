@@ -2,6 +2,7 @@
 using ControleBO.Application.ViewModels;
 using ControleBO.Domain.DataObjects;
 using ControleBO.Domain.Models;
+using ControleBO.Domain.Queries;
 
 namespace ControleBO.Application.Mappers
 {
@@ -9,8 +10,7 @@ namespace ControleBO.Application.Mappers
     {
         public DomainToViewModelMappingProfile()
         {
-            CreateMap<Procedimento, ProcedimentoViewModel>()
-                .ForMember(dest => dest.AndamentoProcessual, opt => opt.MapFrom(src => src.SituacaoAtual.Descricao));
+            CreateMap<Procedimento, ProcedimentoViewModel>();
             CreateMap<ProcedimentoTipo, ProcedimentoTipoViewModel>();
             CreateMap<Municipio, MunicipioViewModel>();
             CreateMap<DataTableObject, DataTableViewModel>();
@@ -29,6 +29,7 @@ namespace ControleBO.Application.Mappers
             CreateMap<Assunto, AssuntoViewModel>();
             CreateMap<UnidadePolicial, UnidadePolicialViewModel>();
             CreateMap<VaraCriminal, VaraCriminalViewModel>();
+            CreateMap<ProcedimentoListQuery, ProcedimentoListViewModel>();
         }
     }
 }

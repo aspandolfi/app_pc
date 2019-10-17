@@ -32,8 +32,12 @@ namespace ControleBO.Domain.Validations
 
         protected void ValidateNumeroProcessual()
         {
-            RuleFor(x => x.NumeroProcessual)
-                .NotEmpty().WithMessage("Por favor tenha certeza que você inseriou o campo Número Processual.");
+            When(x => !string.IsNullOrEmpty(x.NumeroProcessual), () =>
+             {
+                 RuleFor(x => x.NumeroProcessual)
+                 .NotEmpty().WithMessage("Por favor tenha certeza que você inseriou o campo Número Processual.")
+                 .MaximumLength(30).WithMessage("Por favor verifique se o número processual tem menos de 30 caracteres.");
+             });
         }
 
         protected void ValidateGampes()
@@ -47,8 +51,11 @@ namespace ControleBO.Domain.Validations
 
         protected void ValidateTipoProcedimento()
         {
-            RuleFor(x => x.TipoProcedimentoId)
+            When(x => x.TipoProcedimentoId > 0, () =>
+            {
+                RuleFor(x => x.TipoProcedimentoId)
                 .GreaterThan(0).WithMessage("Por favor tenha certeza que o Tipo de Procedimento é válido.");
+            });
         }
 
         protected void ValidateVaraCriminal()

@@ -43,7 +43,7 @@ namespace ControleBO.Application.ViewModels
         public string AndamentoProcessual { get; set; }
 
         [JsonProperty(PropertyName = "tipoProcedimentoId")]
-        public int TipoProcedimentoId { get; set; }
+        public int? TipoProcedimentoId { get; set; }
 
         [JsonProperty(PropertyName = "varaCriminalId")]
         public int? VaraCriminalId { get; set; }

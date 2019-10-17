@@ -1,4 +1,4 @@
-<div class="card mb-3">
+<div class="card mb-3 shadow-sm">
   <div class="card-header clearfix">
     <span>Procedimentos</span>
     <a *ngIf="canEdit" class="btn btn-sm btn-secondary float-right" [routerLink]="['/cadastro-procedimento']">
@@ -63,8 +63,8 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let procedimento of returnedProcedimentos">
-            <td data-id="{{procedimento.id}}">
+          <tr *ngFor="let procedimento of returnedProcedimentos" (click)="onClickRow($event, procedimento.id)">
+            <td class="no-cursor-hover" data-id="{{procedimento.id}}">
               <div class="form-inline align-items-center">
                 <div *ngIf="canEdit" class="form-group ml-1">
                   <a title="Editar" class="text-secondary" [routerLink]="['/cadastro-procedimento', procedimento.id]">
@@ -122,7 +122,7 @@
     <div class="card-footer small text-muted" style="margin-top:5px">
       <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" [hidden]="!isLoadingUltimaAtualizacao"></span>
       <span class="sr-only">Loading...</span>
-      Atualizado em {{ultimaAtualizacao | date: 'dd/MM/yyyy'}}
+      Atualizado em {{ultimaAtualizacao | date: 'dd/MM/yyyy hh:mm'}}
     </div>
   </div>
 </div>

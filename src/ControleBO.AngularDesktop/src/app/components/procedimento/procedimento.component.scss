@@ -1,3 +1,19 @@
 .table thead tr th:first-child {
   width: 70px
 }
+
+.table td:hover:not(.no-cursor-hover) {
+  cursor: pointer
+}
+
+/*.table-striped tbody tr:nth-of-type(odd):hover {
+  background-color: white;
+}
+
+.table-striped tbody tr:hover:not(:nth-of-type(odd)) {
+  background-color: rgba(0, 0, 0, 0.09);
+}*/
+
+.table-striped tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.12);
+}

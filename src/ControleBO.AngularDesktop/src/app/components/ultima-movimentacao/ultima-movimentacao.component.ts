@@ -27,7 +27,6 @@ export class UltimaMovimentacaoComponent implements OnInit {
 
   get ultimasMovimentacoes() {
     return this._ultimasMovimentacoes
-      .map((item, i) => ({ id: i + 1, ...item }))
       .slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize);
   }
 
@@ -36,7 +35,10 @@ export class UltimaMovimentacaoComponent implements OnInit {
 
   page = 1;
   pageSize = 3;
-  totalItems = this.ultimasMovimentacoes.length;
+
+  get totalItems() {
+    return this._ultimasMovimentacoes.length;
+  }
 
   @Input('enableActions')
   enableActions: boolean = true;
@@ -48,7 +50,6 @@ export class UltimaMovimentacaoComponent implements OnInit {
 
   pageChanged(event: any): void {
     this.page = event.page;
-    this.ultimasMovimentacoes;
   }
 
   openModalExcluir(movimentacao: Movimentacao) {

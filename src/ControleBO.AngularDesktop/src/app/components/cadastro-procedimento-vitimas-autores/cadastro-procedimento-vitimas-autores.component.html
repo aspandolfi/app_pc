@@ -1,4 +1,4 @@
-<div class="card mb-3">
+<div class="card mb-3 shadow-sm">
   <div class="card-header clearfix">
     Vítimas
     <input *ngIf="canEdit" type="button" class="btn btn-sm btn-secondary float-right" value="Novo" data-name="btnVitima" (click)="openModal($event, null);">
@@ -76,7 +76,7 @@
   </div>
 </div>
 
-<div class="card mb-3">
+<div class="card mb-3 shadow-sm">
   <div class="card-header clearfix">
     Indiciados
     <input *ngIf="canEdit" type="button" class="btn btn-sm btn-secondary float-right" value="Novo" name="btnIndiciado" (click)="openModal($event, null);">

@@ -4,14 +4,16 @@ using ControleBO.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ControleBO.Infra.Data.Migrations.SqlServerMigrations
 {
     [DbContext(typeof(SpcContext))]
-    partial class SpcContextModelSnapshot : ModelSnapshot
+    [Migration("20191016184202_AdicionadoViewToProcedimentos")]
+    partial class AdicionadoViewToProcedimentos
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -267,6 +269,7 @@ namespace ControleBO.Infra.Data.Migrations.SqlServerMigrations
                     b.Property<DateTime>("ModificadoEm");
 
                     b.Property<string>("NumeroProcessual")
+                        .IsRequired()
                         .HasColumnType("varchar(30)")
                         .HasMaxLength(30);
 
@@ -278,7 +281,7 @@ namespace ControleBO.Infra.Data.Migrations.SqlServerMigrations
                         .HasColumnType("varchar(100)")
                         .HasMaxLength(100);
 
-                    b.Property<int?>("TipoProcedimentoId");
+                    b.Property<int>("TipoProcedimentoId");
 
                     b.Property<int?>("VaraCriminalId");
 
@@ -589,7 +592,8 @@ namespace ControleBO.Infra.Data.Migrations.SqlServerMigrations
 
                     b.HasOne("ControleBO.Domain.Models.ProcedimentoTipo", "TipoProcedimento")
                         .WithMany()
-                        .HasForeignKey("TipoProcedimentoId");
+                        .HasForeignKey("TipoProcedimentoId")
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("ControleBO.Domain.Models.VaraCriminal", "VaraCriminal")
                         .WithMany()

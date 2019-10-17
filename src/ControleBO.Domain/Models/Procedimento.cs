@@ -110,7 +110,7 @@ namespace ControleBO.Domain.Models
 
         public string AndamentoProcessual { get; set; }
 
-        public int TipoProcedimentoId { get; set; }
+        public int? TipoProcedimentoId { get; set; }
 
         public virtual ProcedimentoTipo TipoProcedimento { get; set; }
 
@@ -144,7 +144,7 @@ namespace ControleBO.Domain.Models
 
         public virtual ICollection<Movimentacao> HistoricoMovimentacoes { get; set; }
 
-        public Movimentacao UltimaMovimentacao => HistoricoMovimentacoes.LastOrDefault();
+        public virtual Movimentacao UltimaMovimentacao => HistoricoMovimentacoes.LastOrDefault();
 
         public int SituacaoAtualId { get; set; }
 

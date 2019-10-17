@@ -16,7 +16,7 @@ namespace ControleBO.Domain.Commands
                                          DateTime? dataInstauracao,
                                          string tipoCriminal,
                                          string andamentoProcessual,
-                                         int tipoProcedimentoId,
+                                         int? tipoProcedimentoId,
                                          int? varaCriminalId,
                                          int? comarcaId,
                                          int? assuntoId,

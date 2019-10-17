@@ -69,18 +69,26 @@ namespace ControleBO.Domain.CommandHandler
                 return Task.FromResult(0);
             }
 
-            if (_procedimentoRepository.Exists(request.NumeroProcessual))
+            if (!string.IsNullOrEmpty(request.NumeroProcessual))
             {
-                Bus.RaiseEvent(new DomainNotification(request.MessageType, "O Número Processual já está sendo usado."));
-                return Task.FromResult(0);
+                if (_procedimentoRepository.Exists(request.NumeroProcessual))
+                {
+                    Bus.RaiseEvent(new DomainNotification(request.MessageType, "O Número Processual já está sendo usado."));
+                    return Task.FromResult(0);
+                }
             }
 
-            var tipoProcedimento = _procedimentoTipoRepository.GetById(request.TipoProcedimentoId);
+            ProcedimentoTipo tipoProcedimento = null;
 
-            if (tipoProcedimento == null)
+            if (request.TipoProcedimentoId.HasValue)
             {
-                Bus.RaiseEvent(new DomainNotification(request.MessageType, "O Tipo de Procedimento não foi encontrado."));
-                return Task.FromResult(0);
+                tipoProcedimento = _procedimentoTipoRepository.GetById(request.TipoProcedimentoId.Value);
+
+                if (tipoProcedimento == null)
+                {
+                    Bus.RaiseEvent(new DomainNotification(request.MessageType, "O Tipo de Procedimento não foi encontrado."));
+                    return Task.FromResult(0);
+                }
             }
 
             Artigo artigo = null;
@@ -176,12 +184,17 @@ namespace ControleBO.Domain.CommandHandler
                 return Task.FromResult(0);
             }
 
-            var tipoProcedimento = _procedimentoTipoRepository.GetById(request.TipoProcedimentoId);
+            ProcedimentoTipo tipoProcedimento = null;
 
-            if (tipoProcedimento == null)
+            if (request.TipoProcedimentoId.HasValue)
             {
-                Bus.RaiseEvent(new DomainNotification(request.MessageType, "O Tipo de Procedimento não foi encontrado."));
-                return Task.FromResult(0);
+                tipoProcedimento = _procedimentoTipoRepository.GetById(request.TipoProcedimentoId.Value);
+
+                if (tipoProcedimento == null)
+                {
+                    Bus.RaiseEvent(new DomainNotification(request.MessageType, "O Tipo de Procedimento não foi encontrado."));
+                    return Task.FromResult(0);
+                }
             }
 
             Artigo artigo = null;
@@ -249,20 +262,33 @@ namespace ControleBO.Domain.CommandHandler
                 }
             }
 
-            var existringProcedimento = _procedimentoRepository.GetAsNoTracking(x => x.NumeroProcessual.Contains(request.NumeroProcessual)
-                                                                                  && x.Id == request.Id);
+            Procedimento existingProcedimento = null;
 
-            var situacaoAtual = _situacaoRepository.GetById(existringProcedimento.SituacaoAtualId);
+            if (!string.IsNullOrEmpty(request.NumeroProcessual))
+            {
+                existingProcedimento = _procedimentoRepository.GetAsNoTracking(x => x.NumeroProcessual.Contains(request.NumeroProcessual)
+                                                                                          && x.Id == request.Id);
+            }
 
-            var procedimento = new Procedimento(request.Id, request.BoletimUnificado, request.BoletimOcorrencia, request.NumeroProcessual, request.Gampes,
-                                                request.Anexos, request.LocalFato, request.DataFato, request.DataInstauracao, request.TipoCriminal,
-                                                request.AndamentoProcessual, tipoProcedimento, varaCriminal, municipio, assunto, artigo, unidadePolicial, situacaoAtual);
-
-            if (!procedimento.Equals(existringProcedimento))
+            if (existingProcedimento != null)
             {
                 Bus.RaiseEvent(new DomainNotification(request.MessageType, "O número processual já está sendo usado."));
                 return Task.FromResult(0);
             }
+
+            existingProcedimento = _procedimentoRepository.GetAsNoTracking(x => x.Id == request.Id);
+
+            if (existingProcedimento == null)
+            {
+                Bus.RaiseEvent(new DomainNotification(request.MessageType, "O procedimento não foi encontrado."));
+                return Task.FromResult(0);
+            }
+
+            var situacaoAtual = _situacaoRepository.GetById(existingProcedimento.SituacaoAtualId);
+
+            var procedimento = new Procedimento(request.Id, request.BoletimUnificado, request.BoletimOcorrencia, request.NumeroProcessual, request.Gampes,
+                                                request.Anexos, request.LocalFato, request.DataFato, request.DataInstauracao, request.TipoCriminal,
+                                                request.AndamentoProcessual, tipoProcedimento, varaCriminal, municipio, assunto, artigo, unidadePolicial, situacaoAtual);
 
             _procedimentoRepository.Update(procedimento);
 

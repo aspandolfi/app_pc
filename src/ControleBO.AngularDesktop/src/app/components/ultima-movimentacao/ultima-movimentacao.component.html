@@ -26,12 +26,19 @@
       </td>
       <td>{{movimentacao.destino}}</td>
       <td>{{movimentacao.data | date: 'dd/MM/yyyy'}}</td>
-      <td>{{movimentacao.retornouEm | date: 'dd//MM/yyyy'}}</td>
+      <td>{{movimentacao.retornouEm | date: 'dd/MM/yyyy'}}</td>
     </tr>
   </tbody>
 </table>
 <div class="row" *ngIf="totalItems > pageSize">
   <div class="col-xs-12 col-12">
-    <pagination [totalItems]="totalItems" [(ngModel)]="page" (pageChanged)="pageChanged($event)" class="text-secondary"></pagination>
+    <pagination [totalItems]="totalItems"
+                [maxSize]="pageSize"
+                [previousText]="'Anterior'"
+                [nextText]="'Próximo'"
+                [itemsPerPage]="pageSize"
+                [(ngModel)]="page"
+                (pageChanged)="pageChanged($event)"
+                class="text-secondary"></pagination>
   </div>
 </div>

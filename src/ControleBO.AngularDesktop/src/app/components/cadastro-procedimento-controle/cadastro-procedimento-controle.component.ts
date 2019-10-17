@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, AfterViewInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, Input, AfterViewInit, ChangeDetectorRef, OnDestroy } from '@angular/core';
 import { Procedimento } from 'src/app/models/procedimento';
 import { TipoProcedimento } from 'src/app/models/tipo-procedimento';
 import { TypeaheadMatch } from 'ngx-bootstrap/typeahead';
@@ -14,7 +14,7 @@ import { Artigo } from 'src/app/models/artigo';
 import { Assunto } from 'src/app/models/assunto';
 import { ArtigoService } from 'src/app/services/artigo.service';
 import { AssuntoService } from 'src/app/services/assunto.service';
-import { Message, Action } from 'src/app/models/message';
+import { Message, Action, IMessage } from 'src/app/models/message';
 import { TabsMessageService } from 'src/app/services/tabs-message.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UnidadePolicialService } from 'src/app/services/unidade-policial.service';
@@ -22,13 +22,18 @@ import { UnidadePolicial } from 'src/app/models/unidade-policial';
 import { Result } from 'src/app/models/result';
 import { MovimentacaoService } from '../../services/movimentacao.service';
 import { UserManagerService } from '../../services/user-manager.service';
+import { Movimentacao } from 'src/app/models/movimentacao';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { MessageService } from 'src/app/services/message.service';
+import { Subscription } from 'rxjs';
+import { CadastroMovimentacaoComponent } from '../cadastro-movimentacao/cadastro-movimentacao.component';
 
 @Component({
   selector: 'app-cadastro-procedimento-controle',
   templateUrl: './cadastro-procedimento-controle.component.html',
   styleUrls: ['./cadastro-procedimento-controle.component.scss']
 })
-export class CadastroProcedimentoControleComponent implements OnInit, AfterViewInit {
+export class CadastroProcedimentoControleComponent implements OnInit, AfterViewInit, OnDestroy {
 
   bsConfig: Partial<BsDatepickerConfig> = { containerClass: 'theme-default' };
 
@@ -53,6 +58,7 @@ export class CadastroProcedimentoControleComponent implements OnInit, AfterViewI
   assuntos: Assunto[] = [];
   artigos: Artigo[] = [];
   delegacias: UnidadePolicial[] = [];
+  movimentacoes: Movimentacao[] = [];
 
   @Input("procedimentoId")
   procedimentoId: number;
@@ -64,6 +70,7 @@ export class CadastroProcedimentoControleComponent implements OnInit, AfterViewI
   isLoadingArtigos: boolean = false;
   isLoadingAssuntos: boolean = false;
   isLoadingDelegacias: boolean = false;
+  isLoadingMovimentacoes: boolean;
 
   isNoResultProcedimentoTipo: boolean = false;
   isNoResultComarca: boolean = false;
@@ -71,6 +78,9 @@ export class CadastroProcedimentoControleComponent implements OnInit, AfterViewI
   isNoResultAssunto: boolean = false;
   isNoResultArtigo: boolean = false;
   isNoResultDelegacia: boolean = false;
+
+  private modalRef: BsModalRef;
+  private subscription: Subscription;
 
   get canEdit() {
     return this.userManager.canEdit();
@@ -90,14 +100,18 @@ export class CadastroProcedimentoControleComponent implements OnInit, AfterViewI
     private route: ActivatedRoute,
     private router: Router,
     private cdr: ChangeDetectorRef,
-    private userManager: UserManagerService) {
+    private userManager: UserManagerService,
+    private modalService: BsModalService,
+    private messageService: MessageService, ) {
     this.changeLocale();
+    this.onReceiveMessage();
   }
 
   ngOnInit() {
     this.route.parent.paramMap.subscribe(params => {
       this.procedimentoId = +params.get('id');
       this.getProcedimento(this.procedimentoId);
+      this.getMovimentacoes(this.procedimentoId);
     });
   }
 
@@ -329,10 +343,10 @@ export class CadastroProcedimentoControleComponent implements OnInit, AfterViewI
 
   salvar() {
 
-    if (!this.tipoProcedimento) {
-      this.toastr.error('Tipo de Procedimento inválido. Por favor selecione um item válido.');
-      return;
-    }
+    //if (!this.tipoProcedimento) {
+    //  this.toastr.error('Tipo de Procedimento inválido. Por favor selecione um item válido.');
+    //  return;
+    //}
 
     //if (!this.comarca) {
     //  this.toastr.error('Comarca inválida. Por favor selecione um item válido.');
@@ -359,7 +373,7 @@ export class CadastroProcedimentoControleComponent implements OnInit, AfterViewI
     //  return;
     //}
 
-    this.procedimento.tipoProcedimentoId = this.tipoProcedimento.id;
+    this.procedimento.tipoProcedimentoId = this.tipoProcedimento ? this.tipoProcedimento.id : undefined;
     this.procedimento.varaCriminalId = this.varaCriminal ? this.varaCriminal.id : undefined;
     this.procedimento.comarcaId = this.comarca ? this.comarca.id : undefined;
     this.procedimento.assuntoId = this.assunto ? this.assunto.id : undefined;
@@ -399,4 +413,64 @@ export class CadastroProcedimentoControleComponent implements OnInit, AfterViewI
     }
   }
 
+  private getMovimentacoes(procedimentoId) {
+    this.isLoadingMovimentacoes = true;
+    this.movimentacaoService.getByProcedimentoId(procedimentoId).subscribe(res => {
+      this.movimentacoes = res.data;
+    },
+      () => this.toastr.error('Falha ao buscar as Movimentações')
+    ).add(() => this.isLoadingMovimentacoes = false);
+  }
+
+  openModalMovimentacao(movimentacao: Movimentacao) {
+    const initialState = {
+      model: movimentacao == undefined ? new Movimentacao(this.procedimentoId) : movimentacao
+    };
+    this.modalRef = this.modalService.show(CadastroMovimentacaoComponent, { initialState, class: 'modal-lg modal-dialog-centered', ignoreBackdropClick: true, backdrop: true });
+  }
+
+  private onReceiveMessage() {
+    this.subscription = this.messageService.messageListener$.subscribe(
+      message => {
+        if (!message.isError) {
+          this.toastr.success(message.text);
+          this.postReceiveMessage(message);
+        }
+        else {
+          this.toastr.error(message.text);
+          message.errors.forEach(m => this.toastr.error(m));
+        }
+      });
+  }
+
+  private postReceiveMessage(message: IMessage) {
+    if (message.action == Action.Created) {
+      this.addToTable(message.data);
+    }
+    else if (message.action == Action.Removed) {
+      this.removeFromTable(message.data);
+    }
+    else if (message.action == Action.Updated) {
+      this.updateTable(message.data);
+    }
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
+
+  private addToTable(movimentacao: Movimentacao) {
+    this.movimentacoes.push(movimentacao);
+    this.movimentacoes.sort((a, b) => a.data > b.data ? -1 : 1);
+  }
+
+  private updateTable(movimentacao: Movimentacao) {
+    let index = this.movimentacoes.findIndex(x => x.id == movimentacao.id);
+    this.movimentacoes[index] = movimentacao;
+  }
+
+  private removeFromTable(movimentacao: Movimentacao) {
+    let index = this.movimentacoes.findIndex(x => x.id == movimentacao.id);
+    this.movimentacoes.splice(index, 1);
+  }
 }

@@ -236,7 +236,13 @@ export class CadastroProcedimentoControleComponent implements OnInit, AfterViewI
   private getDelegacias() {
     this.isLoadingDelegacias = true;
 
-    this.unidadePolicialService.getAll().subscribe(res => this.delegacias = res.data,
+    this.unidadePolicialService.getAll().subscribe(res => {
+      if (res.data) {
+        res.data.map(u => this.delegacias.push(
+          { codigo: u.codigo, codigoCargoQO: u.codigoCargoQO, descricao: `${u.descricao} - ${u.sigla}`, id: u.id, sigla: u.sigla }
+        ));
+      }
+    },
       () => this.toastr.error("Falha ao buscar as Delegacias."),
       () => this.isLoadingDelegacias = false
     ).add(() => {

@@ -201,8 +201,10 @@ export class CadastroProcedimentoSituacaoComponent implements OnInit, OnDestroy 
         return;
       }
 
-      if (this.tipoSituacao.id != this.situacaoProcedimento.situacaoTipoId) {
-        this.situacaoProcedimento.id = 0;
+      if (this.tipoSituacao) {
+        if (this.tipoSituacao.id != this.situacaoProcedimento.situacaoTipoId) {
+          this.situacaoProcedimento.id = 0;
+        }
       }
     }
 

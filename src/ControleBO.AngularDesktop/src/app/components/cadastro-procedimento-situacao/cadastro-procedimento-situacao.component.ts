@@ -182,7 +182,12 @@ export class CadastroProcedimentoSituacaoComponent implements OnInit, OnDestroy 
       return;
     }
 
-    if (this.situacao.id != 1 && !this.tipoSituacao) {
+    if (this.situacao.id != 1 && this.selectedIndiciamentoId == 2 && !this.tipoSituacao) {
+      this.toastr.warning('Por favor selecione um motivo válido.');
+      return;
+    }
+
+    if (this.situacao.id == 2 && !this.tipoSituacao) {
       this.toastr.warning('Por favor selecione um motivo válido.');
       return;
     }

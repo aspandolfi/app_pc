@@ -267,7 +267,7 @@ namespace ControleBO.Domain.CommandHandler
             if (!string.IsNullOrEmpty(request.NumeroProcessual))
             {
                 existingProcedimento = _procedimentoRepository.GetAsNoTracking(x => x.NumeroProcessual.Contains(request.NumeroProcessual)
-                                                                                          && x.Id == request.Id);
+                                                                                          && x.Id != request.Id);
             }
 
             if (existingProcedimento != null)

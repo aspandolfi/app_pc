@@ -126,7 +126,16 @@ namespace ControleBO.Domain.Validations
             When(x => x.DataFato.HasValue, () =>
             {
                 RuleFor(x => x.DataFato)
-                .LessThanOrEqualTo(DateTime.Today).WithMessage("A Data do Fato deve ser menor que a data atual.");
+                .LessThanOrEqualTo(DateTime.Now.AddHours(23 - DateTime.Now.Hour).AddMinutes(59 - DateTime.Now.Minute)).WithMessage("A Data do Fato deve ser menor ou igual a data de hoje.");
+            });
+        }
+
+        protected void ValidateDataInstauracao()
+        {
+            When(x => x.DataInstauracao.HasValue, () =>
+            {
+                RuleFor(x => x.DataInstauracao)
+                .GreaterThanOrEqualTo(x => x.DataFato).WithMessage("A Data do Instauração deve ser maior ou igual que a data do fato.");
             });
         }
 

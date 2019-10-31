@@ -1,5 +1,6 @@
 ﻿using ControleBO.Domain.Validations;
 using System;
+using System.Collections.Generic;
 
 namespace ControleBO.Domain.Commands
 {
@@ -20,7 +21,8 @@ namespace ControleBO.Domain.Commands
                                               int? comarcaId,
                                               int? assuntoId,
                                               int? artigoId,
-                                              int? delegaciaOrigemId)
+                                              int? delegaciaOrigemId,
+                                              IEnumerable<MovimentacaoCommand> movimentacoes)
         {
             BoletimUnificado = boletimUnificado;
             BoletimOcorrencia = boletimOcorrencia;
@@ -38,6 +40,7 @@ namespace ControleBO.Domain.Commands
             AssuntoId = assuntoId;
             ArtigoId = artigoId;
             DelegaciaOrigemId = delegaciaOrigemId;
+            Movimentacoes = movimentacoes;
         }
 
         public override bool IsValid()

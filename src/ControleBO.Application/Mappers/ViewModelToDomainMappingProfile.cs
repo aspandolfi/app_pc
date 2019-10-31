@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using ControleBO.Application.ViewModels;
 using ControleBO.Domain.Commands;
+using System.Linq;
 
 namespace ControleBO.Application.Mappers
 {
@@ -26,24 +27,26 @@ namespace ControleBO.Application.Mappers
             CreateMap<IndiciadoViewModel, UpdateIndiciadoCommand>()
                 .ConstructUsing(v => new UpdateIndiciadoCommand(v.Id, v.Apelido, v.ProcedimentoId,
                                      v.Nome, v.NomePai, v.NomeMae, v.DataNascimento, v.Telefone, v.NaturalidadeId));
-
-            CreateMap<ProcedimentoViewModel, RegisterNewProcedimentoCommand>().
-                ConstructUsing(p => new RegisterNewProcedimentoCommand(p.BoletimUnificado,
-                                                                       p.BoletimOcorrencia,
-                                                                       p.NumeroProcessual,
-                                                                       p.Gampes,
-                                                                       p.Anexos,
-                                                                       p.LocalFato,
-                                                                       p.DataFato,
-                                                                       p.DataInstauracao,
-                                                                       p.TipoCriminal,
-                                                                       p.AndamentoProcessual,
-                                                                       p.TipoProcedimentoId,
-                                                                       p.VaraCriminalId,
-                                                                       p.ComarcaId,
-                                                                       p.AssuntoId,
-                                                                       p.ArtigoId,
-                                                                       p.DelegaciaOrigemId));
+            CreateMap<ProcedimentoViewModel, RegisterNewProcedimentoCommand>()
+                .ForCtorParam("movimentacoes", p => p.MapFrom(src => src.Movimentacoes.Select(m => new RegisterNewMovimentacaoCommand(m.Destino, m.Data, m.RetornouEm, m.ProcedimentoId))));
+            //CreateMap<ProcedimentoViewModel, RegisterNewProcedimentoCommand>().
+            //    ConstructUsing(p => new RegisterNewProcedimentoCommand(p.BoletimUnificado,
+            //                                                           p.BoletimOcorrencia,
+            //                                                           p.NumeroProcessual,
+            //                                                           p.Gampes,
+            //                                                           p.Anexos,
+            //                                                           p.LocalFato,
+            //                                                           p.DataFato,
+            //                                                           p.DataInstauracao,
+            //                                                           p.TipoCriminal,
+            //                                                           p.AndamentoProcessual,
+            //                                                           p.TipoProcedimentoId,
+            //                                                           p.VaraCriminalId,
+            //                                                           p.ComarcaId,
+            //                                                           p.AssuntoId,
+            //                                                           p.ArtigoId,
+            //                                                           p.DelegaciaOrigemId,
+            //                                                           p.Movimentacoes.Select(m => new RegisterNewMovimentacaoCommand(m.Destino, m.Data, m.RetornouEm, m.ProcedimentoId))));
             CreateMap<ProcedimentoViewModel, UpdateProcedimentoCommand>().
                 ConstructUsing(p => new UpdateProcedimentoCommand(p.Id,
                                                                   p.BoletimUnificado,

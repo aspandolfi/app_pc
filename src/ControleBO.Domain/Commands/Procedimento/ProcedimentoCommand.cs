@@ -158,5 +158,7 @@ namespace ControleBO.Domain.Commands
         public IEnumerable<IndiciadoCommand> Autores { get; protected set; }
 
         public IEnumerable<ObjetoApreendidoCommand> ObjetosApreendidos { get; protected set; }
+
+        public IEnumerable<MovimentacaoCommand> Movimentacoes { get; protected set; }
     }
 }

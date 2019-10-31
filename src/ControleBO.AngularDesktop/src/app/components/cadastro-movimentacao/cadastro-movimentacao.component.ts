@@ -19,6 +19,10 @@ export class CadastroMovimentacaoComponent implements OnInit {
 
   submitted = false;
 
+  get isNovoProcedimento() {
+    return this.model.procedimentoId ? false : true;
+  }
+
   constructor(public modalRef: BsModalRef,
     private movimentacaoService: MovimentacaoService,
     private messageService: MessageService) { }
@@ -29,23 +33,37 @@ export class CadastroMovimentacaoComponent implements OnInit {
   save() {
     this.submitted = true;
 
-    if (this.model.id) {
-      this.movimentacaoService.update(this.model)
-        .subscribe(res => {
-          this.messageService.send(new Message(res, Action.Updated));
-        }, error => {
-          this.messageService.send(new Message(error));
-        }, () => this.modalRef.hide())
-        .add(() => this.submitted = false);
+    if (this.model.procedimentoId) {
+      if (this.model.id) {
+        this.movimentacaoService.update(this.model)
+          .subscribe(res => {
+            this.messageService.send(new Message(res, Action.Updated));
+          }, error => {
+            this.messageService.send(new Message(error));
+          }, () => this.modalRef.hide())
+          .add(() => this.submitted = false);
+      }
+      else {
+        this.movimentacaoService.create(this.model)
+          .subscribe(res => {
+            this.messageService.send(new Message(res, Action.Created));
+          }, error => {
+            this.messageService.send(new Message(error));
+          }, () => this.modalRef.hide())
+          .add(() => this.submitted = false);
+      }
     }
     else {
-      this.movimentacaoService.create(this.model)
-        .subscribe(res => {
-          this.messageService.send(new Message(res, Action.Created));
-        }, error => {
-          this.messageService.send(new Message(error));
-        }, () => this.modalRef.hide())
-        .add(() => this.submitted = false);
+      this.messageService.send(new Message({
+        data: this.model,
+        message: 'A movimentação foi inserida e está pendente para ser cadastrada.',
+        errors: null,
+        success: true
+      }, Action.Created));
+      setTimeout(() => {
+        this.submitted = false;
+        this.modalRef.hide();
+      }, 300);
     }
   }
 

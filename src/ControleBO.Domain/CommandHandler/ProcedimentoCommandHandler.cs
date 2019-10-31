@@ -5,6 +5,7 @@ using ControleBO.Domain.Interfaces;
 using ControleBO.Domain.Interfaces.Repositories;
 using ControleBO.Domain.Models;
 using MediatR;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -167,6 +168,13 @@ namespace ControleBO.Domain.CommandHandler
             var situacaoProcedimento = new SituacaoProcedimento(procedimento, situacao);
 
             _situacaoProcedimentoRepository.Add(situacaoProcedimento);
+
+            if (request.Movimentacoes != null)
+            {
+                var movimentacoes = request.Movimentacoes.Select(m => new Movimentacao(m.Destino, m.Data, procedimento));
+
+                _movimentacaoRepository.AddRange(movimentacoes);
+            }
 
             if (Commit())
             {

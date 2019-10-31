@@ -68,5 +68,8 @@ namespace ControleBO.Application.ViewModels
 
         [JsonProperty(PropertyName = "objetosApreendidos")]
         public IEnumerable<ObjetoApreendidoViewModel> ObjetosApreendidos { get; set; }
+
+        [JsonProperty(PropertyName = "movimentacoes")]
+        public IEnumerable<MovimentacaoViewModel> Movimentacoes { get; set; }
     }
 }

@@ -22,7 +22,7 @@ export class Procedimento {
   artigoId: number;
   delegaciaId: number;
   situacao: string;
-  ultimasMovimentacoes: Movimentacao[] = [];
+  movimentacoes: Movimentacao[] = [];
 
   set DataInsercao(value: any) {
     if (value) {

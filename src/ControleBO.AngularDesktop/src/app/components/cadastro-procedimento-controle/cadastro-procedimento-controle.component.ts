@@ -143,7 +143,7 @@ export class CadastroProcedimentoControleComponent implements OnInit, AfterViewI
         this.getVarasCriminais();
         this.getArtigos();
         this.getAssuntos();
-        this.getUltimaMovimentacao();
+        //this.getUltimaMovimentacao();
       });
     }
     else {
@@ -255,7 +255,7 @@ export class CadastroProcedimentoControleComponent implements OnInit, AfterViewI
 
   private getUltimaMovimentacao() {
     this.movimentacaoService.geLastByProcedimentoId(this.procedimentoId).subscribe(res => {
-      this.procedimento.ultimasMovimentacoes.push(res.data);
+      this.procedimento.movimentacoes.push(res.data);
     }, (error) => this.toastr.error(error.message));
   }
 
@@ -385,6 +385,10 @@ export class CadastroProcedimentoControleComponent implements OnInit, AfterViewI
     this.procedimento.assuntoId = this.assunto ? this.assunto.id : undefined;
     this.procedimento.artigoId = this.artigo ? this.artigo.id : undefined;
     this.procedimento.delegaciaId = this.delegacia ? this.delegacia.id : undefined;
+
+    if (!this.procedimentoId) {
+      this.procedimento.movimentacoes = this.movimentacoes;
+    }
 
     this.isLoading = true;
 

@@ -4,15 +4,15 @@ export interface IMessage {
   text: string,
   data?: any;
   isError: boolean;
-  errors: string[];
+  errors?: string[];
   action: Action;
 }
 
 export class Message implements IMessage {
   text: string;
   data?: any;
-  isError: boolean;
-  errors: string[];
+  isError: boolean = false;
+  errors?: string[] = [];
   action: Action;
 
   constructor(result: Result<any>, action?: Action) {

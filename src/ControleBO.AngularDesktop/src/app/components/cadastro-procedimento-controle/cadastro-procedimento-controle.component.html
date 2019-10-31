@@ -199,7 +199,7 @@
 <div class="card shadow-sm">
   <div class="card-header clearfix">
     Movimentações
-    <input *ngIf="canEdit && procedimentoId" type="button" class="btn btn-sm btn-secondary float-right" value="Novo" (click)="openModalMovimentacao(null);">
+    <input *ngIf="canEdit" type="button" class="btn btn-sm btn-secondary float-right" value="Novo" (click)="openModalMovimentacao(null);">
   </div>
   <div class="card-body ultima-movimentacao">
     <div class="text-left" *ngIf="isLoadingMovimentacoes">

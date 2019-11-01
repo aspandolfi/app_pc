@@ -59,6 +59,7 @@ namespace ControleBO.Application.Services
             var seriesEmAndamento = result.Select(x => x.EmAndamento);
             var seriesNaJustica = result.Select(x => x.NaJustica);
             var seriesRelatado = result.Select(x => x.Relatado);
+            var seriesOutro = result.Select(x => x.Outro);
 
             var charVm = new ChartViewModel
             {
@@ -81,6 +82,11 @@ namespace ControleBO.Application.Services
                 {
                     Name = "Relatado",
                     Data = seriesRelatado.Cast<dynamic>()
+                },
+                new ChartViewModel.ChartSerieViewModel
+                {
+                    Name = "Outro",
+                    Data = seriesOutro.Cast<dynamic>()
                 }
             };
 
@@ -126,6 +132,7 @@ namespace ControleBO.Application.Services
             var seriesEmAndamento = grouped.Select(x => x.Count(y => y.SituacaoAtualId == 1));
             var seriesNaJustica = grouped.Select(x => x.Count(y => y.SituacaoAtualId == 2));
             var seriesRelatado = grouped.Select(x => x.Count(y => y.SituacaoAtualId == 3));
+            var seriesOutro = grouped.Select(x => x.Count(y => y.SituacaoAtualId == 4));
 
             var charVm = new ChartViewModel
             {
@@ -148,6 +155,11 @@ namespace ControleBO.Application.Services
                 {
                     Name = "Relatado",
                     Data = seriesRelatado.Cast<dynamic>()
+                },
+                new ChartViewModel.ChartSerieViewModel
+                {
+                    Name = "Outro",
+                    Data = seriesOutro.Cast<dynamic>()
                 }
             };
 
@@ -254,6 +266,7 @@ namespace ControleBO.Application.Services
             var seriesEmAndamento = grouped.Select(x => x.Count(y => y.SituacaoAtualId == 1));
             var seriesNaJustica = grouped.Select(x => x.Count(y => y.SituacaoAtualId == 2));
             var seriesRelatado = grouped.Select(x => x.Count(y => y.SituacaoAtualId == 3));
+            var seriesOutro = grouped.Select(x => x.Count(y => y.SituacaoAtualId == 4));
 
             var charVm = new ChartViewModel
             {
@@ -276,6 +289,11 @@ namespace ControleBO.Application.Services
                 {
                     Name = "Relatado",
                     Data = seriesRelatado.Cast<dynamic>()
+                },
+                new ChartViewModel.ChartSerieViewModel
+                {
+                    Name = "Outro",
+                    Data = seriesOutro.Cast<dynamic>()
                 }
             };
 

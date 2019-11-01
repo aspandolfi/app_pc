@@ -68,7 +68,8 @@ namespace ControleBO.Infra.Data.Repositories
                                   Assunto = a.Key.Assunto,
                                   EmAndamento = a.Select(x => x.SituacaoAtualId).Where(x => x == 1).Count(),
                                   NaJustica = a.Select(x => x.SituacaoAtualId).Where(x => x == 2).Count(),
-                                  Relatado = a.Select(x => x.SituacaoAtualId).Where(x => x == 3).Count()
+                                  Relatado = a.Select(x => x.SituacaoAtualId).Where(x => x == 3).Count(),
+                                  Outro = a.Select(x => x.SituacaoAtualId).Where(x => x == 4).Count()
                               })
                               .ToList();
 

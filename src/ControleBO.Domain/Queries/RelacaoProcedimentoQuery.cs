@@ -19,5 +19,7 @@ namespace ControleBO.Domain.Queries
         public DateTime? Instauracao { get; set; }
 
         public string Situacao { get; set; }
+
+        public string Observacao { get; set; }
     }
 }

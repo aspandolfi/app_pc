@@ -155,14 +155,15 @@ namespace ControleBO.Infra.Data.Repositories
             var result = query.AsNoTracking()
                 .Select(p => new RelacaoProcedimentoQuery
                 {
-                    Artigo = p.Artigo.Descricao,
-                    BoletimOcorrencia = p.BoletimOcorrencia,
+                    Artigo = p.Artigo.Descricao.ToUpper(),
+                    BoletimOcorrencia = p.BoletimOcorrencia.ToUpper(),
                     DataFato = p.DataFato,
                     Instauracao = p.DataInstauracao,
-                    Indiciados = string.Join("<br/>", p.Autores.Select(a => a.Nome)),
+                    Indiciados = string.Join("<br/>", p.Autores.Select(a => a.Nome.ToUpper())),
                     NumeroProcedimento = p.Id,
-                    Situacao = p.SituacaoAtual.Descricao,
-                    UnidadePolicial = p.DelegaciaOrigem.Descricao
+                    Situacao = p.SituacaoAtual.Descricao.ToUpper(),
+                    UnidadePolicial = p.DelegaciaOrigem.Descricao.ToUpper(),
+                    Observacao = p.HistoricoSituacoes.OrderByDescending(x => x.ModificadoEm).FirstOrDefault().Observacao.ToUpper()
                 }).ToList();
 
             return result;

@@ -76,7 +76,7 @@
     <div class="form-row">
       <div class="form-group col-md">
         <label for="observacao" class="control-label">Observação:</label>
-        <textarea class="form-control form-control-sm" [(ngModel)]="observacao" name="observacao"></textarea>
+        <textarea class="form-control form-control-sm" [(ngModel)]="observacao" name="observacao" [required]="situacao.id == 4"></textarea>
       </div>
     </div>
 

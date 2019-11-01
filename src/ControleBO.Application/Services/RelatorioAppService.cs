@@ -200,7 +200,8 @@ namespace ControleBO.Application.Services
                 "Unidade Policial",
                 "Data do Fato",
                 "Instauração",
-                "Situação");
+                "Situação",
+                "Observação");
 
             dt.AddDataSet(result.Select(x => new Collection<object>
             {
@@ -211,7 +212,8 @@ namespace ControleBO.Application.Services
                 x.UnidadePolicial,
                 x.DataFato?.ToString("dd/MM/yyyy"),
                 x.Instauracao?.ToString("dd/MM/yyyy"),
-                x.Situacao
+                x.Situacao,
+                x.Observacao
             }));
 
             return Mapper.Map<DataTableViewModel>(dt);

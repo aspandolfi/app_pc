@@ -20,7 +20,7 @@ namespace ControleBO.Infra.Data.MapConfig
             builder.Property(x => x.CEP)
                 .HasColumnType("varchar(9)")
                 .HasMaxLength(9)
-                .IsRequired();
+                .IsRequired(false);
 
             builder.Property(x => x.UF)
                 .HasColumnType("varchar(2)")

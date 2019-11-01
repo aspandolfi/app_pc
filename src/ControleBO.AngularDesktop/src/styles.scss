@@ -11,6 +11,7 @@
 
 body {
   padding-top: 65px;
+  height: 100%
 }
 
 /*input, button, a, table, span, form, div, textarea {
@@ -49,4 +50,15 @@ pagination a {
 .ng-select.custom .ng-select-container {
   height: calc(1.5em + 0.75rem + 2px) !important;
   min-height: calc(1.5em + 0.75rem + 2px) !important;
+}
+
+body,
+button,
+span,
+input {
+  text-transform: uppercase;
+}
+
+input:not(:placeholder-shown):not([type='button']) {
+  font-weight: 700 !important
 }

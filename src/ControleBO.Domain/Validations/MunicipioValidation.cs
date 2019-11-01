@@ -26,8 +26,11 @@ namespace ControleBO.Domain.Validations
 
         private void CepValidator()
         {
-            RuleFor(x => x.CEP)
-                .Length(8, 8).WithMessage("O CEP deve ter 8 caracteres.");
+            When(x => !string.IsNullOrEmpty(x.CEP), () =>
+             {
+                 RuleFor(x => x.CEP)
+                 .Length(8, 8).WithMessage("O CEP deve ter 8 caracteres.");
+             });
         }
 
         protected void ValidateId()

@@ -93,11 +93,18 @@ namespace ControleBO.Infra.Data.Context
                 var situacao1 = new Situacao("Procedimento se encontra em andamento na Delegacia");
                 var situacao2 = new Situacao("Procedimento se encontra na justiça");
                 var situacao3 = new Situacao("Procedimento relatado");
+                var situacao4 = new Situacao("Outros");
+
+                situacao1.Codigo = Situacao.NaDelegacia;
+                situacao2.Codigo = Situacao.NaJustica;
+                situacao3.Codigo = Situacao.Relatado;
+                situacao4.Codigo = Situacao.Outros;
 
                 context.Situacoes.AddRange(
                     situacao1,
                     situacao2,
-                    situacao3);
+                    situacao3,
+                    situacao4);
 
                 #region Tipos: Procedimento se encontra na justiça
                 context.TiposSituacao.AddRange(

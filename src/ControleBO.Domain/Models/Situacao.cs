@@ -5,6 +5,11 @@ namespace ControleBO.Domain.Models
 {
     public class Situacao : Entity
     {
+        public const string NaDelegacia = "NaDelegacia";
+        public const string NaJustica = "NaJustica";
+        public const string Relatado = "Relatado";
+        public const string Outros = "Outros";
+
         public Situacao(string descricao)
         {
             Descricao = descricao;
@@ -18,6 +23,8 @@ namespace ControleBO.Domain.Models
         }
 
         protected Situacao() { }
+
+        public string Codigo { get; set; }
 
         public string Descricao { get; set; }
 

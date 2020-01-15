@@ -15,7 +15,6 @@ namespace ControleBO.Domain.Validations
             ValidateLocalFato();
             ValidateDataFato();
             ValidateDataInstauracao();
-            ValidateTipoCriminal();
             ValidateAndamentoProcessual();
             ValidateTipoProcedimento();
             ValidateVaraCriminal();

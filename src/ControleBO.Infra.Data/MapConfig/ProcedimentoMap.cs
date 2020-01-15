@@ -35,10 +35,6 @@ namespace ControleBO.Infra.Data.MapConfig
 
             builder.Property(x => x.DataFato);
 
-            builder.Property(x => x.TipoCriminal)
-                .HasColumnType("varchar(100)")
-                .HasMaxLength(100);
-
             builder.Property(x => x.AndamentoProcessual)
                 .HasColumnType("varchar(100)")
                 .HasMaxLength(100);

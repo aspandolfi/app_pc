@@ -15,7 +15,6 @@ namespace ControleBO.Domain.Models
                             string localFato,
                             DateTime? dataFato,
                             DateTime? dataInstauracao,
-                            string tipoCriminal,
                             string andamentoProcessual,
                             ProcedimentoTipo tipoProcedimento,
                             VaraCriminal varaCriminal,
@@ -33,7 +32,6 @@ namespace ControleBO.Domain.Models
             LocalFato = localFato;
             DataFato = dataFato;
             DataInstauracao = dataInstauracao;
-            TipoCriminal = tipoCriminal;
             AndamentoProcessual = andamentoProcessual;
             TipoProcedimento = tipoProcedimento;
             VaraCriminal = varaCriminal;
@@ -58,7 +56,6 @@ namespace ControleBO.Domain.Models
                             string localFato,
                             DateTime? dataFato,
                             DateTime? dataInstauracao,
-                            string tipoCriminal,
                             string andamentoProcessual,
                             ProcedimentoTipo tipoProcedimento,
                             VaraCriminal varaCriminal,
@@ -75,7 +72,6 @@ namespace ControleBO.Domain.Models
                    localFato,
                    dataFato,
                    dataInstauracao,
-                   tipoCriminal,
                    andamentoProcessual,
                    tipoProcedimento,
                    varaCriminal,
@@ -105,8 +101,6 @@ namespace ControleBO.Domain.Models
         public DateTime? DataFato { get; set; }
 
         public DateTime? DataInstauracao { get; set; }
-
-        public string TipoCriminal { get; set; }
 
         public string AndamentoProcessual { get; set; }
 

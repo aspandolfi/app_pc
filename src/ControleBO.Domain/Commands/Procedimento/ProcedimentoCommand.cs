@@ -12,7 +12,6 @@ namespace ControleBO.Domain.Commands
         private string _gampes;
         private string _anexos;
         private string _localFato;
-        private string _tipoCriminal;
         private string _andamentoProcessual;
 
         public int Id { get; protected set; }
@@ -110,21 +109,6 @@ namespace ControleBO.Domain.Commands
         public DateTime? DataFato { get; protected set; }
 
         public DateTime? DataInstauracao { get; protected set; }
-
-        public string TipoCriminal
-        {
-            get
-            {
-                return _tipoCriminal;
-            }
-            protected set
-            {
-                if (!string.IsNullOrEmpty(value))
-                {
-                    _tipoCriminal = value.Trim();
-                }
-            }
-        }
 
         public string AndamentoProcessual
         {

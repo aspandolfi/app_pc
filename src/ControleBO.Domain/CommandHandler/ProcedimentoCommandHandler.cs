@@ -160,8 +160,8 @@ namespace ControleBO.Domain.CommandHandler
             var situacao = _situacaoRepository.GetById(1);
 
             var procedimento = new Procedimento(request.BoletimUnificado, request.BoletimOcorrencia, request.NumeroProcessual, request.Gampes,
-                                                request.Anexos, request.LocalFato, request.DataFato, request.DataInstauracao, request.TipoCriminal,
-                                                request.AndamentoProcessual, tipoProcedimento, varaCriminal, municipio, assunto, artigo, unidadePolicial, situacao);
+                                                request.Anexos, request.LocalFato, request.DataFato, request.DataInstauracao, request.AndamentoProcessual,
+                                                tipoProcedimento, varaCriminal, municipio, assunto, artigo, unidadePolicial, situacao);
 
             _procedimentoRepository.Add(procedimento);
 
@@ -295,8 +295,8 @@ namespace ControleBO.Domain.CommandHandler
             var situacaoAtual = _situacaoRepository.GetById(existingProcedimento.SituacaoAtualId);
 
             var procedimento = new Procedimento(request.Id, request.BoletimUnificado, request.BoletimOcorrencia, request.NumeroProcessual, request.Gampes,
-                                                request.Anexos, request.LocalFato, request.DataFato, request.DataInstauracao, request.TipoCriminal,
-                                                request.AndamentoProcessual, tipoProcedimento, varaCriminal, municipio, assunto, artigo, unidadePolicial, situacaoAtual);
+                                                request.Anexos, request.LocalFato, request.DataFato, request.DataInstauracao, request.AndamentoProcessual,
+                                                tipoProcedimento, varaCriminal, municipio, assunto, artigo, unidadePolicial, situacaoAtual);
 
             _procedimentoRepository.Update(procedimento);
 

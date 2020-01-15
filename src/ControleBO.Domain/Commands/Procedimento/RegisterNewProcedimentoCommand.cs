@@ -14,7 +14,6 @@ namespace ControleBO.Domain.Commands
                                               string localFato,
                                               DateTime? dataFato,
                                               DateTime? dataInstauracao,
-                                              string tipoCriminal,
                                               string andamentoProcessual,
                                               int? tipoProcedimentoId,
                                               int? varaCriminalId,
@@ -32,7 +31,6 @@ namespace ControleBO.Domain.Commands
             LocalFato = localFato;
             DataFato = dataFato;
             DataInstauracao = dataInstauracao;
-            TipoCriminal = tipoCriminal;
             AndamentoProcessual = andamentoProcessual;
             TipoProcedimentoId = tipoProcedimentoId;
             VaraCriminalId = varaCriminalId;

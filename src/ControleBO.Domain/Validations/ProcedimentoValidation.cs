@@ -139,15 +139,6 @@ namespace ControleBO.Domain.Validations
             });
         }
 
-        protected void ValidateTipoCriminal()
-        {
-            When(x => !string.IsNullOrEmpty(x.TipoCriminal), () =>
-            {
-                RuleFor(x => x.TipoCriminal)
-                .Length(2, 250).WithMessage("O campo Tipo Criminal deve ter entre 2 e 250 caracteres.");
-            });
-        }
-
         protected void ValidateAndamentoProcessual()
         {
             When(x => !string.IsNullOrEmpty(x.AndamentoProcessual), () =>

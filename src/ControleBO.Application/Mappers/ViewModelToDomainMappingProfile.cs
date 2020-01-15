@@ -57,7 +57,6 @@ namespace ControleBO.Application.Mappers
                                                                   p.LocalFato,
                                                                   p.DataFato,
                                                                   p.DataInstauracao,
-                                                                  p.TipoCriminal,
                                                                   p.AndamentoProcessual,
                                                                   p.TipoProcedimentoId,
                                                                   p.VaraCriminalId,

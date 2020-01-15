@@ -1,6 +1,6 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Metadata;
+﻿using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
+using System;
 
 namespace ControleBO.Infra.Data.Migrations.SqlServerMigrations
 {
@@ -54,7 +54,7 @@ namespace ControleBO.Infra.Data.Migrations.SqlServerMigrations
                     Versao = table.Column<int>(nullable: false),
                     Nome = table.Column<string>(type: "varchar(200)", maxLength: 200, nullable: false),
                     UF = table.Column<string>(type: "varchar(2)", maxLength: 2, nullable: false),
-                    CEP = table.Column<string>(type: "varchar(9)", maxLength: 9, nullable: false)
+                    CEP = table.Column<string>(type: "varchar(9)", maxLength: 9, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -71,6 +71,7 @@ namespace ControleBO.Infra.Data.Migrations.SqlServerMigrations
                     ModificadoEm = table.Column<DateTime>(nullable: false),
                     RemovidoEm = table.Column<DateTime>(nullable: true),
                     Versao = table.Column<int>(nullable: false),
+                    Codigo = table.Column<string>(type: "varchar(250)", maxLength: 250, nullable: true),
                     Descricao = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
                 },
                 constraints: table =>
@@ -106,7 +107,7 @@ namespace ControleBO.Infra.Data.Migrations.SqlServerMigrations
                     ModificadoEm = table.Column<DateTime>(nullable: false),
                     RemovidoEm = table.Column<DateTime>(nullable: true),
                     Versao = table.Column<int>(nullable: false),
-                    Codigo = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false),
+                    Codigo = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: true),
                     Sigla = table.Column<string>(type: "varchar(20)", maxLength: 20, nullable: false),
                     Descricao = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false),
                     CodigoCargoQO = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: true)
@@ -167,22 +168,21 @@ namespace ControleBO.Infra.Data.Migrations.SqlServerMigrations
                     ModificadoEm = table.Column<DateTime>(nullable: false),
                     RemovidoEm = table.Column<DateTime>(nullable: true),
                     Versao = table.Column<int>(nullable: false),
-                    BoletimUnificado = table.Column<string>(type: "varchar(30)", maxLength: 30, nullable: false),
-                    BoletimOcorrencia = table.Column<string>(type: "varchar(30)", maxLength: 30, nullable: false),
-                    NumeroProcessual = table.Column<string>(type: "varchar(30)", maxLength: 30, nullable: false),
-                    Gampes = table.Column<string>(type: "varchar(30)", maxLength: 30, nullable: false),
+                    BoletimUnificado = table.Column<string>(type: "varchar(30)", maxLength: 30, nullable: true),
+                    BoletimOcorrencia = table.Column<string>(type: "varchar(30)", maxLength: 30, nullable: true),
+                    NumeroProcessual = table.Column<string>(type: "varchar(30)", maxLength: 30, nullable: true),
+                    Gampes = table.Column<string>(type: "varchar(30)", maxLength: 30, nullable: true),
                     Anexos = table.Column<string>(type: "varchar(250)", maxLength: 250, nullable: true),
-                    LocalFato = table.Column<string>(type: "varchar(30)", maxLength: 30, nullable: false),
-                    DataFato = table.Column<DateTime>(nullable: false),
+                    LocalFato = table.Column<string>(type: "varchar(30)", maxLength: 30, nullable: true),
+                    DataFato = table.Column<DateTime>(nullable: true),
                     DataInstauracao = table.Column<DateTime>(nullable: true),
-                    TipoCriminal = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: true),
                     AndamentoProcessual = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: true),
-                    TipoProcedimentoId = table.Column<int>(nullable: false),
-                    VaraCriminalId = table.Column<int>(nullable: false),
-                    ComarcaId = table.Column<int>(nullable: false),
-                    AssuntoId = table.Column<int>(nullable: false),
-                    ArtigoId = table.Column<int>(nullable: false),
-                    DelegaciaOrigemId = table.Column<int>(nullable: false),
+                    TipoProcedimentoId = table.Column<int>(nullable: true),
+                    VaraCriminalId = table.Column<int>(nullable: true),
+                    ComarcaId = table.Column<int>(nullable: true),
+                    AssuntoId = table.Column<int>(nullable: true),
+                    ArtigoId = table.Column<int>(nullable: true),
+                    DelegaciaOrigemId = table.Column<int>(nullable: true),
                     SituacaoAtualId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -419,6 +419,11 @@ namespace ControleBO.Infra.Data.Migrations.SqlServerMigrations
                 column: "NaturalidadeId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Indiciados_Nome",
+                table: "Indiciados",
+                column: "Nome");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Indiciados_ProcedimentoId",
                 table: "Indiciados",
                 column: "ProcedimentoId");
@@ -479,9 +484,38 @@ namespace ControleBO.Infra.Data.Migrations.SqlServerMigrations
                 column: "NaturalidadeId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Vitimas_Nome",
+                table: "Vitimas",
+                column: "Nome");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Vitimas_ProcedimentoId",
                 table: "Vitimas",
                 column: "ProcedimentoId");
+
+            string sql = @"
+                            CREATE VIEW ProcedimentosListView
+                            AS
+                            SELECT P.ID
+	                              ,P.BoletimUnificado
+	                              ,P.BoletimOcorrencia
+	                              ,P.NumeroProcessual
+	                              ,P.CriadoEm as DataInsercao
+	                              ,TP.Descricao as TipoProcedimento
+	                              ,C.Nome as Comarca
+	                              ,(SELECT TOP(1) M.Destino 
+		                            FROM Movimentacoes AS M 
+		                            WHERE M.ProcedimentoId = P.Id 
+		                            ORDER BY M.ModificadoEm DESC) AS AndamentoProcessual
+	                              ,SUBSTRING(
+		                            (SELECT ', ' + NOME FROM VITIMAS WHERE P.ID = VITIMAS.PROCEDIMENTOID
+		                            ORDER BY PROCEDIMENTOID, NOME
+		                            FOR XML PATH('')), 3, 4000) AS Vitimas
+                            FROM PROCEDIMENTOS AS P
+                            LEFT JOIN TiposProcedimento AS TP on TP.Id = P.TipoProcedimentoId
+                            LEFT JOIN Municipios AS C on C.Id = P.ComarcaId;";
+
+            migrationBuilder.Sql(sql);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -527,6 +561,10 @@ namespace ControleBO.Infra.Data.Migrations.SqlServerMigrations
 
             migrationBuilder.DropTable(
                 name: "VarasCriminais");
+
+            string sql = @"DROP VIEW IF EXISTS [dbo].[ProcedimentosListView];";
+
+            migrationBuilder.Sql(sql);
         }
     }
 }

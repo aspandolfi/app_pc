@@ -273,10 +273,6 @@ namespace ControleBO.Infra.Data.Migrations.SqlServerMigrations
 
                     b.Property<int>("SituacaoAtualId");
 
-                    b.Property<string>("TipoCriminal")
-                        .HasColumnType("varchar(100)")
-                        .HasMaxLength(100);
-
                     b.Property<int?>("TipoProcedimentoId");
 
                     b.Property<int?>("VaraCriminalId");
@@ -335,6 +331,10 @@ namespace ControleBO.Infra.Data.Migrations.SqlServerMigrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Codigo")
+                        .HasColumnType("varchar(250)")
+                        .HasMaxLength(250);
 
                     b.Property<DateTime>("CriadoEm");
 

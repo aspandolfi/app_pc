@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ControleBO.Infra.Data.Migrations.SqlServerMigrations
 {
     [DbContext(typeof(SpcContext))]
-    [Migration("20191007211402_RemovidoCamposObrigatoriosProcedimento")]
-    partial class RemovidoCamposObrigatoriosProcedimento
+    [Migration("20200115181630_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -117,6 +117,8 @@ namespace ControleBO.Infra.Data.Migrations.SqlServerMigrations
 
                     b.HasIndex("NaturalidadeId");
 
+                    b.HasIndex("Nome");
+
                     b.HasIndex("ProcedimentoId");
 
                     b.ToTable("Indiciados");
@@ -161,7 +163,6 @@ namespace ControleBO.Infra.Data.Migrations.SqlServerMigrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("CEP")
-                        .IsRequired()
                         .HasColumnType("varchar(9)")
                         .HasMaxLength(9);
 
@@ -267,7 +268,6 @@ namespace ControleBO.Infra.Data.Migrations.SqlServerMigrations
                     b.Property<DateTime>("ModificadoEm");
 
                     b.Property<string>("NumeroProcessual")
-                        .IsRequired()
                         .HasColumnType("varchar(30)")
                         .HasMaxLength(30);
 
@@ -275,11 +275,7 @@ namespace ControleBO.Infra.Data.Migrations.SqlServerMigrations
 
                     b.Property<int>("SituacaoAtualId");
 
-                    b.Property<string>("TipoCriminal")
-                        .HasColumnType("varchar(100)")
-                        .HasMaxLength(100);
-
-                    b.Property<int>("TipoProcedimentoId");
+                    b.Property<int?>("TipoProcedimentoId");
 
                     b.Property<int?>("VaraCriminalId");
 
@@ -337,6 +333,10 @@ namespace ControleBO.Infra.Data.Migrations.SqlServerMigrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Codigo")
+                        .HasColumnType("varchar(250)")
+                        .HasMaxLength(250);
 
                     b.Property<DateTime>("CriadoEm");
 
@@ -428,7 +428,6 @@ namespace ControleBO.Infra.Data.Migrations.SqlServerMigrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Codigo")
-                        .IsRequired()
                         .HasColumnType("varchar(50)")
                         .HasMaxLength(50);
 
@@ -531,6 +530,8 @@ namespace ControleBO.Infra.Data.Migrations.SqlServerMigrations
 
                     b.HasIndex("NaturalidadeId");
 
+                    b.HasIndex("Nome");
+
                     b.HasIndex("ProcedimentoId");
 
                     b.ToTable("Vitimas");
@@ -589,8 +590,7 @@ namespace ControleBO.Infra.Data.Migrations.SqlServerMigrations
 
                     b.HasOne("ControleBO.Domain.Models.ProcedimentoTipo", "TipoProcedimento")
                         .WithMany()
-                        .HasForeignKey("TipoProcedimentoId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .HasForeignKey("TipoProcedimentoId");
 
                     b.HasOne("ControleBO.Domain.Models.VaraCriminal", "VaraCriminal")
                         .WithMany()

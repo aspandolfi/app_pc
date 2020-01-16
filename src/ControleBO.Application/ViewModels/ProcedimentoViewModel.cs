@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using ControleBO.Application.Converters;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 
@@ -31,9 +32,11 @@ namespace ControleBO.Application.ViewModels
         public DateTime CriadoEm { get; set; } = DateTime.Now;
 
         [JsonProperty(PropertyName = "dataFato")]
+        [JsonConverter(typeof(DateTimeOffSetConverter))]
         public DateTime? DataFato { get; set; }
 
         [JsonProperty(PropertyName = "dataInstauracao")]
+        [JsonConverter(typeof(DateTimeOffSetConverter))]
         public DateTime? DataInstauracao { get; set; }
 
         [JsonProperty(PropertyName = "tipoCriminal")]

@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using ControleBO.Application.Converters;
+using Newtonsoft.Json;
 using System;
 
 namespace ControleBO.Application.ViewModels
@@ -18,6 +19,7 @@ namespace ControleBO.Application.ViewModels
         public string NomeMae { get; set; }
 
         [JsonProperty(PropertyName = "dataNascimento")]
+        [JsonConverter(typeof(DateTimeOffSetConverter))]
         public DateTime? DataNascimento { get; set; }
 
         [JsonProperty(PropertyName = "idade")]

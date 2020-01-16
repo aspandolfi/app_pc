@@ -55,7 +55,9 @@ pagination a {
 table,
 button,
 span,
-input {
+input,
+.modal-header h4,
+nav .user-name {
   text-transform: uppercase;
 }
 

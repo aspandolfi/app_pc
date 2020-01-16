@@ -3,3 +3,8 @@ img {
   max-height: 32px;
   margin-right: 10px;
 }
+
+input[type=email],
+input[type=password] {
+  text-transform: none
+}

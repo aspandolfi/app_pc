@@ -9,13 +9,13 @@
     <form #loginForm="ngForm">
       <div class="form-group">
         <div class="form-label-group">
-          <input type="email" id="inputEmail" name="email" [(ngModel)]="login.email" class="form-control login" placeholder="Email" required="required" autofocus="autofocus" [readonly]="submitted">
+          <input type="email" id="inputEmail" name="email" [(ngModel)]="login.email" class="form-control login" placeholder="Email" required="required" autofocus="autofocus" [readonly]="submitted" autocomplete="off">
           <label for="inputEmail">Email</label>
         </div>
       </div>
       <div class="form-group">
         <div class="form-label-group">
-          <input type="password" (keyup.enter)="onKeyEnter($event);" id="inputPassword" name="password" [(ngModel)]="login.password" class="form-control login" placeholder="Senha" required="required" [readonly]="submitted">
+          <input type="password" (keyup.enter)="onKeyEnter($event);" id="inputPassword" name="password" [(ngModel)]="login.password" class="form-control login" placeholder="Senha" required="required" [readonly]="submitted" autocomplete="off">
           <label for="inputPassword">Senha</label>
         </div>
       </div>

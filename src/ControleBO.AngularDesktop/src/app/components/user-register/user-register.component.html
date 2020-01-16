@@ -11,7 +11,7 @@
         <div class="form-row">
           <div class="col-md">
             <div class="form-label-group">
-              <input type="text" id="nome" name="nome" [(ngModel)]="usuario.nome" class="form-control" placeholder="Nome" required="required" autofocus="autofocus" [readonly]="submitted">
+              <input type="text" id="nome" name="nome" [(ngModel)]="usuario.nome" class="form-control" placeholder="Nome" required="required" autofocus="autofocus" [readonly]="submitted" autocomplete="off">
               <label for="nome">Nome</label>
             </div>
           </div>
@@ -19,7 +19,7 @@
       </div>
       <div class="form-group">
         <div class="form-label-group">
-          <input type="email" id="inputEmail" name="email" [(ngModel)]="usuario.email" class="form-control" placeholder="Email" required="required" [readonly]="submitted">
+          <input type="email" id="inputEmail" name="email" [(ngModel)]="usuario.email" class="form-control" placeholder="Email" required="required" [readonly]="submitted" autocomplete="off">
           <label for="inputEmail">Email</label>
         </div>
       </div>
@@ -36,7 +36,7 @@
           <div class="form-row">
             <div class="col-md">
               <div class="form-label-group">
-                <input type="password" id="inputCurrentPassword" name="senhaAtual" [(ngModel)]="usuario.senhaAtual" class="form-control" placeholder="Password" [required]="!isCollapsed || !usuario.id" [readonly]="submitted">
+                <input type="password" id="inputCurrentPassword" name="senhaAtual" [(ngModel)]="usuario.senhaAtual" class="form-control" placeholder="Password" [required]="!isCollapsed || !usuario.id" [readonly]="submitted" autocomplete="off">
                 <label for="inputCurrentPassword">Senha Atual</label>
               </div>
             </div>
@@ -46,7 +46,7 @@
           <div class="form-row">
             <div class="col-md">
               <div class="form-label-group">
-                <input type="password" id="inputPassword" name="senha" [(ngModel)]="usuario.senha" class="form-control" placeholder="Password" [required]="!isCollapsed || !usuario.id" [readonly]="submitted">
+                <input type="password" id="inputPassword" name="senha" [(ngModel)]="usuario.senha" class="form-control" placeholder="Password" [required]="!isCollapsed || !usuario.id" [readonly]="submitted" autocomplete="off">
                 <label for="inputPassword">Senha</label>
               </div>
             </div>
@@ -56,7 +56,7 @@
           <div class="form-row">
             <div class="col-md">
               <div class="form-label-group">
-                <input type="password" id="confirmPassword" name="confirmarSenha" [(ngModel)]="usuario.confirmarSenha" class="form-control" placeholder="Confirm password" [required]="!isCollapsed || !usuario.id" [readonly]="submitted">
+                <input type="password" id="confirmPassword" name="confirmarSenha" [(ngModel)]="usuario.confirmarSenha" class="form-control" placeholder="Confirm password" [required]="!isCollapsed || !usuario.id" [readonly]="submitted" autocomplete="off">
                 <label for="confirmPassword">Confirmar senha</label>
               </div>
             </div>

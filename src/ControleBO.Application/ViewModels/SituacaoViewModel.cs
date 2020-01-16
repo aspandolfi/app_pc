@@ -10,6 +10,9 @@ namespace ControleBO.Application.ViewModels
         [JsonProperty(PropertyName = "descricao")]
         public string Descricao { get; set; }
 
+        [JsonProperty(PropertyName = "codigo")]
+        public string Codigo { get; set; }
+
         [JsonProperty(PropertyName = "tipos")]
         public SituacaoTipoViewModel[] Tipos { get; set; }
     }

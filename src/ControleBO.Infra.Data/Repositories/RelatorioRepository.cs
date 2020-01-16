@@ -61,15 +61,16 @@ namespace ControleBO.Infra.Data.Repositories
 
             query = query.Where(p => p.Assunto != null);
 
-            var result = query.GroupBy(p => new { Assunto = p.Assunto.Descricao })
+            var result = query.Include(x => x.SituacaoAtual)
+                              .GroupBy(p => new { Assunto = p.Assunto.Descricao })
                               .AsNoTracking()
                               .Select(a => new EstatisticaAssuntoQuery
                               {
                                   Assunto = a.Key.Assunto,
-                                  EmAndamento = a.Select(x => x.SituacaoAtualId).Where(x => x == 1).Count(),
-                                  NaJustica = a.Select(x => x.SituacaoAtualId).Where(x => x == 2).Count(),
-                                  Relatado = a.Select(x => x.SituacaoAtualId).Where(x => x == 3).Count(),
-                                  Outro = a.Select(x => x.SituacaoAtualId).Where(x => x == 4).Count()
+                                  EmAndamento = a.Select(x => x.SituacaoAtual.Codigo).Where(x => x == Situacao.NaDelegacia).Count(),
+                                  NaJustica = a.Select(x => x.SituacaoAtual.Codigo).Where(x => x == Situacao.NaJustica).Count(),
+                                  Relatado = a.Select(x => x.SituacaoAtual.Codigo).Where(x => x == Situacao.Relatado).Count(),
+                                  Outro = a.Select(x => x.SituacaoAtual.Codigo).Where(x => x == Situacao.Outros).Count()
                               })
                               .ToList();
 
@@ -87,6 +88,7 @@ namespace ControleBO.Infra.Data.Repositories
                     Artigo = x.Procedimento.Artigo.Descricao,
                     TipoProcedimento = x.Procedimento.TipoProcedimento.Descricao,
                     SituacaoAtual = x.Procedimento.SituacaoAtual.Descricao,
+                    SituacaoAtualCodigo = x.Procedimento.SituacaoAtual.Codigo,
                     SituacaoAtualId = x.Procedimento.SituacaoAtualId
                 })
                 .ToList();
@@ -181,6 +183,7 @@ namespace ControleBO.Infra.Data.Repositories
                     Artigo = x.Procedimento.Artigo.Descricao,
                     TipoProcedimento = x.Procedimento.TipoProcedimento.Descricao,
                     SituacaoAtual = x.Procedimento.SituacaoAtual.Descricao,
+                    SituacaoAtualCodigo = x.Procedimento.SituacaoAtual.Codigo,
                     SituacaoAtualId = x.Procedimento.SituacaoAtualId
                 })
                 .ToList();

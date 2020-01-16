@@ -12,6 +12,8 @@
 
         public string SituacaoAtual { get; set; }
 
+        public string SituacaoAtualCodigo { get; set; }
+
         public int SituacaoAtualId { get; set; }
     }
 }

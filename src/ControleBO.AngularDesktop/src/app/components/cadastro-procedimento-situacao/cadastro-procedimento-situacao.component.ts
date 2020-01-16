@@ -26,6 +26,10 @@ export class CadastroProcedimentoSituacaoComponent implements OnInit, OnDestroy 
 
   bsConfig: Partial<BsDatepickerConfig> = { containerClass: 'theme-default' };
 
+  get Situacao() {
+    return Situacao;
+  }
+
   private procedimentoId: number;
 
   isLoadingSituacaoProcedimento: boolean;
@@ -34,7 +38,7 @@ export class CadastroProcedimentoSituacaoComponent implements OnInit, OnDestroy 
 
   observacao: string = '';
 
-  situacao: Situacao = { id: 1 };
+  situacao: Situacao = { id: 1, codigo: Situacao.NaDelegacia };
   situacoes: Situacao[] = [];
   movimentacoes: Movimentacao[] = [];
   situacaoProcedimento: SituacaoProcedimento = { id: 0, observacao: this.observacao, procedimentoId: this.procedimentoId, situacaoId: this.situacao.id, DataRelatorio: null };
@@ -176,23 +180,30 @@ export class CadastroProcedimentoSituacaoComponent implements OnInit, OnDestroy 
 
     this.situacaoProcedimento.situacaoId = this.situacao.id;
 
-    if (this.situacao.id == 3 && this.selectedIndiciamentoId == 1 && !this.dataRelatorio) {
+    if (this.situacao.codigo == Situacao.Relatado && this.selectedIndiciamentoId == 1 && !this.dataRelatorio) {
       this.toastr.warning('Por favor selecione uma data de relatório válida.');
       this.dataRelatorio = null;
       return;
     }
 
-    if (this.situacao.id != 1 && this.selectedIndiciamentoId == 2 && !this.tipoSituacao) {
+    if (this.situacao.codigo != Situacao.NaDelegacia && this.selectedIndiciamentoId == 2 && !this.tipoSituacao) {
       this.toastr.warning('Por favor selecione um motivo válido.');
       return;
     }
 
-    if (this.situacao.id == 2 && !this.tipoSituacao) {
+    if (this.situacao.codigo == Situacao.NaJustica && !this.tipoSituacao) {
       this.toastr.warning('Por favor selecione um motivo válido.');
       return;
     }
 
-    if (this.situacao.id == 3) {
+    if (this.situacao.codigo == Situacao.Outros) {
+      if (!this.situacaoProcedimento.observacao) {
+        this.toastr.warning('O campo Observação é obrigatório quando a situação é Outros.');
+        return;
+      }
+    }
+
+    if (this.situacao.codigo == Situacao.Relatado) {
       this.situacaoProcedimento.DataRelatorio = this.dataRelatorio;
 
       if (!this.dataRelatorio) {

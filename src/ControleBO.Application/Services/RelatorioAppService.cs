@@ -4,6 +4,7 @@ using ControleBO.Application.ViewModels;
 using ControleBO.Domain.Core.Bus;
 using ControleBO.Domain.DataObjects;
 using ControleBO.Domain.Interfaces.Repositories;
+using ControleBO.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -129,10 +130,10 @@ namespace ControleBO.Application.Services
 
             var categories = grouped.Select(x => x.Key);
 
-            var seriesEmAndamento = grouped.Select(x => x.Count(y => y.SituacaoAtualId == 1));
-            var seriesNaJustica = grouped.Select(x => x.Count(y => y.SituacaoAtualId == 2));
-            var seriesRelatado = grouped.Select(x => x.Count(y => y.SituacaoAtualId == 3));
-            var seriesOutro = grouped.Select(x => x.Count(y => y.SituacaoAtualId == 4));
+            var seriesEmAndamento = grouped.Select(x => x.Count(y => y.SituacaoAtualCodigo == Situacao.NaDelegacia));
+            var seriesNaJustica = grouped.Select(x => x.Count(y => y.SituacaoAtualCodigo == Situacao.NaJustica));
+            var seriesRelatado = grouped.Select(x => x.Count(y => y.SituacaoAtualCodigo == Situacao.Relatado));
+            var seriesOutro = grouped.Select(x => x.Count(y => y.SituacaoAtualCodigo == Situacao.Outros));
 
             var charVm = new ChartViewModel
             {
@@ -263,10 +264,10 @@ namespace ControleBO.Application.Services
 
             var categories = grouped.Select(x => x.Key);
 
-            var seriesEmAndamento = grouped.Select(x => x.Count(y => y.SituacaoAtualId == 1));
-            var seriesNaJustica = grouped.Select(x => x.Count(y => y.SituacaoAtualId == 2));
-            var seriesRelatado = grouped.Select(x => x.Count(y => y.SituacaoAtualId == 3));
-            var seriesOutro = grouped.Select(x => x.Count(y => y.SituacaoAtualId == 4));
+            var seriesEmAndamento = grouped.Select(x => x.Count(y => y.SituacaoAtualCodigo == Situacao.NaDelegacia));
+            var seriesNaJustica = grouped.Select(x => x.Count(y => y.SituacaoAtualCodigo == Situacao.NaJustica));
+            var seriesRelatado = grouped.Select(x => x.Count(y => y.SituacaoAtualCodigo == Situacao.Relatado));
+            var seriesOutro = grouped.Select(x => x.Count(y => y.SituacaoAtualCodigo == Situacao.Outros));
 
             var charVm = new ChartViewModel
             {

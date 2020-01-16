@@ -9,6 +9,10 @@
 @import "~@ng-select/ng-select/themes/default.theme.css";
 @import '~datatables.net-bs4/css/datatables.bootstrap4.css';
 
+html {
+  height: 100%
+}
+
 body {
   padding-top: 65px;
   height: 100%
@@ -21,6 +25,8 @@ body {
 #content-wrapper {
   /*overflow-y: scroll;*/
   /*height: 100%;*/
+  padding-bottom: 30px !important;
+  overflow-x: unset !important;
 }
 
 #toast-container > div {

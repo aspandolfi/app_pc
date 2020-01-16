@@ -1,4 +1,5 @@
 ﻿using ControleBO.Domain.Core.Commands;
+using System;
 
 namespace ControleBO.Domain.Commands
 {
@@ -38,6 +39,8 @@ namespace ControleBO.Domain.Commands
                 }
             }
         }
+
+        public DateTime? DataApreensao { get; set; }
 
         public int ProcedimentoId { get; protected set; }
     }

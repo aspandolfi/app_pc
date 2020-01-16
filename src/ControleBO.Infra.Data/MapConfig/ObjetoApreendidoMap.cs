@@ -15,6 +15,9 @@ namespace ControleBO.Infra.Data.MapConfig
             builder.Property(x => x.Descricao)
                 .IsRequired();
 
+            builder.Property(x => x.DataApreensao)
+                .IsRequired(false);
+
             builder.HasOne(x => x.Procedimento)
                 .WithMany(y => y.ObjetosApreendidos)
                 .HasForeignKey(x => x.ProcedimentoId)

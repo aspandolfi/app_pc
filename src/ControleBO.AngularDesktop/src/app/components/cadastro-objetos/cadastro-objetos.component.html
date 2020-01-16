@@ -1,0 +1,41 @@
+<div class="modal-header">
+  <h4 class="modal-title pull-left">{{model.id ? model.descricao : 'Novo Objeto Apreendido'}}</h4>
+  <button type="button" class="close pull-right" aria-label="Fechar" [disabled]="submitted" (click)="modalRef.hide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form #objetoForm="ngForm">
+    <div class="form-group">
+      <label for="descricao" class="control-label">Descrição:</label>
+      <input type="text" class="form-control form-control-sm ng-invalid" [(ngModel)]="model.descricao" name="descricao" required>
+    </div>
+    <div class="form-group">
+      <label for="local" class="control-label">Local:</label>
+      <input type="text" [(ngModel)]="model.local" class="form-control form-control-sm ng-invalid" id="local" name="local">
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="DataInsercao" class="control-label">Data de Inserção:</label>
+        <input type="text" value="{{model.DataInsercao | date:'dd/MM/yyyy'}}" class="form-control form-control-sm" id="DataInsercao" name="DataInsercao" readonly>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="DataApreensao" class="control-label">Data de Apreensão:</label>
+        <input bsDatepicker
+               [bsConfig]="bsConfig"
+               [bsValue]="model.DataApreensao"
+               type="text"
+               class="form-control form-control-sm"
+               [(ngModel)]="model.DataApreensao"
+               name="DataApreensao">
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" data-dismiss="modal" [disabled]="submitted" (click)="modalRef.hide();">Fechar</button>
+  <button *ngIf="canEdit" type="button" class="btn btn-secondary" [disabled]="!objetoForm.form.valid || submitted" (click)="save();">
+    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" [hidden]="!submitted"></span>
+    Salvar
+  </button>
+</div>

@@ -6,7 +6,7 @@ import { Message, Action } from 'src/app/models/message';
 import { Municipio } from 'src/app/models/municipio';
 import { ToastrService } from 'ngx-toastr';
 import { MunicipioService } from 'src/app/services/municipio.service';
-import { TypeaheadMatch } from 'ngx-bootstrap/typeahead/public_api';
+import { TypeaheadMatch } from 'ngx-bootstrap/typeahead';
 import { MessageService } from 'src/app/services/message.service';
 import { Result } from 'src/app/models/result';
 import { UserManagerService } from '../../services/user-manager.service';

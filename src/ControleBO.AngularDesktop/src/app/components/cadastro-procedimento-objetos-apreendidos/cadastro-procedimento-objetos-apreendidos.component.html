@@ -1,26 +1,65 @@
 <div class="card mb-3 shadow-sm">
   <div class="card-header clearfix">
-    <button *ngIf="canEdit" type="button" class="btn btn-sm btn-secondary float-right" [disabled]="!formObjetos.form.valid || submitted" value="Salvar" (click)="salvar();">
-      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" [hidden]="!submitted"></span>
-      Salvar
-    </button>
     Objetos Apreendidos
+    <input *ngIf="canEdit" type="button" class="btn btn-sm btn-secondary float-right" value="Novo" data-name="btnObjeto" (click)="openModal(null);">
   </div>
   <div class="card-body">
-    <form #formObjetos="ngForm">
-      <div class="form-row">
-        <div class="form-group col">
-          <label for="descricao" class="control-label">Objetos:</label>
-          <textarea class="form-control form-control-sm ng-invalid" [(ngModel)]="objeto.descricao" name="descricao" required></textarea>
-        </div>
+    <div class="table-responsive-sm">
+      <table class="table table-striped" id="objetos" cellspacing="0">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Descrição</th>
+            <th>Local</th>
+            <th>Data de Inserção</th>
+            <th>Data de Apreensão</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let objeto of returnedObjetos">
+            <td data-id="{{objeto.id}}">
+              <div class="form-inline align-items-center">
+                <div class="form-group ml-1">
+                  <a title="Editar" data-name="btnObjeto" class="text-secondary" (click)="openModal(objeto);">
+                    <i data-name="btnObjeto" class="fas fa-edit"></i>
+                  </a>
+                </div>
+                <div *ngIf="canEdit" class="form-group ml-1">
+                  <a title="Excluir" data-name="btnObjeto" class="text-secondary" (click)="openModalExcluir(objeto);">
+                    <i data-name="btnObjeto" class="far fa-times-circle"></i>
+                  </a>
+                </div>
+              </div>
+            </td>
+            <td>
+              {{objeto.descricao}}
+            </td>
+            <td>
+              {{objeto.local}}
+            </td>
+            <td>
+              {{objeto.dataInsercao | date: 'dd/MM/yyyy'}}
+            </td>
+            <td>
+              {{objeto.dataApreensao | date: 'dd/MM/yyyy'}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="row" *ngIf="objetos.length > pageSize">
+      <div class="col-xs-12 col-12 text-secondary">
+        <pagination [totalItems]="objetos.length"
+                    (pageChanged)="pageChanged($event)"
+                    [maxSize]="4"
+                    [previousText]="'Anterior'"
+                    [nextText]="'Próximo'"
+                    [itemsPerPage]="pageSize"
+                    [ngModel]="currentPage"
+                    class="text-secondary">
+        </pagination>
       </div>
-      <div class="form-row">
-        <div class="form-group col">
-          <label for="local" class="control-label">Local:</label>
-          <input class="form-control form-control-sm" [(ngModel)]="objeto.local" name="local">
-        </div>
-      </div>
-    </form>
+    </div>
   </div>
 </div>
 <ngx-loading-bar [color]="'#6c757d'"

@@ -38,7 +38,7 @@ namespace ControleBO.Domain.CommandHandler
 
             var procedimentoTipo = new ProcedimentoTipo(request.Sigla, request.Descricao);
 
-            if (_procedimentoTipoRepository.Exists(procedimentoTipo.Sigla, request.Descricao))
+            if (_procedimentoTipoRepository.Exists(procedimentoTipo.Descricao, procedimentoTipo.Sigla))
             {
                 Bus.RaiseEvent(new DomainNotification(request.MessageType, "A sigla já está sendo usada."));
                 return Task.FromResult(0);

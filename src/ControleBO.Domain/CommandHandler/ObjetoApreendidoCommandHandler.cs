@@ -5,7 +5,6 @@ using ControleBO.Domain.Interfaces;
 using ControleBO.Domain.Interfaces.Repositories;
 using ControleBO.Domain.Models;
 using MediatR;
-using System;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -46,7 +45,7 @@ namespace ControleBO.Domain.CommandHandler
                 return Task.FromResult(0);
             }
 
-            var objetoApreendido = new ObjetoApreendido(request.Descricao, request.Local, procedimento);
+            var objetoApreendido = new ObjetoApreendido(request.Descricao, request.Local, procedimento, request.DataApreensao);
 
             if (_objetoApreendidoRepository.Exists(objetoApreendido.Descricao, request.ProcedimentoId))
             {
@@ -88,10 +87,11 @@ namespace ControleBO.Domain.CommandHandler
                 return Task.FromResult(0);
             }
 
-            var objetoApreendido = new ObjetoApreendido(request.Id, request.Descricao, request.Local, procedimento);
+            var objetoApreendido = new ObjetoApreendido(request.Id, request.Descricao, request.Local, procedimento, request.DataApreensao);
 
             existingObjetoApreendido.Descricao = objetoApreendido.Descricao;
             existingObjetoApreendido.Local = objetoApreendido.Local;
+            existingObjetoApreendido.DataApreensao = objetoApreendido.DataApreensao;
 
             _objetoApreendidoRepository.Update(existingObjetoApreendido);
 

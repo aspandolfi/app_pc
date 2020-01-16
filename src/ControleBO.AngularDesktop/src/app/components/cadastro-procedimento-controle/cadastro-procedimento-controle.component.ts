@@ -37,6 +37,8 @@ export class CadastroProcedimentoControleComponent implements OnInit, AfterViewI
 
   bsConfig: Partial<BsDatepickerConfig> = { containerClass: 'theme-default' };
 
+  placeHolderYear: string = `00000/${new Date().getFullYear()}`;
+
   private tipoProcedimento: TipoProcedimento;
   tipoProcedimentoSelected: string;
   private varaCriminal: VaraCriminal;

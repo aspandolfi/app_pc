@@ -1,9 +1,10 @@
 ﻿using ControleBO.Application.ViewModels;
+using System.Collections.Generic;
 
 namespace ControleBO.Application.Interfaces
 {
     public interface IObjetoApreendidoAppService : IAppServiceBase<ObjetoApreendidoViewModel>
     {
-        ObjetoApreendidoViewModel GetByProcedimentoId(int procedimentoId);
+        IEnumerable<ObjetoApreendidoViewModel> GetByProcedimentoId(int procedimentoId);
     }
 }

@@ -31,6 +31,6 @@ export class ObjetoApreendidoService implements IServiceBase<ObjetoApreendido> {
     return this.baseService.get<ObjetoApreendido[]>(`${this.uri}/paginate/page=${page}&pageSize=${pageSize}`);
   }
   getByProcedimento(procedimentoId: number) {
-    return this.baseService.get<ObjetoApreendido>(`${this.uri}/procedimento/${procedimentoId}`);
+    return this.baseService.get<ObjetoApreendido[]>(`${this.uri}/procedimento/${procedimentoId}`);
   }
 }

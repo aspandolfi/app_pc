@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using ControleBO.Application.Converters;
+using Newtonsoft.Json;
+using System;
 
 namespace ControleBO.Application.ViewModels
 {
@@ -15,5 +17,12 @@ namespace ControleBO.Application.ViewModels
 
         [JsonProperty(PropertyName = "procedimentoId")]
         public int ProcedimentoId { get; set; }
+
+        [JsonProperty(PropertyName = "dataApreensao")]
+        [JsonConverter(typeof(DateTimeOffSetConverter))]
+        public DateTime? DataApreensao { get; set; }
+
+        [JsonProperty(PropertyName = "dataInsercao")]
+        public DateTime? CriadoEm { get; set; }
     }
 }

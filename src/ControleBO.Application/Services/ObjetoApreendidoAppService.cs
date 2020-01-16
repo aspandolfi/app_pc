@@ -5,6 +5,8 @@ using ControleBO.Domain.Commands;
 using ControleBO.Domain.Core.Bus;
 using ControleBO.Domain.Interfaces.Repositories;
 using ControleBO.Domain.Models;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ControleBO.Application.Services
 {
@@ -25,11 +27,11 @@ namespace ControleBO.Application.Services
             _objetoApreendidoRepository = repository;
         }
 
-        public ObjetoApreendidoViewModel GetByProcedimentoId(int procedimentoId)
+        public IEnumerable<ObjetoApreendidoViewModel> GetByProcedimentoId(int procedimentoId)
         {
-            var result = _objetoApreendidoRepository.GetAsNoTracking(x => x.ProcedimentoId == procedimentoId);
+            var result = _objetoApreendidoRepository.GetAllAsNoTracking(filter: x => x.ProcedimentoId == procedimentoId, orderBy: x => x.OrderByDescending(z => z.CriadoEm)).ToList();
 
-            return Mapper.Map<ObjetoApreendidoViewModel>(result);
+            return Mapper.Map<IEnumerable<ObjetoApreendidoViewModel>>(result);
         }
     }
 }
